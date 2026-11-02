@@ -174,4 +174,18 @@ Run scripts from the repository root so relative paths resolve correctly.
 
 ## Citation
 
-If you use this benchmark or evaluation code, please cite the **ERUnderstand** paper (add bibliographic entry when published).
+If you use this benchmark, please cite:
+
+```bibtex
+@article{ansari2026erunderstand,
+  title   = {{ERUnderstand}: Evaluating Vision-Language Models on Structured {ER} Diagrams},
+  author  = {Ansari, Ali and Mohammadi, Yasmin and Nili, Farnoush and Esmaeilkhani, Parsa and Latecki, Longin Jan and Dragut, Eduard},
+  journal = {arXiv preprint arXiv:2607.24707},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2607.24707},
+  eprint  = {2607.24707},
+  archivePrefix = {arXiv}
+}
+```
+
+Paper: [arXiv:2607.24707](https://arxiv.org/abs/2607.24707) · [Hugging Face Papers](https://huggingface.co/papers/2607.24707)
