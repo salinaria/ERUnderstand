@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "interview_id": {
+            "attributes": [
+                "job_id",
+                "Requires",
+                "Interviewer",
+                "is_about"
+            ],
+            "primary_keys": [
+                "job_id"
+            ],
+            "multivalued": [
+                "Interviewer",
+                "is_about"
+            ],
+            "weak": false
+        },
+        "Applies_for": {
+            "attributes": [
+                "date",
+                "Requires",
+                "Conducts",
+                "Job"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "composite": {
+                "Requires": [
+                    "Skill",
+                    "phone_number"
+                ]
+            },
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "skill_id",
+                "Conducts",
+                "Attends",
+                "title"
+            ],
+            "primary_keys": [
+                "skill_id"
+            ],
+            "weak": false
+        },
+        "Interview": {
+            "attributes": [
+                "interviewer_id",
+                "department"
+            ],
+            "primary_keys": [
+                "interviewer_id"
+            ],
+            "weak": false
+        },
+        "job_id": {
+            "attributes": [
+                "description",
+                "duration",
+                "first_name",
+                "Candidate"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "derived": [
+                "Candidate"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "interview_id",
+                "name"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "last_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Applies_for",
+                "job_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "interview_id",
+                "job_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "Interview"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "skill_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "job_id",
+                "interview_id",
+                "Applies_for"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "salary",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "entities": {
+        "address": {
+            "attributes": [
+                "Suspect",
+                "name",
+                "last_name",
+                "model"
+            ],
+            "primary_keys": [
+                "Suspect"
+            ],
+            "weak": false
+        },
+        "first_name": {
+            "attributes": [
+                "InvolvesSuspect",
+                "known_alias",
+                "InvolvesVictim",
+                "incident_date"
+            ],
+            "primary_keys": [
+                "InvolvesSuspect"
+            ],
+            "composite": {
+                "InvolvesVictim": [
+                    "Incident",
+                    "license_plate"
+                ]
+            },
+            "multivalued": [
+                "make"
+            ],
+            "weak": false
+        },
+        "InvestigatedBy": {
+            "attributes": [
+                "Officer",
+                "InvolvesVictim",
+                "InvolvesVehicle"
+            ],
+            "primary_keys": [
+                "Officer"
+            ],
+            "weak": false
+        },
+        "incident_id": {
+            "attributes": [
+                "rank",
+                "InvolvesVictim",
+                "InvolvesVehicle",
+                "officer_id"
+            ],
+            "primary_keys": [
+                "rank"
+            ],
+            "multivalued": [
+                "officer_id"
+            ],
+            "weak": false
+        },
+        "victim_id": {
+            "attributes": [
+                "suspect_id",
+                "ReportedBy",
+                "Victim",
+                "badge_number",
+                "vehicle_id"
+            ],
+            "primary_keys": [
+                "suspect_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "address",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "InvestigatedBy"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "incident_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "incident_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "victim_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Vehicle",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "first_name",
+                "incident_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "year",
+            "weak": true
+        }
+    ]
+}

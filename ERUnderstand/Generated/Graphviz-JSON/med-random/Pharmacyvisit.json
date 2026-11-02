@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "xaxy": {
+      "weak": false,
+      "attributes": [
+        "wpjm",
+        "mdwq",
+        "wone",
+        "oacd",
+        "ftal"
+      ],
+      "primary_keys": [
+        "wpjm"
+      ],
+      "multivalued": [
+        "ftal"
+      ]
+    },
+    "pfgd": {
+      "weak": false,
+      "attributes": [
+        "ylre",
+        "mdwq",
+        "yerx"
+      ],
+      "primary_keys": [
+        "ylre"
+      ],
+      "composite": {
+        "mdwq": [
+          "vdkv",
+          "hbzp"
+        ]
+      }
+    },
+    "rkgv": {
+      "weak": false,
+      "attributes": [
+        "tflm",
+        "vpjz",
+        "nczn",
+        "bbut",
+        "opkg"
+      ],
+      "primary_keys": [
+        "tflm"
+      ],
+      "derived": [
+        "apic"
+      ]
+    },
+    "nsbw": {
+      "weak": false,
+      "attributes": [
+        "avgn",
+        "mdwq",
+        "tfpy",
+        "ukzl"
+      ],
+      "primary_keys": [
+        "avgn"
+      ]
+    },
+    "sfpt": {
+      "weak": false,
+      "attributes": [
+        "fhwz",
+        "jpph",
+        "mrzh",
+        "wmoc"
+      ],
+      "primary_keys": [
+        "fhwz"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "xaxy",
+        "rkgv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xqte",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pfgd",
+        "rkgv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "dclu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rkgv",
+        "nsbw"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "knrr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xaxy",
+        "sfpt"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "egzm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xaxy",
+        "sfpt",
+        "rkgv"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "xfka",
+      "weak": true
+    }
+  ]
+}

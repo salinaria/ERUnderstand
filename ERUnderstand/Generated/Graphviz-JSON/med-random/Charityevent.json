@@ -1,0 +1,142 @@
+{
+  "entities": {
+    "recx": {
+      "weak": false,
+      "attributes": [
+        "kebp",
+        "xeju",
+        "auhl",
+        "plly"
+      ],
+      "primary_keys": [
+        "kebp"
+      ],
+      "multivalued": [
+        "jmos"
+      ]
+    },
+    "kfco": {
+      "weak": false,
+      "attributes": [
+        "lyjy",
+        "xeju",
+        "jwod",
+        "vewn",
+        "uhea"
+      ],
+      "primary_keys": [
+        "lyjy"
+      ],
+      "derived": [
+        "ayli"
+      ]
+    },
+    "qlqu": {
+      "weak": true,
+      "attributes": [
+        "lavu",
+        "igap",
+        "jwod",
+        "hbmw"
+      ],
+      "primary_keys": [
+        "lavu"
+      ]
+    },
+    "bkxa": {
+      "weak": false,
+      "attributes": [
+        "jumh",
+        "xeju",
+        "auhl"
+      ],
+      "primary_keys": [
+        "jumh"
+      ],
+      "composite": {
+        "plly": [
+          "qxqy",
+          "nqia",
+          "ahup",
+          "iukb"
+        ]
+      }
+    },
+    "kznu": {
+      "weak": false,
+      "attributes": [
+        "dfzc",
+        "xeju",
+        "qryy",
+        "ticq"
+      ],
+      "primary_keys": [
+        "dfzc"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "recx",
+        "qlqu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pjus",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kfco",
+        "qlqu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "lgyr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bkxa",
+        "kfco"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "kfpn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kznu",
+        "kfco"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "gmmx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "recx",
+        "bkxa",
+        "kfco"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "oowe",
+      "weak": true
+    }
+  ]
+}

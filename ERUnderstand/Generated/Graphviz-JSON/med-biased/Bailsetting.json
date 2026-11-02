@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "BailAmount": {
+            "attributes": [
+                "JudgeID",
+                "ChargedWith",
+                "HearingDate"
+            ],
+            "primary_keys": [
+                "JudgeID"
+            ],
+            "multivalued": [
+                "Employer"
+            ],
+            "weak": false
+        },
+        "CoSigner": {
+            "attributes": [
+                "Defendant",
+                "Alias",
+                "Courtroom"
+            ],
+            "primary_keys": [
+                "Defendant"
+            ],
+            "weak": false
+        },
+        "CrimeID": {
+            "attributes": [
+                "LengthOfRelationship",
+                "Crime",
+                "SignedFor",
+                "Relationship"
+            ],
+            "primary_keys": [
+                "LengthOfRelationship"
+            ],
+            "weak": false
+        },
+        "FirstName": {
+            "attributes": [
+                "PresidedBy",
+                "ChargedWith",
+                "Judge"
+            ],
+            "primary_keys": [
+                "PresidedBy"
+            ],
+            "composite": {
+                "ChargedWith": [
+                    "HearingTime",
+                    "HasHearing"
+                ]
+            },
+            "weak": false
+        },
+        "Severity": {
+            "attributes": [
+                "HearingID",
+                "ChargedWith",
+                "CrimeType",
+                "BailHearing"
+            ],
+            "primary_keys": [
+                "HearingID"
+            ],
+            "derived": [
+                "Guarantees"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "BailAmount",
+                "CoSigner"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "LastName",
+            "weak": false
+        },
+        {
+            "entities": [
+                "BailAmount",
+                "CrimeID"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "CrimeID",
+                "FirstName"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "CoSignerID",
+            "weak": false
+        },
+        {
+            "entities": [
+                "BailAmount",
+                "Severity",
+                "CrimeID"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Address",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Severity",
+                "CrimeID"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "DefendantID",
+            "weak": false
+        }
+    ]
+}

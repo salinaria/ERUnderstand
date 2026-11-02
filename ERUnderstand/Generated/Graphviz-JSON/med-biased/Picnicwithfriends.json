@@ -1,0 +1,133 @@
+{
+    "entities": {
+        "item_id": {
+            "attributes": [
+                "attends_at",
+                "Game",
+                "cost"
+            ],
+            "primary_keys": [
+                "attends_at"
+            ],
+            "multivalued": [
+                "cost"
+            ],
+            "weak": false
+        },
+        "game_id": {
+            "attributes": [
+                "plays",
+                "Game",
+                "contribution_id"
+            ],
+            "primary_keys": [
+                "plays"
+            ],
+            "weak": false
+        },
+        "brings": {
+            "attributes": [
+                "Person",
+                "Game",
+                "game_id"
+            ],
+            "primary_keys": [
+                "Person"
+            ],
+            "composite": {
+                "game_id": [
+                    "city",
+                    "person_id",
+                    "quantity"
+                ]
+            },
+            "weak": false
+        },
+        "FoodItem": {
+            "attributes": [
+                "name",
+                "Game",
+                "location_id"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "Location",
+                "Contribution",
+                "description"
+            ],
+            "primary_keys": [
+                "Location"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "item_id",
+                "game_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "makes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "item_id",
+                "brings"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "zip_code",
+            "weak": false
+        },
+        {
+            "entities": [
+                "item_id",
+                "FoodItem"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "item_id",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "rules",
+            "weak": true
+        },
+        {
+            "entities": [
+                "item_id",
+                "game_id",
+                "brings"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "address",
+            "weak": false
+        }
+    ]
+}

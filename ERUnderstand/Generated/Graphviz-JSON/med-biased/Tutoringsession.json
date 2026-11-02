@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "seeks_help": {
+            "attributes": [
+                "duration",
+                "expertise",
+                "payment_date",
+                "last_name"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "multivalued": [
+                "last_name"
+            ],
+            "derived": [],
+            "weak": false
+        },
+        "major": {
+            "attributes": [
+                "attends",
+                "expertise",
+                "Student"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "composite": {
+                "expertise": [
+                    "location",
+                    "Topic"
+                ]
+            },
+            "weak": false
+        },
+        "first_name": {
+            "attributes": [
+                "difficulty",
+                "email",
+                "tutor_id",
+                "date"
+            ],
+            "primary_keys": [
+                "difficulty"
+            ],
+            "derived": [],
+            "weak": false
+        },
+        "conducts": {
+            "attributes": [
+                "session_id",
+                "payment_date",
+                "includes"
+            ],
+            "primary_keys": [
+                "session_id"
+            ],
+            "derived": [],
+            "weak": false
+        },
+        "student_id": {
+            "attributes": [
+                "name",
+                "covers",
+                "payment_id"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true,
+            "derived": []
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "seeks_help",
+                "first_name"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "amount",
+            "weak": false
+        },
+        {
+            "entities": [
+                "major",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Session",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_name",
+                "conducts"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Tutor",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_name",
+                "student_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "topic_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "seeks_help",
+                "major",
+                "conducts"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "Payment",
+            "weak": false
+        }
+    ]
+}

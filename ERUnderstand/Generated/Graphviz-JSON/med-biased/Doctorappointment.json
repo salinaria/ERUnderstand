@@ -1,0 +1,144 @@
+{
+    "entities": {
+        "medication_id": {
+            "attributes": [
+                "requires",
+                "date",
+                "includes",
+                "first_name",
+                "type"
+            ],
+            "primary_keys": [
+                "requires"
+            ],
+            "multivalued": [
+                "type"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "Medication",
+                    "notes"
+                ]
+            }
+        },
+        "attends": {
+            "attributes": [
+                "dosage",
+                "date",
+                "doctor_id",
+                "Doctor"
+            ],
+            "primary_keys": [
+                "dosage"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "Medication",
+                    "notes"
+                ]
+            }
+        },
+        "phone_number": {
+            "attributes": [
+                "time",
+                "name",
+                "specialization",
+                "date_of_birth",
+                "Patient"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "date_prescribed",
+                "date",
+                "frequency",
+                "office_address"
+            ],
+            "primary_keys": [
+                "date_prescribed"
+            ],
+            "weak": false
+        },
+        "schedules": {
+            "attributes": [
+                "patient_id",
+                "appointment_id",
+                "Appointment"
+            ],
+            "primary_keys": [
+                "patient_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "medication_id",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "prescription_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "refills_remaining",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "schedules"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Prescription",
+            "weak": true
+        },
+        {
+            "entities": [
+                "schedules",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "prescribes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends",
+                "medication_id",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "last_name",
+            "weak": false
+        }
+    ]
+}

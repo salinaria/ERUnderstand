@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "dtbs": {
+      "weak": false,
+      "attributes": [
+        "lvyb",
+        "cowo",
+        "pgec"
+      ],
+      "primary_keys": [
+        "lvyb"
+      ],
+      "multivalued": [
+        "pgec"
+      ]
+    },
+    "wqnz": {
+      "weak": false,
+      "attributes": [
+        "owbv",
+        "esmc"
+      ],
+      "primary_keys": [
+        "owbv"
+      ],
+      "composite": {
+        "daqu": [
+          "sxsi",
+          "cjmh",
+          "xzrx"
+        ]
+      }
+    },
+    "cjfd": {
+      "weak": false,
+      "attributes": [
+        "tflm",
+        "vnrb",
+        "ogfq",
+        "douz"
+      ],
+      "primary_keys": [
+        "tflm"
+      ],
+      "derived": [
+        "wdxu"
+      ]
+    },
+    "qbmp": {
+      "weak": false,
+      "attributes": [
+        "iebg",
+        "rkrh",
+        "nbkn"
+      ],
+      "primary_keys": [
+        "iebg"
+      ]
+    },
+    "rwvz": {
+      "weak": true,
+      "attributes": [
+        "jlgd",
+        "miqe",
+        "efwg",
+        "tflm"
+      ],
+      "primary_keys": [
+        "jlgd"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "dtbs",
+        "cjfd"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "xhub",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wqnz",
+        "cjfd"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "horc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cjfd",
+        "qbmp"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pwdz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dtbs",
+        "rwvz",
+        "cjfd"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "atvj",
+      "weak": true
+    },
+    {
+      "entities": [
+        "dtbs",
+        "qbmp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gdgq",
+      "weak": false
+    }
+  ]
+}

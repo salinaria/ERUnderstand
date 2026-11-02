@@ -1,0 +1,44 @@
+erDiagram
+Artist {
+  string artist_id PK
+  string name
+  string genre
+}
+
+Venue {
+  string venue_id PK
+  string name
+  string city
+  string capacity
+}
+
+Concert {
+  string concert_id PK
+  string date
+  string start_time
+}
+
+Ticket {
+  string ticket_id PK
+  string price
+  string seat_number
+  string concert_id
+}
+
+Sponsor {
+  string sponsor_id PK
+  string name
+  string contribution_amount
+}
+
+    Artist ||--o{ Concert : "performs_at"
+    Concert ||--|| Venue : "held_at"
+    Ticket o{..|| Concert : "sold_for"
+    Concert ||--o{ Sponsor : "sponsored_by"
+REL_participates {
+  string rel_participates_id PK
+}
+
+    Artist o{..o{ REL_participates : "Artist-REL_participates"
+    Concert ||..o{ REL_participates : "Concert-REL_participates"
+    Sponsor o{..o{ REL_participates : "Sponsor-REL_participates"

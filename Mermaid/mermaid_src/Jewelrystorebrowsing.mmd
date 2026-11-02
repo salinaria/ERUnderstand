@@ -1,0 +1,43 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string first_name
+  string last_name
+  string address
+}
+
+Jewelry {
+  string jewelry_id PK
+  string name
+  string description
+  string price
+}
+
+Category {
+  string category_id PK
+  string category_name
+}
+
+Order {
+  string order_id PK
+  string order_date
+  string total_amount
+}
+
+Review {
+  string review_id PK
+  string rating
+  string comment
+}
+
+    Customer ||--o{ Order : "places"
+    Order ||--o{ Jewelry : "contains"
+    Jewelry o{--|| Category : "belongs_to"
+REL_rates {
+  string rel_rates_id PK
+}
+
+    Jewelry ||..o{ REL_rates : "Jewelry-REL_rates"
+    Review o{..o{ REL_rates : "Review-REL_rates"
+    Customer ||..o{ REL_rates : "Customer-REL_rates"
+    Customer o{--o{ Jewelry : "favorites"

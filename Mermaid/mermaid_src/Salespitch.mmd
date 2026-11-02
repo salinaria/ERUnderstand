@@ -1,0 +1,37 @@
+erDiagram
+Salesperson {
+  string salesperson_id PK
+  string name
+  string region
+}
+
+Product {
+  string product_id PK
+  string name
+  string description
+  string price
+}
+
+Customer {
+  string customer_id PK
+  string company_name
+  string contact_name
+}
+
+SalesPitch {
+  string pitch_id PK
+  string date
+  string location
+}
+
+Feedback {
+  string feedback_id PK
+  string comment
+  string rating
+}
+
+    Salesperson ||--o{ SalesPitch : "conducts"
+    SalesPitch ||--o{ Product : "presents"
+    SalesPitch ||--o{ Customer : "targets"
+    SalesPitch ||--|| Feedback : "receives"
+    Feedback ||..|| Customer : "given_by"

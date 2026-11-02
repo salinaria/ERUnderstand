@@ -1,0 +1,45 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string grade
+}
+
+Trip {
+  string trip_id PK
+  string destination
+  string date
+  string cost
+}
+
+Teacher {
+  string teacher_id PK
+  string name
+  string subject
+}
+
+Bus {
+  string bus_id PK
+  string capacity
+  string make
+  string model
+}
+
+EmergencyContact {
+  string contact_id PK
+  string name
+  string phone_number
+  string relationship
+}
+
+    Student o{--o{ Trip : "Attends"
+    Teacher ||--o{ Trip : "Supervises"
+    Trip ||--|| Bus : "Uses"
+    Student ||..o{ EmergencyContact : "Has"
+REL_Permission {
+  string rel_permission_id PK
+}
+
+    Student o{..o{ REL_Permission : "Student-REL_Permission"
+    Trip ||..o{ REL_Permission : "Trip-REL_Permission"
+    Teacher ||..o{ REL_Permission : "Teacher-REL_Permission"

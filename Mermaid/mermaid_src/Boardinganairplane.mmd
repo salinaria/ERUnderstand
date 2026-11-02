@@ -1,0 +1,44 @@
+erDiagram
+Passenger {
+  string passenger_id PK
+  string first_name
+  string last_name
+  string seat_number
+}
+
+Flight {
+  string flight_number PK
+  string departure_airport
+  string arrival_airport
+  string scheduled_departure_time
+}
+
+BoardingPass {
+  string boarding_pass_number PK
+  string boarding_time
+  string gate_number
+}
+
+Airplane {
+  string airplane_id PK
+  string model
+  string capacity
+}
+
+Luggage {
+  string luggage_id PK
+  string weight
+  string dimensions
+}
+
+    Passenger o{--|| Flight : "books"
+    Passenger ||--|| BoardingPass : "issues"
+    Flight ||--|| Airplane : "uses"
+REL_checks_in {
+  string rel_checks_in_id PK
+}
+
+    Passenger ||..o{ REL_checks_in : "Passenger-REL_checks_in"
+    Luggage o{..o{ REL_checks_in : "Luggage-REL_checks_in"
+    Flight ||..o{ REL_checks_in : "Flight-REL_checks_in"
+    Luggage o{--|| Flight : "loaded_on"

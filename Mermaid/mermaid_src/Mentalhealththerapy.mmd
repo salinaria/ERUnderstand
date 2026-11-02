@@ -1,0 +1,50 @@
+erDiagram
+Patient {
+  string patient_id PK
+  string name
+  string date_of_birth
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Therapist {
+  string therapist_id PK
+  %% name: composite
+  string name
+  string license_number
+  string specialization
+}
+
+Appointment {
+  string appointment_id PK
+  string date
+  string time
+  string notes
+  string patient_id
+  string therapist_id
+}
+
+Diagnosis {
+  string diagnosis_code PK
+  string diagnosis_name
+  string description
+}
+
+Medication {
+  string medication_id PK
+  string name
+  string dosage
+  string instructions
+}
+
+    Patient ||--o{ Appointment : "schedules"
+    Therapist ||--o{ Appointment : "conducts"
+    Patient ||--o{ Diagnosis : "has"
+REL_prescribes {
+  string rel_prescribes_id PK
+}
+
+    Patient ||..o{ REL_prescribes : "Patient-REL_prescribes"
+    Medication o{..o{ REL_prescribes : "Medication-REL_prescribes"
+    Therapist ||..o{ REL_prescribes : "Therapist-REL_prescribes"
+    Appointment ||--o{ Diagnosis : "results_in"

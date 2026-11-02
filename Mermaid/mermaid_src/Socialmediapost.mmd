@@ -1,0 +1,45 @@
+erDiagram
+User {
+  string user_id PK
+  string username
+  string registration_date
+}
+
+Post {
+  string post_id PK
+  string content
+  string timestamp
+}
+
+Comment {
+  string comment_id PK
+  string text
+  string comment_date
+  string post_id
+  string user_id
+}
+
+Hashtag {
+  string hashtag_id PK
+  string tag_name
+}
+
+Reaction {
+  string reaction_id PK
+  string type
+  string reaction_date
+  string user_id
+  string post_id
+}
+
+    User ||--o{ Post : "creates"
+    Post o{--o{ Hashtag : "includes"
+REL_writes {
+  string rel_writes_id PK
+}
+
+    User ||..o{ REL_writes : "User-REL_writes"
+    Comment o{..o{ REL_writes : "Comment-REL_writes"
+    Post ||..o{ REL_writes : "Post-REL_writes"
+    User ||..o{ Reaction : "gives"
+    Post ||..o{ Comment : "contains"

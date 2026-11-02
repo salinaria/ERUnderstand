@@ -1,0 +1,42 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string major
+}
+
+Exam {
+  string exam_id PK
+  string exam_date
+  string total_marks
+}
+
+Question {
+  string question_id PK
+  string question_text
+  string marks
+}
+
+Answer {
+  string answer_id PK
+  string answer_text
+  string score
+}
+
+Course {
+  string course_id PK
+  string course_name
+  string credits
+}
+
+    Student o{--o{ Exam : "Takes"
+    Exam ||--o{ Question : "ConsistsOf"
+REL_Answers {
+  string rel_answers_id PK
+}
+
+    Student o{--o{ REL_Answers : "Student-REL_Answers"
+    Answer o{--o{ REL_Answers : "Answer-REL_Answers"
+    Question o{--o{ REL_Answers : "Question-REL_Answers"
+    Answer ||--|| Question : "Addresses"
+    Course ||--o{ Exam : "Includes"

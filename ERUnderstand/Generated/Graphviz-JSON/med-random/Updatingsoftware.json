@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "fzxr": {
+      "weak": false,
+      "attributes": [
+        "nplh",
+        "ppxf",
+        "tijf"
+      ],
+      "primary_keys": [
+        "nplh"
+      ]
+    },
+    "cxtl": {
+      "weak": false,
+      "attributes": [
+        "lxfz",
+        "dzzy",
+        "sgrx",
+        "dkfz"
+      ],
+      "primary_keys": [
+        "lxfz"
+      ],
+      "derived": [
+        "kzoe"
+      ]
+    },
+    "ofew": {
+      "weak": false,
+      "attributes": [
+        "ynui",
+        "bmdx",
+        "epqn"
+      ],
+      "primary_keys": [
+        "ynui"
+      ],
+      "composite": {
+        "yhil": [
+          "tetr",
+          "fqrk",
+          "kfys"
+        ]
+      }
+    },
+    "qyju": {
+      "weak": false,
+      "attributes": [
+        "zwsq",
+        "fllc",
+        "mjvh"
+      ],
+      "primary_keys": [
+        "zwsq"
+      ],
+      "multivalued": [
+        "hloz"
+      ]
+    },
+    "kmky": {
+      "weak": true,
+      "attributes": [
+        "afvn",
+        "onqs",
+        "skmr",
+        "zwsq",
+        "lxfz"
+      ],
+      "primary_keys": [
+        "afvn"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "fzxr",
+        "cxtl"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kwml",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cxtl",
+        "ofew"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "jdlk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ofew",
+        "qyju"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fyis",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qyju",
+        "cxtl",
+        "kmky"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "lzcl",
+      "weak": true
+    },
+    {
+      "entities": [
+        "fzxr",
+        "qyju"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ruig",
+      "weak": false
+    }
+  ]
+}

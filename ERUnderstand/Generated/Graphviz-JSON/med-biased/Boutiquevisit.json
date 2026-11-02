@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "assists": {
+            "attributes": [
+                "description",
+                "state",
+                "purchase_id",
+                "makes"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "purchase_id"
+            ],
+            "weak": false,
+            "composite": {
+                "makes": [
+                    "comment",
+                    "Item",
+                    "size",
+                    "writes"
+                ]
+            }
+        },
+        "Customer": {
+            "attributes": [
+                "rating",
+                "phone_number",
+                "position",
+                "Review"
+            ],
+            "primary_keys": [
+                "rating"
+            ],
+            "weak": false
+        },
+        "employee_id": {
+            "attributes": [
+                "item_id",
+                "street",
+                "based_on"
+            ],
+            "primary_keys": [
+                "item_id"
+            ],
+            "derived": [
+                "based_on"
+            ],
+            "weak": false
+        },
+        "review_id": {
+            "attributes": [
+                "address",
+                "state",
+                "Purchase"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "includes": {
+            "attributes": [
+                "zip_code",
+                "name",
+                "date",
+                "item_id"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "assists",
+                "employee_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "customer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "employee_id",
+                "Customer"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Employee",
+            "weak": false
+        },
+        {
+            "entities": [
+                "review_id",
+                "employee_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "assists",
+                "includes"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "total_amount",
+            "weak": false
+        },
+        {
+            "entities": [
+                "employee_id",
+                "includes"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "price",
+            "weak": true
+        }
+    ]
+}

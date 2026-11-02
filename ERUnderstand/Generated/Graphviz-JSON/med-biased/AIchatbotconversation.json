@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "ChatMessage": {
+            "attributes": [
+                "confidence_score",
+                "content"
+            ],
+            "primary_keys": [
+                "confidence_score"
+            ],
+            "multivalued": [
+                "refers_to"
+            ],
+            "weak": false
+        },
+        "KnowledgeBaseArticle": {
+            "attributes": [
+                "last_updated",
+                "intent_id",
+                "response_id"
+            ],
+            "primary_keys": [
+                "last_updated"
+            ],
+            "composite": {
+                "response_id": [
+                    "detects",
+                    "success_rate"
+                ]
+            },
+            "weak": true
+        },
+        "BotResponse": {
+            "attributes": [
+                "message_id",
+                "user_id",
+                "sends"
+            ],
+            "primary_keys": [
+                "message_id"
+            ],
+            "derived": [
+                "time"
+            ],
+            "weak": false
+        },
+        "timestamp": {
+            "attributes": [
+                "article_id",
+                "title"
+            ],
+            "primary_keys": [
+                "article_id"
+            ],
+            "weak": false
+        },
+        "triggers": {
+            "attributes": [
+                "date",
+                "name",
+                "intent_id",
+                "response_text"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "ChatMessage",
+                "KnowledgeBaseArticle"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "username",
+            "weak": false
+        },
+        {
+            "entities": [
+                "KnowledgeBaseArticle",
+                "BotResponse"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Intent",
+            "weak": false
+        },
+        {
+            "entities": [
+                "BotResponse",
+                "timestamp"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "User",
+            "weak": false
+        },
+        {
+            "entities": [
+                "timestamp",
+                "KnowledgeBaseArticle"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "device_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "BotResponse",
+                "triggers"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "generates",
+            "weak": false
+        }
+    ]
+}

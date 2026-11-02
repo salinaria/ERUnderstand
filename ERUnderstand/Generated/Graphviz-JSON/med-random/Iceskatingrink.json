@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "tbfh": {
+      "weak": false,
+      "attributes": [
+        "nikt",
+        "avip",
+        "qmmi",
+        "yzlr"
+      ],
+      "primary_keys": [
+        "nikt"
+      ],
+      "multivalued": [
+        "bmtp"
+      ]
+    },
+    "jdwz": {
+      "weak": false,
+      "attributes": [
+        "uipd",
+        "avip",
+        "yjhh",
+        "cggg"
+      ],
+      "primary_keys": [
+        "uipd"
+      ],
+      "composite": {
+        "cqce": [
+          "ngmm",
+          "aumw",
+          "tfyo",
+          "pqqi"
+        ]
+      }
+    },
+    "ehft": {
+      "weak": true,
+      "attributes": [
+        "sqlg",
+        "rfbp",
+        "kaii",
+        "eckc"
+      ],
+      "primary_keys": [
+        "sqlg"
+      ],
+      "derived": [
+        "skkt"
+      ]
+    },
+    "hnuq": {
+      "weak": false,
+      "attributes": [
+        "nsrw",
+        "avip",
+        "cqce",
+        "ijzo"
+      ],
+      "primary_keys": [
+        "nsrw"
+      ]
+    },
+    "arim": {
+      "weak": false,
+      "attributes": [
+        "ytus",
+        "avip",
+        "uncy",
+        "rfbp"
+      ],
+      "primary_keys": [
+        "ytus"
+      ]
+    },
+    "hpxr": {
+      "weak": true,
+      "attributes": [
+        "qedf",
+        "hucw",
+        "boim"
+      ],
+      "primary_keys": [
+        "qedf"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "tbfh",
+        "jdwz",
+        "ehft"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "vpvn",
+      "weak": true
+    },
+    {
+      "entities": [
+        "tbfh",
+        "hnuq"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "jsek",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tbfh",
+        "arim"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "mfvg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "arim",
+        "hpxr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "slmt",
+      "weak": false
+    }
+  ]
+}

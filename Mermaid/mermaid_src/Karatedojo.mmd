@@ -1,0 +1,42 @@
+erDiagram
+Student {
+  string student_id PK
+  string date_of_birth
+  string belt_level
+}
+
+Instructor {
+  string instructor_id PK
+  string rank
+  string years_of_experience
+}
+
+Dojo {
+  string dojo_id PK
+  string name
+  string location
+}
+
+Class {
+  string class_id PK
+  string schedule
+  string duration
+}
+
+Attendance {
+  string student_id PK
+  string class_id PK
+  string date PK
+}
+
+Technique {
+  string technique_id PK
+  string name
+  string description
+}
+
+    Student o{--o{ Class : "Attends"
+    Instructor ||--o{ Class : "Teaches"
+    Dojo ||--o{ Class : "Hosts"
+    Instructor ||--o{ Technique : "Specializes"
+    Class ||--o{ Technique : "Practices"

@@ -1,0 +1,130 @@
+{
+    "entities": {
+        "site_name": {
+            "attributes": [
+                "Category",
+                "post_id",
+                "comment_id"
+            ],
+            "primary_keys": [
+                "Category"
+            ],
+            "multivalued": [],
+            "weak": false
+        },
+        "setting_id": {
+            "attributes": [
+                "content",
+                "name",
+                "text",
+                "category_id"
+            ],
+            "primary_keys": [
+                "content"
+            ],
+            "derived": [
+                "Comment"
+            ],
+            "weak": false
+        },
+        "posts": {
+            "attributes": [
+                "title",
+                "theme",
+                "writes",
+                "Category",
+                "content"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "composite": {},
+            "weak": true
+        },
+        "comment_date": {
+            "attributes": [
+                "likes",
+                "date_posted",
+                "WebsiteSetting"
+            ],
+            "primary_keys": [
+                "likes"
+            ],
+            "weak": false
+        },
+        "user_id": {
+            "attributes": [
+                "belongsTo",
+                "categorizedIn",
+                "description",
+                "User"
+            ],
+            "primary_keys": [
+                "belongsTo"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "site_name",
+                "setting_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "username",
+            "weak": false
+        },
+        {
+            "entities": [
+                "site_name",
+                "posts"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "BlogPost",
+            "weak": false
+        },
+        {
+            "entities": [
+                "posts",
+                "setting_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "password",
+            "weak": true
+        },
+        {
+            "entities": [
+                "setting_id",
+                "comment_date"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "refersTo",
+            "weak": false
+        },
+        {
+            "entities": [
+                "setting_id",
+                "user_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "language",
+            "weak": false
+        }
+    ]
+}

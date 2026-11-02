@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "country_name": {
+            "attributes": [
+                "language_spoken",
+                "country_code",
+                "participant_id"
+            ],
+            "primary_keys": [
+                "language_spoken"
+            ],
+            "multivalued": [
+                "address"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "latitude",
+                "country_code",
+                "participates_in",
+                "Participant",
+                "duration"
+            ],
+            "primary_keys": [
+                "latitude"
+            ],
+            "derived": [
+                "Program"
+            ],
+            "weak": false
+        },
+        "Activity": {
+            "attributes": [
+                "stays_at",
+                "country_code",
+                "name"
+            ],
+            "primary_keys": [
+                "stays_at"
+            ],
+            "weak": false,
+            "composite": {
+                "Country": [
+                    "end_date",
+                    "activity_id"
+                ]
+            }
+        },
+        "type": {
+            "attributes": [
+                "includes",
+                "start_date",
+                "Accommodation",
+                "location"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "weak": true
+        },
+        "program_id": {
+            "attributes": [
+                "hosted_in",
+                "country_code",
+                "participates_in",
+                "longitude"
+            ],
+            "primary_keys": [
+                "hosted_in"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "country_name",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "accommodation_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "Activity"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "nationality",
+            "weak": false
+        },
+        {
+            "entities": [
+                "country_name",
+                "type",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "date",
+            "weak": true
+        },
+        {
+            "entities": [
+                "description",
+                "program_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "capacity",
+            "weak": true
+        },
+        {
+            "subclasses": [
+                "Accommodation",
+                "Activity"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Event"
+        }
+    ]
+}

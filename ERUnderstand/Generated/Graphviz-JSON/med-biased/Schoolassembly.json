@@ -1,0 +1,123 @@
+{
+    "entities": {
+        "Performance": {
+            "attributes": [
+                "attends",
+                "extracurricular_activities",
+                "city"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "multivalued": [
+                "teacher_id"
+            ],
+            "weak": false
+        },
+        "subject_taught": {
+            "attributes": [
+                "organizes",
+                "extracurricular_activities",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "organizes"
+            ],
+            "composite": {
+                "name": [
+                    "featured_in",
+                    "Student",
+                    "duration"
+                ]
+            },
+            "weak": false
+        },
+        "date": {
+            "attributes": [
+                "Teacher",
+                "Assembly",
+                "performance_id"
+            ],
+            "primary_keys": [
+                "Teacher"
+            ],
+            "weak": false
+        },
+        "attendance_status": {
+            "attributes": [
+                "topic",
+                "Attendance",
+                "student_id",
+                "description"
+            ],
+            "primary_keys": [
+                "topic"
+            ],
+            "weak": false
+        },
+        "assembly_id": {
+            "attributes": [
+                "Teacher",
+                "attends",
+                "street"
+            ],
+            "primary_keys": [
+                "Teacher",
+                "attends"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Performance",
+                "assembly_id",
+                "date"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "grade_level",
+            "weak": true
+        },
+        {
+            "entities": [
+                "subject_taught",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "participates_in",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attendance_status",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Performance",
+                "attendance_status"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "type",
+            "weak": false
+        }
+    ]
+}

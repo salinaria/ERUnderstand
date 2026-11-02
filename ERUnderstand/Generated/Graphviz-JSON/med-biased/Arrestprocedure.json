@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "description": {
+            "attributes": [
+                "evidence_id",
+                "committed_by",
+                "Suspect"
+            ],
+            "primary_keys": [
+                "evidence_id"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "crime_type",
+                "zipcode",
+                "crime_id",
+                "Crime"
+            ],
+            "primary_keys": [
+                "crime_type"
+            ],
+            "multivalued": [
+                "involves"
+            ],
+            "composite": {
+                "crime_id": [
+                    "state",
+                    "related_to",
+                    "arrest_id",
+                    "arrest_date"
+                ]
+            },
+            "weak": false
+        },
+        "type": {
+            "attributes": [
+                "address",
+                "conducted_by",
+                "location",
+                "zipcode"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "Officer": {
+            "attributes": [
+                "badge_number",
+                "city",
+                "officer_id"
+            ],
+            "primary_keys": [
+                "badge_number"
+            ],
+            "weak": false
+        },
+        "committed_by": {
+            "attributes": [
+                "date_of_birth",
+                "officer_id",
+                "rank",
+                "suspect_id",
+                "evidence_id"
+            ],
+            "primary_keys": [
+                "date_of_birth"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "description",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "alias",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "collected",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "Officer"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_collected",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Officer",
+                "name"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Arrest",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "committed_by"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "street",
+            "weak": false
+        }
+    ]
+}

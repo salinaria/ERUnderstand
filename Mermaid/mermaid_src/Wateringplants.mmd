@@ -1,0 +1,40 @@
+erDiagram
+Plant {
+  string plant_id PK
+  string species
+  string location
+}
+
+WateringCan {
+  string can_id PK
+  string capacity
+}
+
+WaterSource {
+  string source_id PK
+  string type
+  string location
+}
+
+Gardener {
+  string gardener_id PK
+  string name
+}
+
+WateringSchedule {
+  string schedule_id PK
+  string frequency
+  string amount
+}
+
+    Gardener ||--o{ Plant : "owns"
+    Gardener ||--o{ WateringCan : "uses"
+    WateringCan ||--|| WaterSource : "fills_from"
+REL_maintains {
+  string rel_maintains_id PK
+}
+
+    Gardener ||..o{ REL_maintains : "Gardener-REL_maintains"
+    Plant o{..o{ REL_maintains : "Plant-REL_maintains"
+    WateringSchedule ||..o{ REL_maintains : "WateringSchedule-REL_maintains"
+    Plant ||..|| WateringSchedule : "has"

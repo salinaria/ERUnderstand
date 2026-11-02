@@ -1,0 +1,51 @@
+erDiagram
+CouncilMember {
+  string member_id PK
+  %% name: composite
+  string name
+  string position
+}
+
+Citizen {
+  string citizen_id PK
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+AgendaItem {
+  string item_id PK
+  string title
+  string description
+  string duration
+}
+
+Meeting {
+  string meeting_id PK
+  string date
+  string location
+}
+
+PublicComment {
+  string comment_id PK
+  string content
+  string time
+}
+
+    CouncilMember o{--|| Meeting : "Attends"
+    Meeting ||--o{ AgendaItem : "Includes"
+REL_Features {
+  string rel_features_id PK
+}
+
+    Meeting ||..o{ REL_Features : "Meeting-REL_Features"
+    Citizen ||..o{ REL_Features : "Citizen-REL_Features"
+    PublicComment o{..o{ REL_Features : "PublicComment-REL_Features"
+    Citizen o{--o{ AgendaItem : "InterestedIn"
+REL_VoteFor {
+  string rel_votefor_id PK
+}
+
+    CouncilMember o{--o{ REL_VoteFor : "CouncilMember-REL_VoteFor"
+    Citizen o{--o{ REL_VoteFor : "Citizen-REL_VoteFor"
+    AgendaItem o{--o{ REL_VoteFor : "AgendaItem-REL_VoteFor"

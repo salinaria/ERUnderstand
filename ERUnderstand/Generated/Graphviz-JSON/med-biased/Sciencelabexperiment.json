@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "conducted_by": {
+            "attributes": [
+                "specifications",
+                "name",
+                "value",
+                "model"
+            ],
+            "primary_keys": [
+                "specifications"
+            ],
+            "weak": false
+        },
+        "Experiment": {
+            "attributes": [
+                "uses",
+                "timestamp",
+                "quantity"
+            ],
+            "primary_keys": [
+                "uses"
+            ],
+            "composite": {
+                "timestamp": [
+                    "Equipment",
+                    "equipment_id"
+                ]
+            },
+            "weak": false
+        },
+        "analysis_result": {
+            "attributes": [
+                "first_name",
+                "timestamp",
+                "Researcher",
+                "description"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "multivalued": [
+                "requires"
+            ],
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "generates",
+                "timestamp",
+                "manufacturer",
+                "Material"
+            ],
+            "primary_keys": [
+                "generates"
+            ],
+            "weak": false
+        },
+        "date_performed": {
+            "attributes": [
+                "manufacturer",
+                "experiment_id",
+                "title",
+                "specifications"
+            ],
+            "primary_keys": [
+                "manufacturer"
+            ],
+            "derived": [
+                "researcher_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "conducted_by",
+                "Experiment"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "DataPoint",
+            "weak": false
+        },
+        {
+            "entities": [
+                "conducted_by",
+                "analysis_result"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "affiliation",
+            "weak": false
+        },
+        {
+            "entities": [
+                "conducted_by",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "processed_by",
+            "weak": false
+        },
+        {
+            "entities": [
+                "conducted_by",
+                "date_performed"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "chemical_formula",
+            "weak": true
+        },
+        {
+            "entities": [
+                "last_name",
+                "analysis_result"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "material_id",
+            "weak": false
+        }
+    ]
+}

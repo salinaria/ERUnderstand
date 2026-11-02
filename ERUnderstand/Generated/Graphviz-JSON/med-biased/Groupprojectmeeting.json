@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "belongs_to": {
+            "attributes": [
+                "contribution_id",
+                "creates_contribution",
+                "meeting_id"
+            ],
+            "primary_keys": [
+                "contribution_id"
+            ],
+            "weak": false
+        },
+        "ProjectGroup": {
+            "attributes": [
+                "description",
+                "creates_contribution"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "start_time"
+            ],
+            "weak": false
+        },
+        "Task": {
+            "attributes": [
+                "location",
+                "group_id",
+                "due_date",
+                "duration",
+                "assigns"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "composite": {
+                "student_id": [
+                    "due_date",
+                    "duration"
+                ]
+            },
+            "derived": [
+                "creates"
+            ],
+            "weak": false
+        },
+        "Student": {
+            "attributes": [
+                "major",
+                "date",
+                "organizes",
+                "Contribution"
+            ],
+            "primary_keys": [
+                "major"
+            ],
+            "weak": true
+        },
+        "time": {
+            "attributes": [
+                "Meeting",
+                "end_time"
+            ],
+            "primary_keys": [
+                "Meeting"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "ProjectGroup",
+                "belongs_to"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "task_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "belongs_to",
+                "Task"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "topic",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Task",
+                "Student"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "status",
+            "weak": false
+        },
+        {
+            "entities": [
+                "ProjectGroup",
+                "Student",
+                "Task"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "hours_spent",
+            "weak": true
+        },
+        {
+            "entities": [
+                "ProjectGroup",
+                "Student",
+                "time"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "skills",
+            "weak": true
+        }
+    ]
+}

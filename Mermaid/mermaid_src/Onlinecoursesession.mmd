@@ -1,0 +1,44 @@
+erDiagram
+Course {
+  string course_id PK
+  string title
+  string description
+  string credits
+}
+
+Session {
+  string session_id PK
+  string date_time
+  string location
+}
+
+Instructor {
+  string instructor_id PK
+  string name
+  string email
+}
+
+Student {
+  string student_id PK
+  string name
+  string major
+}
+
+Assignment {
+  string assignment_id PK
+  string title
+  string due_date
+  string points
+}
+
+    Session o{..|| Course : "part_of"
+    Session o{--|| Instructor : "taught_by"
+    Student o{--o{ Session : "attends"
+    Course ||--o{ Assignment : "contains"
+REL_submits {
+  string rel_submits_id PK
+}
+
+    Student o{..o{ REL_submits : "Student-REL_submits"
+    Assignment ||..o{ REL_submits : "Assignment-REL_submits"
+    Session ||..o{ REL_submits : "Session-REL_submits"

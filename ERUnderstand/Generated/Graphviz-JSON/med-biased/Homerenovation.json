@@ -1,0 +1,165 @@
+{
+    "entities": {
+        "company_name": {
+            "attributes": [
+                "consists_of",
+                "owns",
+                "status"
+            ],
+            "primary_keys": [
+                "consists_of"
+            ],
+            "composite": {
+                "status": [
+                    "material_id",
+                    "estimated_hours",
+                    "unit_price",
+                    "Payment"
+                ]
+            },
+            "weak": false
+        },
+        "task_id": {
+            "attributes": [
+                "phone_number",
+                "manages",
+                "payment_id"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "multivalued": [
+                "address"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "start_date",
+                "task_name",
+                "actual_hours",
+                "project_id"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "derived": [
+                "contractor_id"
+            ],
+            "weak": false
+        },
+        "Project": {
+            "attributes": [
+                "Contractor",
+                "requires",
+                "city",
+                "street",
+                "zip_code",
+                "start_date"
+            ],
+            "primary_keys": [
+                "Contractor"
+            ],
+            "weak": true
+        },
+        "receives": {
+            "attributes": [
+                "date",
+                "owns",
+                "amount"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "duration": {
+            "attributes": [
+                "name",
+                "state",
+                "Task",
+                "start_date"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "company_name",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "end_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "task_id",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "uses",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "Project"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "homeowner_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "duration"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Homeowner",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Project",
+                "receives"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "specialty",
+            "weak": false
+        },
+        {
+            "entities": [
+                "task_id",
+                "receives",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "company_name",
+            "weak": false
+        }
+    ]
+}

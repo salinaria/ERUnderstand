@@ -1,0 +1,39 @@
+erDiagram
+Player {
+  string player_id PK
+  string name
+  string date_of_birth
+  string dominant_hand
+}
+
+Game {
+  string game_id PK
+  string date
+  string start_time
+  string end_time
+}
+
+Tournament {
+  string tournament_id PK
+  string name
+  string start_date
+  string end_date
+  string location
+}
+
+Match {
+  string match_id PK
+  string match_number
+  string score
+}
+
+Umpire {
+  string umpire_id PK
+  string name
+  string rating
+}
+
+    Player o{--o{ Game : "plays_in"
+    Tournament ||--o{ Game : "contains"
+    Game ||..o{ Match : "consists_of"
+    Umpire ||--o{ Game : "officiates"

@@ -1,0 +1,54 @@
+erDiagram
+Parent {
+  string parent_id PK
+  string first_name
+  string last_name
+  %% phone_number: multivalued
+  string phone_number
+  string address
+}
+
+Child {
+  string child_id PK
+  string first_name
+  string last_name
+  string date_of_birth
+  string allergies
+}
+
+Babysitter {
+  string babysitter_id PK
+  string first_name
+  string last_name
+  string age
+  string hourly_rate
+  string availability
+}
+
+Booking {
+  string booking_id PK
+  string date
+  string start_time
+  string end_time
+  string location
+  string payment_amount
+}
+
+Review {
+  string review_id PK
+  string rating
+  string comment
+}
+
+    Parent ||--o{ Child : "Has"
+REL_Provides {
+  string rel_provides_id PK
+}
+
+    Babysitter ||--o{ REL_Provides : "Babysitter-REL_Provides"
+    Booking o{--o{ REL_Provides : "Booking-REL_Provides"
+    Child o{--o{ REL_Provides : "Child-REL_Provides"
+    Booking o{--|| Parent : "Arranges"
+    Babysitter ||--o{ Review : "Receives"
+    Parent ||--o{ Review : "Gives"
+    Booking ||..|| Review : "Results_in"

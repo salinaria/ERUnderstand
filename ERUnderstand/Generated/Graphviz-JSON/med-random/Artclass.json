@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "wely": {
+      "weak": false,
+      "attributes": [
+        "knrv",
+        "xrdg",
+        "fioe"
+      ],
+      "primary_keys": [
+        "knrv"
+      ],
+      "derived": [
+        "hwrr"
+      ],
+      "multivalued": [
+        "ycbv"
+      ]
+    },
+    "wszy": {
+      "weak": false,
+      "attributes": [
+        "ffcy",
+        "xrdg",
+        "xyqt"
+      ],
+      "primary_keys": [
+        "ffcy"
+      ],
+      "composite": {
+        "bppb": [
+          "uxnn",
+          "godt",
+          "xvmj"
+        ]
+      }
+    },
+    "ipyh": {
+      "weak": false,
+      "attributes": [
+        "vfhf",
+        "uxrn",
+        "kmqa",
+        "mvle"
+      ],
+      "primary_keys": [
+        "vfhf"
+      ]
+    },
+    "bldx": {
+      "weak": false,
+      "attributes": [
+        "qsjy",
+        "xrdg",
+        "fjrc",
+        "xixf"
+      ],
+      "primary_keys": [
+        "qsjy"
+      ]
+    },
+    "vmvp": {
+      "weak": true,
+      "attributes": [
+        "ckma",
+        "yaxb",
+        "gnze"
+      ],
+      "primary_keys": [
+        "ckma"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wely",
+        "bldx"
+      ],
+      "cardinality": [
+        "M",
+        "N"
+      ],
+      "name": "puzh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wszy",
+        "bldx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "glkg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wely",
+        "ipyh"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "mecx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ipyh",
+        "bldx",
+        "vmvp"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "cnvu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "wely",
+        "ipyh"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "albs",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "bavg": {
+      "weak": false,
+      "attributes": [
+        "wqpz",
+        "vyeh",
+        "jybv"
+      ],
+      "primary_keys": [
+        "wqpz"
+      ],
+      "multivalued": [
+        "grel"
+      ]
+    },
+    "ehjp": {
+      "weak": false,
+      "attributes": [
+        "itwl",
+        "vgpa",
+        "ygbo"
+      ],
+      "primary_keys": [
+        "itwl"
+      ]
+    },
+    "zejm": {
+      "weak": false,
+      "attributes": [
+        "bqok",
+        "vbga",
+        "bajq"
+      ],
+      "primary_keys": [
+        "bqok"
+      ]
+    },
+    "ahuf": {
+      "weak": false,
+      "attributes": [
+        "sbzk",
+        "feur",
+        "hznl"
+      ],
+      "primary_keys": [
+        "sbzk"
+      ],
+      "derived": [
+        "gzgr"
+      ]
+    },
+    "mzkt": {
+      "weak": true,
+      "attributes": [
+        "hmnl",
+        "zlek",
+        "itwl",
+        "wqpz"
+      ],
+      "primary_keys": [
+        "hmnl"
+      ],
+      "composite": {
+        "zlek": [
+          "naza",
+          "idwf"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bavg",
+        "mzkt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cdpv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mzkt",
+        "zejm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "yjhz",
+      "weak": true
+    },
+    {
+      "entities": [
+        "ehjp",
+        "mzkt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "muey",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ahuf",
+        "zejm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "btff",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ahuf",
+        "ehjp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rzbc",
+      "weak": false
+    }
+  ]
+}

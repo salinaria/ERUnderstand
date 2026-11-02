@@ -1,0 +1,143 @@
+{
+    "entities": {
+        "uses": {
+            "attributes": [
+                "time",
+                "date",
+                "product_id"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "multivalued": [
+                "stylist_id"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "Appointment",
+                    "client_id"
+                ]
+            }
+        },
+        "last_name": {
+            "attributes": [
+                "includes",
+                "date",
+                "brand"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "Appointment",
+                    "client_id"
+                ]
+            }
+        },
+        "Client": {
+            "attributes": [
+                "description",
+                "phone_number",
+                "duration",
+                "appointment_id"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "derived": [
+                "books"
+            ],
+            "weak": false
+        },
+        "Product": {
+            "attributes": [
+                "name",
+                "date",
+                "schedules"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "first_name",
+                "date",
+                "performs",
+                "service_id"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "uses",
+                "Client"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Stylist",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "Client"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "specialty",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Client",
+                "Product"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Service",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Client",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "quantity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "uses",
+                "Client"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "email",
+            "weak": false
+        }
+    ]
+}

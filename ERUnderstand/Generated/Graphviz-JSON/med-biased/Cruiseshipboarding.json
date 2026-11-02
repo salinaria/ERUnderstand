@@ -1,0 +1,124 @@
+{
+    "entities": {
+        "Booking": {
+            "attributes": [
+                "max_capacity",
+                "passenger_id",
+                "port_name"
+            ],
+            "primary_keys": [
+                "max_capacity"
+            ],
+            "composite": {
+                "passenger_id": [
+                    "amenities",
+                    "first_name",
+                    "booking_date"
+                ]
+            },
+            "weak": false
+        },
+        "cabin_type": {
+            "attributes": [
+                "ship_name",
+                "has",
+                "CruiseShip"
+            ],
+            "primary_keys": [
+                "ship_name"
+            ],
+            "derived": [
+                "CruiseShip"
+            ],
+            "weak": false
+        },
+        "makes": {
+            "attributes": [
+                "last_name",
+                "visits",
+                "total_price"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "weak": false
+        },
+        "Passenger": {
+            "attributes": [
+                "assigns",
+                "Port",
+                "middle_name"
+            ],
+            "primary_keys": [
+                "assigns"
+            ],
+            "weak": false
+        },
+        "port_code": {
+            "attributes": [
+                "citizenship",
+                "ship_id",
+                "cabin_number"
+            ],
+            "primary_keys": [
+                "citizenship"
+            ],
+            "multivalued": [
+                "Cabin"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Booking",
+                "cabin_type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "country",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cabin_type",
+                "makes"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "capacity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Passenger",
+                "makes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "booking_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Passenger",
+                "port_code",
+                "cabin_type"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        }
+    ]
+}

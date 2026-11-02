@@ -1,0 +1,143 @@
+{
+  "entities": {
+    "ugwv": {
+      "weak": false,
+      "attributes": [
+        "dxcl",
+        "cktb",
+        "aqrw",
+        "kpua",
+        "rmvu"
+      ],
+      "primary_keys": [
+        "dxcl"
+      ],
+      "multivalued": [
+        "naex"
+      ],
+      "composite": {
+        "zhea": [
+          "kmyn",
+          "stke",
+          "blbm"
+        ]
+      }
+    },
+    "xvau": {
+      "weak": false,
+      "attributes": [
+        "yzwh",
+        "ioub",
+        "pdvl",
+        "dpgl",
+        "qjkb"
+      ],
+      "primary_keys": [
+        "yzwh"
+      ]
+    },
+    "qwwp": {
+      "weak": false,
+      "attributes": [
+        "niyb",
+        "cktb",
+        "pfjt",
+        "kagv"
+      ],
+      "primary_keys": [
+        "niyb"
+      ]
+    },
+    "xyrr": {
+      "weak": false,
+      "attributes": [
+        "zzse",
+        "cktb",
+        "hawa"
+      ],
+      "primary_keys": [
+        "zzse"
+      ]
+    },
+    "lxtk": {
+      "weak": true,
+      "attributes": [
+        "mhqq",
+        "qjkb",
+        "mxig",
+        "iwdl"
+      ],
+      "primary_keys": [
+        "mhqq"
+      ]
+    },
+    "yzps": {
+      "weak": true,
+      "attributes": [
+        "sppc",
+        "yzwh",
+        "dxcl",
+        "niyb",
+        "yyxl"
+      ],
+      "primary_keys": [
+        "sppc"
+      ],
+      "derived": [
+        "jwgh"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ugwv",
+        "xvau"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "dbgy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xvau",
+        "qwwp",
+        "xyrr"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "boez",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xvau",
+        "lxtk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nzvu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ugwv",
+        "yzps"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gyqg",
+      "weak": true
+    }
+  ]
+}

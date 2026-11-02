@@ -1,0 +1,142 @@
+{
+  "entities": {
+    "ldrm": {
+      "weak": false,
+      "attributes": [
+        "cycr",
+        "zuji",
+        "jqow",
+        "qfrl",
+        "ouxd"
+      ],
+      "primary_keys": [
+        "cycr"
+      ],
+      "multivalued": [
+        "pmsh"
+      ]
+    },
+    "etsp": {
+      "weak": false,
+      "attributes": [
+        "fvoe",
+        "zuji",
+        "hzte",
+        "pbau"
+      ],
+      "primary_keys": [
+        "fvoe"
+      ],
+      "composite": {
+        "zuji": [
+          "iply",
+          "ryzf"
+        ]
+      }
+    },
+    "okbc": {
+      "weak": false,
+      "attributes": [
+        "mqnd",
+        "txfe",
+        "dhuo",
+        "ukdz",
+        "olwl"
+      ],
+      "primary_keys": [
+        "mqnd"
+      ]
+    },
+    "llto": {
+      "weak": true,
+      "attributes": [
+        "umhb",
+        "czll",
+        "bezz",
+        "hska"
+      ],
+      "primary_keys": [
+        "umhb"
+      ],
+      "derived": [
+        "ckeu"
+      ]
+    },
+    "sswn": {
+      "weak": false,
+      "attributes": [
+        "upzn",
+        "wgfo",
+        "eebp",
+        "dgrz"
+      ],
+      "primary_keys": [
+        "upzn"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ldrm",
+        "okbc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qdqj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "etsp",
+        "okbc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wxax",
+      "weak": false
+    },
+    {
+      "entities": [
+        "okbc",
+        "llto"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "qnzq",
+      "weak": true
+    },
+    {
+      "entities": [
+        "ldrm",
+        "okbc",
+        "sswn"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "kfdi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "okbc",
+        "sswn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pddh",
+      "weak": false
+    }
+  ]
+}

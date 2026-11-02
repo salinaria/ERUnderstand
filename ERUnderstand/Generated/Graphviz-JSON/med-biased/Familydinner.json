@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "Guest": {
+            "attributes": [
+                "DrinkID",
+                "Drink",
+                "Person",
+                "Recipe",
+                "Prepares"
+            ],
+            "primary_keys": [
+                "DrinkID"
+            ],
+            "multivalued": [
+                "Prepares"
+            ],
+            "derived": [
+                "Recipe"
+            ],
+            "composite": {
+                "Calories": [
+                    "Drink",
+                    "Person"
+                ]
+            },
+            "weak": false
+        },
+        "FirstName": {
+            "attributes": [
+                "PersonID",
+                "DishID",
+                "DishName",
+                "TableID"
+            ],
+            "primary_keys": [
+                "PersonID"
+            ],
+            "weak": false
+        },
+        "Volume": {
+            "attributes": [
+                "DietaryRestrictions",
+                "Drinks",
+                "Table"
+            ],
+            "primary_keys": [
+                "DietaryRestrictions"
+            ],
+            "weak": false
+        },
+        "Is": {
+            "attributes": [
+                "PhoneNumber",
+                "LastName",
+                "Age"
+            ],
+            "primary_keys": [
+                "PhoneNumber"
+            ],
+            "weak": true
+        },
+        "GuestID": {
+            "attributes": [
+                "Location",
+                "Alcoholic",
+                "Eats",
+                "Sits At"
+            ],
+            "primary_keys": [
+                "Location"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Guest",
+                "Is"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Calories",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Guest",
+                "FirstName"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "SeatingCapacity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Guest",
+                "Volume"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "RSVPStatus",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Guest",
+                "GuestID"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Dish",
+            "weak": false
+        },
+        {
+            "entities": [
+                "FirstName",
+                "GuestID",
+                "Guest"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "DrinkName",
+            "weak": false
+        }
+    ]
+}

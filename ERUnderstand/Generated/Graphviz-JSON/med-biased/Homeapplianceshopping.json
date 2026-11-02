@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "payment_method": {
+            "attributes": [
+                "makes",
+                "Customer",
+                "description"
+            ],
+            "primary_keys": [
+                "makes"
+            ],
+            "multivalued": [
+                "name"
+            ],
+            "weak": false
+        },
+        "delivery_address": {
+            "attributes": [
+                "phone_number",
+                "Customer",
+                "address",
+                "delivery_address"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "derived": [
+                "rating"
+            ],
+            "weak": false
+        },
+        "writes": {
+            "attributes": [
+                "customer_id",
+                "Order",
+                "places"
+            ],
+            "primary_keys": [
+                "customer_id"
+            ],
+            "composite": {
+                "places": [
+                    "includes",
+                    "Product",
+                    "city"
+                ]
+            },
+            "weak": false
+        },
+        "order_id": {
+            "attributes": [
+                "Review",
+                "amount",
+                "product_id",
+                "street"
+            ],
+            "primary_keys": [
+                "Review"
+            ],
+            "weak": true
+        },
+        "zip_code": {
+            "attributes": [
+                "Payment",
+                "review_id",
+                "discounted_price"
+            ],
+            "primary_keys": [
+                "Payment"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "payment_method",
+                "writes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "payment_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "writes",
+                "delivery_address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "payment_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "writes",
+                "order_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "receives",
+            "weak": true
+        },
+        {
+            "entities": [
+                "payment_method",
+                "delivery_address",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "comment",
+            "weak": true
+        },
+        {
+            "entities": [
+                "delivery_address",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "order_date",
+            "weak": true
+        }
+    ]
+}

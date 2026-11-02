@@ -1,0 +1,45 @@
+erDiagram
+Patient {
+  string patient_id PK
+  string name
+  string date_of_birth
+  %% address: composite
+  string address
+}
+
+Doctor {
+  string doctor_id PK
+  string name
+  string specialty
+}
+
+Appointment {
+  string appointment_id PK
+  string date
+  string time
+  string notes
+  string patient_id
+  string doctor_id
+}
+
+Eye_Exam {
+  string exam_id PK
+  string vision_right
+  string vision_left
+  string date
+  string appointment_id
+}
+
+LensPrescription {
+  string prescription_id PK
+  string sphere
+  string cylinder
+  string axis
+  string add
+  string exam_id
+}
+
+    Patient ||--o{ Appointment : "schedules"
+    Doctor ||--o{ Appointment : "performs"
+    Appointment ||..|| Eye_Exam : "includes"
+    Eye_Exam ||..|| LensPrescription : "results_in"

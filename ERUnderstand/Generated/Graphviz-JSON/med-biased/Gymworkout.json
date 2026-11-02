@@ -1,0 +1,154 @@
+{
+    "entities": {
+        "type": {
+            "attributes": [
+                "start_time",
+                "name",
+                "sets",
+                "member_id"
+            ],
+            "primary_keys": [
+                "start_time"
+            ],
+            "multivalued": [
+                "consists_of"
+            ],
+            "weak": false,
+            "composite": {
+                "goal_id": [
+                    "name",
+                    "sets"
+                ]
+            }
+        },
+        "end_time": {
+            "attributes": [
+                "reps",
+                "goal_id",
+                "equipment_id",
+                "date"
+            ],
+            "primary_keys": [
+                "reps"
+            ],
+            "weak": false
+        },
+        "uses": {
+            "attributes": [
+                "start_date",
+                "goal_id",
+                "first_name",
+                "workout_id",
+                "last_name"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "Workout",
+                "goal_id",
+                "Member",
+                "Equipment"
+            ],
+            "primary_keys": [
+                "Workout"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "condition",
+                "last_name",
+                "duration",
+                "completes",
+                "Exercise"
+            ],
+            "primary_keys": [
+                "condition"
+            ],
+            "derived": [
+                "status"
+            ],
+            "weak": false
+        },
+        "session_id": {
+            "attributes": [
+                "join_date",
+                "exercise_id",
+                "performs",
+                "difficulty"
+            ],
+            "primary_keys": [
+                "join_date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "type",
+                "end_time"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "end_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_time",
+                "uses"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "days_remaining",
+            "weak": false
+        },
+        {
+            "entities": [
+                "uses",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "days_remaining",
+            "weak": false
+        },
+        {
+            "entities": [
+                "type",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "first_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "type",
+                "end_time",
+                "session_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Session",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+    "entities": {
+        "Toy": {
+            "attributes": [
+                "material",
+                "Visit",
+                "Schedules"
+            ],
+            "primary_keys": [
+                "material"
+            ],
+            "multivalued": [
+                "Vet"
+            ],
+            "weak": false,
+            "composite": {
+                "Schedules": [
+                    "age",
+                    "visit_id",
+                    "notes",
+                    "date_of_birth"
+                ]
+            }
+        },
+        "breed": {
+            "attributes": [
+                "vet_id",
+                "Visit",
+                "Owns",
+                "state"
+            ],
+            "primary_keys": [
+                "vet_id"
+            ],
+            "derived": [
+                "city"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "date",
+                "Visit",
+                "address"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "toy_id": {
+            "attributes": [
+                "pet_id",
+                "Visit",
+                "zip"
+            ],
+            "primary_keys": [
+                "pet_id"
+            ],
+            "weak": false
+        },
+        "person_id": {
+            "attributes": [
+                "specialization",
+                "Person",
+                "street",
+                "vet_id"
+            ],
+            "primary_keys": [
+                "specialization"
+            ],
+            "weak": true,
+            "identifying_relationship": "name"
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Toy",
+                "breed"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Pet",
+            "weak": false
+        },
+        {
+            "entities": [
+                "breed",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "state",
+            "weak": false
+        },
+        {
+            "entities": [
+                "toy_id",
+                "breed",
+                "person_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+  "entities": {
+    "msvt": {
+      "weak": false,
+      "attributes": [
+        "datb",
+        "ylpd",
+        "isuc",
+        "fpkh"
+      ],
+      "primary_keys": [
+        "datb"
+      ],
+      "multivalued": [
+        "ykmc"
+      ],
+      "composite": {
+        "fpkh": [
+          "enfe",
+          "akqe",
+          "tfbq",
+          "wtxi"
+        ]
+      }
+    },
+    "gbiz": {
+      "weak": false,
+      "attributes": [
+        "udqb",
+        "ylpd",
+        "gdjz"
+      ],
+      "primary_keys": [
+        "udqb"
+      ]
+    },
+    "cfwq": {
+      "weak": false,
+      "attributes": [
+        "bzyr",
+        "iqmi",
+        "bpyy",
+        "uisr",
+        "datb",
+        "udqb"
+      ],
+      "primary_keys": [
+        "bzyr"
+      ],
+      "derived": [
+        "tpwq"
+      ]
+    },
+    "apos": {
+      "weak": true,
+      "attributes": [
+        "mrao",
+        "rsra",
+        "gbmw",
+        "iqmi",
+        "bzyr"
+      ],
+      "primary_keys": [
+        "mrao"
+      ]
+    },
+    "oyxb": {
+      "weak": true,
+      "attributes": [
+        "ibjx",
+        "mshs",
+        "abwt",
+        "tkpt",
+        "mpmy",
+        "mrao"
+      ],
+      "primary_keys": [
+        "ibjx"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "msvt",
+        "cfwq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wlox",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gbiz",
+        "cfwq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "bksg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cfwq",
+        "apos"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "sfeq",
+      "weak": true
+    },
+    {
+      "entities": [
+        "apos",
+        "oyxb"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "nztx",
+      "weak": true
+    }
+  ]
+}

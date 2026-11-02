@@ -1,0 +1,144 @@
+{
+  "entities": {
+    "gnhb": {
+      "weak": false,
+      "attributes": [
+        "uqyj",
+        "hacz",
+        "ohpc",
+        "wxol"
+      ],
+      "primary_keys": [
+        "uqyj"
+      ],
+      "multivalued": [
+        "ohpc"
+      ],
+      "composite": {
+        "wxol": [
+          "kayk",
+          "snuo",
+          "tpsn",
+          "kiad"
+        ]
+      }
+    },
+    "agfl": {
+      "weak": false,
+      "attributes": [
+        "wysv",
+        "houn",
+        "ndwu",
+        "yefb",
+        "ygmd"
+      ],
+      "primary_keys": [
+        "wysv"
+      ]
+    },
+    "jxbo": {
+      "weak": false,
+      "attributes": [
+        "mnfg",
+        "ukda",
+        "ekbw",
+        "tvso",
+        "iejj"
+      ],
+      "primary_keys": [
+        "mnfg"
+      ],
+      "derived": [
+        "tvso"
+      ]
+    },
+    "xzhw": {
+      "weak": false,
+      "attributes": [
+        "xbsd",
+        "wxol",
+        "snuo",
+        "tpsn",
+        "yuox"
+      ],
+      "primary_keys": [
+        "xbsd"
+      ]
+    },
+    "tpjl": {
+      "weak": true,
+      "attributes": [
+        "mktf",
+        "qexr",
+        "amkr"
+      ],
+      "primary_keys": [
+        "mktf"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "gnhb",
+        "jxbo"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fiuq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jxbo",
+        "agfl"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "khyi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jxbo",
+        "xzhw"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "uaxn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "agfl",
+        "tpjl",
+        "jxbo"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "clmp",
+      "weak": true
+    },
+    {
+      "entities": [
+        "tpjl",
+        "agfl"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "sjne",
+      "weak": true
+    }
+  ]
+}

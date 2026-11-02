@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "time": {
+            "attributes": [
+                "file_location",
+                "defendant_id",
+                "claim_id",
+                "filed_by"
+            ],
+            "primary_keys": [
+                "file_location"
+            ],
+            "weak": false
+        },
+        "plaintiff_id": {
+            "attributes": [
+                "description",
+                "last_name",
+                "name",
+                "filed_against"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "composite": {
+                "last_name": [
+                    "hearing_id",
+                    "address"
+                ]
+            },
+            "weak": false
+        },
+        "Hearing": {
+            "attributes": [
+                "date_filed",
+                "last_name",
+                "name",
+                "filed_against"
+            ],
+            "primary_keys": [
+                "date_filed"
+            ],
+            "composite": {
+                "last_name": [
+                    "hearing_id",
+                    "address"
+                ]
+            },
+            "weak": false
+        },
+        "Evidence": {
+            "attributes": [
+                "first_name",
+                "Plaintiff",
+                "date",
+                "amount_claimed"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": true
+        },
+        "phone_number": {
+            "attributes": [
+                "location",
+                "filed_by",
+                "scheduled_for",
+                "type"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": false,
+            "multivalued": [
+                "pertains_to"
+            ]
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "time",
+                "plaintiff_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "evidence_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "Hearing"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "includes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "Evidence"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date_submitted",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Claim",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Evidence",
+                "time"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Defendant",
+            "weak": false
+        }
+    ]
+}

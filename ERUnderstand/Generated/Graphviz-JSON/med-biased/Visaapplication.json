@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "phone_number": {
+            "attributes": [
+                "applies_through",
+                "Applicant",
+                "issue_date",
+                "VisaApplication"
+            ],
+            "primary_keys": [
+                "applies_through"
+            ],
+            "multivalued": [
+                "expiry_date"
+            ],
+            "weak": false,
+            "composite": {
+                "issuing_country": [
+                    "processed_by",
+                    "address",
+                    "Passport",
+                    "processing_time"
+                ]
+            }
+        },
+        "SupportingDocument": {
+            "attributes": [
+                "Embassy",
+                "application_id",
+                "location",
+                "street"
+            ],
+            "primary_keys": [
+                "Embassy"
+            ],
+            "weak": true
+        },
+        "submission_date": {
+            "attributes": [
+                "applies_through",
+                "possesses",
+                "city"
+            ],
+            "primary_keys": [
+                "applies_through"
+            ],
+            "derived": [
+                "includes"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "country",
+                "contact_info",
+                "nationality"
+            ],
+            "primary_keys": [
+                "country"
+            ],
+            "weak": true
+        },
+        "description": {
+            "attributes": [
+                "document_type",
+                "document_id",
+                "embassy_id"
+            ],
+            "primary_keys": [
+                "document_type"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "phone_number",
+                "SupportingDocument"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "submission_date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "status",
+            "weak": false
+        },
+        {
+            "entities": [
+                "submission_date",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "submission_date",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "passport_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "SupportingDocument",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "submits",
+            "weak": true
+        }
+    ]
+}

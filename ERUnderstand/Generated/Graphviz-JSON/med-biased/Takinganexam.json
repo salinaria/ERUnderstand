@@ -1,0 +1,126 @@
+{
+    "entities": {
+        "course_name": {
+            "attributes": [
+                "marks",
+                "question_text",
+                "score"
+            ],
+            "primary_keys": [
+                "marks"
+            ],
+            "multivalued": [
+                "answer_text"
+            ],
+            "weak": false
+        },
+        "student_id": {
+            "attributes": [
+                "Question",
+                "exam_id",
+                "name"
+            ],
+            "primary_keys": [
+                "Question"
+            ],
+            "weak": false
+        },
+        "Addresses": {
+            "attributes": [
+                "total_marks",
+                "exam_date",
+                "ConsistsOf"
+            ],
+            "primary_keys": [
+                "total_marks"
+            ],
+            "weak": false
+        },
+        "question_id": {
+            "attributes": [
+                "score",
+                "credits",
+                "Course"
+            ],
+            "primary_keys": [
+                "score"
+            ],
+            "weak": true
+        },
+        "Includes": {
+            "attributes": [
+                "Exam",
+                "Answers",
+                "major"
+            ],
+            "primary_keys": [
+                "Exam"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "course_name",
+                "student_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "answer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "student_id",
+                "Addresses"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "course_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "course_name",
+                "question_id",
+                "Addresses"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "question_id",
+                "Addresses"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Answer",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Includes",
+                "student_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Student",
+            "weak": false
+        }
+    ]
+}

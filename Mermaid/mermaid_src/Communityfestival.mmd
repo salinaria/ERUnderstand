@@ -1,0 +1,45 @@
+erDiagram
+Participant {
+  string participant_id PK
+  string name
+  string address
+}
+
+Event {
+  string event_id PK
+  string name
+  string date
+  string location
+  string capacity
+}
+
+Booth {
+  string booth_number PK
+  string type
+  string fee
+}
+
+Sponsor {
+  string sponsor_id PK
+  string name
+  string contact_person
+  string contact_email
+}
+
+Volunteer {
+  string volunteer_id PK
+  string availability
+  string skills
+}
+
+    Participant o{--o{ Event : "attends"
+    Event ||--o{ Booth : "features"
+    Sponsor ||--o{ Event : "sponsors"
+    Volunteer o{--|| Event : "assists"
+REL_exhibits_at {
+  string rel_exhibits_at_id PK
+}
+
+    Participant o{..o{ REL_exhibits_at : "Participant-REL_exhibits_at"
+    Booth ||..o{ REL_exhibits_at : "Booth-REL_exhibits_at"
+    Event ||..o{ REL_exhibits_at : "Event-REL_exhibits_at"

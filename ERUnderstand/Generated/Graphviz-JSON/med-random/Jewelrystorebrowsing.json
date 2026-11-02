@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "izqd": {
+      "weak": false,
+      "attributes": [
+        "zjai",
+        "dfdk",
+        "ymkt",
+        "zijo"
+      ],
+      "primary_keys": [
+        "zjai"
+      ],
+      "composite": {
+        "oanb": [
+          "dfdk",
+          "ymkt"
+        ]
+      }
+    },
+    "omyp": {
+      "weak": false,
+      "attributes": [
+        "giil",
+        "oanb",
+        "ittb",
+        "vxsx"
+      ],
+      "primary_keys": [
+        "giil"
+      ],
+      "derived": [
+        "aeol"
+      ]
+    },
+    "auql": {
+      "weak": false,
+      "attributes": [
+        "zdmg",
+        "mgaw"
+      ],
+      "primary_keys": [
+        "zdmg"
+      ]
+    },
+    "huwj": {
+      "weak": true,
+      "attributes": [
+        "pekn",
+        "bvky",
+        "vgyz"
+      ],
+      "primary_keys": [
+        "pekn"
+      ],
+      "derived": [
+        "mxfs"
+      ]
+    },
+    "saaz": {
+      "weak": true,
+      "attributes": [
+        "bnis",
+        "oygk",
+        "bodj"
+      ],
+      "primary_keys": [
+        "bnis"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "izqd",
+        "huwj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "myfa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "huwj",
+        "omyp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "flto",
+      "weak": false
+    },
+    {
+      "entities": [
+        "omyp",
+        "auql"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "zxew",
+      "weak": false
+    },
+    {
+      "entities": [
+        "omyp",
+        "saaz",
+        "izqd"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "exbp",
+      "weak": true
+    },
+    {
+      "entities": [
+        "izqd",
+        "omyp"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "etna",
+      "weak": false
+    }
+  ]
+}

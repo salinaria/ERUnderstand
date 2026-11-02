@@ -1,0 +1,47 @@
+erDiagram
+Employee {
+  string employee_id PK
+  string employee_name
+  %% phone_number: multivalued
+  string phone_number
+  %% skill_set: multivalued
+  string skill_set
+}
+
+Team {
+  string team_id PK
+  string team_name
+  %% team_size: derived
+  string team_size
+}
+
+Activity {
+  string activity_id PK
+  string activity_name
+  string activity_description
+  string location
+}
+
+Event {
+  string event_id PK
+  %% event_date: composite
+  string event_date
+  string budget
+}
+
+Prize {
+  string prize_id PK
+  string prize_description
+  string prize_value
+}
+
+    Employee o{--|| Team : "belongs_to"
+    Team o{--o{ Activity : "participates_in"
+    Event ||--o{ Activity : "includes"
+REL_wins {
+  string rel_wins_id PK
+}
+
+    Team ||..o{ REL_wins : "Team-REL_wins"
+    Prize o{..o{ REL_wins : "Prize-REL_wins"
+    Event ||..o{ REL_wins : "Event-REL_wins"

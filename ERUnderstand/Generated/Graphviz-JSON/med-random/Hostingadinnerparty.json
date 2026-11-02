@@ -1,0 +1,124 @@
+{
+  "entities": {
+    "bydd": {
+      "weak": false,
+      "attributes": [
+        "qadd",
+        "tkmd",
+        "vfsy"
+      ],
+      "primary_keys": [
+        "qadd"
+      ],
+      "multivalued": [
+        "lxnm"
+      ]
+    },
+    "eljx": {
+      "weak": false,
+      "attributes": [
+        "uwbf",
+        "tkmd",
+        "thbj"
+      ],
+      "primary_keys": [
+        "uwbf"
+      ]
+    },
+    "gbnb": {
+      "weak": false,
+      "attributes": [
+        "cnei",
+        "tkmd",
+        "dmtf"
+      ],
+      "primary_keys": [
+        "cnei"
+      ]
+    },
+    "ksfz": {
+      "weak": true,
+      "attributes": [
+        "dgus",
+        "tkmd",
+        "sayf"
+      ],
+      "primary_keys": [
+        "dgus"
+      ],
+      "composite": {
+        "zssu": [
+          "qiwm",
+          "fcwd",
+          "tgzg",
+          "wuvj"
+        ]
+      }
+    },
+    "ddjd": {
+      "weak": false,
+      "attributes": [
+        "sjdo",
+        "bblw",
+        "tuak",
+        "tqoi"
+      ],
+      "primary_keys": [
+        "sjdo"
+      ],
+      "derived": [
+        "tqoi"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bydd",
+        "ddjd"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "yumw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ddjd",
+        "eljx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ckux",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eljx",
+        "gbnb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ybsb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ddjd",
+        "ksfz"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "idvt",
+      "weak": true
+    }
+  ]
+}

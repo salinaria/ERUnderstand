@@ -1,0 +1,50 @@
+erDiagram
+Plaintiff {
+  string plaintiff_id PK
+  string name
+  %% address: composite
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Defendant {
+  string defendant_id PK
+  string name
+  %% address: composite
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Lawsuit {
+  string lawsuit_id PK
+  string case_number
+  string filing_date
+  string type
+}
+
+Court {
+  string court_id PK
+  string name
+  string location
+}
+
+Evidence {
+  string evidence_id PK
+  string description
+  string type
+  string date_submitted
+}
+
+    Plaintiff ||--o{ Lawsuit : "files"
+    Defendant ||--o{ Lawsuit : "is_against"
+    Lawsuit ||--|| Court : "is_heard_in"
+    Lawsuit ||..o{ Evidence : "includes"
+REL_involves {
+  string rel_involves_id PK
+}
+
+    Lawsuit ||--o{ REL_involves : "Lawsuit-REL_involves"
+    Plaintiff o{--o{ REL_involves : "Plaintiff-REL_involves"
+    Defendant o{--o{ REL_involves : "Defendant-REL_involves"

@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "cost_per_unit": {
+            "attributes": [
+                "allergies",
+                "Recipe",
+                "related_to"
+            ],
+            "primary_keys": [
+                "allergies"
+            ],
+            "multivalued": [
+                "instructions"
+            ],
+            "weak": false
+        },
+        "Task": {
+            "attributes": [
+                "description",
+                "Recipe",
+                "ingredient_id",
+                "task_id"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "derived": [
+                "brings"
+            ],
+            "weak": false
+        },
+        "rsvp_status": {
+            "attributes": [
+                "Guest",
+                "total_cost",
+                "Item",
+                "assigned_to"
+            ],
+            "primary_keys": [
+                "Guest"
+            ],
+            "weak": false
+        },
+        "quantity": {
+            "attributes": [
+                "comprises",
+                "Recipe",
+                "recipe_id"
+            ],
+            "primary_keys": [
+                "comprises"
+            ],
+            "weak": false
+        },
+        "due_date": {
+            "attributes": [
+                "status",
+                "Recipe",
+                "ingredient_id"
+            ],
+            "primary_keys": [
+                "status"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "cost_per_unit",
+                "rsvp_status"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "item_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost_per_unit",
+                "Task"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "requires",
+            "weak": false
+        },
+        {
+            "entities": [
+                "quantity",
+                "due_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Task",
+                "quantity"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Ingredient",
+            "weak": false
+        },
+        {
+            "entities": [
+                "rsvp_status",
+                "cost_per_unit",
+                "Task"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "guest_id",
+            "weak": true
+        }
+    ]
+}

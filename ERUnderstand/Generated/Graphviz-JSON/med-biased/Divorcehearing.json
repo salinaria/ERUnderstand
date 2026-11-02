@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "asset_id": {
+            "attributes": [
+                "address",
+                "location",
+                "date",
+                "name"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "composite": {
+                "date_of_birth": [
+                    "location",
+                    "date"
+                ]
+            },
+            "weak": false
+        },
+        "Document": {
+            "attributes": [
+                "last_name",
+                "judge_name",
+                "first_name",
+                "description"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "weak": false
+        },
+        "Person": {
+            "attributes": [
+                "age",
+                "date_of_birth",
+                "keywords"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "derived": [
+                "keywords"
+            ],
+            "weak": true
+        },
+        "person_id": {
+            "attributes": [
+                "RelatesTo",
+                "ParentOf",
+                "child_id"
+            ],
+            "primary_keys": [
+                "RelatesTo"
+            ],
+            "weak": false
+        },
+        "document_type": {
+            "attributes": [
+                "Child",
+                "hearing_id",
+                "document_id"
+            ],
+            "primary_keys": [
+                "Child"
+            ],
+            "multivalued": [
+                "Attends"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "asset_id",
+                "Document"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Hearing",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Person",
+                "asset_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Addresses",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Document",
+                "person_id",
+                "asset_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "Asset",
+            "weak": true
+        },
+        {
+            "entities": [
+                "asset_id",
+                "document_type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "file_path",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Person",
+                "Document"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Submits",
+            "weak": false
+        }
+    ]
+}

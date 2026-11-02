@@ -1,0 +1,55 @@
+erDiagram
+Player {
+  string player_id PK
+  string name
+  string date_of_birth
+  string batting_style
+  string bowling_style
+}
+
+Session {
+  string session_id PK
+  string date
+  string start_time
+  string end_time
+  string type
+}
+
+Drill {
+  string drill_id PK
+  string name
+  string description
+  string duration
+}
+
+Coach {
+  string coach_id PK
+  string name
+  string specialization
+}
+
+Equipment {
+  string equipment_id PK
+  string type
+  string condition
+  string quantity
+}
+
+Performance {
+  string performance_id PK
+  string session_id
+  string player_id
+  string drill_id
+  string metrics
+}
+
+    Player o{--o{ Session : "attends"
+REL_includes {
+  string rel_includes_id PK
+}
+
+    Session ||--o{ REL_includes : "Session-REL_includes"
+    Drill o{--o{ REL_includes : "Drill-REL_includes"
+    Coach ||--o{ REL_includes : "Coach-REL_includes"
+    Session ||--o{ Equipment : "uses"
+    Player ||..o{ Performance : "achieves"

@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "doctor_id": {
+            "attributes": [
+                "Doctor",
+                "zip_code",
+                "notes",
+                "performs"
+            ],
+            "primary_keys": [
+                "Doctor"
+            ],
+            "multivalued": [
+                "age_at_checkup"
+            ],
+            "weak": false
+        },
+        "has_appointment_with": {
+            "attributes": [
+                "result_value",
+                "zip_code",
+                "checkup_id"
+            ],
+            "primary_keys": [
+                "result_value"
+            ],
+            "weak": false,
+            "composite": {
+                "performs": [
+                    "city",
+                    "specialization",
+                    "test_name"
+                ]
+            }
+        },
+        "TestResult": {
+            "attributes": [
+                "patient_id",
+                "unit",
+                "normal_range",
+                "name"
+            ],
+            "primary_keys": [
+                "patient_id"
+            ],
+            "weak": true,
+            "derived": [
+                "street"
+            ]
+        },
+        "test_id": {
+            "attributes": [
+                "time",
+                "Checkup",
+                "undergoes",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "patient_id",
+                "time",
+                "includes"
+            ],
+            "primary_keys": [
+                "patient_id",
+                "time"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "doctor_id",
+                "has_appointment_with"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Patient",
+            "weak": false
+        },
+        {
+            "entities": [
+                "doctor_id",
+                "TestResult"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        },
+        {
+            "entities": [
+                "has_appointment_with",
+                "TestResult"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "generates",
+            "weak": false
+        },
+        {
+            "entities": [
+                "TestResult",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "test_id",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Test",
+            "weak": false
+        }
+    ]
+}

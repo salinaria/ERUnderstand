@@ -1,0 +1,117 @@
+{
+    "entities": {
+        "Sponsor": {
+            "attributes": [
+                "age",
+                "sponsor_id",
+                "gender",
+                "Team",
+                "runs_for"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "multivalued": [
+                "Marathon"
+            ],
+            "composite": {
+                "finish_time": [
+                    "sponsor_id",
+                    "gender"
+                ]
+            },
+            "derived": [
+                "coach_name"
+            ],
+            "weak": false
+        },
+        "first_name": {
+            "attributes": [
+                "placement",
+                "finish_time",
+                "marathon_id",
+                "name",
+                "date"
+            ],
+            "primary_keys": [
+                "placement"
+            ],
+            "weak": false
+        },
+        "industry": {
+            "attributes": [
+                "sponsors",
+                "finish_time",
+                "last_name"
+            ],
+            "primary_keys": [
+                "sponsors"
+            ],
+            "weak": false
+        },
+        "time": {
+            "attributes": [
+                "age",
+                "placement",
+                "RaceResult",
+                "birthdate"
+            ],
+            "primary_keys": [
+                "age",
+                "placement"
+            ],
+            "weak": true
+        },
+        "team_name": {
+            "attributes": [
+                "Runner",
+                "participates_in",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "Runner"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Sponsor",
+                "first_name",
+                "time"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "team_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "industry",
+                "first_name"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Sponsor",
+                "team_name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "runner_id",
+            "weak": false
+        }
+    ]
+}

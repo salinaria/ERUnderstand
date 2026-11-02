@@ -1,0 +1,39 @@
+erDiagram
+Donor {
+  string donor_id PK
+  string name
+  string date_of_birth
+  string blood_type
+}
+
+DonationCenter {
+  string center_id PK
+  string name
+  string address
+}
+
+BloodBag {
+  string bag_id PK
+  string collection_date
+  string expiry_date
+  string volume
+}
+
+Recipient {
+  string recipient_id PK
+  string name
+  string blood_type
+  string hospital_id
+}
+
+Hospital {
+  string hospital_id PK
+  string name
+  string address
+}
+
+    Donor ||--o{ BloodBag : "donates"
+    BloodBag ||--|| Recipient : "receives"
+    Donor o{--|| DonationCenter : "visits"
+    BloodBag o{..|| DonationCenter : "stored_at"
+    Recipient o{--|| Hospital : "treated_at"

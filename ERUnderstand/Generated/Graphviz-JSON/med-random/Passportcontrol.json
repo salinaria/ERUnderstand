@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "hgdx": {
+      "weak": false,
+      "attributes": [
+        "orbv",
+        "ixbn",
+        "cshm",
+        "jixv"
+      ],
+      "primary_keys": [
+        "orbv"
+      ]
+    },
+    "ausw": {
+      "weak": false,
+      "attributes": [
+        "dbhl",
+        "ydrw",
+        "vpjh",
+        "oamx"
+      ],
+      "primary_keys": [
+        "dbhl"
+      ],
+      "multivalued": [
+        "dgtf"
+      ],
+      "composite": {
+        "yefp": [
+          "ydrw",
+          "vpjh"
+        ]
+      }
+    },
+    "omld": {
+      "weak": false,
+      "attributes": [
+        "shnr",
+        "kavf",
+        "pzea",
+        "uvfl",
+        "bxnt"
+      ],
+      "primary_keys": [
+        "shnr"
+      ]
+    },
+    "dgrf": {
+      "weak": false,
+      "attributes": [
+        "nktc",
+        "thpw",
+        "flgf"
+      ],
+      "primary_keys": [
+        "nktc"
+      ]
+    },
+    "ctpu": {
+      "weak": true,
+      "attributes": [
+        "fgtz",
+        "yeok",
+        "biqt",
+        "ajya"
+      ],
+      "primary_keys": [
+        "fgtz"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ausw",
+        "hgdx"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "xlyd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ausw",
+        "omld"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mukl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hgdx",
+        "dgrf"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "zngb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ausw",
+        "dgrf",
+        "ctpu"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "tgso",
+      "weak": true
+    },
+    {
+      "entities": [
+        "hgdx",
+        "ctpu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "uhwf",
+      "weak": true
+    }
+  ]
+}

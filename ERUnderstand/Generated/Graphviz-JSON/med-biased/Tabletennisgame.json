@@ -1,0 +1,126 @@
+{
+    "entities": {
+        "dominant_hand": {
+            "attributes": [
+                "umpire_id",
+                "consists_of",
+                "rating",
+                "name"
+            ],
+            "primary_keys": [
+                "umpire_id"
+            ],
+            "multivalued": [
+                "officiates"
+            ],
+            "weak": false,
+            "composite": {
+                "game_id": [
+                    "start_time",
+                    "start_date",
+                    "location"
+                ]
+            }
+        },
+        "score": {
+            "attributes": [
+                "tournament_id",
+                "Tournament",
+                "contact_number",
+                "Game"
+            ],
+            "primary_keys": [
+                "tournament_id"
+            ],
+            "derived": [
+                "Umpire"
+            ],
+            "weak": false
+        },
+        "duration": {
+            "attributes": [
+                "player_id",
+                "consists_of",
+                "Player",
+                "date_of_birth",
+                "end_time"
+            ],
+            "primary_keys": [
+                "player_id"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "end_date",
+                "contains",
+                "match_number"
+            ],
+            "primary_keys": [
+                "end_date"
+            ],
+            "weak": true
+        },
+        "Match": {
+            "attributes": [
+                "city",
+                "consists_of",
+                "street"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "dominant_hand",
+                "score"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "zip_code",
+            "weak": false
+        },
+        {
+            "entities": [
+                "duration",
+                "score"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "match_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "score",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "plays_in",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Match",
+                "score"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        }
+    ]
+}

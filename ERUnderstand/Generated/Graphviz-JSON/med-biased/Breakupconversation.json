@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "time": {
+            "attributes": [
+                "Person",
+                "Location",
+                "description"
+            ],
+            "primary_keys": [
+                "Person"
+            ],
+            "multivalued": [
+                "message_id"
+            ],
+            "weak": false
+        },
+        "emotional_state": {
+            "attributes": [
+                "person_id",
+                "minutes"
+            ],
+            "primary_keys": [
+                "person_id"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "address",
+                "provides",
+                "text"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "reason_id": {
+            "attributes": [
+                "date",
+                "Message",
+                "phone_numbers",
+                "emotional_state"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "composite": {
+                "timestamp": [
+                    "sentiment",
+                    "duration"
+                ]
+            },
+            "weak": true
+        },
+        "Reason": {
+            "attributes": [
+                "BreakupInvolves",
+                "conversation_id",
+                "contains",
+                "location_id"
+            ],
+            "primary_keys": [
+                "BreakupInvolves"
+            ],
+            "derived": [
+                "participates_in"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "time",
+                "emotional_state"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "hours",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "reason_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Conversation",
+            "weak": false
+        },
+        {
+            "entities": [
+                "reason_id",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "reason_id",
+                "Reason"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "length",
+            "weak": false
+        },
+        {
+            "entities": [
+                "reason_id",
+                "emotional_state",
+                "time"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "occurs_at",
+            "weak": false
+        }
+    ]
+}

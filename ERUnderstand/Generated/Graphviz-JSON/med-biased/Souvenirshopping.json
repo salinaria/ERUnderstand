@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "PurchaseLine": {
+            "attributes": [
+                "purchase_id",
+                "involves",
+                "description"
+            ],
+            "primary_keys": [
+                "purchase_id"
+            ],
+            "multivalued": [
+                "quantity"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "includes",
+                "involves",
+                "phone_number",
+                "belongs_to"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "derived": [
+                "address"
+            ],
+            "weak": false
+        },
+        "souvenir_id": {
+            "attributes": [
+                "purchase_line_id",
+                "category_id"
+            ],
+            "primary_keys": [
+                "purchase_line_id"
+            ],
+            "weak": false
+        },
+        "discounted_price": {
+            "attributes": [
+                "discount",
+                "line_total",
+                "makes"
+            ],
+            "primary_keys": [
+                "discount"
+            ],
+            "weak": false
+        },
+        "total_amount": {
+            "attributes": [
+                "Category",
+                "amount",
+                "represents"
+            ],
+            "primary_keys": [
+                "Category"
+            ],
+            "weak": true,
+            "composite": {
+                "price": [
+                    "Souvenir",
+                    "category_name"
+                ]
+            }
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "PurchaseLine",
+                "discounted_price"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "percentage",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "total_amount"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "customer_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "total_amount",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "line_total",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "souvenir_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Customer",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "PurchaseLine",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "Purchase",
+            "weak": false
+        }
+    ]
+}

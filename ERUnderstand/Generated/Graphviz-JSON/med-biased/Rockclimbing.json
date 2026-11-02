@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "gear_id": {
+            "attributes": [
+                "state",
+                "street",
+                "location"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "multivalued": [
+                "climber_id"
+            ],
+            "weak": false,
+            "composite": {
+                "Attends": [
+                    "difficulty",
+                    "address",
+                    "Gear",
+                    "Session"
+                ]
+            }
+        },
+        "duration": {
+            "attributes": [
+                "Owns",
+                "street",
+                "name",
+                "gym_id"
+            ],
+            "primary_keys": [
+                "Owns"
+            ],
+            "weak": false
+        },
+        "opening_hours": {
+            "attributes": [
+                "Participates_In",
+                "street",
+                "Route",
+                "Climber"
+            ],
+            "primary_keys": [
+                "Participates_In"
+            ],
+            "weak": false
+        },
+        "type": {
+            "attributes": [
+                "route_id",
+                "street",
+                "gym_id",
+                "date"
+            ],
+            "primary_keys": [
+                "route_id"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "Climbing_Gym",
+                "condition",
+                "session_id"
+            ],
+            "primary_keys": [
+                "Climbing_Gym"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "gear_id",
+                "duration"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "experience_level",
+            "weak": false
+        },
+        {
+            "entities": [
+                "gear_id",
+                "opening_hours",
+                "zip_code"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "gear_id",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Attempts",
+            "weak": false
+        },
+        {
+            "entities": [
+                "gear_id",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "city",
+            "weak": true
+        }
+    ]
+}

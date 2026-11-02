@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "Region": {
+            "attributes": [
+                "Guide",
+                "type",
+                "condition"
+            ],
+            "primary_keys": [
+                "Guide"
+            ],
+            "multivalued": [
+                "condition"
+            ],
+            "weak": false,
+            "composite": {
+                "type": [
+                    "Uses_during",
+                    "trekker_id"
+                ]
+            }
+        },
+        "trek_id": {
+            "attributes": [
+                "experience",
+                "type",
+                "equipment_id",
+                "first_name"
+            ],
+            "primary_keys": [
+                "experience"
+            ],
+            "weak": false
+        },
+        "Equipment": {
+            "attributes": [
+                "Trek",
+                "type",
+                "last_name"
+            ],
+            "primary_keys": [
+                "Trek"
+            ],
+            "weak": false,
+            "derived": [
+                "guide_id"
+            ]
+        },
+        "Leads": {
+            "attributes": [
+                "hourly_rate",
+                "type",
+                "name",
+                "location"
+            ],
+            "primary_keys": [
+                "hourly_rate"
+            ],
+            "weak": true
+        },
+        "altitude": {
+            "attributes": [
+                "phone_number",
+                "type",
+                "duration"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Region",
+                "trek_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Equipment",
+                "trek_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Trekker",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Region",
+                "Leads",
+                "trek_id"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "Located_in",
+            "weak": true
+        },
+        {
+            "entities": [
+                "trek_id",
+                "altitude"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "region_id",
+            "weak": false
+        },
+        {
+            "subclasses": [
+                "Guide"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Trekker"
+        }
+    ]
+}

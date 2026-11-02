@@ -1,0 +1,42 @@
+erDiagram
+Taxpayer {
+  string taxpayer_id PK
+  string name
+  string address
+}
+
+TaxForm {
+  string form_id PK
+  string form_type
+  string submission_date
+}
+
+TaxYear {
+  string year PK
+  string filing_deadline
+}
+
+Appointment {
+  string appointment_id PK
+  string date
+  string time
+  string taxpayer_id
+}
+
+Employee {
+  string employee_id PK
+  string name
+  string position
+}
+
+REL_files_for {
+  string rel_files_for_id PK
+}
+
+    Taxpayer ||--o{ REL_files_for : "Taxpayer-REL_files_for"
+    TaxForm o{--o{ REL_files_for : "TaxForm-REL_files_for"
+    TaxYear ||--o{ REL_files_for : "TaxYear-REL_files_for"
+    Taxpayer ||..o{ Appointment : "schedules"
+    Employee ||--o{ Taxpayer : "assists"
+    Employee o{--o{ TaxForm : "processes"
+    Taxpayer ||--o{ TaxYear : "is_subject_to"

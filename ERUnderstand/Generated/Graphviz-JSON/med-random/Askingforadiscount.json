@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "wqnt": {
+      "weak": false,
+      "attributes": [
+        "fmic",
+        "yljf",
+        "xlns"
+      ],
+      "primary_keys": [
+        "fmic"
+      ],
+      "multivalued": [
+        "hfio"
+      ]
+    },
+    "fycj": {
+      "weak": false,
+      "attributes": [
+        "lhrb",
+        "teqc",
+        "bylk"
+      ],
+      "primary_keys": [
+        "lhrb"
+      ],
+      "derived": [
+        "ygal"
+      ]
+    },
+    "gzbr": {
+      "weak": false,
+      "attributes": [
+        "shfz",
+        "yljf",
+        "vwsf"
+      ],
+      "primary_keys": [
+        "shfz"
+      ]
+    },
+    "pxfg": {
+      "weak": true,
+      "attributes": [
+        "svhk",
+        "jxuo",
+        "nxjq"
+      ],
+      "primary_keys": [
+        "svhk"
+      ],
+      "composite": {
+        "jxuo": [
+          "utcz",
+          "xfnw",
+          "ratn"
+        ]
+      }
+    },
+    "zylj": {
+      "weak": false,
+      "attributes": [
+        "cakf",
+        "yuub",
+        "qglh"
+      ],
+      "primary_keys": [
+        "cakf"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wqnt",
+        "pxfg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jhqs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pxfg",
+        "fycj"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "bxhh",
+      "weak": true
+    },
+    {
+      "entities": [
+        "zylj",
+        "pxfg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qngj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fycj",
+        "gzbr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gszo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gzbr",
+        "wqnt",
+        "fycj"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "fbuk",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+    "entities": {
+        "width": {
+            "attributes": [
+                "Furniture",
+                "length",
+                "notes",
+                "last_name"
+            ],
+            "primary_keys": [
+                "Furniture"
+            ],
+            "multivalued": [
+                "notes"
+            ],
+            "weak": false,
+            "composite": {
+                "last_name": [
+                    "first_name",
+                    "dimensions",
+                    "make",
+                    "state"
+                ]
+            }
+        },
+        "address": {
+            "attributes": [
+                "value",
+                "title",
+                "AssignedTo",
+                "MoveItem",
+                "distance"
+            ],
+            "primary_keys": [
+                "value"
+            ],
+            "weak": false,
+            "composite": {
+                "MoveItem": [
+                    "street",
+                    "Employee",
+                    "Requests"
+                ]
+            }
+        },
+        "estimated_cost": {
+            "attributes": [
+                "capacity",
+                "Uses",
+                "employee_id",
+                "weight",
+                "furniture_id"
+            ],
+            "primary_keys": [
+                "capacity"
+            ],
+            "derived": [
+                "furniture_id"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "truck_id",
+                "length",
+                "quantity",
+                "Includes"
+            ],
+            "primary_keys": [
+                "truck_id"
+            ],
+            "weak": false,
+            "composite": {
+                "length": [
+                    "height",
+                    "move_date"
+                ]
+            }
+        },
+        "actual_cost": {
+            "attributes": [
+                "description",
+                "move_date",
+                "phone_number",
+                "Move"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false
+        },
+        "move_id": {
+            "attributes": [
+                "capacity",
+                "value",
+                "Truck",
+                "Customer"
+            ],
+            "primary_keys": [
+                "capacity",
+                "value"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "width",
+                "estimated_cost"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "estimated_cost",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "customer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "estimated_cost",
+                "actual_cost"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "hourly_rate",
+            "weak": false
+        },
+        {
+            "entities": [
+                "estimated_cost",
+                "address",
+                "move_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "model",
+            "weak": true
+        }
+    ]
+}

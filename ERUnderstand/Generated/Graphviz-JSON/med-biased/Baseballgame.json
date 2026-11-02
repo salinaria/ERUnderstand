@@ -1,0 +1,108 @@
+{
+    "entities": {
+        "at_bat_number": {
+            "attributes": [
+                "team_name",
+                "competes_in",
+                "plays_for",
+                "age",
+                "game_id"
+            ],
+            "primary_keys": [
+                "team_name"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "has",
+                "birthdate",
+                "has",
+                "nickname",
+                "AtBat"
+            ],
+            "primary_keys": [
+                "has"
+            ],
+            "composite": {
+                "birthdate": [
+                    "batting_average",
+                    "attendance"
+                ]
+            },
+            "multivalued": [
+                "Player"
+            ],
+            "derived": [
+                "date"
+            ],
+            "weak": false
+        },
+        "wins": {
+            "attributes": [
+                "result",
+                "losses",
+                "plays_for",
+                "Game"
+            ],
+            "primary_keys": [
+                "result"
+            ],
+            "weak": false
+        },
+        "Team": {
+            "attributes": [
+                "result",
+                "has",
+                "last_name",
+                "team_id"
+            ],
+            "primary_keys": [
+                "result",
+                "has",
+                "last_name"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "name",
+                "at_bat_number"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "player_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "at_bat_number",
+                "wins"
+            ],
+            "cardinality": [
+                "2",
+                "1"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "wins",
+                "name",
+                "Team"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "first_name",
+            "weak": true
+        }
+    ]
+}

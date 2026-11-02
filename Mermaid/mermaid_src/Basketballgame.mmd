@@ -1,0 +1,46 @@
+erDiagram
+Team {
+  string team_id PK
+  string team_name
+  string city
+}
+
+Player {
+  string player_id PK
+  %% player_name: composite
+  string player_name
+  string jersey_number
+  string position
+}
+
+Game {
+  string game_id PK
+  string date
+  string location
+  string attendance
+}
+
+Stat {
+  string stat_id PK
+  string points
+  string rebounds
+  string assists
+  string minutes_played
+}
+
+Official {
+  string official_id PK
+  string official_name
+  string experience
+}
+
+    Player o{--|| Team : "plays_for"
+    Team ||--o{ Game : "participates_in"
+REL_generates {
+  string rel_generates_id PK
+}
+
+    Player ||..o{ REL_generates : "Player-REL_generates"
+    Game ||..o{ REL_generates : "Game-REL_generates"
+    Stat ||..o{ REL_generates : "Stat-REL_generates"
+    Official o{--|| Game : "officiates"

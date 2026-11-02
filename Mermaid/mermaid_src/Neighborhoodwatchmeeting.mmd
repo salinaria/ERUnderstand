@@ -1,0 +1,54 @@
+erDiagram
+Resident {
+  string resident_id PK
+  string name
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Meeting {
+  string meeting_id PK
+  string date
+  string time
+  string location
+  string agenda
+}
+
+Incident {
+  string incident_id PK
+  string date
+  string time
+  string location
+  string description
+  string status
+}
+
+Suspect {
+  string suspect_id PK
+  string name
+  string description
+  %% known_alias: multivalued
+  string known_alias
+}
+
+Officer {
+  string officer_id PK
+  string badge_number
+  %% name: composite
+  string name
+  string rank
+  string precinct
+}
+
+    Resident ||--o{ Meeting : "attends"
+    Resident o{--o{ Incident : "reports"
+    Incident ||..o{ Suspect : "involved_in"
+    Officer ||--o{ Incident : "investigates"
+REL_assesses {
+  string rel_assesses_id PK
+}
+
+    Officer ||--o{ REL_assesses : "Officer-REL_assesses"
+    Resident o{--o{ REL_assesses : "Resident-REL_assesses"
+    Incident o{--o{ REL_assesses : "Incident-REL_assesses"

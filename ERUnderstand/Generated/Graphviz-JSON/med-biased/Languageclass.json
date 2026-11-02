@@ -1,0 +1,142 @@
+{
+    "entities": {
+        "course_name": {
+            "attributes": [
+                "major",
+                "ISBN",
+                "author"
+            ],
+            "primary_keys": [
+                "major"
+            ],
+            "multivalued": [
+                "edition"
+            ],
+            "derived": [
+                "teacher_id"
+            ],
+            "weak": false
+        },
+        "mentors": {
+            "attributes": [
+                "course_id",
+                "ISBN",
+                "phone_numbers"
+            ],
+            "primary_keys": [
+                "course_id"
+            ],
+            "composite": {
+                "held_in": [
+                    "Classroom",
+                    "student_id",
+                    "address"
+                ]
+            },
+            "weak": false
+        },
+        "expertise": {
+            "attributes": [
+                "enrolls_in",
+                "room_number",
+                "uses"
+            ],
+            "primary_keys": [
+                "enrolls_in"
+            ],
+            "weak": false
+        },
+        "Course": {
+            "attributes": [
+                "capacity",
+                "Student"
+            ],
+            "primary_keys": [
+                "capacity"
+            ],
+            "weak": false
+        },
+        "credits": {
+            "attributes": [
+                "name",
+                "teaches",
+                "Textbook",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "course_name",
+                "expertise"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "title",
+            "weak": false,
+            "attributes": [
+                "grade"
+            ]
+        },
+        {
+            "entities": [
+                "mentors",
+                "expertise"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "age",
+            "weak": false
+        },
+        {
+            "entities": [
+                "expertise",
+                "credits"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "expertise",
+                "Course"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "street",
+            "weak": false,
+            "attributes": [
+                "schedule"
+            ]
+        },
+        {
+            "entities": [
+                "course_name",
+                "mentors",
+                "expertise"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "Teacher",
+            "weak": true
+        }
+    ]
+}

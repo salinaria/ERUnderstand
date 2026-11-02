@@ -1,0 +1,147 @@
+{
+    "entities": {
+        "blood_pressure": {
+            "attributes": [
+                "address",
+                "city",
+                "schedules",
+                "state"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "multivalued": [
+                "state"
+            ],
+            "weak": false,
+            "composite": {
+                "Test": [
+                    "requires",
+                    "date_time",
+                    "zip_code",
+                    "Medication"
+                ]
+            }
+        },
+        "specialization": {
+            "attributes": [
+                "appointment_id",
+                "city",
+                "last_name"
+            ],
+            "primary_keys": [
+                "appointment_id"
+            ],
+            "weak": false,
+            "composite": {
+                "city": [
+                    "test_id",
+                    "birthdate"
+                ]
+            }
+        },
+        "includes": {
+            "attributes": [
+                "gestational_age",
+                "name",
+                "result",
+                "Appointment",
+                "first_name"
+            ],
+            "primary_keys": [
+                "gestational_age"
+            ],
+            "weak": true,
+            "derived": [
+                "doctor_id"
+            ]
+        },
+        "patient_id": {
+            "attributes": [
+                "route",
+                "Doctor",
+                "street"
+            ],
+            "primary_keys": [
+                "route"
+            ],
+            "weak": false
+        },
+        "weight": {
+            "attributes": [
+                "phone_number",
+                "city",
+                "type",
+                "test_name"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "blood_pressure",
+                "includes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "dosage",
+            "weak": false
+        },
+        {
+            "entities": [
+                "specialization",
+                "includes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "prescribes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "includes",
+                "patient_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Patient",
+            "weak": false
+        },
+        {
+            "entities": [
+                "specialization",
+                "blood_pressure",
+                "weight"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "has",
+            "weak": false
+        },
+        {
+            "entities": [
+                "includes",
+                "weight"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "medication_id",
+            "weak": false
+        }
+    ]
+}

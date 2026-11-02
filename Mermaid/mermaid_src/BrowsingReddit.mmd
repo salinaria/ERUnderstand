@@ -1,0 +1,47 @@
+erDiagram
+User {
+  string user_id PK
+  string username
+  string karma
+}
+
+Subreddit {
+  string subreddit_id PK
+  string name
+  string description
+  string creation_date
+}
+
+Post {
+  string post_id PK
+  string title
+  string content
+  string timestamp
+  string score
+}
+
+Comment {
+  string comment_id PK
+  string text
+  string timestamp
+  string score
+  string post_id
+}
+
+Moderator {
+  string moderator_id PK
+  string start_date
+  string end_date
+}
+
+    User o{--o{ Subreddit : "subscribes_to"
+    User ||--o{ Post : "creates"
+    User ||--o{ Comment : "writes"
+    Post ||..o{ Comment : "has"
+REL_moderates {
+  string rel_moderates_id PK
+}
+
+    User ||--o{ REL_moderates : "User-REL_moderates"
+    Subreddit ||--o{ REL_moderates : "Subreddit-REL_moderates"
+    Moderator ||--o{ REL_moderates : "Moderator-REL_moderates"

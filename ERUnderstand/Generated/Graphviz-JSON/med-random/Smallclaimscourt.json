@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "mfjy": {
+      "weak": false,
+      "attributes": [
+        "mbmk",
+        "kvod",
+        "eati",
+        "jphh"
+      ],
+      "primary_keys": [
+        "mbmk"
+      ]
+    },
+    "yblw": {
+      "weak": false,
+      "attributes": [
+        "gvym",
+        "kzgk",
+        "qsbq",
+        "xiwt"
+      ],
+      "primary_keys": [
+        "gvym"
+      ],
+      "composite": {
+        "kzgk": [
+          "sowr",
+          "ncrc"
+        ]
+      }
+    },
+    "ylqc": {
+      "weak": false,
+      "attributes": [
+        "vizw",
+        "kzgk",
+        "qsbq",
+        "xiwt"
+      ],
+      "primary_keys": [
+        "vizw"
+      ],
+      "composite": {
+        "kzgk": [
+          "sowr",
+          "ncrc"
+        ]
+      }
+    },
+    "ierq": {
+      "weak": true,
+      "attributes": [
+        "pzxw",
+        "ymjv",
+        "entv",
+        "ymji"
+      ],
+      "primary_keys": [
+        "pzxw"
+      ]
+    },
+    "mepr": {
+      "weak": false,
+      "attributes": [
+        "oeil",
+        "jphh",
+        "tmaw",
+        "uzgm"
+      ],
+      "primary_keys": [
+        "oeil"
+      ],
+      "multivalued": [
+        "crfc"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "mfjy",
+        "yblw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pueb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mfjy",
+        "ylqc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rrry",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mfjy",
+        "ierq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fyje",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mfjy",
+        "mepr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gjtb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ierq",
+        "mfjy"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "daop",
+      "weak": false
+    }
+  ]
+}

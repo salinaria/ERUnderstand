@@ -1,0 +1,42 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string name
+  string address
+}
+
+Souvenir {
+  string souvenir_id PK
+  string name
+  string description
+  string price
+}
+
+Category {
+  string category_id PK
+  string category_name
+}
+
+Purchase {
+  string purchase_id PK
+  string purchase_date
+  string total_amount
+}
+
+PurchaseLine {
+  string purchase_line_id PK
+  string quantity
+  string line_total
+}
+
+    Customer ||--o{ Purchase : "makes"
+    Purchase ||..o{ PurchaseLine : "includes"
+    PurchaseLine ||--|| Souvenir : "represents"
+    Souvenir o{--|| Category : "belongs_to"
+REL_involves {
+  string rel_involves_id PK
+}
+
+    Purchase ||--o{ REL_involves : "Purchase-REL_involves"
+    Customer o{--o{ REL_involves : "Customer-REL_involves"
+    Souvenir o{--o{ REL_involves : "Souvenir-REL_involves"

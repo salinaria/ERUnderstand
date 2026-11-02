@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "competition_id": {
+            "attributes": [
+                "duration",
+                "specialty",
+                "phone_number",
+                "name"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "multivalued": [
+                "cost"
+            ],
+            "weak": false
+        },
+        "skater_id": {
+            "attributes": [
+                "IceRink",
+                "specialty",
+                "Competition",
+                "Coach"
+            ],
+            "primary_keys": [
+                "IceRink"
+            ],
+            "composite": {
+                "rink_id": [
+                    "Skater",
+                    "date_of_birth",
+                    "coach_id",
+                    "time"
+                ]
+            },
+            "weak": false
+        },
+        "lesson_id": {
+            "attributes": [
+                "state",
+                "street",
+                "Receives",
+                "Lesson"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "derived": [
+                "PracticesAt"
+            ],
+            "weak": true
+        },
+        "location": {
+            "attributes": [
+                "TakesLesson",
+                "specialty",
+                "rink_id",
+                "ParticipatesIn"
+            ],
+            "primary_keys": [
+                "TakesLesson"
+            ],
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "size",
+                "specialty",
+                "Sponsorship",
+                "street"
+            ],
+            "primary_keys": [
+                "size"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "amount",
+                "zip_code",
+                "level"
+            ],
+            "primary_keys": [
+                "amount"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "competition_id",
+                "skater_id",
+                "lesson_id"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "hourly_rate",
+            "weak": true
+        },
+        {
+            "entities": [
+                "competition_id",
+                "location"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "competition_id",
+                "city"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "sponsorship_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "sponsor_name",
+            "weak": false
+        }
+    ]
+}

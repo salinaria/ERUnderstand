@@ -1,0 +1,127 @@
+{
+  "entities": {
+    "bble": {
+      "weak": false,
+      "attributes": [
+        "daes",
+        "vtzc",
+        "rnwi"
+      ],
+      "primary_keys": [
+        "daes"
+      ],
+      "multivalued": [
+        "vfeo"
+      ]
+    },
+    "gqhj": {
+      "weak": false,
+      "attributes": [
+        "rmzr",
+        "vtzc",
+        "hklx"
+      ],
+      "primary_keys": [
+        "rmzr"
+      ]
+    },
+    "iads": {
+      "weak": false,
+      "attributes": [
+        "nzec",
+        "vtzc",
+        "ovir"
+      ],
+      "primary_keys": [
+        "nzec"
+      ]
+    },
+    "eklq": {
+      "weak": false,
+      "attributes": [
+        "kmrj",
+        "daqo",
+        "vcev"
+      ],
+      "primary_keys": [
+        "kmrj"
+      ]
+    },
+    "abks": {
+      "weak": false,
+      "attributes": [
+        "wmmj",
+        "inhn",
+        "hklx",
+        "dpvu"
+      ],
+      "primary_keys": [
+        "wmmj"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bble",
+        "gqhj"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ewsq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gqhj",
+        "iads"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "hfcv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bble",
+        "eklq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "lapi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bble",
+        "abks"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "ihay",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gqhj",
+        "eklq",
+        "bble"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "N"
+      ],
+      "name": "flyw",
+      "weak": true
+    }
+  ]
+}

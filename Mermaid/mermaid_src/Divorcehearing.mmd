@@ -1,0 +1,44 @@
+erDiagram
+Person {
+  string person_id PK
+  string first_name
+  string last_name
+  string address
+}
+
+Hearing {
+  string hearing_id PK
+  string date
+  string location
+  string judge_name
+}
+
+Child {
+  string child_id PK
+  string name
+  string date_of_birth
+}
+
+Asset {
+  string asset_id PK
+  string description
+  string estimated_value
+}
+
+Document {
+  string document_id PK
+  string document_type
+  string file_path
+}
+
+    Person ||--o{ Hearing : "Attends"
+    Child o{--|| Person : "ParentOf"
+REL_Addresses {
+  string rel_addresses_id PK
+}
+
+    Hearing ||..o{ REL_Addresses : "Hearing-REL_Addresses"
+    Asset o{..o{ REL_Addresses : "Asset-REL_Addresses"
+    Person o{..o{ REL_Addresses : "Person-REL_Addresses"
+    Person ||--o{ Document : "Submits"
+    Child o{--|| Hearing : "RelatesTo"

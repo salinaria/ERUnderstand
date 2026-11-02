@@ -1,0 +1,142 @@
+{
+    "entities": {
+        "related_to": {
+            "attributes": [
+                "phone_number",
+                "address",
+                "consultation_id",
+                "case_type"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "multivalued": [
+                "case_type"
+            ],
+            "weak": false
+        },
+        "Case": {
+            "attributes": [
+                "bar_number",
+                "address",
+                "last_name",
+                "Client"
+            ],
+            "primary_keys": [
+                "bar_number"
+            ],
+            "composite": {
+                "address": [
+                    "lawyer_id",
+                    "amount"
+                ]
+            },
+            "weak": false
+        },
+        "payment_date": {
+            "attributes": [
+                "fee",
+                "related_to",
+                "scheduled_for",
+                "Lawyer",
+                "makes"
+            ],
+            "primary_keys": [
+                "fee"
+            ],
+            "derived": [
+                "payment_id"
+            ],
+            "weak": false
+        },
+        "time": {
+            "attributes": [
+                "name",
+                "Consultation",
+                "specialization",
+                "payment_method",
+                "duration"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true
+        },
+        "filing_date": {
+            "attributes": [
+                "handles",
+                "files",
+                "case_id",
+                "Payment"
+            ],
+            "primary_keys": [
+                "handles"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "related_to",
+                "payment_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "notes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Case",
+                "payment_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "first_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "related_to",
+                "Case",
+                "time"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "status",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "payment_date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "client_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "related_to",
+                "filing_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": true
+        }
+    ]
+}

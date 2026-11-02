@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "nbgp": {
+      "weak": false,
+      "attributes": [
+        "iwqp",
+        "rymh",
+        "roeh",
+        "dgar",
+        "iovb"
+      ],
+      "primary_keys": [
+        "iwqp"
+      ],
+      "multivalued": [
+        "dgar"
+      ],
+      "composite": {
+        "woco": [
+          "rymh",
+          "roeh"
+        ]
+      }
+    },
+    "durx": {
+      "weak": false,
+      "attributes": [
+        "exft",
+        "jjkc",
+        "azeu",
+        "iche"
+      ],
+      "primary_keys": [
+        "exft"
+      ]
+    },
+    "cwfm": {
+      "weak": false,
+      "attributes": [
+        "ofed",
+        "npsl",
+        "dcva",
+        "rfgw",
+        "puew"
+      ],
+      "primary_keys": [
+        "ofed"
+      ],
+      "derived": [
+        "puew"
+      ]
+    },
+    "sqlz": {
+      "weak": true,
+      "attributes": [
+        "qevf",
+        "wcez",
+        "naxv",
+        "bvtq"
+      ],
+      "primary_keys": [
+        "qevf"
+      ]
+    },
+    "gkci": {
+      "weak": false,
+      "attributes": [
+        "cgfz",
+        "zajb",
+        "meuh"
+      ],
+      "primary_keys": [
+        "cgfz"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "nbgp",
+        "cwfm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ckwv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cwfm",
+        "durx"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "svaa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sqlz",
+        "cwfm"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "xchj",
+      "weak": true
+    },
+    {
+      "entities": [
+        "cwfm",
+        "gkci"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nqzx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cwfm",
+        "nbgp",
+        "durx"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "cowi",
+      "weak": false
+    }
+  ]
+}

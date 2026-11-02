@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "pfqd": {
+      "weak": false,
+      "attributes": [
+        "govs",
+        "olgo",
+        "ehtk",
+        "drkx"
+      ],
+      "primary_keys": [
+        "govs"
+      ],
+      "multivalued": [
+        "fhys"
+      ]
+    },
+    "adhi": {
+      "weak": false,
+      "attributes": [
+        "xzde",
+        "olgo",
+        "ztyk",
+        "tlcf"
+      ],
+      "primary_keys": [
+        "xzde"
+      ]
+    },
+    "nopc": {
+      "weak": true,
+      "attributes": [
+        "nqtm",
+        "vcwr",
+        "qlom",
+        "tbur"
+      ],
+      "primary_keys": [
+        "nqtm"
+      ],
+      "derived": [
+        "oswk"
+      ]
+    },
+    "ejei": {
+      "weak": false,
+      "attributes": [
+        "surs",
+        "olgo",
+        "fkua"
+      ],
+      "primary_keys": [
+        "surs"
+      ],
+      "composite": {
+        "olgo": [
+          "epkd",
+          "fbwr"
+        ]
+      }
+    },
+    "ryaa": {
+      "weak": false,
+      "attributes": [
+        "kvji",
+        "olgo",
+        "drkx",
+        "nata"
+      ],
+      "primary_keys": [
+        "kvji"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "pfqd",
+        "nopc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "yxzc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nopc",
+        "adhi"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "mxdb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ejei",
+        "nopc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "iyle",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nopc",
+        "ryaa"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "wbfl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pfqd",
+        "adhi",
+        "ejei"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "zxqs",
+      "weak": true
+    }
+  ]
+}

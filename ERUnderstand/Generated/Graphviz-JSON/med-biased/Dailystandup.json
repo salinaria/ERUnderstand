@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "role": {
+            "attributes": [
+                "meeting_id",
+                "related_to",
+                "reported_by"
+            ],
+            "primary_keys": [
+                "meeting_id"
+            ],
+            "composite": {
+                "related_to": [
+                    "Project",
+                    "task_id"
+                ]
+            },
+            "weak": false
+        },
+        "deadline": {
+            "attributes": [
+                "StandupMeeting",
+                "start_time",
+                "description"
+            ],
+            "primary_keys": [
+                "StandupMeeting"
+            ],
+            "derived": [
+                "impediment"
+            ],
+            "weak": false
+        },
+        "contains": {
+            "attributes": [
+                "project_name",
+                "last_name",
+                "first_name",
+                "status"
+            ],
+            "primary_keys": [
+                "project_name"
+            ],
+            "weak": true
+        },
+        "attends": {
+            "attributes": [
+                "assigned_to",
+                "UpdateItem",
+                "task_description"
+            ],
+            "primary_keys": [
+                "assigned_to"
+            ],
+            "weak": false
+        },
+        "project_id": {
+            "attributes": [
+                "Task",
+                "duration",
+                "name"
+            ],
+            "primary_keys": [
+                "Task"
+            ],
+            "multivalued": [
+                "date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "role",
+                "deadline"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "member_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "deadline",
+                "contains"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "TeamMember",
+            "weak": true
+        },
+        {
+            "entities": [
+                "contains",
+                "role"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "item_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends",
+                "project_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "includes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "project_id",
+                "contains",
+                "role"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "priority",
+            "weak": false
+        }
+    ]
+}

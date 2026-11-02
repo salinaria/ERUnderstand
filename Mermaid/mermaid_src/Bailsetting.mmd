@@ -1,0 +1,45 @@
+erDiagram
+Defendant {
+  string DefendantID PK
+  string Name
+  string Address
+}
+
+Crime {
+  string CrimeID PK
+  string CrimeType
+  string Severity
+}
+
+BailHearing {
+  string HearingID PK
+  string HearingDate
+  string HearingTime
+  string BailAmount
+}
+
+Judge {
+  string JudgeID PK
+  %% Name: composite
+  string Name
+  string Courtroom
+}
+
+CoSigner {
+  string CoSignerID PK
+  string Name
+  string Relationship
+  string Employer
+}
+
+    Defendant ||--o{ Crime : "ChargedWith"
+    Defendant ||--|| BailHearing : "HasHearing"
+    BailHearing ||--|| Judge : "PresidedBy"
+REL_SignedFor {
+  string rel_signedfor_id PK
+}
+
+    Defendant ||..o{ REL_SignedFor : "Defendant-REL_SignedFor"
+    CoSigner o{..o{ REL_SignedFor : "CoSigner-REL_SignedFor"
+    BailHearing ||..o{ REL_SignedFor : "BailHearing-REL_SignedFor"
+    CoSigner o{--|| BailHearing : "Guarantees"

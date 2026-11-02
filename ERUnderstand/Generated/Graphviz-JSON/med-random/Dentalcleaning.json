@@ -1,0 +1,145 @@
+{
+  "entities": {
+    "npdh": {
+      "weak": false,
+      "attributes": [
+        "suse",
+        "rtph",
+        "ofmw",
+        "tudk"
+      ],
+      "primary_keys": [
+        "suse"
+      ],
+      "multivalued": [
+        "tudk"
+      ],
+      "composite": {
+        "ciqb": [
+          "rtph",
+          "ofmw"
+        ]
+      }
+    },
+    "qlmd": {
+      "weak": false,
+      "attributes": [
+        "avnh",
+        "rtph",
+        "ofmw",
+        "tuql"
+      ],
+      "primary_keys": [
+        "avnh"
+      ],
+      "composite": {
+        "ciqb": [
+          "rtph",
+          "ofmw"
+        ]
+      }
+    },
+    "ueti": {
+      "weak": false,
+      "attributes": [
+        "tsff",
+        "siyu",
+        "suaj",
+        "ufvl"
+      ],
+      "primary_keys": [
+        "tsff"
+      ],
+      "derived": [
+        "ufvl"
+      ]
+    },
+    "kcyb": {
+      "weak": false,
+      "attributes": [
+        "ziyu",
+        "hsue",
+        "smbj"
+      ],
+      "primary_keys": [
+        "ziyu"
+      ]
+    },
+    "zoae": {
+      "weak": true,
+      "attributes": [
+        "okrd",
+        "qego",
+        "fepe",
+        "vidh"
+      ],
+      "primary_keys": [
+        "okrd"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "npdh",
+        "ueti"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xalt",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qlmd",
+        "ueti"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ghhh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ueti",
+        "kcyb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "saft",
+      "weak": false
+    },
+    {
+      "entities": [
+        "npdh",
+        "zoae",
+        "ueti"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "boag",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ueti",
+        "zoae"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pdkq",
+      "weak": false
+    }
+  ]
+}

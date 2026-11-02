@@ -1,0 +1,143 @@
+{
+    "entities": {
+        "wrapped": {
+            "attributes": [
+                "phone_number",
+                "date_of_birth",
+                "location",
+                "date"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "multivalued": [
+                "event_name"
+            ],
+            "weak": false,
+            "composite": {
+                "event_id": [
+                    "date_of_birth",
+                    "location"
+                ]
+            }
+        },
+        "family_id": {
+            "attributes": [
+                "attends",
+                "person_id",
+                "Person"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "weak": false
+        },
+        "value": {
+            "attributes": [
+                "married_to",
+                "last_name",
+                "Family",
+                "Person",
+                "brings"
+            ],
+            "primary_keys": [
+                "married_to"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "name",
+                "brings",
+                "Attendance",
+                "gift_id"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true,
+            "derived": [
+                "Attendance"
+            ]
+        },
+        "Event": {
+            "attributes": [
+                "married_to",
+                "phone_number",
+                "first_name"
+            ],
+            "primary_keys": [
+                "married_to",
+                "phone_number"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "wrapped",
+                "family_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Gift",
+            "weak": false
+        },
+        {
+            "entities": [
+                "wrapped",
+                "Event",
+                "value"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "rsvp_status",
+            "weak": true
+        },
+        {
+            "entities": [
+                "wrapped",
+                "phone_number",
+                "value"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "description",
+            "weak": true
+        },
+        {
+            "entities": [
+                "phone_number",
+                "value"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "belongs_to",
+            "weak": false
+        },
+        {
+            "entities": [
+                "wrapped",
+                "wrapped"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "given_at",
+            "weak": false,
+            "ternary": false
+        }
+    ]
+}

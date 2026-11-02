@@ -1,0 +1,42 @@
+erDiagram
+Musician {
+  string musician_id PK
+  string name
+  string instrument
+}
+
+RehearsalSpace {
+  string space_id PK
+  string address
+  string capacity
+}
+
+Song {
+  string song_id PK
+  string title
+  string composer
+}
+
+Section {
+  string section_id PK
+  string name
+  string start_time
+  string end_time
+}
+
+Attendance {
+  string attendance_id PK
+  string date
+}
+
+    Musician o{--o{ RehearsalSpace : "uses"
+    Musician o{--o{ Song : "performs"
+    Song ||--o{ Section : "contains"
+    RehearsalSpace ||--o{ Section : "occurs_at"
+REL_records {
+  string rel_records_id PK
+}
+
+    Attendance ||..o{ REL_records : "Attendance-REL_records"
+    Section ||..o{ REL_records : "Section-REL_records"
+    Musician ||..o{ REL_records : "Musician-REL_records"

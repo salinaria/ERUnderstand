@@ -1,0 +1,47 @@
+erDiagram
+Client {
+  string client_id PK
+  string name
+  %% address: composite
+  string address
+  string contact_person
+}
+
+Document {
+  string document_id PK
+  string document_type
+  string upload_date
+}
+
+Task {
+  string task_id PK
+  string description
+  string due_date
+  string status
+}
+
+User {
+  string user_id PK
+  string username
+  string password
+  string role
+}
+
+Verification {
+  string verification_id PK
+  string result
+  string notes
+  string timestamp
+}
+
+    Client ||--o{ Document : "requires"
+REL_assigns {
+  string rel_assigns_id PK
+}
+
+    Task o{--o{ REL_assigns : "Task-REL_assigns"
+    Client ||--o{ REL_assigns : "Client-REL_assigns"
+    User ||--o{ REL_assigns : "User-REL_assigns"
+    Document ||..|| Verification : "undergoes"
+    Task ||--|| Verification : "triggers"
+    Client ||--|| User : "managed_by"

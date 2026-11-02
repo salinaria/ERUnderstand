@@ -1,0 +1,45 @@
+erDiagram
+Participant {
+  string participant_id PK
+  string name
+  string nationality
+}
+
+Program {
+  string program_id PK
+  string name
+  string description
+  string start_date
+  string end_date
+}
+
+Country {
+  string country_code PK
+  string country_name
+  string culture_description
+}
+
+Accommodation {
+  string accommodation_id PK
+  string type
+  string address
+  string capacity
+}
+
+Activity {
+  string activity_id PK
+  string name
+  string description
+  string date
+}
+
+    Participant o{--o{ Program : "participates_in"
+    Program ||--|| Country : "hosted_in"
+REL_stays_at {
+  string rel_stays_at_id PK
+}
+
+    Participant o{..o{ REL_stays_at : "Participant-REL_stays_at"
+    Accommodation ||..o{ REL_stays_at : "Accommodation-REL_stays_at"
+    Program ||..o{ REL_stays_at : "Program-REL_stays_at"
+    Program ||..o{ Activity : "includes"

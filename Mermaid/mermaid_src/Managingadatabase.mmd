@@ -1,0 +1,44 @@
+erDiagram
+Database {
+  string db_id PK
+  string name
+  string location
+}
+
+Table {
+  string table_id PK
+  string table_name
+  string creation_date
+}
+
+Column {
+  string column_id PK
+  string column_name
+  string data_type
+  string constraints
+}
+
+User {
+  string user_id PK
+  string username
+  string password
+  string creation_date
+}
+
+Privilege {
+  string privilege_id PK
+  string privilege_name
+  string description
+}
+
+    Database ||--o{ Table : "contains"
+    Table ||..o{ Column : "comprises"
+    User o{--o{ Database : "accesses"
+REL_has_privilege_on {
+  string rel_has_privilege_on_id PK
+}
+
+    User o{--o{ REL_has_privilege_on : "User-REL_has_privilege_on"
+    Privilege o{--o{ REL_has_privilege_on : "Privilege-REL_has_privilege_on"
+    Database ||--o{ REL_has_privilege_on : "Database-REL_has_privilege_on"
+    Table ||--o{ User : "audits"

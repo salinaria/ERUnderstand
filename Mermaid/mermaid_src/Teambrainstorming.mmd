@@ -1,0 +1,44 @@
+erDiagram
+Team {
+  string team_id PK
+  string name
+  string creation_date
+}
+
+BrainstormingSession {
+  string session_id PK
+  %% date: composite
+  string date
+  string duration
+  string objective
+}
+
+Participant {
+  string participant_id PK
+  string name
+  string role
+}
+
+Idea {
+  string idea_id PK
+  string description
+  string creation_time
+}
+
+VotingRound {
+  string round_id PK
+  string start_time
+  string end_time
+}
+
+    Team ||--o{ BrainstormingSession : "organizes"
+    Participant o{--o{ BrainstormingSession : "attends"
+    Participant ||--o{ Idea : "suggests"
+REL_includes {
+  string rel_includes_id PK
+}
+
+    BrainstormingSession ||..o{ REL_includes : "BrainstormingSession-REL_includes"
+    Idea o{..o{ REL_includes : "Idea-REL_includes"
+    VotingRound ||..o{ REL_includes : "VotingRound-REL_includes"
+    VotingRound ||--o{ Idea : "voted_on"

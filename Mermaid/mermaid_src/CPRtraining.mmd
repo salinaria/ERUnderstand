@@ -1,0 +1,44 @@
+erDiagram
+Participant {
+  string participant_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Instructor {
+  string instructor_id PK
+  string certification_level
+}
+
+CPR_Class {
+  string class_id PK
+  string date
+  string location
+  string duration
+}
+
+Certification {
+  string certification_id PK
+  string type
+  string expiry_date
+}
+
+Evaluation {
+  string evaluation_id PK
+  string score
+  string comments
+  string class_id
+}
+
+    Participant o{--o{ CPR_Class : "attends"
+    Instructor ||--o{ CPR_Class : "teaches"
+    CPR_Class ||--|| Certification : "requires"
+REL_receives {
+  string rel_receives_id PK
+}
+
+    Participant ||..o{ REL_receives : "Participant-REL_receives"
+    Evaluation ||..o{ REL_receives : "Evaluation-REL_receives"
+    CPR_Class ||..o{ REL_receives : "CPR_Class-REL_receives"
+    Participant ||--o{ Certification : "holds"

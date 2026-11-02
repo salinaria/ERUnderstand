@@ -1,0 +1,42 @@
+erDiagram
+Traveler {
+  string traveler_id PK
+  string name
+  string nationality
+}
+
+Trip {
+  string trip_id PK
+  string start_date
+  string end_date
+  string description
+}
+
+Accommodation {
+  string accommodation_id PK
+  string type
+  string cost_per_night
+  %% address: composite
+  string address
+}
+
+Activity {
+  string activity_id PK
+  string name
+  string duration
+  string cost
+}
+
+Review {
+  string review_id PK
+  string rating
+  string comment
+  string date
+  string trip_id
+}
+
+    Traveler ||--o{ Trip : "plans"
+    Trip ||--o{ Accommodation : "includes"
+    Trip ||--o{ Activity : "features"
+    Traveler ||--o{ Review : "writes"
+    Trip ||--|| Review : "receives"

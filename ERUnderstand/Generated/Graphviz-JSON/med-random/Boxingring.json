@@ -1,0 +1,150 @@
+{
+  "entities": {
+    "wnut": {
+      "weak": false,
+      "attributes": [
+        "pzzd",
+        "drab",
+        "uhvm",
+        "erxu"
+      ],
+      "primary_keys": [
+        "pzzd"
+      ],
+      "multivalued": [
+        "mljr"
+      ],
+      "composite": {
+        "ljiz": [
+          "dtau",
+          "aecv",
+          "pmmq"
+        ]
+      }
+    },
+    "zbjt": {
+      "weak": false,
+      "attributes": [
+        "kghw",
+        "smgw",
+        "mztq",
+        "lazm",
+        "tldd"
+      ],
+      "primary_keys": [
+        "kghw"
+      ],
+      "derived": [
+        "rmiq"
+      ]
+    },
+    "lrrp": {
+      "weak": true,
+      "attributes": [
+        "kghw",
+        "fmzo",
+        "oypu",
+        "yrey"
+      ],
+      "primary_keys": [
+        "kghw",
+        "fmzo"
+      ]
+    },
+    "yaot": {
+      "weak": false,
+      "attributes": [
+        "kkzj",
+        "drab",
+        "gsth"
+      ],
+      "primary_keys": [
+        "kkzj"
+      ]
+    },
+    "joiw": {
+      "weak": false,
+      "attributes": [
+        "coey",
+        "drab",
+        "ttwq"
+      ],
+      "primary_keys": [
+        "coey"
+      ]
+    },
+    "gmql": {
+      "weak": false,
+      "attributes": [
+        "qean",
+        "drab",
+        "oiof"
+      ],
+      "primary_keys": [
+        "qean"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wnut",
+        "zbjt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "tovy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yaot",
+        "zbjt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qtso",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wnut",
+        "joiw"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "yxae",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zbjt",
+        "lrrp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ccdt",
+      "weak": true
+    },
+    {
+      "entities": [
+        "wnut",
+        "gmql"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "umbh",
+      "weak": false
+    }
+  ]
+}

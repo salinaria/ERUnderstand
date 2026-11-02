@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "price": {
+            "attributes": [
+                "order_date",
+                "review_id",
+                "favorites",
+                "jewelry_id"
+            ],
+            "primary_keys": [
+                "order_date"
+            ],
+            "composite": {
+                "comment": [
+                    "review_id",
+                    "favorites"
+                ]
+            },
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "contains",
+                "comment",
+                "rates",
+                "first_name"
+            ],
+            "primary_keys": [
+                "contains"
+            ],
+            "derived": [
+                "Order"
+            ],
+            "weak": false
+        },
+        "customer_id": {
+            "attributes": [
+                "rating",
+                "order_id"
+            ],
+            "primary_keys": [
+                "rating"
+            ],
+            "weak": false
+        },
+        "discounted_price": {
+            "attributes": [
+                "Jewelry",
+                "total_amount",
+                "Review"
+            ],
+            "primary_keys": [
+                "Jewelry"
+            ],
+            "derived": [
+                "Customer"
+            ],
+            "weak": true
+        },
+        "places": {
+            "attributes": [
+                "belongs_to",
+                "category_name",
+                "description"
+            ],
+            "primary_keys": [
+                "belongs_to"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "price",
+                "discounted_price"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Category",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "category_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "customer_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "delivery_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "places",
+                "price"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "last_name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "price",
+                "address"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        }
+    ]
+}

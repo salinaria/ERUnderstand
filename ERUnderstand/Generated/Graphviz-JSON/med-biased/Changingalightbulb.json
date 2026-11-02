@@ -1,0 +1,117 @@
+{
+    "entities": {
+        "wattage": {
+            "attributes": [
+                "description",
+                "tool_id"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "composite": {
+                "tool_id": [
+                    "fixture_id",
+                    "Person"
+                ]
+            },
+            "weak": false
+        },
+        "Fixture": {
+            "attributes": [
+                "step_number",
+                "first_name",
+                "name"
+            ],
+            "primary_keys": [
+                "step_number"
+            ],
+            "weak": false
+        },
+        "replaces": {
+            "attributes": [
+                "Tool",
+                "person_id"
+            ],
+            "primary_keys": [
+                "Tool"
+            ],
+            "multivalued": [
+                "Step"
+            ],
+            "weak": false
+        },
+        "fits_in": {
+            "attributes": [
+                "location",
+                "tool_name",
+                "uses"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": false
+        },
+        "bulb_id": {
+            "attributes": [
+                "Lightbulb",
+                "last_name"
+            ],
+            "primary_keys": [
+                "Lightbulb"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "wattage",
+                "Fixture",
+                "fits_in"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "fixture_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "wattage",
+                "replaces"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Step",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Fixture",
+                "fits_in"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "bulb_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "fixture_type",
+                "bulb_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Tool",
+            "weak": true
+        }
+    ]
+}

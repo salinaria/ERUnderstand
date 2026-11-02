@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "email": {
+            "attributes": [
+                "Course",
+                "submits",
+                "name",
+                "course_id"
+            ],
+            "primary_keys": [
+                "Course"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "instructor_id",
+                "Student",
+                "session_id"
+            ],
+            "primary_keys": [
+                "instructor_id"
+            ],
+            "derived": [
+                "assignment_id"
+            ],
+            "weak": true
+        },
+        "contains": {
+            "attributes": [
+                "address",
+                "Assignment",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "composite": {
+                "credits": [
+                    "Session",
+                    "part_of",
+                    "phone_number"
+                ]
+            },
+            "weak": false
+        },
+        "Instructor": {
+            "attributes": [
+                "major",
+                "Assignment",
+                "part_of"
+            ],
+            "primary_keys": [
+                "major"
+            ],
+            "multivalued": [
+                "description"
+            ],
+            "weak": false
+        },
+        "student_id": {
+            "attributes": [
+                "duration",
+                "submits",
+                "points",
+                "attends"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "street",
+                "email"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "taught_by",
+            "weak": true
+        },
+        {
+            "entities": [
+                "street",
+                "contains"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "date_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Instructor",
+                "street"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "due_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "email",
+                "student_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Instructor",
+                "student_id",
+                "street"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "title",
+            "weak": true
+        }
+    ]
+}

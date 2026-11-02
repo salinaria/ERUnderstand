@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "clnq": {
+      "weak": false,
+      "attributes": [
+        "pjou",
+        "jsje",
+        "crgd",
+        "pfxy"
+      ],
+      "primary_keys": [
+        "pjou"
+      ],
+      "composite": {
+        "aqja": [
+          "jsje",
+          "crgd"
+        ]
+      }
+    },
+    "uebk": {
+      "weak": false,
+      "attributes": [
+        "cakb",
+        "kfpr",
+        "ycwh",
+        "pzej"
+      ],
+      "primary_keys": [
+        "cakb"
+      ]
+    },
+    "yyvl": {
+      "weak": true,
+      "attributes": [
+        "bmup",
+        "aqja",
+        "cuuc"
+      ],
+      "primary_keys": [
+        "bmup"
+      ],
+      "derived": [
+        "jfzn"
+      ]
+    },
+    "ctvf": {
+      "weak": false,
+      "attributes": [
+        "woht",
+        "epph",
+        "fkfd"
+      ],
+      "primary_keys": [
+        "woht"
+      ]
+    },
+    "imgn": {
+      "weak": false,
+      "attributes": [
+        "rzjn",
+        "ahzg",
+        "aaoy"
+      ],
+      "primary_keys": [
+        "rzjn"
+      ],
+      "multivalued": [
+        "bcmn"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "clnq",
+        "uebk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ajcf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yyvl",
+        "clnq"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "tmar",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uebk",
+        "ctvf",
+        "clnq"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "yotd",
+      "weak": true
+    },
+    {
+      "entities": [
+        "clnq",
+        "imgn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "peew",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yyvl",
+        "uebk"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "hvmq",
+      "weak": false
+    }
+  ]
+}

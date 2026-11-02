@@ -1,0 +1,48 @@
+erDiagram
+Person {
+  string PersonID PK
+  string FirstName
+  string LastName
+  %% Age: derived
+  string Age
+  %% PhoneNumber: multivalued
+  string PhoneNumber
+}
+
+Dish {
+  string DishID PK
+  string DishName
+  string Recipe
+  string Calories
+}
+
+Table {
+  string TableID PK
+  string SeatingCapacity
+  string Location
+}
+
+Guest {
+  string GuestID PK
+  string RSVPStatus
+  string DietaryRestrictions
+}
+
+Drink {
+  string DrinkID PK
+  string DrinkName
+  string Alcoholic
+  string Volume
+}
+
+    Person ||..|| Guest : "Is"
+    Person o{--o{ Dish : "Eats"
+    Person o{--|| Table : "Sits At"
+    Person o{--o{ Drink : "Drinks"
+REL_Prepares {
+  string rel_prepares_id PK
+}
+
+    Dish o{--o{ REL_Prepares : "Dish-REL_Prepares"
+    Drink o{--o{ REL_Prepares : "Drink-REL_Prepares"
+    Person ||--o{ REL_Prepares : "Person-REL_Prepares"

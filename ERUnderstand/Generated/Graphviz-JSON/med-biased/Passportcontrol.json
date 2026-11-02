@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "crossing_id": {
+            "attributes": [
+                "country_name",
+                "nationality",
+                "name",
+                "expiry_date"
+            ],
+            "primary_keys": [
+                "country_name"
+            ],
+            "weak": false
+        },
+        "departure_airport": {
+            "attributes": [
+                "Country",
+                "visa_required",
+                "arrival_airport",
+                "passport_number"
+            ],
+            "primary_keys": [
+                "Country"
+            ],
+            "composite": {
+                "boards": [
+                    "visa_required",
+                    "arrival_airport"
+                ]
+            },
+            "multivalued": [
+                "arrival_time"
+            ],
+            "weak": false
+        },
+        "issue_date": {
+            "attributes": [
+                "issued_by",
+                "crosses",
+                "last_name",
+                "other_nationality",
+                "Flight"
+            ],
+            "primary_keys": [
+                "issued_by"
+            ],
+            "weak": false
+        },
+        "Person": {
+            "attributes": [
+                "first_name",
+                "visa_required",
+                "possesses"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": false
+        },
+        "used_in": {
+            "attributes": [
+                "person_id",
+                "Border_Crossing",
+                "date",
+                "flight_number"
+            ],
+            "primary_keys": [
+                "person_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "departure_airport",
+                "crossing_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "departure_airport",
+                "issue_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        },
+        {
+            "entities": [
+                "crossing_id",
+                "Person"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "purpose",
+            "weak": false
+        },
+        {
+            "entities": [
+                "departure_airport",
+                "Person",
+                "used_in"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "departure_time",
+            "weak": true
+        },
+        {
+            "entities": [
+                "crossing_id",
+                "used_in"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Passport",
+            "weak": true
+        }
+    ]
+}

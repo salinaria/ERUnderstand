@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "sponsor_id": {
+            "attributes": [
+                "fee",
+                "location",
+                "booth_number"
+            ],
+            "primary_keys": [
+                "fee"
+            ],
+            "multivalued": [
+                "event_id"
+            ],
+            "weak": false
+        },
+        "features": {
+            "attributes": [
+                "street",
+                "location",
+                "skills",
+                "exhibits_at",
+                "name"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "derived": [
+                "attends"
+            ],
+            "weak": false
+        },
+        "participant_id": {
+            "attributes": [
+                "Booth",
+                "assists",
+                "Participant"
+            ],
+            "primary_keys": [
+                "Booth"
+            ],
+            "weak": false
+        },
+        "contact_person": {
+            "attributes": [
+                "Event",
+                "location",
+                "availability",
+                "city"
+            ],
+            "primary_keys": [
+                "Event"
+            ],
+            "weak": false
+        },
+        "zipcode": {
+            "attributes": [
+                "sponsors",
+                "volunteer_id",
+                "capacity"
+            ],
+            "primary_keys": [
+                "sponsors"
+            ],
+            "composite": {
+                "booth_number": [
+                    "date",
+                    "Volunteer",
+                    "Sponsor"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "sponsor_id",
+                "features"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "features",
+                "participant_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "contact_person",
+                "features"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zipcode",
+                "features"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "remaining_spots",
+            "weak": false
+        },
+        {
+            "entities": [
+                "sponsor_id",
+                "participant_id",
+                "features"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "contact_email",
+            "weak": true
+        }
+    ]
+}

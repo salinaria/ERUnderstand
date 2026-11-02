@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "timestamp": {
+            "attributes": [
+                "Device",
+                "status",
+                "username",
+                "email"
+            ],
+            "primary_keys": [
+                "Device"
+            ],
+            "multivalued": [
+                "model"
+            ],
+            "weak": false
+        },
+        "width": {
+            "attributes": [
+                "contains",
+                "Recording",
+                "duration",
+                "resolution"
+            ],
+            "primary_keys": [
+                "contains"
+            ],
+            "derived": [
+                "uses"
+            ],
+            "weak": false
+        },
+        "file_path": {
+            "attributes": [
+                "end_time",
+                "height",
+                "password_hash"
+            ],
+            "primary_keys": [
+                "end_time"
+            ],
+            "weak": true
+        },
+        "device_id": {
+            "attributes": [
+                "start_time",
+                "user_id",
+                "message_id",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "start_time"
+            ],
+            "weak": false
+        },
+        "call_type": {
+            "attributes": [
+                "location",
+                "recording_id",
+                "generates"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "composite": {
+                "generates": [
+                    "device_type",
+                    "call_id"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "timestamp",
+                "width"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "User",
+            "weak": false
+        },
+        {
+            "entities": [
+                "width",
+                "file_path"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Message",
+            "weak": true
+        },
+        {
+            "entities": [
+                "timestamp",
+                "device_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "takes_place_with",
+            "weak": false
+        },
+        {
+            "entities": [
+                "width",
+                "call_type"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "content",
+            "weak": true
+        },
+        {
+            "entities": [
+                "timestamp",
+                "width",
+                "device_id"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "Call",
+            "weak": true
+        }
+    ]
+}

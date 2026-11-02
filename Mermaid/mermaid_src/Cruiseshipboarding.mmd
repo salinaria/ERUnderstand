@@ -1,0 +1,43 @@
+erDiagram
+Passenger {
+  string passenger_id PK
+  %% name: composite
+  string name
+  string citizenship
+}
+
+Booking {
+  string booking_id PK
+  string booking_date
+  %% total_price: derived
+  string total_price
+}
+
+Cabin {
+  string cabin_number PK
+  string capacity
+  string cabin_type
+}
+
+CruiseShip {
+  string ship_id PK
+  string ship_name
+  string max_capacity
+}
+
+Port {
+  string port_code PK
+  string port_name
+  string country
+}
+
+    Passenger ||--o{ Booking : "makes"
+    Booking ||--|| Cabin : "assigns"
+    CruiseShip ||--o{ Cabin : "has"
+REL_visits {
+  string rel_visits_id PK
+}
+
+    CruiseShip ||--o{ REL_visits : "CruiseShip-REL_visits"
+    Port o{--o{ REL_visits : "Port-REL_visits"
+    Booking o{--o{ REL_visits : "Booking-REL_visits"

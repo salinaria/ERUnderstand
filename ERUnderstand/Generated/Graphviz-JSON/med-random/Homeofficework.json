@@ -1,0 +1,148 @@
+{
+  "entities": {
+    "mufk": {
+      "weak": false,
+      "attributes": [
+        "dkhk",
+        "omau",
+        "wxmk",
+        "zuxi"
+      ],
+      "primary_keys": [
+        "dkhk"
+      ],
+      "composite": {
+        "wxmk": [
+          "xchj",
+          "bfop",
+          "ewhg",
+          "zsyx"
+        ]
+      }
+    },
+    "yuav": {
+      "weak": false,
+      "attributes": [
+        "itvc",
+        "lgno",
+        "somt"
+      ],
+      "primary_keys": [
+        "itvc"
+      ],
+      "derived": [
+        "khkn"
+      ]
+    },
+    "mfpj": {
+      "weak": false,
+      "attributes": [
+        "hcaw",
+        "wcdl",
+        "pdoo"
+      ],
+      "primary_keys": [
+        "hcaw"
+      ]
+    },
+    "pvlw": {
+      "weak": false,
+      "attributes": [
+        "msor",
+        "zqvd",
+        "guxv",
+        "slqv"
+      ],
+      "primary_keys": [
+        "msor"
+      ],
+      "multivalued": [
+        "nywp"
+      ]
+    },
+    "euww": {
+      "weak": false,
+      "attributes": [
+        "xrzn",
+        "mkhw",
+        "yoze"
+      ],
+      "primary_keys": [
+        "xrzn"
+      ]
+    },
+    "lovm": {
+      "weak": true,
+      "attributes": [
+        "bvct",
+        "movb",
+        "hkdx"
+      ],
+      "primary_keys": [
+        "bvct"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "mufk",
+        "yuav"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wwxl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mufk",
+        "mfpj"
+      ],
+      "cardinality": [
+        "N",
+        "M"
+      ],
+      "name": "tomg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yuav",
+        "mfpj"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "gvxs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lovm",
+        "mufk"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "zfck",
+      "weak": true
+    },
+    {
+      "entities": [
+        "mufk",
+        "euww"
+      ],
+      "cardinality": [
+        "N",
+        "M"
+      ],
+      "name": "thva",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+erDiagram
+Client {
+  string client_id PK
+  string name
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Case {
+  string case_id PK
+  string case_type
+  string open_date
+  string close_date
+  string status
+}
+
+Lawyer {
+  string lawyer_id PK
+  %% name: composite
+  string name
+  string specialization
+  string bar_number
+}
+
+Document {
+  string document_id PK
+  string file_name
+  string upload_date
+  string case_id
+}
+
+Appointment {
+  string appointment_id PK
+  string date_time
+  string location
+  string lawyer_id
+  string client_id
+}
+
+    Client ||--o{ Case : "has_case"
+    Lawyer ||--o{ Case : "manages"
+    Case ||..o{ Document : "contains"
+REL_schedules {
+  string rel_schedules_id PK
+}
+
+    Lawyer ||--o{ REL_schedules : "Lawyer-REL_schedules"
+    Appointment o{--o{ REL_schedules : "Appointment-REL_schedules"
+    Client ||--o{ REL_schedules : "Client-REL_schedules"

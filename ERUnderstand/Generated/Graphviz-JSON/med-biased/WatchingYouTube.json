@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "likes": {
+            "attributes": [
+                "subscribes_to",
+                "duration",
+                "Channel"
+            ],
+            "primary_keys": [
+                "subscribes_to"
+            ],
+            "multivalued": [
+                "text"
+            ],
+            "weak": false
+        },
+        "playlist_name": {
+            "attributes": [
+                "playlist_id",
+                "Playlist",
+                "timestamp",
+                "channel_id"
+            ],
+            "primary_keys": [
+                "playlist_id"
+            ],
+            "derived": [
+                "Video"
+            ],
+            "weak": false
+        },
+        "uploads": {
+            "attributes": [
+                "includes",
+                "title",
+                "views"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "weak": false
+        },
+        "join_date": {
+            "attributes": [
+                "subscribed_channels",
+                "user_id",
+                "views",
+                "subscribes_to"
+            ],
+            "primary_keys": [
+                "subscribed_channels"
+            ],
+            "weak": true
+        },
+        "comment_id": {
+            "attributes": [
+                "User",
+                "video_id",
+                "creation_date",
+                "subscribes_to",
+                "playlist_id"
+            ],
+            "primary_keys": [
+                "User"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "likes",
+                "playlist_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "username",
+            "weak": false
+        },
+        {
+            "entities": [
+                "likes",
+                "uploads"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "channel_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "uploads",
+                "playlist_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Comment",
+            "weak": false
+        },
+        {
+            "entities": [
+                "likes",
+                "join_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "upload_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "join_date",
+                "playlist_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "creates",
+            "weak": false
+        }
+    ]
+}

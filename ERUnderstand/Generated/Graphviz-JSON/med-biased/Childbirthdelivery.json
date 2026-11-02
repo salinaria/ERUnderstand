@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "Medication": {
+            "attributes": [
+                "prescribes",
+                "results_in",
+                "is_child_of",
+                "specialization",
+                "name"
+            ],
+            "primary_keys": [
+                "prescribes"
+            ],
+            "multivalued": [
+                "name"
+            ],
+            "weak": false
+        },
+        "date_time": {
+            "attributes": [
+                "doctor_id",
+                "is_child_of",
+                "undergoes",
+                "patient_id"
+            ],
+            "primary_keys": [
+                "doctor_id"
+            ],
+            "derived": [
+                "medication_id"
+            ],
+            "weak": false
+        },
+        "attends": {
+            "attributes": [
+                "total_cost",
+                "first_name",
+                "delivery_id"
+            ],
+            "primary_keys": [
+                "total_cost"
+            ],
+            "weak": true
+        },
+        "Baby": {
+            "attributes": [
+                "birth_weight",
+                "results_in",
+                "date_of_birth"
+            ],
+            "primary_keys": [
+                "birth_weight"
+            ],
+            "composite": {
+                "results_in": [
+                    "Patient",
+                    "delivery_type"
+                ]
+            },
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "duration",
+                "results_in",
+                "Doctor"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Medication",
+                "date_time"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_time",
+                "attends"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "dosage",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Baby",
+                "date_time"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "baby_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_time",
+                "last_name",
+                "Baby"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends",
+                "Medication"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "apgar_score",
+            "weak": false
+        }
+    ]
+}

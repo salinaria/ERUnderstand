@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "credit_card_info": {
+            "attributes": [
+                "total_amount",
+                "card_number",
+                "product_id"
+            ],
+            "primary_keys": [
+                "total_amount"
+            ],
+            "multivalued": [
+                "payment_id"
+            ],
+            "weak": false
+        },
+        "order_id": {
+            "attributes": [
+                "ShoppingCart",
+                "stock_quantity",
+                "owns"
+            ],
+            "primary_keys": [
+                "ShoppingCart"
+            ],
+            "derived": [
+                "payment_date"
+            ],
+            "weak": false
+        },
+        "amount": {
+            "attributes": [
+                "places",
+                "Product",
+                "Customer",
+                "name"
+            ],
+            "primary_keys": [
+                "places"
+            ],
+            "composite": {
+                "shipping_address": [
+                    "Order",
+                    "payment_method",
+                    "phone_number"
+                ]
+            },
+            "weak": true
+        },
+        "stock_quantity": {
+            "attributes": [
+                "cart_id",
+                "card_number",
+                "cvv",
+                "makes",
+                "Payment"
+            ],
+            "primary_keys": [
+                "cart_id"
+            ],
+            "weak": false
+        },
+        "contains": {
+            "attributes": [
+                "creation_date",
+                "includes"
+            ],
+            "primary_keys": [
+                "creation_date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "credit_card_info",
+                "order_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "customer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "order_id",
+                "amount"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "delivery_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "order_id",
+                "stock_quantity"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "credit_card_info",
+                "contains"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "price",
+            "weak": false
+        },
+        {
+            "entities": [
+                "contains",
+                "stock_quantity"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "expiration_date",
+            "weak": false
+        }
+    ]
+}

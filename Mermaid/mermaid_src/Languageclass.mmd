@@ -1,0 +1,42 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string major
+}
+
+Teacher {
+  string teacher_id PK
+  string name
+  string expertise
+}
+
+Course {
+  string course_id PK
+  string course_name
+  string credits
+}
+
+Classroom {
+  string room_number PK
+  string capacity
+}
+
+Textbook {
+  string ISBN PK
+  string title
+  string author
+  string edition
+}
+
+    Student o{--o{ Course : "enrolls_in"
+    Teacher ||--o{ Course : "teaches"
+    Course ||--o{ Textbook : "uses"
+    Course ||--|| Classroom : "held_in"
+REL_mentors {
+  string rel_mentors_id PK
+}
+
+    Student o{..o{ REL_mentors : "Student-REL_mentors"
+    Teacher ||..o{ REL_mentors : "Teacher-REL_mentors"
+    Course ||..o{ REL_mentors : "Course-REL_mentors"

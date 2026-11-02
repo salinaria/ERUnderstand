@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "arkj": {
+      "weak": false,
+      "attributes": [
+        "vbar",
+        "vqiu",
+        "coyy",
+        "cowj"
+      ],
+      "primary_keys": [
+        "vbar"
+      ],
+      "multivalued": [
+        "cowj"
+      ]
+    },
+    "blcr": {
+      "weak": false,
+      "attributes": [
+        "ggdd",
+        "vqiu",
+        "qbsq"
+      ],
+      "primary_keys": [
+        "ggdd"
+      ],
+      "composite": {
+        "vqiu": [
+          "acpx",
+          "iirf"
+        ]
+      }
+    },
+    "edqu": {
+      "weak": false,
+      "attributes": [
+        "hpjj",
+        "lflq",
+        "nolc",
+        "enmk"
+      ],
+      "primary_keys": [
+        "hpjj"
+      ]
+    },
+    "stzy": {
+      "weak": false,
+      "attributes": [
+        "tjwh",
+        "rxdo",
+        "hien"
+      ],
+      "primary_keys": [
+        "tjwh"
+      ]
+    },
+    "rrqz": {
+      "weak": true,
+      "attributes": [
+        "imgi",
+        "uctk",
+        "sbnk"
+      ],
+      "primary_keys": [
+        "imgi"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "arkj",
+        "edqu"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "gkvs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "blcr",
+        "edqu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fxxl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "edqu",
+        "stzy"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "mrhq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "edqu",
+        "rrqz"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "aqdu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "arkj",
+        "blcr",
+        "stzy"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "pjhe",
+      "weak": false
+    }
+  ]
+}

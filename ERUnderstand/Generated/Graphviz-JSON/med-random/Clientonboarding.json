@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "bwvy": {
+      "weak": false,
+      "attributes": [
+        "bxya",
+        "vnqs",
+        "eesn",
+        "qtwp"
+      ],
+      "primary_keys": [
+        "bxya"
+      ],
+      "multivalued": [
+        "zjnj"
+      ],
+      "composite": {
+        "eesn": [
+          "wabo",
+          "tkng",
+          "twmo",
+          "rqor"
+        ]
+      }
+    },
+    "bita": {
+      "weak": false,
+      "attributes": [
+        "keux",
+        "acqp",
+        "kwqb"
+      ],
+      "primary_keys": [
+        "keux"
+      ]
+    },
+    "jfxt": {
+      "weak": false,
+      "attributes": [
+        "qibt",
+        "ryeh",
+        "tyaj",
+        "luov"
+      ],
+      "primary_keys": [
+        "qibt"
+      ]
+    },
+    "fmly": {
+      "weak": false,
+      "attributes": [
+        "lywc",
+        "whna",
+        "pewv",
+        "xxwv"
+      ],
+      "primary_keys": [
+        "lywc"
+      ]
+    },
+    "ioop": {
+      "weak": true,
+      "attributes": [
+        "dfkx",
+        "zqju",
+        "qdqv",
+        "znyb"
+      ],
+      "primary_keys": [
+        "dfkx"
+      ],
+      "derived": [
+        "wzqo"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bwvy",
+        "bita"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cyzf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jfxt",
+        "bwvy",
+        "fmly"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "uhrc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bita",
+        "ioop"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "wvps",
+      "weak": true
+    },
+    {
+      "entities": [
+        "jfxt",
+        "ioop"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pvwt",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bwvy",
+        "fmly"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "hmtw",
+      "weak": false
+    }
+  ]
+}

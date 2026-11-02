@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "ordered": {
+            "attributes": [
+                "table_number",
+                "service_type",
+                "city"
+            ],
+            "primary_keys": [
+                "table_number"
+            ],
+            "multivalued": [
+                "description"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "meal_id",
+                    "duration",
+                    "dietary_restriction",
+                    "street"
+                ]
+            }
+        },
+        "Service": {
+            "attributes": [
+                "name",
+                "state"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "vendor_id": {
+            "attributes": [
+                "guest_id",
+                "zip_code",
+                "provides"
+            ],
+            "primary_keys": [
+                "guest_id"
+            ],
+            "weak": false
+        },
+        "cost": {
+            "attributes": [
+                "rsvp_status",
+                "service_type",
+                "offers"
+            ],
+            "primary_keys": [
+                "rsvp_status"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "rsvp_status",
+                "capacity",
+                "table_number",
+                "Attends_To",
+                "Meal"
+            ],
+            "primary_keys": [
+                "rsvp_status",
+                "capacity",
+                "table_number"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "ordered",
+                "Service"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Vendor",
+            "weak": false
+        },
+        {
+            "entities": [
+                "ordered",
+                "vendor_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "allergy_info",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "sits_at",
+            "weak": true
+        },
+        {
+            "entities": [
+                "cost",
+                "ordered",
+                "Service"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "Table",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "vendor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Guest",
+            "weak": false
+        }
+    ]
+}

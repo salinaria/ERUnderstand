@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "soeg": {
+      "weak": false,
+      "attributes": [
+        "ysen",
+        "qbpu",
+        "iwrr"
+      ],
+      "primary_keys": [
+        "ysen"
+      ],
+      "multivalued": [
+        "cujv",
+        "fzqw"
+      ]
+    },
+    "zerk": {
+      "weak": false,
+      "attributes": [
+        "mvvq",
+        "cwbp",
+        "ofhy",
+        "bfun"
+      ],
+      "primary_keys": [
+        "mvvq"
+      ]
+    },
+    "vpho": {
+      "weak": false,
+      "attributes": [
+        "xmcu",
+        "pauy",
+        "fvdr"
+      ],
+      "primary_keys": [
+        "xmcu"
+      ],
+      "derived": [
+        "ipmh"
+      ]
+    },
+    "agyy": {
+      "weak": false,
+      "attributes": [
+        "ghzm",
+        "wzsw",
+        "dboi",
+        "afcv"
+      ],
+      "primary_keys": [
+        "ghzm"
+      ]
+    },
+    "sewu": {
+      "weak": true,
+      "attributes": [
+        "weap",
+        "eukd",
+        "tucf",
+        "kjgx",
+        "xmcu"
+      ],
+      "primary_keys": [
+        "weap"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "soeg",
+        "zerk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "skjs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "soeg",
+        "vpho"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xstj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vpho",
+        "agyy"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "clfb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vpho",
+        "sewu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ewhu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "zerk",
+        "agyy",
+        "soeg"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "vkce",
+      "weak": false
+    }
+  ]
+}

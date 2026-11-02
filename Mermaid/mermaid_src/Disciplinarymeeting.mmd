@@ -1,0 +1,40 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string major
+  %% email: multivalued
+  string email
+}
+
+Meeting {
+  string meeting_id PK
+  string date
+  string time
+  string location
+}
+
+Violation {
+  string violation_id PK
+  string description
+  string severity
+}
+
+Staff {
+  string staff_id PK
+  string name
+  string title
+}
+
+IncidentReport {
+  string report_id PK
+  string date_reported
+  string description
+  string student_id
+}
+
+    Student ||..o{ IncidentReport : "files"
+    Student ||--o{ Meeting : "attends"
+    Meeting ||--o{ Violation : "addresses"
+    Meeting ||--o{ Staff : "conducts"
+    Violation ||--|| IncidentReport : "relates"

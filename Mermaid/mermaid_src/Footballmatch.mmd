@@ -1,0 +1,44 @@
+erDiagram
+Match {
+  string match_id PK
+  string date
+  string location
+  string attendance
+}
+
+Team {
+  string team_id PK
+  string name
+  string city
+}
+
+Player {
+  string player_id PK
+  %% name: composite
+  string name
+  string position
+  string jersey_number
+}
+
+Goal {
+  string goal_id PK
+  string minute
+  string type
+}
+
+Referee {
+  string referee_id PK
+  string name
+  string years_of_experience
+}
+
+    Match ||--o{ Team : "plays_in"
+    Player o{--|| Team : "plays_for"
+    Match ||--|| Referee : "officiated_by"
+REL_scored_in {
+  string rel_scored_in_id PK
+}
+
+    Goal o{..o{ REL_scored_in : "Goal-REL_scored_in"
+    Match ||..o{ REL_scored_in : "Match-REL_scored_in"
+    Player ||..o{ REL_scored_in : "Player-REL_scored_in"

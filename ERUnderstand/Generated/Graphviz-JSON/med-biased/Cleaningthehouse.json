@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "contains": {
+            "attributes": [
+                "cleanliness_level",
+                "supplies_needed",
+                "address"
+            ],
+            "primary_keys": [
+                "cleanliness_level"
+            ],
+            "weak": false
+        },
+        "room_type": {
+            "attributes": [
+                "Cleaner",
+                "phone_number",
+                "CleaningSchedule",
+                "cleanliness_level"
+            ],
+            "primary_keys": [
+                "Cleaner"
+            ],
+            "weak": true,
+            "derived": [
+                "CleaningSupply"
+            ]
+        },
+        "contact_info": {
+            "attributes": [
+                "House",
+                "size",
+                "priority",
+                "hourly_rate"
+            ],
+            "primary_keys": [
+                "House"
+            ],
+            "multivalued": [
+                "assigned_to"
+            ],
+            "weak": false
+        },
+        "num_rooms": {
+            "attributes": [
+                "Room",
+                "email",
+                "quantity"
+            ],
+            "primary_keys": [
+                "Room"
+            ],
+            "composite": {
+                "house_id": [
+                    "scheduled_for",
+                    "frequency"
+                ]
+            },
+            "weak": false
+        },
+        "room_id": {
+            "attributes": [
+                "cleaner_id",
+                "task_id",
+                "cleaner_id",
+                "Cleaner",
+                "House"
+            ],
+            "primary_keys": [
+                "cleaner_id"
+            ],
+            "weak": true
+        },
+        "schedule_id": {
+            "attributes": [
+                "requires",
+                "email",
+                "CleaningTask"
+            ],
+            "primary_keys": [
+                "requires"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "room_type",
+                "contact_info",
+                "num_rooms"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "supply_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "contains",
+                "room_type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "contact_info",
+                "schedule_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "room_type",
+                "room_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": true
+        }
+    ]
+}

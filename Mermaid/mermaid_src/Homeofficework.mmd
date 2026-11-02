@@ -1,0 +1,45 @@
+erDiagram
+Employee {
+  string employee_id PK
+  string name
+  %% address: composite
+  string address
+  string salary
+}
+
+Task {
+  string task_id PK
+  string description
+  string deadline
+}
+
+Project {
+  string project_id PK
+  string project_name
+  string budget
+}
+
+Equipment {
+  string equipment_id PK
+  string type
+  string model
+  string purchase_date
+}
+
+Meeting {
+  string meeting_id PK
+  string date_time
+  string location
+}
+
+HomeOffice {
+  string office_id PK
+  string dimensions
+  string furniture
+}
+
+    Employee ||--o{ Task : "assigned_to"
+    Employee o{--o{ Project : "works_on"
+    Task o{--|| Project : "part_of"
+    HomeOffice ||..|| Employee : "Located"
+    Employee o{--o{ Meeting : "attends"

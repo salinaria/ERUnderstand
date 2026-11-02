@@ -1,0 +1,143 @@
+{
+  "entities": {
+    "ddxd": {
+      "weak": false,
+      "attributes": [
+        "fqsn",
+        "xcqq",
+        "torl",
+        "kmao"
+      ],
+      "primary_keys": [
+        "fqsn"
+      ],
+      "multivalued": [
+        "xfzi"
+      ]
+    },
+    "hcjw": {
+      "weak": false,
+      "attributes": [
+        "gyok",
+        "xeeg",
+        "sfir",
+        "rswy"
+      ],
+      "primary_keys": [
+        "gyok"
+      ],
+      "derived": [
+        "ajxe"
+      ]
+    },
+    "regp": {
+      "weak": false,
+      "attributes": [
+        "mdnd",
+        "vtpr",
+        "hfcy",
+        "dlth"
+      ],
+      "primary_keys": [
+        "mdnd"
+      ],
+      "composite": {
+        "mezx": [
+          "hadw",
+          "pzdh",
+          "fdpo"
+        ]
+      }
+    },
+    "uidc": {
+      "weak": false,
+      "attributes": [
+        "ieve",
+        "klkk",
+        "duzg",
+        "quih"
+      ],
+      "primary_keys": [
+        "ieve"
+      ]
+    },
+    "twio": {
+      "weak": true,
+      "attributes": [
+        "ebaw",
+        "wtjc",
+        "etzo",
+        "fffa",
+        "qwpt",
+        "ffbo"
+      ],
+      "primary_keys": [
+        "ebaw"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ddxd",
+        "hcjw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ochw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hcjw",
+        "regp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nqkn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uidc",
+        "hcjw"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "jryn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "twio",
+        "ddxd",
+        "hcjw"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "vdfe",
+      "weak": true
+    },
+    {
+      "entities": [
+        "uidc",
+        "ddxd"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "cihk",
+      "weak": false
+    }
+  ]
+}

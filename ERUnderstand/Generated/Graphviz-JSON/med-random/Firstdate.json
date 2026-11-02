@@ -1,0 +1,129 @@
+{
+  "entities": {
+    "uuha": {
+      "weak": false,
+      "attributes": [
+        "lmxp",
+        "ehqy",
+        "nnpf"
+      ],
+      "primary_keys": [
+        "lmxp"
+      ],
+      "multivalued": [
+        "nnpf"
+      ]
+    },
+    "nyuu": {
+      "weak": false,
+      "attributes": [
+        "qcoq",
+        "aria",
+        "iknh"
+      ],
+      "primary_keys": [
+        "qcoq"
+      ]
+    },
+    "bgaj": {
+      "weak": false,
+      "attributes": [
+        "pmcc",
+        "lxho",
+        "ogbi"
+      ],
+      "primary_keys": [
+        "pmcc"
+      ]
+    },
+    "ofyt": {
+      "weak": true,
+      "attributes": [
+        "jgqx",
+        "gbbj",
+        "fgpq",
+        "lmxp"
+      ],
+      "primary_keys": [
+        "jgqx"
+      ],
+      "derived": [
+        "fgpq"
+      ]
+    },
+    "wckp": {
+      "weak": true,
+      "attributes": [
+        "txtc",
+        "qxfc",
+        "lrfz",
+        "lmxp"
+      ],
+      "primary_keys": [
+        "txtc"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "uuha",
+        "nyuu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "jcwl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uuha",
+        "bgaj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ahrm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uuha",
+        "ofyt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fins",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uuha",
+        "wckp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "crry",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nyuu",
+        "bgaj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zeqd",
+      "weak": false
+    }
+  ]
+}

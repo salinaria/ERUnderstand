@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "first_name": {
+            "attributes": [
+                "time",
+                "duration",
+                "job_title",
+                "department_name"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "composite": {
+                "eligibility_criteria": [
+                    "duration",
+                    "job_title"
+                ]
+            },
+            "weak": false
+        },
+        "works_in": {
+            "attributes": [
+                "Topic",
+                "name",
+                "attends",
+                "learns_about"
+            ],
+            "primary_keys": [
+                "Topic"
+            ],
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "Employee",
+                "Employee",
+                "location"
+            ],
+            "primary_keys": [
+                "Employee"
+            ],
+            "weak": false
+        },
+        "covers": {
+            "attributes": [
+                "date",
+                "OrientationSession",
+                "learns_about"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "topic_id": {
+            "attributes": [
+                "description",
+                "Benefit",
+                "benefit_name"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "employee_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "first_name",
+                "covers"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "session_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_name",
+                "works_in"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "offers",
+            "weak": false
+        },
+        {
+            "entities": [
+                "works_in",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "benefit_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_name",
+                "topic_id",
+                "works_in"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "department_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "covers",
+                "topic_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Department",
+            "weak": false
+        }
+    ]
+}

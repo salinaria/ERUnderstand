@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "ctdf": {
+      "weak": false,
+      "attributes": [
+        "flit",
+        "dfgt",
+        "ectd"
+      ],
+      "primary_keys": [
+        "flit"
+      ]
+    },
+    "jrgd": {
+      "weak": true,
+      "attributes": [
+        "fksn",
+        "jwii",
+        "prui",
+        "silc",
+        "oofg"
+      ],
+      "primary_keys": [
+        "fksn"
+      ],
+      "composite": {
+        "aluh": [
+          "jwii",
+          "prui"
+        ]
+      }
+    },
+    "urxz": {
+      "weak": false,
+      "attributes": [
+        "lktb",
+        "orys",
+        "sdnq"
+      ],
+      "primary_keys": [
+        "lktb"
+      ],
+      "multivalued": [
+        "sdnq"
+      ]
+    },
+    "udwt": {
+      "weak": false,
+      "attributes": [
+        "yrih",
+        "guwa",
+        "tpqe",
+        "nzhp"
+      ],
+      "primary_keys": [
+        "yrih"
+      ],
+      "derived": [
+        "kvqm"
+      ]
+    },
+    "qbin": {
+      "weak": false,
+      "attributes": [
+        "draz",
+        "fmhd",
+        "zpil",
+        "ofji"
+      ],
+      "primary_keys": [
+        "draz"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jrgd",
+        "ctdf"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "whrd",
+      "weak": true
+    },
+    {
+      "entities": [
+        "ctdf",
+        "urxz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "heci",
+      "weak": false
+    },
+    {
+      "entities": [
+        "udwt",
+        "qbin"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wpvr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qbin",
+        "ctdf"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gfim",
+      "weak": false
+    },
+    {
+      "entities": [
+        "udwt",
+        "qbin",
+        "ctdf"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "mshk",
+      "weak": false
+    }
+  ]
+}

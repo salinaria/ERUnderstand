@@ -1,0 +1,45 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Coupon {
+  string coupon_code PK
+  string discount_amount
+  string expiry_date
+}
+
+Product {
+  string product_id PK
+  string product_name
+  string price
+}
+
+Transaction {
+  string transaction_id PK
+  string date
+  %% total_amount: derived
+  string total_amount
+}
+
+Store {
+  string store_id PK
+  %% location: composite
+  string location
+  string store_name
+}
+
+    Customer ||--o{ Transaction : "makes"
+    Transaction ||--o{ Product : "includes"
+    Transaction ||--|| Coupon : "applies"
+    Product o{--o{ Store : "available_at"
+REL_processed_at {
+  string rel_processed_at_id PK
+}
+
+    Transaction ||--o{ REL_processed_at : "Transaction-REL_processed_at"
+    Customer ||--o{ REL_processed_at : "Customer-REL_processed_at"
+    Store ||--o{ REL_processed_at : "Store-REL_processed_at"

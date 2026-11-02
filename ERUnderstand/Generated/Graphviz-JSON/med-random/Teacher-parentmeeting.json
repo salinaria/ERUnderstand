@@ -1,0 +1,123 @@
+{
+  "entities": {
+    "pkrs": {
+      "weak": false,
+      "attributes": [
+        "afna",
+        "diax",
+        "zdsf",
+        "hjfd"
+      ],
+      "primary_keys": [
+        "afna"
+      ],
+      "multivalued": [
+        "hjfd"
+      ]
+    },
+    "lmvl": {
+      "weak": false,
+      "attributes": [
+        "jbnc",
+        "bdkf"
+      ],
+      "primary_keys": [
+        "jbnc"
+      ]
+    },
+    "rtxe": {
+      "weak": false,
+      "attributes": [
+        "ncxq",
+        "jhjy"
+      ],
+      "primary_keys": [
+        "ncxq"
+      ]
+    },
+    "pctv": {
+      "weak": false,
+      "attributes": [
+        "vnxi",
+        "ktml"
+      ],
+      "primary_keys": [
+        "vnxi"
+      ]
+    },
+    "duky": {
+      "weak": true,
+      "attributes": [
+        "ogpk",
+        "xgan",
+        "xlbx"
+      ],
+      "primary_keys": [
+        "ogpk"
+      ],
+      "derived": [
+        "ricj"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "lmvl",
+        "pctv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "asqn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rtxe",
+        "pctv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ppnr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "duky",
+        "lmvl",
+        "rtxe",
+        "pctv"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "oyhu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "lmvl",
+        "duky"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qojp",
+      "weak": false
+    },
+    {
+      "entities": [],
+      "cardinality": [],
+      "name": "qtqy",
+      "weak": false
+    }
+  ]
+}

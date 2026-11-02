@@ -1,0 +1,150 @@
+{
+    "entities": {
+        "rounds": {
+            "attributes": [
+                "Match",
+                "specialty",
+                "round_number",
+                "experience"
+            ],
+            "primary_keys": [
+                "Match"
+            ],
+            "multivalued": [
+                "weight"
+            ],
+            "weak": false,
+            "composite": {
+                "fouls": [
+                    "location",
+                    "duration",
+                    "Boxer"
+                ]
+            }
+        },
+        "date": {
+            "attributes": [
+                "birth_month",
+                "consists_of",
+                "is_trained_by",
+                "Trainer",
+                "birth_day"
+            ],
+            "primary_keys": [
+                "birth_month"
+            ],
+            "derived": [
+                "birthdate"
+            ],
+            "weak": false
+        },
+        "reach": {
+            "attributes": [
+                "birth_month",
+                "Gym",
+                "name",
+                "birth_year"
+            ],
+            "primary_keys": [
+                "birth_month",
+                "Gym"
+            ],
+            "weak": true
+        },
+        "address": {
+            "attributes": [
+                "officiates",
+                "specialty",
+                "gym_id"
+            ],
+            "primary_keys": [
+                "officiates"
+            ],
+            "weak": false
+        },
+        "trainer_id": {
+            "attributes": [
+                "match_id",
+                "specialty",
+                "trains_at"
+            ],
+            "primary_keys": [
+                "match_id"
+            ],
+            "weak": false
+        },
+        "Round": {
+            "attributes": [
+                "nickname",
+                "specialty",
+                "referee_id"
+            ],
+            "primary_keys": [
+                "nickname"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "rounds",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "boxer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "rounds",
+                "trainer_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Referee",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "reach"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "result",
+            "weak": true
+        },
+        {
+            "entities": [
+                "rounds",
+                "Round"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "knockdowns",
+            "weak": false
+        }
+    ]
+}

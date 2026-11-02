@@ -1,0 +1,152 @@
+{
+  "entities": {
+    "gzxq": {
+      "weak": false,
+      "attributes": [
+        "ekwe",
+        "nglx",
+        "bgji",
+        "rbzq"
+      ],
+      "primary_keys": [
+        "ekwe"
+      ],
+      "multivalued": [
+        "rbzq"
+      ],
+      "composite": {
+        "bgji": [
+          "uogs",
+          "wige",
+          "ukfu",
+          "qytv"
+        ]
+      }
+    },
+    "pciy": {
+      "weak": false,
+      "attributes": [
+        "ldrd",
+        "nglx",
+        "bgji",
+        "rbzq"
+      ],
+      "primary_keys": [
+        "ldrd"
+      ],
+      "multivalued": [
+        "rbzq"
+      ],
+      "composite": {
+        "bgji": [
+          "uogs",
+          "wige",
+          "ukfu",
+          "qytv"
+        ]
+      }
+    },
+    "qwdx": {
+      "weak": false,
+      "attributes": [
+        "cmgc",
+        "ssxo",
+        "obed",
+        "peuu"
+      ],
+      "primary_keys": [
+        "cmgc"
+      ],
+      "derived": [
+        "bkcq"
+      ]
+    },
+    "vbzx": {
+      "weak": false,
+      "attributes": [
+        "qclj",
+        "nglx",
+        "zqjv"
+      ],
+      "primary_keys": [
+        "qclj"
+      ]
+    },
+    "hsuc": {
+      "weak": true,
+      "attributes": [
+        "qzze",
+        "zsay",
+        "peuu",
+        "ziho"
+      ],
+      "primary_keys": [
+        "qzze"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "gzxq",
+        "qwdx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "anwg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pciy",
+        "qwdx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jdpj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qwdx",
+        "vbzx"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "suqj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qwdx",
+        "hsuc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cwfk",
+      "weak": true
+    },
+    {
+      "entities": [
+        "qwdx",
+        "gzxq",
+        "pciy"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "tihi",
+      "weak": false
+    }
+  ]
+}

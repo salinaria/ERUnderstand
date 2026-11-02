@@ -1,0 +1,43 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string name
+  string loyalty_points
+}
+
+Discount {
+  string discount_id PK
+  string percentage
+  string reason
+}
+
+Product {
+  string product_id PK
+  string name
+  string price
+}
+
+Discount_Request {
+  string request_id PK
+  %% date: composite
+  string date
+  string status
+}
+
+Employee {
+  string employee_id PK
+  string title
+  string authorization_level
+}
+
+    Customer ||--o{ Discount_Request : "submits"
+    Discount_Request ||..|| Discount : "results_in"
+    Employee ||--o{ Discount_Request : "approves"
+    Discount ||--o{ Product : "applies_to"
+REL_receives {
+  string rel_receives_id PK
+}
+
+    Product o{--o{ REL_receives : "Product-REL_receives"
+    Customer ||--o{ REL_receives : "Customer-REL_receives"
+    Discount ||--o{ REL_receives : "Discount-REL_receives"

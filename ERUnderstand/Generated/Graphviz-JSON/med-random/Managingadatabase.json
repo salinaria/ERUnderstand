@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "ghgd": {
+      "weak": false,
+      "attributes": [
+        "copl",
+        "jits",
+        "oswd"
+      ],
+      "primary_keys": [
+        "copl"
+      ]
+    },
+    "vrwe": {
+      "weak": true,
+      "attributes": [
+        "urit",
+        "eucx",
+        "sbcb"
+      ],
+      "primary_keys": [
+        "urit"
+      ]
+    },
+    "tura": {
+      "weak": true,
+      "attributes": [
+        "qkcz",
+        "ewmf",
+        "yaiu",
+        "thar"
+      ],
+      "primary_keys": [
+        "qkcz"
+      ]
+    },
+    "fcjd": {
+      "weak": false,
+      "attributes": [
+        "qckw",
+        "tqee",
+        "egxo",
+        "sbcb"
+      ],
+      "primary_keys": [
+        "qckw"
+      ],
+      "multivalued": [
+        "nnky"
+      ],
+      "composite": {
+        "hgvl": [
+          "ikrz",
+          "hifj",
+          "nctm",
+          "ibiz"
+        ]
+      }
+    },
+    "bswk": {
+      "weak": false,
+      "attributes": [
+        "njat",
+        "xccf",
+        "swea"
+      ],
+      "primary_keys": [
+        "njat"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ghgd",
+        "vrwe"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nrrb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vrwe",
+        "tura"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ffps",
+      "weak": true
+    },
+    {
+      "entities": [
+        "fcjd",
+        "ghgd"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "lyep",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fcjd",
+        "bswk",
+        "ghgd"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "gzot",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vrwe",
+        "fcjd"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zbnj",
+      "weak": false
+    }
+  ]
+}

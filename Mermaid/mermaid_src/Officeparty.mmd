@@ -1,0 +1,52 @@
+erDiagram
+Employee {
+  string employee_id PK
+  string name
+  string job_title
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Guest {
+  string guest_id PK
+  string guest_name
+  string affiliation
+  string email
+}
+
+Party {
+  string party_id PK
+  string date
+  string location
+  string theme
+}
+
+Food {
+  string food_id PK
+  string food_name
+  string description
+}
+
+RSVP {
+  string rsvp_id PK
+  string response
+  string note
+}
+
+    Employee ||--o{ Party : "organizes"
+REL_Invited {
+  string rel_invited_id PK
+}
+
+    Guest o{..o{ REL_Invited : "Guest-REL_Invited"
+    Party ||..o{ REL_Invited : "Party-REL_Invited"
+    RSVP ||..o{ REL_Invited : "RSVP-REL_Invited"
+    Party ||--o{ Food : "serves"
+REL_attends {
+  string rel_attends_id PK
+}
+
+    Employee o{--o{ REL_attends : "Employee-REL_attends"
+    Guest o{--o{ REL_attends : "Guest-REL_attends"
+    Party ||--o{ REL_attends : "Party-REL_attends"
+    Employee o{--|| Party : "hosting_for"

@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "description": {
+            "attributes": [
+                "item_name",
+                "order_date",
+                "amount"
+            ],
+            "primary_keys": [
+                "item_name"
+            ],
+            "multivalued": [
+                "amount"
+            ],
+            "weak": false
+        },
+        "offers": {
+            "attributes": [
+                "cuisine_type",
+                "places",
+                "customer_id"
+            ],
+            "primary_keys": [
+                "cuisine_type"
+            ],
+            "weak": false
+        },
+        "item_id": {
+            "attributes": [
+                "frequents",
+                "Order",
+                "card_number",
+                "expiry_date"
+            ],
+            "primary_keys": [
+                "frequents"
+            ],
+            "weak": false
+        },
+        "FoodVendor": {
+            "attributes": [
+                "payment_date",
+                "MenuItem",
+                "vendor_name"
+            ],
+            "primary_keys": [
+                "payment_date"
+            ],
+            "derived": [
+                "vendor_name"
+            ],
+            "weak": true
+        },
+        "payment_method": {
+            "attributes": [
+                "price",
+                "phone_number",
+                "total_amount",
+                "vendor_id"
+            ],
+            "primary_keys": [
+                "price"
+            ],
+            "weak": true,
+            "composite": {
+                "total_amount": [
+                    "name",
+                    "includes",
+                    "completes"
+                ]
+            }
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "description",
+                "FoodVendor"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "card_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "FoodVendor",
+                "item_id",
+                "offers"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "payment_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "offers",
+                "item_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Customer",
+            "weak": false
+        },
+        {
+            "entities": [
+                "FoodVendor",
+                "payment_method"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Payment",
+            "weak": true
+        },
+        {
+            "entities": [
+                "description",
+                "offers"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "order_id",
+            "weak": false
+        }
+    ]
+}

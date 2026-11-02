@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "wjmz": {
+      "weak": false,
+      "attributes": [
+        "hidl",
+        "abvq",
+        "euza"
+      ],
+      "primary_keys": [
+        "hidl"
+      ],
+      "multivalued": [
+        "uupu"
+      ]
+    },
+    "qagy": {
+      "weak": false,
+      "attributes": [
+        "yrfh",
+        "abvq",
+        "hhgd",
+        "pzsl"
+      ],
+      "primary_keys": [
+        "yrfh"
+      ],
+      "derived": [
+        "wwxi"
+      ]
+    },
+    "albo": {
+      "weak": false,
+      "attributes": [
+        "rrps",
+        "abvq",
+        "qzga"
+      ],
+      "primary_keys": [
+        "rrps"
+      ]
+    },
+    "vrop": {
+      "weak": false,
+      "attributes": [
+        "aysl",
+        "abvq",
+        "hhiu"
+      ],
+      "primary_keys": [
+        "aysl"
+      ]
+    },
+    "azwh": {
+      "weak": true,
+      "attributes": [
+        "hidl",
+        "yrfh",
+        "hjxk",
+        "zpsj"
+      ],
+      "primary_keys": [
+        "hidl",
+        "yrfh"
+      ]
+    },
+    "wocg": {
+      "weak": false,
+      "attributes": [
+        "qoqd",
+        "cqla",
+        "broo"
+      ],
+      "primary_keys": [
+        "qoqd"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wjmz",
+        "qagy",
+        "albo"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "lhgr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wjmz",
+        "wocg"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "jjpa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qagy",
+        "vrop"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "evhg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wjmz",
+        "qagy"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "latt",
+      "weak": true
+    }
+  ]
+}

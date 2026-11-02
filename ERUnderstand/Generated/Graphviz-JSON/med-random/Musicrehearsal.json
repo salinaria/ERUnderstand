@@ -1,0 +1,132 @@
+{
+  "entities": {
+    "zgzg": {
+      "weak": false,
+      "attributes": [
+        "emmo",
+        "icwf",
+        "kvab"
+      ],
+      "primary_keys": [
+        "emmo"
+      ],
+      "multivalued": [
+        "acwx"
+      ]
+    },
+    "eanm": {
+      "weak": false,
+      "attributes": [
+        "wumc",
+        "zqzu",
+        "rsip"
+      ],
+      "primary_keys": [
+        "wumc"
+      ]
+    },
+    "ckpq": {
+      "weak": false,
+      "attributes": [
+        "iwgc",
+        "ulie",
+        "pjmb"
+      ],
+      "primary_keys": [
+        "iwgc"
+      ]
+    },
+    "hvoz": {
+      "weak": true,
+      "attributes": [
+        "lrbv",
+        "icwf",
+        "hmtx",
+        "iamw"
+      ],
+      "primary_keys": [
+        "lrbv"
+      ],
+      "composite": {
+        "dhbv": [
+          "hmtx",
+          "iamw"
+        ]
+      }
+    },
+    "hxpf": {
+      "weak": true,
+      "attributes": [
+        "axis",
+        "lmhf"
+      ],
+      "primary_keys": [
+        "axis"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "zgzg",
+        "eanm"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ycng",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zgzg",
+        "ckpq"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "utou",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ckpq",
+        "hvoz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wdkp",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eanm",
+        "hvoz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rmpk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hxpf",
+        "hvoz",
+        "zgzg"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "tlgl",
+      "weak": true
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+    "entities": {
+        "protected_by": {
+            "attributes": [
+                "user_id",
+                "User",
+                "Firewall"
+            ],
+            "primary_keys": [
+                "user_id"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "device_type",
+                "source_ip",
+                "timestamp"
+            ],
+            "primary_keys": [
+                "device_type"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "network_id",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "network_id"
+            ],
+            "multivalued": [
+                "Network"
+            ],
+            "composite": {
+                "destination_ip": [
+                    "username",
+                    "vendor",
+                    "ip_address_range"
+                ]
+            },
+            "weak": false
+        },
+        "generates": {
+            "attributes": [
+                "model",
+                "owns",
+                "event_type"
+            ],
+            "primary_keys": [
+                "model"
+            ],
+            "weak": false
+        },
+        "mac_address": {
+            "attributes": [
+                "generates",
+                "network_name",
+                "device_id",
+                "firewall_id",
+                "connects_to",
+                "network_id"
+            ],
+            "primary_keys": [
+                "generates"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "protected_by",
+                "street"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "protected_by"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "street",
+                "generates"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Device",
+            "weak": false
+        },
+        {
+            "entities": [
+                "protected_by",
+                "mac_address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Log",
+            "weak": true
+        }
+    ]
+}

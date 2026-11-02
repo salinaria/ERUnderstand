@@ -1,0 +1,47 @@
+erDiagram
+Patient {
+  string patient_id PK
+  string name
+  string birthdate
+  string sex
+}
+
+Image {
+  string image_id PK
+  string acquisition_date
+  string modality
+  string report_id
+}
+
+Radiologist {
+  string radiologist_id PK
+  string name
+  string specialization
+}
+
+Study {
+  string study_id PK
+  string study_date
+  string description
+}
+
+Report {
+  string report_id PK
+  string report_date
+  string findings
+  string radiologist_id
+  string patient_id
+  string study_id
+}
+
+    Patient ||--o{ Study : "undergoes"
+    Radiologist ||--o{ Report : "creates"
+    Study ||--o{ Image : "includes"
+REL_concerns {
+  string rel_concerns_id PK
+}
+
+    Report ||..o{ REL_concerns : "Report-REL_concerns"
+    Patient ||..o{ REL_concerns : "Patient-REL_concerns"
+    Study ||..o{ REL_concerns : "Study-REL_concerns"
+    Image ||..|| Report : "corresponds"

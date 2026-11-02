@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "status": {
+            "attributes": [
+                "name",
+                "reporting_date",
+                "Exemption",
+                "Citizen"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "multivalued": [
+                "Citizen"
+            ],
+            "weak": false
+        },
+        "date_issued": {
+            "attributes": [
+                "courtroom_id",
+                "Summons",
+                "start_date",
+                "date_approved"
+            ],
+            "primary_keys": [
+                "courtroom_id"
+            ],
+            "derived": [
+                "reason"
+            ],
+            "weak": false
+        },
+        "location": {
+            "attributes": [
+                "citizen_id",
+                "exemption_id",
+                "Trial"
+            ],
+            "primary_keys": [
+                "citizen_id"
+            ],
+            "weak": false
+        },
+        "end_date": {
+            "attributes": [
+                "date_requested",
+                "serves_in",
+                "exemption_period",
+                "receives"
+            ],
+            "primary_keys": [
+                "date_requested"
+            ],
+            "weak": false
+        },
+        "Courtroom": {
+            "attributes": [
+                "summons_id",
+                "trial_id",
+                "held_in",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "summons_id"
+            ],
+            "weak": true,
+            "composite": {
+                "reason": [
+                    "exemption_period",
+                    "receives"
+                ]
+            }
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "status",
+                "date_issued"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "capacity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_issued",
+                "Courtroom"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "involves",
+            "weak": true
+        },
+        {
+            "entities": [
+                "status",
+                "end_date"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "case_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_date",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_date",
+                "status",
+                "date_issued"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "requests",
+            "weak": false
+        }
+    ]
+}

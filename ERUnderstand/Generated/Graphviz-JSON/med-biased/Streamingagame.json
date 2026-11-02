@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "game_name": {
+            "attributes": [
+                "Platform",
+                "city",
+                "genre"
+            ],
+            "primary_keys": [
+                "Platform"
+            ],
+            "composite": {
+                "viewer_id": [
+                    "favorite_games",
+                    "Features",
+                    "end_time"
+                ]
+            },
+            "weak": false
+        },
+        "viewer_count": {
+            "attributes": [
+                "Plays",
+                "start_time",
+                "Watches"
+            ],
+            "primary_keys": [
+                "Plays"
+            ],
+            "weak": false
+        },
+        "stream_quality": {
+            "attributes": [
+                "max_resolution",
+                "street",
+                "stream_id"
+            ],
+            "primary_keys": [
+                "max_resolution"
+            ],
+            "multivalued": [
+                "game_id"
+            ],
+            "weak": false
+        },
+        "platform_id": {
+            "attributes": [
+                "stream_id",
+                "join_time",
+                "username"
+            ],
+            "primary_keys": [
+                "stream_id"
+            ],
+            "weak": false
+        },
+        "Hosted_By": {
+            "attributes": [
+                "viewer_name",
+                "zip_code",
+                "Streams_On",
+                "Viewer"
+            ],
+            "primary_keys": [
+                "viewer_name"
+            ],
+            "derived": [
+                "Stream"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "game_name",
+                "viewer_count"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "platform_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "game_name",
+                "platform_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "stream_duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Hosted_By",
+                "game_name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "address",
+            "weak": true
+        },
+        {
+            "entities": [
+                "stream_quality",
+                "Hosted_By"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Game",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Hosted_By",
+                "viewer_count"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Streamer",
+            "weak": true
+        }
+    ]
+}

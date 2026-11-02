@@ -1,0 +1,36 @@
+erDiagram
+Document {
+  string document_id PK
+  string title
+  string date_created
+  string file_size
+}
+
+FileCabinet {
+  string cabinet_id PK
+  string location
+  string capacity
+}
+
+Folder {
+  string folder_id PK
+  string label
+}
+
+User {
+  string user_id PK
+  string username
+  string password
+  string role
+}
+
+Keyword {
+  string keyword_id PK
+  string word
+}
+
+    Document ||--o{ Folder : "contained_in"
+    Folder o{--|| FileCabinet : "stored_in"
+    User ||--o{ Document : "creates"
+    Document o{--o{ Keyword : "associated_with"
+    User ||--o{ FileCabinet : "manages"

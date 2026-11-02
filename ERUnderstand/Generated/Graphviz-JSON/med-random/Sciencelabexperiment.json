@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "tkqx": {
+      "weak": false,
+      "attributes": [
+        "heio",
+        "rknt",
+        "gtdt",
+        "gaxa"
+      ],
+      "primary_keys": [
+        "heio"
+      ]
+    },
+    "bzdj": {
+      "weak": false,
+      "attributes": [
+        "rmvw",
+        "gxed",
+        "kfcb"
+      ],
+      "primary_keys": [
+        "rmvw"
+      ],
+      "composite": {
+        "gxed": [
+          "bbgf",
+          "esxb"
+        ]
+      }
+    },
+    "cxuo": {
+      "weak": false,
+      "attributes": [
+        "usfb",
+        "gxed",
+        "ppca",
+        "aljt"
+      ],
+      "primary_keys": [
+        "usfb"
+      ],
+      "multivalued": [
+        "zolr"
+      ]
+    },
+    "cpyi": {
+      "weak": false,
+      "attributes": [
+        "uwrz",
+        "gxed",
+        "zwtc",
+        "kqce"
+      ],
+      "primary_keys": [
+        "uwrz"
+      ]
+    },
+    "vojw": {
+      "weak": true,
+      "attributes": [
+        "jaop",
+        "ipcp",
+        "hilk",
+        "heio"
+      ],
+      "primary_keys": [
+        "jaop"
+      ],
+      "derived": [
+        "svdm"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "tkqx",
+        "bzdj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nhvz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tkqx",
+        "cxuo"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mguj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tkqx",
+        "cpyi"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "femd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tkqx",
+        "vojw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ttlh",
+      "weak": true
+    },
+    {
+      "entities": [
+        "cpyi",
+        "cxuo"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ddsj",
+      "weak": false
+    }
+  ]
+}

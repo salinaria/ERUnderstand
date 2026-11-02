@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "Prescription": {
+            "attributes": [
+                "coverage_amount",
+                "first_name",
+                "last_name",
+                "prescribes",
+                "dosage"
+            ],
+            "primary_keys": [
+                "coverage_amount"
+            ],
+            "multivalued": [
+                "dosage"
+            ],
+            "weak": false
+        },
+        "covered_by": {
+            "attributes": [
+                "group_number",
+                "first_name",
+                "Patient"
+            ],
+            "primary_keys": [
+                "group_number"
+            ],
+            "composite": {
+                "first_name": [
+                    "Pharmacist",
+                    "pays_for"
+                ]
+            },
+            "weak": false
+        },
+        "medication_id": {
+            "attributes": [
+                "fills",
+                "prescription_id",
+                "refills_remaining",
+                "license_number",
+                "date_filled"
+            ],
+            "primary_keys": [
+                "fills"
+            ],
+            "derived": [
+                "policy_id"
+            ],
+            "weak": false
+        },
+        "pharmacist_id": {
+            "attributes": [
+                "Insurance",
+                "first_name",
+                "Medication",
+                "written_date"
+            ],
+            "primary_keys": [
+                "Insurance"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "form",
+                "manufacturer",
+                "expiry_date",
+                "date_of_birth"
+            ],
+            "primary_keys": [
+                "form"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Prescription",
+                "medication_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "prescribes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "covered_by",
+                "medication_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "medication_id",
+                "pharmacist_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "company_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Prescription",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "patient_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Prescription",
+                "name",
+                "medication_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "has",
+            "weak": true
+        }
+    ]
+}

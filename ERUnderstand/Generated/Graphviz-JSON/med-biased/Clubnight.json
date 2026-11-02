@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "Drink": {
+            "attributes": [
+                "street",
+                "membership_type",
+                "entry_time"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "multivalued": [
+                "age"
+            ],
+            "weak": false,
+            "composite": {
+                "time": [
+                    "provides",
+                    "price",
+                    "member_id"
+                ]
+            }
+        },
+        "volume": {
+            "attributes": [
+                "phone_numbers",
+                "person_id",
+                "serves"
+            ],
+            "primary_keys": [
+                "phone_numbers"
+            ],
+            "derived": [
+                "guest_id"
+            ],
+            "weak": true
+        },
+        "event_id": {
+            "attributes": [
+                "drink_id",
+                "Member"
+            ],
+            "primary_keys": [
+                "drink_id"
+            ],
+            "weak": true
+        },
+        "city": {
+            "attributes": [
+                "date",
+                "name",
+                "address",
+                "attends"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "Event",
+                "Person",
+                "join_date",
+                "event_name"
+            ],
+            "primary_keys": [
+                "Event"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "volume",
+                "city"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Guest",
+            "weak": false
+        },
+        {
+            "entities": [
+                "event_id",
+                "city"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Guest",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "zip_code",
+                "Drink"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "membership_expiry_date",
+            "weak": false,
+            "ternary": true
+        },
+        {
+            "subclasses": [
+                "Member",
+                "Guest"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Person"
+        },
+        {
+            "entities": [
+                "zip_code",
+                "Drink"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "drink_name",
+            "weak": false
+        }
+    ]
+}

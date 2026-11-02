@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "Song": {
+            "attributes": [
+                "start_time",
+                "composer",
+                "space_id"
+            ],
+            "primary_keys": [
+                "start_time"
+            ],
+            "multivalued": [
+                "instrument"
+            ],
+            "weak": false
+        },
+        "Musician": {
+            "attributes": [
+                "section_id",
+                "contains",
+                "occurs_at"
+            ],
+            "primary_keys": [
+                "section_id"
+            ],
+            "weak": false
+        },
+        "end_time": {
+            "attributes": [
+                "title",
+                "address",
+                "Attendance"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "weak": false
+        },
+        "attendance_id": {
+            "attributes": [
+                "name",
+                "composer",
+                "time",
+                "capacity"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "composite": {
+                "musician_id": [
+                    "time",
+                    "capacity"
+                ]
+            },
+            "weak": true
+        },
+        "uses": {
+            "attributes": [
+                "RehearsalSpace",
+                "performs"
+            ],
+            "primary_keys": [
+                "RehearsalSpace"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Song",
+                "Musician"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Song",
+                "end_time"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Section",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_time",
+                "attendance_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Musician",
+                "attendance_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "records",
+            "weak": false
+        },
+        {
+            "entities": [
+                "uses",
+                "attendance_id",
+                "Song"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "song_id",
+            "weak": true
+        }
+    ]
+}

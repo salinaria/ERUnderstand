@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "reservation_id": {
+            "attributes": [
+                "dimension",
+                "Library",
+                "Book"
+            ],
+            "primary_keys": [
+                "dimension"
+            ],
+            "multivalued": [
+                "width"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "author",
+                "borrows",
+                "Patron",
+                "date"
+            ],
+            "primary_keys": [
+                "author"
+            ],
+            "derived": [
+                "Desk"
+            ],
+            "weak": false
+        },
+        "ISBN": {
+            "attributes": [
+                "address",
+                "Library",
+                "reserves"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "title": {
+            "attributes": [
+                "patron_id",
+                "desk_id"
+            ],
+            "primary_keys": [
+                "patron_id"
+            ],
+            "composite": {
+                "height": [
+                    "desk_number",
+                    "makes"
+                ]
+            },
+            "weak": true
+        },
+        "name": {
+            "attributes": [
+                "contains",
+                "has"
+            ],
+            "primary_keys": [
+                "contains"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "reservation_id",
+                "phone_number"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Reservation",
+            "weak": false
+        },
+        {
+            "entities": [
+                "reservation_id",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "book_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "ISBN",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "library_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "ISBN",
+                "title"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "publication_year",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "title",
+                "reservation_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "publication_year",
+            "weak": true
+        }
+    ]
+}

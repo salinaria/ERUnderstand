@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "dzak": {
+      "weak": false,
+      "attributes": [
+        "zsaa",
+        "kgqe",
+        "vgxc"
+      ],
+      "primary_keys": [
+        "zsaa"
+      ]
+    },
+    "eniv": {
+      "weak": false,
+      "attributes": [
+        "xqzq",
+        "dyxf",
+        "melo",
+        "vfme"
+      ],
+      "primary_keys": [
+        "xqzq"
+      ],
+      "composite": {
+        "dyxf": [
+          "ffho",
+          "zups"
+        ]
+      }
+    },
+    "skon": {
+      "weak": false,
+      "attributes": [
+        "urgt",
+        "tlpi",
+        "lzam",
+        "lhdi",
+        "jhok"
+      ],
+      "primary_keys": [
+        "urgt"
+      ],
+      "derived": [
+        "qert"
+      ]
+    },
+    "abva": {
+      "weak": false,
+      "attributes": [
+        "vvxb",
+        "zvgm",
+        "bvgy",
+        "bckc"
+      ],
+      "primary_keys": [
+        "vvxb"
+      ],
+      "multivalued": [
+        "zirv"
+      ]
+    },
+    "oyla": {
+      "weak": true,
+      "attributes": [
+        "qdme",
+        "bxgx",
+        "vlia"
+      ],
+      "primary_keys": [
+        "qdme"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "eniv",
+        "dzak"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "cgsy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dzak",
+        "skon"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xtch",
+      "weak": false
+    },
+    {
+      "entities": [
+        "skon",
+        "oyla"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mmfv",
+      "weak": true
+    },
+    {
+      "entities": [
+        "abva",
+        "dzak"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pcpe",
+      "weak": false
+    },
+    {
+      "entities": [
+        "abva",
+        "skon"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "efsy",
+      "weak": false
+    }
+  ]
+}

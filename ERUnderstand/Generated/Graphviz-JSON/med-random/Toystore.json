@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "xerp": {
+      "weak": false,
+      "attributes": [
+        "obbv",
+        "igjs",
+        "rlte",
+        "nlnb"
+      ],
+      "primary_keys": [
+        "obbv"
+      ]
+    },
+    "swll": {
+      "weak": false,
+      "attributes": [
+        "fmmm",
+        "fuvg"
+      ],
+      "primary_keys": [
+        "fmmm"
+      ]
+    },
+    "igyg": {
+      "weak": false,
+      "attributes": [
+        "ngum",
+        "qhjh",
+        "amxq"
+      ],
+      "primary_keys": [
+        "ngum"
+      ],
+      "multivalued": [
+        "kowi"
+      ]
+    },
+    "eyul": {
+      "weak": false,
+      "attributes": [
+        "ffkm",
+        "jyfu",
+        "lvdc",
+        "amxq",
+        "ahks"
+      ],
+      "primary_keys": [
+        "ffkm"
+      ],
+      "derived": [
+        "rtya"
+      ],
+      "composite": {
+        "igjs": [
+          "jyfu",
+          "lvdc"
+        ]
+      }
+    },
+    "uekj": {
+      "weak": true,
+      "attributes": [
+        "qapt",
+        "hbmw",
+        "zrzj"
+      ],
+      "primary_keys": [
+        "qapt"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "xerp",
+        "swll"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "amtf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xerp",
+        "igyg"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "lnjw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uekj",
+        "eyul"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "dxes",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uekj",
+        "xerp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mybp",
+      "weak": true
+    },
+    {
+      "entities": [
+        "uekj",
+        "eyul",
+        "xerp"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "xbyo",
+      "weak": false
+    }
+  ]
+}

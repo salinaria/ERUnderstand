@@ -1,0 +1,140 @@
+{
+    "entities": {
+        "Is for": {
+            "attributes": [
+                "phone_number",
+                "last_name",
+                "price",
+                "Is located at"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "multivalued": [
+                "Is located at"
+            ],
+            "weak": false
+        },
+        "loan_amount": {
+            "attributes": [
+                "dealership_id",
+                "Salesperson",
+                "color",
+                "location",
+                "Customer",
+                "Car"
+            ],
+            "primary_keys": [
+                "dealership_id"
+            ],
+            "derived": [
+                "name"
+            ],
+            "weak": false
+        },
+        "loan_id": {
+            "attributes": [
+                "age",
+                "last_name",
+                "interest_rate"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "composite": {
+                "last_name": [
+                    "Applies for",
+                    "Dealership"
+                ]
+            },
+            "weak": false
+        },
+        "commission_rate": {
+            "attributes": [
+                "first_name",
+                "last_name",
+                "Sells"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": false
+        },
+        "year": {
+            "attributes": [
+                "Financing",
+                "model",
+                "term_length",
+                "make"
+            ],
+            "primary_keys": [
+                "Financing"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Is for",
+                "loan_amount",
+                "loan_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "vin",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Is for",
+                "year"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "customer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "loan_amount",
+                "commission_rate"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Visits",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Is for",
+                "commission_rate"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "employee_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "year",
+                "loan_amount"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "address",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+erDiagram
+Deceased {
+  string deceased_id PK
+  string full_name
+  string date_of_birth
+  string date_of_death
+}
+
+Attendee {
+  string attendee_id PK
+  string name
+  string relationship_to_deceased
+}
+
+Service {
+  string service_id PK
+  string type
+  string date_time
+  %% location: composite
+  string location
+}
+
+Organization {
+  string org_id PK
+  string name
+  string contact_person
+}
+
+Obituary {
+  string obituary_id PK
+  string date_published
+  string content
+  string deceased_id
+}
+
+    Attendee o{--|| Service : "attends"
+    Deceased ||--|| Service : "held_at"
+    Deceased ||--o{ Organization : "handled_by"
+    Deceased ||..|| Obituary : "featured_in"

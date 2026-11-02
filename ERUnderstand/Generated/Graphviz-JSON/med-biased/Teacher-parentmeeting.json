@@ -1,0 +1,126 @@
+{
+    "entities": {
+        "grade_level": {
+            "attributes": [
+                "student_id",
+                "parent_of",
+                "phone_number",
+                "email"
+            ],
+            "primary_keys": [
+                "student_id"
+            ],
+            "multivalued": [
+                "email"
+            ],
+            "weak": false
+        },
+        "attends": {
+            "attributes": [
+                "Parent",
+                "topic"
+            ],
+            "primary_keys": [
+                "Parent"
+            ],
+            "weak": false
+        },
+        "meeting_id": {
+            "attributes": [
+                "teacher_id",
+                "person_id"
+            ],
+            "primary_keys": [
+                "teacher_id"
+            ],
+            "weak": false
+        },
+        "schedules": {
+            "attributes": [
+                "Teacher",
+                "first_name"
+            ],
+            "primary_keys": [
+                "Teacher"
+            ],
+            "weak": false
+        },
+        "teaches": {
+            "attributes": [
+                "parent_id",
+                "last_name",
+                "date_time"
+            ],
+            "primary_keys": [
+                "parent_id"
+            ],
+            "derived": [
+                "parent_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "attends",
+                "schedules"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Meeting",
+            "weak": false
+        },
+        {
+            "entities": [
+                "meeting_id",
+                "schedules"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Person",
+            "weak": false
+        },
+        {
+            "entities": [
+                "teaches",
+                "attends",
+                "meeting_id",
+                "schedules"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "subject_taught",
+            "weak": true
+        },
+        {
+            "entities": [
+                "attends",
+                "teaches"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Student",
+            "weak": false
+        },
+        {
+            "subclasses": [
+                "Teacher",
+                "Parent",
+                "Student"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Person"
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "rent_fee": {
+            "attributes": [
+                "quantity",
+                "Occurs_at",
+                "Market_Stall"
+            ],
+            "primary_keys": [
+                "quantity"
+            ],
+            "weak": false
+        },
+        "sale_id": {
+            "attributes": [
+                "Product",
+                "Occurs_at",
+                "location",
+                "Includes"
+            ],
+            "primary_keys": [
+                "Product"
+            ],
+            "composite": {
+                "Includes": [
+                    "Purchases",
+                    "name"
+                ]
+            },
+            "weak": false
+        },
+        "farmer_id": {
+            "attributes": [
+                "Sale",
+                "Occurs_at",
+                "Rents"
+            ],
+            "primary_keys": [
+                "Sale"
+            ],
+            "multivalued": [
+                "Rents"
+            ],
+            "weak": false
+        },
+        "payment_method": {
+            "attributes": [
+                "Customer",
+                "currency",
+                "amount"
+            ],
+            "primary_keys": [
+                "Customer"
+            ],
+            "derived": [
+                "address"
+            ],
+            "weak": false
+        },
+        "Produces": {
+            "attributes": [
+                "Farmer",
+                "price",
+                "description",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "Farmer"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "rent_fee",
+                "payment_method"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "open_days",
+            "weak": false
+        },
+        {
+            "entities": [
+                "rent_fee",
+                "sale_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "stall_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Produces",
+                "farmer_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "product_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "sale_id",
+                "Produces",
+                "farmer_id"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "customer_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "payment_method",
+                "Produces"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "sale_date",
+            "weak": false
+        }
+    ]
+}

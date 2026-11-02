@@ -1,0 +1,144 @@
+{
+  "entities": {
+    "lsxk": {
+      "weak": false,
+      "attributes": [
+        "cgpv",
+        "itgv",
+        "qiqg",
+        "hrxz",
+        "apdg"
+      ],
+      "primary_keys": [
+        "cgpv"
+      ],
+      "multivalued": [
+        "apdg"
+      ],
+      "composite": {
+        "itgv": [
+          "dqiy",
+          "xlak"
+        ]
+      }
+    },
+    "pcgz": {
+      "weak": false,
+      "attributes": [
+        "drbk",
+        "itgv",
+        "hqcf",
+        "cxhp"
+      ],
+      "primary_keys": [
+        "drbk"
+      ],
+      "composite": {
+        "itgv": [
+          "dqiy",
+          "xlak"
+        ]
+      }
+    },
+    "qkxs": {
+      "weak": false,
+      "attributes": [
+        "rzke",
+        "gpij",
+        "jvqm",
+        "znub",
+        "ugmb"
+      ],
+      "primary_keys": [
+        "rzke"
+      ]
+    },
+    "kzkn": {
+      "weak": false,
+      "attributes": [
+        "cpjs",
+        "itgv",
+        "qqfm",
+        "egxd"
+      ],
+      "primary_keys": [
+        "cpjs"
+      ]
+    },
+    "vbxq": {
+      "weak": true,
+      "attributes": [
+        "rrxd",
+        "ruzq",
+        "ycvw"
+      ],
+      "primary_keys": [
+        "rrxd"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "lsxk",
+        "qkxs"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kcpk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pcgz",
+        "qkxs"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mhne",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qkxs",
+        "vbxq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "aayo",
+      "weak": true
+    },
+    {
+      "entities": [
+        "vbxq",
+        "kzkn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rbdr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pcgz",
+        "lsxk",
+        "kzkn"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "wmwy",
+      "weak": false
+    }
+  ]
+}

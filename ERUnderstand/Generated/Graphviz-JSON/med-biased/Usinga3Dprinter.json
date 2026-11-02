@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "end_time": {
+            "attributes": [
+                "PrintJob",
+                "design_id",
+                "status"
+            ],
+            "primary_keys": [
+                "PrintJob"
+            ],
+            "weak": false
+        },
+        "printer_id": {
+            "attributes": [
+                "username",
+                "start_time",
+                "User",
+                "model"
+            ],
+            "primary_keys": [
+                "username"
+            ],
+            "weak": false
+        },
+        "job_id": {
+            "attributes": [
+                "scale",
+                "file_name",
+                "material_type",
+                "email"
+            ],
+            "primary_keys": [
+                "scale"
+            ],
+            "derived": [
+                "creates"
+            ],
+            "weak": true
+        },
+        "duration": {
+            "attributes": [
+                "department",
+                "Printer",
+                "executed_on"
+            ],
+            "primary_keys": [
+                "department"
+            ],
+            "multivalued": [
+                "date_created"
+            ],
+            "weak": false
+        },
+        "weight_kg": {
+            "attributes": [
+                "color",
+                "Filament",
+                "filament_id",
+                "uses"
+            ],
+            "primary_keys": [
+                "color"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "end_time",
+                "printer_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "job_id",
+                "end_time"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Design",
+            "weak": true
+        },
+        {
+            "entities": [
+                "job_id",
+                "weight_kg",
+                "duration"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "user_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "job_id",
+                "printer_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "associated_with",
+            "weak": true
+        },
+        {
+            "entities": [
+                "duration",
+                "weight_kg"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "consumes",
+            "weak": false
+        }
+    ]
+}

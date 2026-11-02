@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "hosm": {
+      "weak": false,
+      "attributes": [
+        "ikkn",
+        "fdlk",
+        "grhx",
+        "cvyw"
+      ],
+      "primary_keys": [
+        "ikkn"
+      ]
+    },
+    "ttye": {
+      "weak": false,
+      "attributes": [
+        "qeej",
+        "qbyt",
+        "zwnr"
+      ],
+      "primary_keys": [
+        "qeej"
+      ],
+      "multivalued": [
+        "aspy"
+      ],
+      "composite": {
+        "rdrg": [
+          "dzku",
+          "omdy",
+          "pmjb",
+          "xryq"
+        ]
+      }
+    },
+    "eoom": {
+      "weak": false,
+      "attributes": [
+        "htez",
+        "lkpp",
+        "yavm",
+        "bjju",
+        "nxnl"
+      ],
+      "primary_keys": [
+        "htez"
+      ]
+    },
+    "uxnr": {
+      "weak": false,
+      "attributes": [
+        "xjnr",
+        "qbyt",
+        "snez"
+      ],
+      "primary_keys": [
+        "xjnr"
+      ]
+    },
+    "qdrv": {
+      "weak": true,
+      "attributes": [
+        "byml",
+        "cbve",
+        "snez",
+        "orpg",
+        "ikkn"
+      ],
+      "primary_keys": [
+        "byml"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ttye",
+        "hosm"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "awyu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ttye",
+        "eoom"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "dbmu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hosm",
+        "uxnr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ywrv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hosm",
+        "qdrv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zqzo",
+      "weak": true
+    },
+    {
+      "entities": [
+        "eoom",
+        "hosm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kkli",
+      "weak": false
+    }
+  ]
+}

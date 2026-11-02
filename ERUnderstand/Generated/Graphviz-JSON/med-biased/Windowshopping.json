@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "category_name": {
+            "attributes": [
+                "Item",
+                "description",
+                "item_id"
+            ],
+            "primary_keys": [
+                "Item"
+            ],
+            "multivalued": [
+                "store_name"
+            ],
+            "weak": false,
+            "composite": {
+                "item_id": [
+                    "visits",
+                    "Wishlist",
+                    "zip",
+                    "creates"
+                ]
+            }
+        },
+        "state": {
+            "attributes": [
+                "name",
+                "includes",
+                "wishlist_name"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "category_id": {
+            "attributes": [
+                "price",
+                "street",
+                "belongs_to"
+            ],
+            "primary_keys": [
+                "price"
+            ],
+            "derived": [
+                "creation_date"
+            ],
+            "weak": false
+        },
+        "views": {
+            "attributes": [
+                "phone_numbers",
+                "address"
+            ],
+            "primary_keys": [
+                "phone_numbers"
+            ],
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "location",
+                "shopper_id",
+                "Category"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "category_name",
+                "state"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Store",
+            "weak": false
+        },
+        {
+            "entities": [
+                "category_id",
+                "views"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "creation_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "category_name",
+                "category_id",
+                "state"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "Shopper",
+            "weak": false
+        },
+        {
+            "entities": [
+                "category_name",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "wishlist_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "category_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "store_id",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "Luggage": {
+            "attributes": [
+                "departure_airport",
+                "contact_email",
+                "description",
+                "passenger_id"
+            ],
+            "primary_keys": [
+                "departure_airport"
+            ],
+            "multivalued": [
+                "passenger_id"
+            ],
+            "weak": false
+        },
+        "Passenger": {
+            "attributes": [
+                "claim_id",
+                "estimated_value",
+                "settlement_amount",
+                "settlement_amount",
+                "arrival_airport"
+            ],
+            "primary_keys": [
+                "claim_id"
+            ],
+            "weak": false
+        },
+        "color": {
+            "attributes": [
+                "Files",
+                "arrival_airport",
+                "Flight",
+                "luggage_id",
+                "Airline"
+            ],
+            "primary_keys": [
+                "Files"
+            ],
+            "derived": [
+                "Airline"
+            ],
+            "weak": false
+        },
+        "arrival_time": {
+            "attributes": [
+                "ProcessedBy",
+                "contact_email",
+                "departure_time"
+            ],
+            "primary_keys": [
+                "ProcessedBy"
+            ],
+            "weak": false
+        },
+        "OperatedBy": {
+            "attributes": [
+                "name",
+                "claim_date",
+                "Claim",
+                "Owns",
+                "flight_number",
+                "ProcessedBy"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Luggage",
+                "Passenger"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "TransportedBy",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Passenger",
+                "color"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "status",
+            "weak": false
+        },
+        {
+            "entities": [
+                "color",
+                "arrival_time"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Passenger",
+                "OperatedBy",
+                "arrival_time"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": true
+        },
+        {
+            "entities": [
+                "OperatedBy",
+                "arrival_time"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "airline_id",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+    "entities": {
+        "filing_deadline": {
+            "attributes": [
+                "Employee",
+                "city",
+                "taxpayer_id"
+            ],
+            "primary_keys": [
+                "Employee"
+            ],
+            "multivalued": [
+                "year"
+            ],
+            "weak": false
+        },
+        "is_subject_to": {
+            "attributes": [
+                "TaxYear",
+                "time",
+                "address"
+            ],
+            "primary_keys": [
+                "TaxYear"
+            ],
+            "weak": false
+        },
+        "assists": {
+            "attributes": [
+                "phone_number",
+                "date"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "submission_date": {
+            "attributes": [
+                "schedules",
+                "form_type",
+                "zip_code",
+                "Employee"
+            ],
+            "primary_keys": [
+                "schedules"
+            ],
+            "weak": true
+        },
+        "appointment_id": {
+            "attributes": [
+                "name",
+                "city",
+                "form_id"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "composite": {
+                "taxpayer_id": [
+                    "files_for",
+                    "employee_id",
+                    "Taxpayer"
+                ]
+            },
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "filing_deadline",
+                "is_subject_to",
+                "assists"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Appointment",
+            "weak": false
+        },
+        {
+            "entities": [
+                "filing_deadline",
+                "submission_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "TaxForm",
+            "weak": true
+        },
+        {
+            "entities": [
+                "appointment_id",
+                "filing_deadline"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "processes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "appointment_id",
+                "is_subject_to"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "street",
+            "weak": false
+        },
+        {
+            "entities": [
+                "filing_deadline",
+                "assists"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "position",
+            "weak": false
+        }
+    ]
+}

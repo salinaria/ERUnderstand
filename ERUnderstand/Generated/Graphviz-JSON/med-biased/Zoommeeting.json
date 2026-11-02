@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "Host": {
+            "attributes": [
+                "recording_id",
+                "Recording",
+                "meeting_id",
+                "email"
+            ],
+            "primary_keys": [
+                "recording_id"
+            ],
+            "weak": false,
+            "derived": [
+                "name"
+            ]
+        },
+        "file_name": {
+            "attributes": [
+                "generates",
+                "start_time",
+                "log_id"
+            ],
+            "primary_keys": [
+                "generates"
+            ],
+            "multivalued": [
+                "log_id"
+            ],
+            "weak": false
+        },
+        "Participant": {
+            "attributes": [
+                "time",
+                "participant_id"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "weak": true
+        },
+        "username": {
+            "attributes": [
+                "attends",
+                "upload_date",
+                "Meeting"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "weak": true
+        },
+        "topic": {
+            "attributes": [
+                "duration",
+                "ChatLog",
+                "host_id",
+                "generates"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "composite": {
+                "ChatLog": [
+                    "end_time",
+                    "message"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Host",
+                "file_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "sends",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Host",
+                "Participant"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "timestamp",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Host",
+                "username"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "hosts",
+            "weak": true
+        },
+        {
+            "subclasses": [
+                "Host"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Participant"
+        },
+        {
+            "entities": [
+                "file_name",
+                "Host",
+                "topic"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": true
+        }
+    ]
+}

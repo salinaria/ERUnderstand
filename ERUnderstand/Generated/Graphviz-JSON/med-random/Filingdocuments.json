@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "qyqw": {
+      "weak": false,
+      "attributes": [
+        "onqp",
+        "qatt",
+        "pvud",
+        "ytuc"
+      ],
+      "primary_keys": [
+        "onqp"
+      ]
+    },
+    "tlxj": {
+      "weak": false,
+      "attributes": [
+        "gqni",
+        "cico",
+        "suog"
+      ],
+      "primary_keys": [
+        "gqni"
+      ]
+    },
+    "yxiz": {
+      "weak": true,
+      "attributes": [
+        "odfu",
+        "hiym"
+      ],
+      "primary_keys": [
+        "odfu"
+      ],
+      "derived": [
+        "mfcl"
+      ]
+    },
+    "grkc": {
+      "weak": false,
+      "attributes": [
+        "zjaw",
+        "uiqm",
+        "fohu",
+        "ycfb"
+      ],
+      "primary_keys": [
+        "zjaw"
+      ],
+      "multivalued": [
+        "yuco"
+      ],
+      "composite": {
+        "slzq": [
+          "evlx",
+          "pyhy",
+          "wxik",
+          "ymcw"
+        ]
+      }
+    },
+    "xwwp": {
+      "weak": false,
+      "attributes": [
+        "atir",
+        "idwv"
+      ],
+      "primary_keys": [
+        "atir"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "qyqw",
+        "yxiz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mcbl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yxiz",
+        "tlxj"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "ykpc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "grkc",
+        "qyqw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "igug",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qyqw",
+        "xwwp"
+      ],
+      "cardinality": [
+        "M",
+        "N"
+      ],
+      "name": "ysli",
+      "weak": false
+    },
+    {
+      "entities": [
+        "grkc",
+        "tlxj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ntvi",
+      "weak": false
+    }
+  ]
+}

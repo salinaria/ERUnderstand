@@ -1,0 +1,42 @@
+erDiagram
+Passenger {
+  string passenger_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Station {
+  string station_id PK
+  string station_name
+  string location
+}
+
+Train {
+  string train_id PK
+  string capacity
+  string line
+}
+
+Ride {
+  string ride_id PK
+  string start_time
+  string end_time
+  %% fare: derived
+  string fare
+}
+
+Route {
+  string route_id PK
+  %% origin: composite
+  string origin
+  %% destination: composite
+  string destination
+  string distance
+}
+
+    Passenger ||--o{ Ride : "takes"
+    Ride ||..|| Train : "occurs_on"
+    Train ||--o{ Route : "follows"
+    Route ||--o{ Station : "stops_at"
+    Passenger o{--o{ Station : "uses"

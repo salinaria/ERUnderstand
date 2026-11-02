@@ -1,0 +1,44 @@
+erDiagram
+Attendee {
+  string attendee_id PK
+  string first_name
+  string last_name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Event {
+  string event_id PK
+  string event_name
+  string event_date
+  string location
+}
+
+Batch {
+  string batch_year PK
+  string department PK
+}
+
+Donation {
+  string donation_id PK
+  string donation_amount
+  string donation_date
+}
+
+Activity {
+  string activity_id PK
+  string activity_name
+  string description
+}
+
+    Attendee o{--|| Batch : "belongs_to"
+    Attendee o{--o{ Event : "attends"
+    Attendee ||..o{ Donation : "makes"
+    Event ||--o{ Activity : "includes"
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Attendee o{--o{ REL_participates_in : "Attendee-REL_participates_in"
+    Event ||--o{ REL_participates_in : "Event-REL_participates_in"
+    Activity ||--o{ REL_participates_in : "Activity-REL_participates_in"

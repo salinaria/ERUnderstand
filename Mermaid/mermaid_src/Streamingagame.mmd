@@ -1,0 +1,37 @@
+erDiagram
+Streamer {
+  string streamer_id PK
+  string username
+  string stream_quality
+}
+
+Game {
+  string game_id PK
+  string game_name
+  string genre
+}
+
+Viewer {
+  string viewer_id PK
+  string viewer_name
+  string join_time
+}
+
+Platform {
+  string platform_id PK
+  string platform_name
+  string max_resolution
+}
+
+Stream {
+  string stream_id PK
+  string start_time
+  string end_time
+  string viewer_count
+}
+
+    Streamer ||--o{ Game : "Plays"
+    Streamer ||--o{ Platform : "Streams_On"
+    Stream ||..|| Streamer : "Hosted_By"
+    Viewer o{--o{ Stream : "Watches"
+    Stream ||..|| Game : "Features"

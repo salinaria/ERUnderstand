@@ -1,0 +1,44 @@
+erDiagram
+TeamMember {
+  string member_id PK
+  %% name: composite
+  string name
+  string role
+}
+
+StandupMeeting {
+  string meeting_id PK
+  string date
+  string start_time
+}
+
+UpdateItem {
+  string item_id PK
+  string description
+  string status
+  string impediment
+}
+
+Project {
+  string project_id PK
+  string project_name
+  string deadline
+}
+
+Task {
+  string task_id PK
+  string task_description
+  string priority
+}
+
+    TeamMember ||--o{ StandupMeeting : "attends"
+    StandupMeeting ||..o{ UpdateItem : "includes"
+    UpdateItem ||--|| TeamMember : "reported_by"
+    Project ||--o{ Task : "contains"
+REL_related_to {
+  string rel_related_to_id PK
+}
+
+    Task o{--o{ REL_related_to : "Task-REL_related_to"
+    UpdateItem ||--o{ REL_related_to : "UpdateItem-REL_related_to"
+    TeamMember ||--o{ REL_related_to : "TeamMember-REL_related_to"

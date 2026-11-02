@@ -1,0 +1,50 @@
+erDiagram
+LaundryBasket {
+  string basket_id PK
+  string material
+  string capacity
+}
+
+ClothingItem {
+  string item_id PK
+  string type
+  string color
+  string fabric
+}
+
+WashingMachine {
+  string machine_id PK
+  string model
+  string capacity
+  string cycle_type
+}
+
+Detergent {
+  string detergent_id PK
+  string brand
+  string type
+  string volume
+}
+
+Dryer {
+  string dryer_id PK
+  string model
+  string capacity
+  string heat_settings
+}
+
+Person {
+  string person_id PK
+  string name
+}
+
+    LaundryBasket ||..o{ ClothingItem : "contains"
+REL_is_washed_in {
+  string rel_is_washed_in_id PK
+}
+
+    ClothingItem o{--o{ REL_is_washed_in : "ClothingItem-REL_is_washed_in"
+    WashingMachine ||--o{ REL_is_washed_in : "WashingMachine-REL_is_washed_in"
+    Detergent ||--o{ REL_is_washed_in : "Detergent-REL_is_washed_in"
+    ClothingItem o{--|| Dryer : "is_dried_in"
+    Person ||--o{ LaundryBasket : "owns"

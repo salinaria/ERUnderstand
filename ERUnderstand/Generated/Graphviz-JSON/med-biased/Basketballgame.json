@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "points": {
+            "attributes": [
+                "date",
+                "attendance",
+                "position"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "awards": {
+            "attributes": [
+                "last_name",
+                "officiates",
+                "rebounds",
+                "jersey_number"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "multivalued": [
+                "Official"
+            ],
+            "weak": false,
+            "composite": {
+                "officiates": [
+                    "player_name",
+                    "assists"
+                ]
+            }
+        },
+        "generates": {
+            "attributes": [
+                "location",
+                "game_id",
+                "official_id",
+                "city"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": false,
+            "derived": [
+                "participates_in"
+            ]
+        },
+        "experience": {
+            "attributes": [
+                "player_id",
+                "official_name",
+                "first_name",
+                "minutes_played",
+                "plays_for"
+            ],
+            "primary_keys": [
+                "player_id"
+            ],
+            "weak": true
+        },
+        "quarter": {
+            "attributes": [
+                "team_id",
+                "Game",
+                "Player"
+            ],
+            "primary_keys": [
+                "team_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "awards",
+                "points"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Team",
+            "weak": false
+        },
+        {
+            "entities": [
+                "points",
+                "generates"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "team_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "awards",
+                "generates",
+                "experience"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "Stat",
+            "weak": true
+        },
+        {
+            "entities": [
+                "quarter",
+                "generates"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "stat_id",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "entities": {
+        "creates": {
+            "attributes": [
+                "image_id",
+                "description",
+                "modality",
+                "includes"
+            ],
+            "primary_keys": [
+                "image_id"
+            ],
+            "multivalued": [
+                "city"
+            ],
+            "weak": false,
+            "composite": {
+                "study_id": [
+                    "concerns",
+                    "street",
+                    "corresponds",
+                    "report_id"
+                ]
+            }
+        },
+        "includes": {
+            "attributes": [
+                "phone_number",
+                "Image",
+                "radiologist_id",
+                "birthdate"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false,
+            "derived": [
+                "zip"
+            ]
+        },
+        "specialization": {
+            "attributes": [
+                "findings",
+                "description",
+                "sex"
+            ],
+            "primary_keys": [
+                "findings"
+            ],
+            "weak": false
+        },
+        "undergoes": {
+            "attributes": [
+                "state",
+                "report_date",
+                "study_date"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "birthdate",
+                "patient_id",
+                "Study",
+                "findings",
+                "image_id",
+                "state"
+            ],
+            "primary_keys": [
+                "birthdate"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "creates",
+                "undergoes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "acquisition_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "specialization",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Patient",
+            "weak": false
+        },
+        {
+            "entities": [
+                "undergoes",
+                "includes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Report",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "creates",
+                "undergoes"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "image_size",
+            "weak": true
+        },
+        {
+            "entities": [
+                "includes",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        }
+    ]
+}

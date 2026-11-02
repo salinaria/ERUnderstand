@@ -1,0 +1,47 @@
+erDiagram
+Patient {
+  string patient_id PK
+  string name
+  string date_of_birth
+  string address
+}
+
+Vaccine {
+  string vaccine_id PK
+  string name
+  string manufacturer
+  string dosage
+}
+
+Appointment {
+  string appointment_id PK
+  string date
+  string time
+  string status
+}
+
+HealthcareWorker {
+  string worker_id PK
+  %% name: composite
+  string name
+  string specialization
+}
+
+Location {
+  string location_id PK
+  string name
+  string address
+  string capacity
+}
+
+    Patient ||--o{ Appointment : "schedules"
+    Appointment ||--|| Vaccine : "administers"
+    HealthcareWorker ||--o{ Appointment : "performs"
+    Appointment ||--|| Location : "takes_place_at"
+REL_receives {
+  string rel_receives_id PK
+}
+
+    Patient o{..o{ REL_receives : "Patient-REL_receives"
+    Vaccine o{..o{ REL_receives : "Vaccine-REL_receives"
+    HealthcareWorker ||..o{ REL_receives : "HealthcareWorker-REL_receives"

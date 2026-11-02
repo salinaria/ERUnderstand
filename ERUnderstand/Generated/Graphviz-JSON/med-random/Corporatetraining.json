@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "mmym": {
+      "weak": false,
+      "attributes": [
+        "fiyi",
+        "lics",
+        "dqbm"
+      ],
+      "primary_keys": [
+        "fiyi"
+      ],
+      "composite": {
+        "lics": [
+          "zqmc",
+          "wxsn"
+        ]
+      }
+    },
+    "mozy": {
+      "weak": false,
+      "attributes": [
+        "avqn",
+        "nvfs",
+        "blij"
+      ],
+      "primary_keys": [
+        "avqn"
+      ]
+    },
+    "wlei": {
+      "weak": true,
+      "attributes": [
+        "ciqq",
+        "yuqw",
+        "smqw"
+      ],
+      "primary_keys": [
+        "ciqq"
+      ],
+      "derived": [
+        "wqdz"
+      ]
+    },
+    "oxnp": {
+      "weak": false,
+      "attributes": [
+        "uhus",
+        "gbfl",
+        "thbd"
+      ],
+      "primary_keys": [
+        "uhus"
+      ],
+      "multivalued": [
+        "sbnc"
+      ]
+    },
+    "aqep": {
+      "weak": false,
+      "attributes": [
+        "cnou",
+        "zkgn",
+        "bddb"
+      ],
+      "primary_keys": [
+        "cnou"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "mmym",
+        "mozy"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "gius",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mozy",
+        "wlei"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zqof",
+      "weak": false
+    },
+    {
+      "entities": [
+        "oxnp",
+        "wlei"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wbba",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mmym",
+        "aqep"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "tpis",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mozy",
+        "aqep",
+        "mmym"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "dyef",
+      "weak": true
+    }
+  ]
+}

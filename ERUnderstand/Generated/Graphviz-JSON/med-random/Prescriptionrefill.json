@@ -1,0 +1,145 @@
+{
+  "entities": {
+    "ymxl": {
+      "weak": false,
+      "attributes": [
+        "bzin",
+        "rsws",
+        "dvcm",
+        "jzyt"
+      ],
+      "primary_keys": [
+        "bzin"
+      ],
+      "composite": {
+        "jzyt": [
+          "byym",
+          "bogn",
+          "qfdo",
+          "tswc"
+        ]
+      }
+    },
+    "cqes": {
+      "weak": false,
+      "attributes": [
+        "baum",
+        "rjho",
+        "hxmv",
+        "miff",
+        "ijyw"
+      ],
+      "primary_keys": [
+        "baum"
+      ]
+    },
+    "hclf": {
+      "weak": false,
+      "attributes": [
+        "tkoc",
+        "atnc",
+        "smpd",
+        "djwu"
+      ],
+      "primary_keys": [
+        "tkoc"
+      ]
+    },
+    "ioza": {
+      "weak": false,
+      "attributes": [
+        "ccsh",
+        "mgbl",
+        "hdlf",
+        "jzyt"
+      ],
+      "primary_keys": [
+        "ccsh"
+      ],
+      "composite": {
+        "jzyt": [
+          "byym",
+          "bogn",
+          "qfdo",
+          "tswc"
+        ]
+      }
+    },
+    "pjxc": {
+      "weak": true,
+      "attributes": [
+        "baum",
+        "uiee",
+        "yjqt"
+      ],
+      "primary_keys": [
+        "baum",
+        "uiee"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ymxl",
+        "cqes"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cano",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cqes",
+        "hclf"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "xfxa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cqes",
+        "ioza"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "cwtk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cqes",
+        "pjxc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "woxd",
+      "weak": true
+    },
+    {
+      "entities": [
+        "ioza",
+        "ymxl",
+        "cqes"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "gygb",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+erDiagram
+Boxer {
+  string boxer_id PK
+  string name
+  string weight
+  string reach
+}
+
+Match {
+  string match_id PK
+  string date
+  string location
+  string rounds
+  string result
+}
+
+Round {
+  string match_id PK
+  string round_number PK
+  string knockdowns
+  string fouls
+}
+
+Referee {
+  string referee_id PK
+  string name
+  string experience
+}
+
+Gym {
+  string gym_id PK
+  string name
+  string address
+}
+
+Trainer {
+  string trainer_id PK
+  string name
+  string specialty
+}
+
+    Boxer ||--o{ Match : "participates_in"
+    Referee ||--o{ Match : "officiates"
+    Boxer o{--|| Gym : "trains_at"
+    Match ||..o{ Round : "consists_of"
+    Boxer o{--|| Trainer : "is_trained_by"

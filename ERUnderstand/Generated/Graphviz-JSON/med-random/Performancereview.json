@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "gdca": {
+      "weak": false,
+      "attributes": [
+        "pcfe",
+        "uavz",
+        "dezs"
+      ],
+      "primary_keys": [
+        "pcfe"
+      ],
+      "composite": {
+        "bbkh": [
+          "ofyi",
+          "cfpk",
+          "vzzd",
+          "aerf"
+        ]
+      }
+    },
+    "qgfu": {
+      "weak": false,
+      "attributes": [
+        "tpcu",
+        "rays",
+        "lakb"
+      ],
+      "primary_keys": [
+        "tpcu"
+      ],
+      "derived": [
+        "drkl"
+      ]
+    },
+    "czrr": {
+      "weak": false,
+      "attributes": [
+        "wnls",
+        "fyen"
+      ],
+      "primary_keys": [
+        "wnls"
+      ]
+    },
+    "srlu": {
+      "weak": true,
+      "attributes": [
+        "xxzl",
+        "aahr",
+        "qzcs",
+        "vizz"
+      ],
+      "primary_keys": [
+        "xxzl"
+      ]
+    },
+    "dpei": {
+      "weak": false,
+      "attributes": [
+        "klbi",
+        "ruin",
+        "axgh"
+      ],
+      "primary_keys": [
+        "klbi"
+      ],
+      "multivalued": [
+        "zsdk"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "gdca",
+        "qgfu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "lqjn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "czrr",
+        "gdca"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xkph",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gdca",
+        "srlu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ixhx",
+      "weak": true
+    },
+    {
+      "entities": [
+        "gdca",
+        "dpei",
+        "qgfu"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "kvih",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gdca",
+        "czrr"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pdsl",
+      "weak": false
+    }
+  ]
+}

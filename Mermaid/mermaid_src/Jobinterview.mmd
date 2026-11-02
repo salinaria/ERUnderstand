@@ -1,0 +1,49 @@
+erDiagram
+Candidate {
+  string candidate_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+  %% email: multivalued
+  string email
+}
+
+Interviewer {
+  string interviewer_id PK
+  %% name: composite
+  string name
+  string title
+  string department
+}
+
+Job {
+  string job_id PK
+  string title
+  string description
+  string salary
+}
+
+Skill {
+  string skill_id PK
+  string skill_name
+}
+
+Interview {
+  string interview_id PK
+  string date
+  string time
+  %% duration: derived
+  string duration
+}
+
+    Candidate o{--o{ Job : "Applies_for"
+    Interviewer ||--o{ Interview : "Conducts"
+    Candidate ||--|| Interview : "Attends"
+    Job ||--o{ Skill : "Requires"
+REL_is_about {
+  string rel_is_about_id PK
+}
+
+    Interview ||..o{ REL_is_about : "Interview-REL_is_about"
+    Candidate ||..o{ REL_is_about : "Candidate-REL_is_about"
+    Interviewer ||..o{ REL_is_about : "Interviewer-REL_is_about"

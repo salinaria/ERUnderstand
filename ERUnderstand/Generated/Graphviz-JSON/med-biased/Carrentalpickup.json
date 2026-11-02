@@ -1,0 +1,144 @@
+{
+    "entities": {
+        "model": {
+            "attributes": [
+                "describes",
+                "street",
+                "miles_driven",
+                "includes"
+            ],
+            "primary_keys": [
+                "describes"
+            ],
+            "multivalued": [
+                "miles_driven"
+            ],
+            "weak": false,
+            "composite": {
+                "includes": [
+                    "phone_number",
+                    "total_cost",
+                    "PickupLocation",
+                    "condition_id"
+                ]
+            }
+        },
+        "RentalAgreement": {
+            "attributes": [
+                "license_plate",
+                "name",
+                "CarCondition",
+                "return_date",
+                "state"
+            ],
+            "primary_keys": [
+                "license_plate"
+            ],
+            "weak": false
+        },
+        "date_inspected": {
+            "attributes": [
+                "location_id",
+                "Car",
+                "rents",
+                "customer_id",
+                "pickup_date"
+            ],
+            "primary_keys": [
+                "location_id"
+            ],
+            "derived": [
+                "customer_id"
+            ],
+            "weak": false
+        },
+        "return_date": {
+            "attributes": [
+                "zip",
+                "includes",
+                "total_cost",
+                "PickupLocation",
+                "related_to"
+            ],
+            "primary_keys": [
+                "zip"
+            ],
+            "weak": false
+        },
+        "occurs_at": {
+            "attributes": [
+                "description",
+                "Customer",
+                "agreement_id"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "model",
+                "date_inspected"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_inspected",
+                "RentalAgreement"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "make",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_inspected",
+                "return_date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "VIN",
+            "weak": false
+        },
+        {
+            "entities": [
+                "RentalAgreement",
+                "occurs_at",
+                "date_inspected"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "city",
+            "weak": true
+        },
+        {
+            "entities": [
+                "occurs_at",
+                "RentalAgreement"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "zip_code",
+            "weak": true
+        }
+    ]
+}

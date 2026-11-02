@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "start_date": {
+            "attributes": [
+                "date_of_birth",
+                "plays_for",
+                "includes"
+            ],
+            "primary_keys": [
+                "date_of_birth"
+            ],
+            "weak": false
+        },
+        "end_date": {
+            "attributes": [
+                "player_name",
+                "last_name",
+                "score_team1",
+                "player_id"
+            ],
+            "primary_keys": [
+                "player_name"
+            ],
+            "composite": {
+                "last_name": [
+                    "team_name",
+                    "features"
+                ]
+            },
+            "weak": false
+        },
+        "consists_of": {
+            "attributes": [
+                "Set",
+                "end_time",
+                "sponsor",
+                "first_name",
+                "Player"
+            ],
+            "primary_keys": [
+                "Set"
+            ],
+            "derived": [
+                "Tournament"
+            ],
+            "weak": false
+        },
+        "participates_in": {
+            "attributes": [
+                "score_team2",
+                "city",
+                "position",
+                "start_time"
+            ],
+            "primary_keys": [
+                "score_team2"
+            ],
+            "multivalued": [
+                "player_name"
+            ],
+            "weak": false
+        },
+        "tournament_id": {
+            "attributes": [
+                "game_id",
+                "Team",
+                "date"
+            ],
+            "primary_keys": [
+                "game_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "end_date",
+                "start_date"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Game",
+            "weak": false
+        },
+        {
+            "entities": [
+                "start_date",
+                "consists_of"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "team_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "consists_of",
+                "tournament_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "set_number",
+            "weak": true,
+            "identifying_relationship": true
+        },
+        {
+            "entities": [
+                "participates_in",
+                "start_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "tournament_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "participates_in",
+                "consists_of"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "duration",
+            "weak": false
+        }
+    ]
+}

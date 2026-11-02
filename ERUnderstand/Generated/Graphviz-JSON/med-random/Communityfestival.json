@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "dkpy": {
+      "weak": false,
+      "attributes": [
+        "ifzk",
+        "fiyq",
+        "qvly"
+      ],
+      "primary_keys": [
+        "ifzk"
+      ],
+      "multivalued": [
+        "bjzy"
+      ]
+    },
+    "eznw": {
+      "weak": false,
+      "attributes": [
+        "bfkk",
+        "fiyq",
+        "rtgz",
+        "uvxa",
+        "iyst"
+      ],
+      "primary_keys": [
+        "bfkk"
+      ],
+      "derived": [
+        "olvb"
+      ]
+    },
+    "tbru": {
+      "weak": false,
+      "attributes": [
+        "rmek",
+        "zrvw",
+        "bgcd"
+      ],
+      "primary_keys": [
+        "rmek"
+      ]
+    },
+    "wxdn": {
+      "weak": false,
+      "attributes": [
+        "kdeo",
+        "fiyq",
+        "utnb",
+        "pffu"
+      ],
+      "primary_keys": [
+        "kdeo"
+      ]
+    },
+    "dgls": {
+      "weak": true,
+      "attributes": [
+        "klwt",
+        "itsx",
+        "iwxh"
+      ],
+      "primary_keys": [
+        "klwt"
+      ],
+      "composite": {
+        "qvly": [
+          "ngez",
+          "piwc",
+          "uzzt"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "dkpy",
+        "eznw"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "fmsf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eznw",
+        "tbru"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fazn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wxdn",
+        "eznw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "dkzo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dgls",
+        "eznw"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "nxrz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dkpy",
+        "tbru",
+        "eznw"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "trro",
+      "weak": true
+    }
+  ]
+}

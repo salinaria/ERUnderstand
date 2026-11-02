@@ -1,0 +1,44 @@
+erDiagram
+Presentation {
+  string presentation_id PK
+  string title
+  string date
+}
+
+Presenter {
+  string presenter_id PK
+  string name
+  string affiliation
+}
+
+AudienceMember {
+  string member_id PK
+  string name
+  string occupation
+}
+
+Topic {
+  string topic_id PK
+  string topic_name
+  string description
+}
+
+Feedback {
+  string feedback_id PK
+  string member_id
+  string presentation_id
+  string comment
+  string rating
+}
+
+    Presentation ||--o{ Presenter : "Presents"
+    AudienceMember o{--|| Presentation : "Attends"
+    Presentation ||--o{ Topic : "Covers"
+REL_Provides {
+  string rel_provides_id PK
+}
+
+    AudienceMember ||..o{ REL_Provides : "AudienceMember-REL_Provides"
+    Presentation ||..o{ REL_Provides : "Presentation-REL_Provides"
+    Feedback ||..o{ REL_Provides : "Feedback-REL_Provides"
+    Feedback o{..|| Presentation : "BelongsTo"

@@ -1,0 +1,145 @@
+{
+    "entities": {
+        "quantity": {
+            "attributes": [
+                "refill_number",
+                "refills_allowed",
+                "medication_id",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "refill_number"
+            ],
+            "composite": {
+                "phone_number": [
+                    "form",
+                    "medication_name",
+                    "pharmacy_id",
+                    "Medication"
+                ]
+            },
+            "weak": false
+        },
+        "Pharmacy": {
+            "attributes": [
+                "handles",
+                "city",
+                "has_refills",
+                "address",
+                "patient_id"
+            ],
+            "primary_keys": [
+                "handles"
+            ],
+            "weak": false
+        },
+        "dosage": {
+            "attributes": [
+                "Patient",
+                "street",
+                "strength",
+                "filled_at"
+            ],
+            "primary_keys": [
+                "Patient"
+            ],
+            "weak": false
+        },
+        "is_for": {
+            "attributes": [
+                "name",
+                "zip_code",
+                "state",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "composite": {
+                "phone_number": [
+                    "form",
+                    "medication_name",
+                    "pharmacy_id",
+                    "Medication"
+                ]
+            },
+            "weak": false
+        },
+        "prescription_id": {
+            "attributes": [
+                "handles",
+                "has",
+                "Refill"
+            ],
+            "primary_keys": [
+                "handles",
+                "has"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "quantity",
+                "Pharmacy"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "is_for",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Pharmacy",
+                "dosage"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date_written",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Pharmacy",
+                "is_for"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "pharmacy_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Pharmacy",
+                "prescription_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": true
+        },
+        {
+            "entities": [
+                "is_for",
+                "quantity",
+                "Pharmacy"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "date_filled",
+            "weak": false
+        }
+    ]
+}

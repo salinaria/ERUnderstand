@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "contact_name": {
+            "attributes": [
+                "customer_id",
+                "salesperson_id",
+                "targets"
+            ],
+            "primary_keys": [
+                "customer_id"
+            ],
+            "composite": {
+                "product_id": [
+                    "company_name",
+                    "Feedback",
+                    "given_by",
+                    "street"
+                ]
+            },
+            "weak": false
+        },
+        "conducts": {
+            "attributes": [
+                "presents",
+                "salesperson_id",
+                "location",
+                "address"
+            ],
+            "primary_keys": [
+                "presents"
+            ],
+            "multivalued": [
+                "SalesPitch"
+            ],
+            "weak": false
+        },
+        "Salesperson": {
+            "attributes": [
+                "feedback_id",
+                "name",
+                "rating"
+            ],
+            "primary_keys": [
+                "feedback_id"
+            ],
+            "derived": [
+                "receives"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "region",
+                "price",
+                "Product"
+            ],
+            "primary_keys": [
+                "region"
+            ],
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "zip",
+                "customer_tier",
+                "comment"
+            ],
+            "primary_keys": [
+                "zip"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "contact_name",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "pitch_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "conducts"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Customer",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "Salesperson"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "feature",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "Salesperson"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "conducts",
+            "weak": true
+        }
+    ]
+}

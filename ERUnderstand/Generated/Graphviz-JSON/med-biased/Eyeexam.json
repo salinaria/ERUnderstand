@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "street": {
+            "attributes": [
+                "duration",
+                "LensPrescription",
+                "name",
+                "date"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "multivalued": [
+                "schedules"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "exam_id",
+                    "phone_number",
+                    "time",
+                    "Doctor"
+                ]
+            }
+        },
+        "patient_id": {
+            "attributes": [
+                "vision_right",
+                "LensPrescription",
+                "performs"
+            ],
+            "primary_keys": [
+                "vision_right"
+            ],
+            "weak": false
+        },
+        "appointment_id": {
+            "attributes": [
+                "state",
+                "doctor_id",
+                "prescription_id",
+                "date_of_birth",
+                "duration",
+                "vision_right"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "weak": false,
+            "derived": [
+                "includes"
+            ]
+        },
+        "vision_left": {
+            "attributes": [
+                "Appointment",
+                "add",
+                "notes",
+                "doctor_id",
+                "state"
+            ],
+            "primary_keys": [
+                "Appointment"
+            ],
+            "weak": true
+        },
+        "sphere": {
+            "attributes": [
+                "Patient",
+                "city",
+                "specialty",
+                "Eye_Exam",
+                "cylinder",
+                "Appointment"
+            ],
+            "primary_keys": [
+                "Patient"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "street",
+                "appointment_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "zip_code",
+            "weak": false
+        },
+        {
+            "entities": [
+                "patient_id",
+                "appointment_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "appointment_id",
+                "vision_left"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "results_in",
+            "weak": true
+        },
+        {
+            "entities": [
+                "vision_left",
+                "sphere"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "axis",
+            "weak": true
+        }
+    ]
+}

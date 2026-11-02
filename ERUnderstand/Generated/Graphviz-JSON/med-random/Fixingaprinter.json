@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "bljw": {
+      "weak": false,
+      "attributes": [
+        "pafr",
+        "xvmu",
+        "ntnq"
+      ],
+      "primary_keys": [
+        "pafr"
+      ],
+      "composite": {
+        "lqbf": [
+          "cihk",
+          "orpi",
+          "opzt"
+        ]
+      }
+    },
+    "qrrs": {
+      "weak": false,
+      "attributes": [
+        "ekib",
+        "kgoc",
+        "irbd"
+      ],
+      "primary_keys": [
+        "ekib"
+      ]
+    },
+    "llxm": {
+      "weak": false,
+      "attributes": [
+        "dybg",
+        "zqui",
+        "cpje"
+      ],
+      "primary_keys": [
+        "dybg"
+      ],
+      "derived": [
+        "fryf"
+      ]
+    },
+    "zkyc": {
+      "weak": true,
+      "attributes": [
+        "fnzu",
+        "xjmh",
+        "zqui"
+      ],
+      "primary_keys": [
+        "fnzu"
+      ]
+    },
+    "ddyj": {
+      "weak": false,
+      "attributes": [
+        "urze",
+        "xvmu",
+        "slaw"
+      ],
+      "primary_keys": [
+        "urze"
+      ],
+      "multivalued": [
+        "ejgb"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bljw",
+        "qrrs"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "bern",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qrrs",
+        "llxm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "sjsq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bljw",
+        "zkyc",
+        "llxm"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "epic",
+      "weak": true
+    },
+    {
+      "entities": [
+        "zkyc",
+        "ddyj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nekm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zkyc",
+        "llxm"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ybuy",
+      "weak": false
+    }
+  ]
+}

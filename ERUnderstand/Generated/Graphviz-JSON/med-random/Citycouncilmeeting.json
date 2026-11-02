@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "aabn": {
+      "weak": false,
+      "attributes": [
+        "copk",
+        "vxij",
+        "khcg"
+      ],
+      "primary_keys": [
+        "copk"
+      ],
+      "composite": {
+        "vxij": [
+          "rvtw",
+          "olki"
+        ]
+      }
+    },
+    "qwlb": {
+      "weak": false,
+      "attributes": [
+        "wywt",
+        "pguk",
+        "wyed"
+      ],
+      "primary_keys": [
+        "wywt"
+      ],
+      "multivalued": [
+        "wyed"
+      ]
+    },
+    "komn": {
+      "weak": false,
+      "attributes": [
+        "heuh",
+        "isvj",
+        "cfoo",
+        "ltkv"
+      ],
+      "primary_keys": [
+        "heuh"
+      ]
+    },
+    "pafg": {
+      "weak": false,
+      "attributes": [
+        "ciyp",
+        "ukev",
+        "wuyh"
+      ],
+      "primary_keys": [
+        "ciyp"
+      ],
+      "derived": [
+        "cagx"
+      ]
+    },
+    "wnov": {
+      "weak": true,
+      "attributes": [
+        "oexa",
+        "ugjk",
+        "fepo"
+      ],
+      "primary_keys": [
+        "oexa"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "aabn",
+        "pafg"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "olvu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pafg",
+        "komn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "oknu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pafg",
+        "qwlb",
+        "wnov"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "onvx",
+      "weak": true
+    },
+    {
+      "entities": [
+        "qwlb",
+        "komn"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "fpjw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "aabn",
+        "qwlb",
+        "komn"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "rlpm",
+      "weak": false
+    }
+  ]
+}

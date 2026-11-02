@@ -1,0 +1,48 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string name
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Pet {
+  string pet_id PK
+  string name
+  string species
+  string breed
+  string birthdate
+}
+
+Product {
+  string product_id PK
+  string name
+  string description
+  string price
+}
+
+Transaction {
+  string transaction_id PK
+  string date
+  string total_amount
+}
+
+Visit {
+  string visit_id PK
+  string date
+  string reason
+  string pet_id
+}
+
+    Customer ||--o{ Pet : "Owns"
+    Transaction ||--o{ Customer : "Places"
+    Transaction ||--o{ Product : "Includes"
+    Pet ||..o{ Visit : "Undergoes"
+REL_Involves {
+  string rel_involves_id PK
+}
+
+    Pet o{--o{ REL_Involves : "Pet-REL_Involves"
+    Product o{--o{ REL_Involves : "Product-REL_Involves"
+    Transaction ||--o{ REL_Involves : "Transaction-REL_Involves"

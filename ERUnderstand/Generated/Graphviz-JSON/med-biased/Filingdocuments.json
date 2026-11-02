@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "date_last_accessed": {
+            "attributes": [
+                "password",
+                "contained_in",
+                "Keyword",
+                "FileCabinet"
+            ],
+            "primary_keys": [
+                "password"
+            ],
+            "weak": false
+        },
+        "role": {
+            "attributes": [
+                "creates",
+                "username",
+                "file_size"
+            ],
+            "primary_keys": [
+                "creates"
+            ],
+            "weak": false
+        },
+        "date_created": {
+            "attributes": [
+                "city",
+                "Folder"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "derived": [
+                "keyword_id"
+            ],
+            "weak": true
+        },
+        "state": {
+            "attributes": [
+                "cabinet_id",
+                "location",
+                "stored_in",
+                "document_id"
+            ],
+            "primary_keys": [
+                "cabinet_id"
+            ],
+            "multivalued": [
+                "label"
+            ],
+            "composite": {
+                "zip_code": [
+                    "capacity",
+                    "address",
+                    "user_id",
+                    "User"
+                ]
+            },
+            "weak": false
+        },
+        "folder_id": {
+            "attributes": [
+                "street",
+                "associated_with"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date_last_accessed",
+                "date_created"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "word",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_created",
+                "role"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "state",
+                "date_last_accessed"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "title",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_last_accessed",
+                "folder_id"
+            ],
+            "cardinality": [
+                "M",
+                "N"
+            ],
+            "name": "Document",
+            "weak": false
+        },
+        {
+            "entities": [
+                "state",
+                "role"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "street",
+            "weak": false
+        }
+    ]
+}

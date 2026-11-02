@@ -1,0 +1,146 @@
+{
+    "entities": {
+        "size": {
+            "attributes": [
+                "signal_strength",
+                "Program",
+                "start_time"
+            ],
+            "primary_keys": [
+                "signal_strength"
+            ],
+            "composite": {
+                "start_time": [
+                    "LivingRoom",
+                    "room_id",
+                    "Uses"
+                ]
+            },
+            "weak": false
+        },
+        "area": {
+            "attributes": [
+                "Channel",
+                "channel_number",
+                "program_id",
+                "duration"
+            ],
+            "primary_keys": [
+                "Channel"
+            ],
+            "weak": false
+        },
+        "Uses": {
+            "attributes": [
+                "name",
+                "model",
+                "genre"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true,
+            "derived": [
+                "TV"
+            ]
+        },
+        "street": {
+            "attributes": [
+                "Broadcasts",
+                "Program",
+                "Watches"
+            ],
+            "primary_keys": [
+                "Broadcasts"
+            ],
+            "weak": false
+        },
+        "brand": {
+            "attributes": [
+                "Remote",
+                "ViewingSession",
+                "person_id"
+            ],
+            "primary_keys": [
+                "Remote"
+            ],
+            "weak": false
+        },
+        "color": {
+            "attributes": [
+                "city",
+                "battery_level",
+                "end_time"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        },
+        "remote_id": {
+            "attributes": [
+                "Shows",
+                "type",
+                "location"
+            ],
+            "primary_keys": [
+                "Shows"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "size",
+                "area",
+                "Uses"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "tv_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "area",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Person",
+            "weak": false
+        },
+        {
+            "entities": [
+                "street",
+                "brand"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "title",
+            "weak": false
+        },
+        {
+            "entities": [
+                "size",
+                "brand",
+                "remote_id"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "session_id",
+            "weak": true
+        }
+    ]
+}

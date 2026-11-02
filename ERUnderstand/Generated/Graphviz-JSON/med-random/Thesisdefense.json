@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "jrin": {
+      "weak": false,
+      "attributes": [
+        "rlut",
+        "rvwe",
+        "uxqi"
+      ],
+      "primary_keys": [
+        "rlut"
+      ],
+      "multivalued": [
+        "uxqi"
+      ]
+    },
+    "cbru": {
+      "weak": false,
+      "attributes": [
+        "axvk",
+        "hsip",
+        "byjk"
+      ],
+      "primary_keys": [
+        "axvk"
+      ],
+      "derived": [
+        "amyu"
+      ]
+    },
+    "xtxb": {
+      "weak": false,
+      "attributes": [
+        "jlwv",
+        "rvwe",
+        "wjjl"
+      ],
+      "primary_keys": [
+        "jlwv"
+      ],
+      "composite": {
+        "rvwe": [
+          "udtc",
+          "tfeq"
+        ]
+      }
+    },
+    "sywt": {
+      "weak": false,
+      "attributes": [
+        "svdn",
+        "asrk",
+        "yyaz",
+        "mbki"
+      ],
+      "primary_keys": [
+        "svdn"
+      ]
+    },
+    "uodt": {
+      "weak": true,
+      "attributes": [
+        "deyi",
+        "hfut",
+        "mcij"
+      ],
+      "primary_keys": [
+        "deyi"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jrin",
+        "cbru"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "jaku",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xtxb",
+        "cbru"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "rbsm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cbru",
+        "sywt"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "mhsr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xtxb",
+        "sywt"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "ewjy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sywt",
+        "uodt"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ugxb",
+      "weak": true
+    }
+  ]
+}

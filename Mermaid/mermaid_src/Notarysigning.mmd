@@ -1,0 +1,47 @@
+erDiagram
+Document {
+  string document_id PK
+  string title
+  string type
+  string creation_date
+}
+
+Notary {
+  string notary_id PK
+  string license_number
+  %% address: composite
+  string address
+}
+
+Signer {
+  string signer_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+SigningEvent {
+  string event_id PK
+  string event_date
+  string event_time
+  string location
+}
+
+Payment {
+  string payment_id PK
+  string payment_date
+  string amount
+  string payment_type
+}
+
+    Document ||--o{ Signer : "authored_by"
+    Notary ||--o{ SigningEvent : "performs"
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Signer o{..o{ REL_participates_in : "Signer-REL_participates_in"
+    SigningEvent ||..o{ REL_participates_in : "SigningEvent-REL_participates_in"
+    Document ||..o{ REL_participates_in : "Document-REL_participates_in"
+    SigningEvent ||--|| Payment : "requires"
+    Notary ||--o{ Payment : "receives"

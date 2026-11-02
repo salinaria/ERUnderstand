@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "match_id": {
+            "attributes": [
+                "location",
+                "player_id",
+                "PartOf",
+                "location"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "multivalued": [
+                "HasScore"
+            ],
+            "weak": false,
+            "composite": {
+                "certification_level": [
+                    "referee_id",
+                    "match_date",
+                    "ranking"
+                ]
+            }
+        },
+        "start_date": {
+            "attributes": [
+                "Score",
+                "Tournament",
+                "tournament_id",
+                "Referee"
+            ],
+            "primary_keys": [
+                "Score"
+            ],
+            "weak": false,
+            "derived": [
+                "date_of_birth"
+            ]
+        },
+        "street": {
+            "attributes": [
+                "Match",
+                "player_id",
+                "Player",
+                "set_number",
+                "start_time"
+            ],
+            "primary_keys": [
+                "Match"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "address",
+                "player_id",
+                "city"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "end_time": {
+            "attributes": [
+                "Score",
+                "location",
+                "points",
+                "end_date"
+            ],
+            "primary_keys": [
+                "Score",
+                "location",
+                "points"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "match_id",
+                "start_date"
+            ],
+            "cardinality": [
+                "2",
+                "1"
+            ],
+            "name": "Oversees",
+            "weak": false
+        },
+        {
+            "entities": [
+                "start_date",
+                "street"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "start_date",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "PlaysIn",
+            "weak": false
+        },
+        {
+            "entities": [
+                "start_date",
+                "match_id",
+                "end_time"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        }
+    ]
+}

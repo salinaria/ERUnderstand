@@ -1,0 +1,140 @@
+{
+    "entities": {
+        "moderates": {
+            "attributes": [
+                "Subreddit",
+                "description",
+                "name"
+            ],
+            "primary_keys": [
+                "Subreddit"
+            ],
+            "multivalued": [
+                "content"
+            ],
+            "weak": false
+        },
+        "creates": {
+            "attributes": [
+                "post_id",
+                "moderator_id",
+                "end_date",
+                "downvotes"
+            ],
+            "primary_keys": [
+                "post_id"
+            ],
+            "derived": [
+                "has"
+            ],
+            "weak": false
+        },
+        "score": {
+            "attributes": [
+                "username",
+                "subscribes_to",
+                "comment_id",
+                "creation_date",
+                "subreddit_id"
+            ],
+            "primary_keys": [
+                "username"
+            ],
+            "weak": true
+        },
+        "User": {
+            "attributes": [
+                "timestamp",
+                "Post",
+                "creation_date",
+                "subreddit_id",
+                "username"
+            ],
+            "primary_keys": [
+                "timestamp"
+            ],
+            "weak": true,
+            "composite": {
+                "text": [
+                    "title",
+                    "upvotes_downvotes"
+                ]
+            }
+        },
+        "member_count": {
+            "attributes": [
+                "Comment",
+                "Moderator",
+                "start_date"
+            ],
+            "primary_keys": [
+                "Comment"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "moderates",
+                "creates"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "karma",
+            "weak": false
+        },
+        {
+            "entities": [
+                "moderates",
+                "score"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "user_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "moderates",
+                "User"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "upvotes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "score",
+                "User"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "title",
+            "weak": true
+        },
+        {
+            "entities": [
+                "moderates",
+                "creates",
+                "member_count"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "email",
+            "weak": false
+        }
+    ]
+}

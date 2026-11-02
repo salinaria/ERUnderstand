@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "mmut": {
+      "weak": false,
+      "attributes": [
+        "aaaa",
+        "egcx",
+        "qbod",
+        "eyww"
+      ],
+      "primary_keys": [
+        "aaaa"
+      ],
+      "multivalued": [
+        "eyww"
+      ]
+    },
+    "neac": {
+      "weak": false,
+      "attributes": [
+        "lzoe",
+        "egcx",
+        "hylz",
+        "yvql"
+      ],
+      "primary_keys": [
+        "lzoe"
+      ],
+      "composite": {
+        "egcx": [
+          "fifn",
+          "ftak"
+        ]
+      }
+    },
+    "cpgm": {
+      "weak": true,
+      "attributes": [
+        "wmvn",
+        "rmsc",
+        "rzkn",
+        "xpjr",
+        "aaaa",
+        "lzoe"
+      ],
+      "primary_keys": [
+        "wmvn"
+      ],
+      "derived": [
+        "svos"
+      ]
+    },
+    "tvfs": {
+      "weak": false,
+      "attributes": [
+        "mqdt",
+        "ywyl",
+        "cfaf"
+      ],
+      "primary_keys": [
+        "mqdt"
+      ]
+    },
+    "qkcq": {
+      "weak": false,
+      "attributes": [
+        "huvd",
+        "egcx",
+        "xgvg",
+        "vftw"
+      ],
+      "primary_keys": [
+        "huvd"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "mmut",
+        "cpgm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qfus",
+      "weak": false
+    },
+    {
+      "entities": [
+        "neac",
+        "cpgm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kdnz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mmut",
+        "tvfs"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ribx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mmut",
+        "qkcq",
+        "neac"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "gdmu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "cpgm",
+        "tvfs"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "hzco",
+      "weak": false
+    }
+  ]
+}

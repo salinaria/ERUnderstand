@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "license_number": {
+            "attributes": [
+                "Requirement",
+                "Holds",
+                "Applicant",
+                "document_id"
+            ],
+            "primary_keys": [
+                "Requirement"
+            ],
+            "derived": [
+                "file_location"
+            ],
+            "weak": false
+        },
+        "document_type": {
+            "attributes": [
+                "is_mandatory",
+                "payment_amount",
+                "issue_date",
+                "state"
+            ],
+            "primary_keys": [
+                "is_mandatory"
+            ],
+            "multivalued": [
+                "years_valid"
+            ],
+            "composite": {
+                "issue_date": [
+                    "Includes",
+                    "phone_number",
+                    "RenewsWith",
+                    "license_type"
+                ]
+            },
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "Document",
+                "years_valid",
+                "License",
+                "RenewalApplication"
+            ],
+            "primary_keys": [
+                "Document"
+            ],
+            "weak": true
+        },
+        "address": {
+            "attributes": [
+                "applicant_id",
+                "Requires",
+                "Submits"
+            ],
+            "primary_keys": [
+                "applicant_id"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "requirement_id",
+                "application_id",
+                "status",
+                "street"
+            ],
+            "primary_keys": [
+                "requirement_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "license_number",
+                "document_type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "submission_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "document_type",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "expiry_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "upload_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        },
+        {
+            "entities": [
+                "license_number",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "description",
+            "weak": true
+        }
+    ]
+}

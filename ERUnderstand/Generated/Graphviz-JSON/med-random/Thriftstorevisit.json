@@ -1,0 +1,146 @@
+{
+  "entities": {
+    "stnd": {
+      "weak": false,
+      "attributes": [
+        "mwnb",
+        "fpoc",
+        "bhvx",
+        "sbvv"
+      ],
+      "primary_keys": [
+        "mwnb"
+      ],
+      "multivalued": [
+        "sbvv"
+      ],
+      "composite": {
+        "bhvx": [
+          "cosv",
+          "lywj",
+          "yjnq",
+          "qupa"
+        ]
+      }
+    },
+    "pxjn": {
+      "weak": false,
+      "attributes": [
+        "wbhk",
+        "clwo",
+        "trak",
+        "kclb"
+      ],
+      "primary_keys": [
+        "wbhk"
+      ],
+      "derived": [
+        "kclb"
+      ]
+    },
+    "oxlj": {
+      "weak": true,
+      "attributes": [
+        "rxse",
+        "dsee",
+        "rxlm",
+        "acqd",
+        "lvzj"
+      ],
+      "primary_keys": [
+        "rxse"
+      ]
+    },
+    "ekuk": {
+      "weak": false,
+      "attributes": [
+        "rbmm",
+        "fzsi",
+        "alyq"
+      ],
+      "primary_keys": [
+        "rbmm"
+      ]
+    },
+    "lvba": {
+      "weak": false,
+      "attributes": [
+        "otzk",
+        "fpoc",
+        "ubzu",
+        "uqib",
+        "dznb"
+      ],
+      "primary_keys": [
+        "otzk"
+      ],
+      "derived": [
+        "stsz"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "stnd",
+        "ekuk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xbhg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ekuk",
+        "oxlj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "bpoz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pxjn",
+        "oxlj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pjtb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "oxlj",
+        "lvba",
+        "ekuk"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "kmyt",
+      "weak": true
+    },
+    {
+      "entities": [
+        "lvba",
+        "pxjn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nfnc",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "hesj": {
+      "weak": false,
+      "attributes": [
+        "vdmr",
+        "ykmr",
+        "vkqn"
+      ],
+      "primary_keys": [
+        "vdmr"
+      ],
+      "multivalued": [
+        "afbm"
+      ]
+    },
+    "yedm": {
+      "weak": false,
+      "attributes": [
+        "cbeh",
+        "amtj",
+        "vkqn",
+        "uqtq"
+      ],
+      "primary_keys": [
+        "cbeh"
+      ],
+      "derived": [
+        "knta"
+      ]
+    },
+    "ujkp": {
+      "weak": false,
+      "attributes": [
+        "fvyn",
+        "ykmr",
+        "mbrc",
+        "lrqm"
+      ],
+      "primary_keys": [
+        "fvyn"
+      ]
+    },
+    "hykz": {
+      "weak": true,
+      "attributes": [
+        "wdvt",
+        "wtdu",
+        "gsmo",
+        "kgmz"
+      ],
+      "primary_keys": [
+        "wdvt"
+      ],
+      "composite": {
+        "bejk": [
+          "wtdu",
+          "gsmo"
+        ]
+      }
+    },
+    "ainp": {
+      "weak": true,
+      "attributes": [
+        "eqnk",
+        "nswr",
+        "umod",
+        "xalj"
+      ],
+      "primary_keys": [
+        "eqnk"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "hesj",
+        "hykz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "eqae",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yedm",
+        "hykz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "leqb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hesj",
+        "yedm",
+        "ainp"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "fgau",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hesj",
+        "ujkp"
+      ],
+      "cardinality": [
+        "N",
+        "M"
+      ],
+      "name": "ymly",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hykz",
+        "ainp"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fvue",
+      "weak": true
+    }
+  ]
+}

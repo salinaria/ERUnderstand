@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "release_date": {
+            "attributes": [
+                "description",
+                "software_id",
+                "device_id"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false
+        },
+        "has": {
+            "attributes": [
+                "street",
+                "zip_code",
+                "installs",
+                "operating_system"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "derived": [
+                "version"
+            ],
+            "weak": false
+        },
+        "time_to_install": {
+            "attributes": [
+                "update_id",
+                "installation_date",
+                "Software"
+            ],
+            "primary_keys": [
+                "update_id"
+            ],
+            "composite": {
+                "type": [
+                    "name",
+                    "installation_id",
+                    "Device"
+                ]
+            },
+            "weak": false
+        },
+        "username": {
+            "attributes": [
+                "manufacturer",
+                "supported_software",
+                "User"
+            ],
+            "primary_keys": [
+                "manufacturer"
+            ],
+            "multivalued": [
+                "records"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "Update",
+                "city",
+                "user_id",
+                "manufacturer",
+                "street"
+            ],
+            "primary_keys": [
+                "Update"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "release_date",
+                "has"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "size",
+            "weak": false
+        },
+        {
+            "entities": [
+                "has",
+                "time_to_install"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "owns",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time_to_install",
+                "username"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "InstallationLog",
+            "weak": false
+        },
+        {
+            "entities": [
+                "username",
+                "has",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "runs_on",
+            "weak": true
+        },
+        {
+            "entities": [
+                "release_date",
+                "username"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "status",
+            "weak": false
+        }
+    ]
+}

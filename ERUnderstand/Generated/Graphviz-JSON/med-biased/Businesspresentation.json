@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "state": {
+            "attributes": [
+                "Feedback",
+                "affiliation",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "Feedback"
+            ],
+            "weak": false
+        },
+        "Presents": {
+            "attributes": [
+                "BelongsTo",
+                "address",
+                "topic_id"
+            ],
+            "primary_keys": [
+                "BelongsTo"
+            ],
+            "multivalued": [
+                "title"
+            ],
+            "composite": {
+                "comment": [
+                    "AudienceMember",
+                    "street",
+                    "topic_name",
+                    "city"
+                ]
+            },
+            "weak": false
+        },
+        "date": {
+            "attributes": [
+                "Covers",
+                "address",
+                "Presentation"
+            ],
+            "primary_keys": [
+                "Covers"
+            ],
+            "weak": false
+        },
+        "Presenter": {
+            "attributes": [
+                "feedback_id",
+                "occupation",
+                "presenter_id"
+            ],
+            "primary_keys": [
+                "feedback_id"
+            ],
+            "weak": false
+        },
+        "member_id": {
+            "attributes": [
+                "Provides",
+                "Covers",
+                "Feedback",
+                "name",
+                "feedback_id"
+            ],
+            "primary_keys": [
+                "Provides"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "state",
+                "Presents"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "presentation_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "state"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "state",
+                "Presenter"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Attends",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "state",
+                "member_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "Topic",
+            "weak": true
+        },
+        {
+            "entities": [
+                "member_id",
+                "state"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "description",
+            "weak": true
+        }
+    ]
+}

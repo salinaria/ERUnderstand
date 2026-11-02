@@ -1,0 +1,142 @@
+{
+  "entities": {
+    "zujz": {
+      "weak": false,
+      "attributes": [
+        "ezsn",
+        "urnz",
+        "zrhx",
+        "casf"
+      ],
+      "primary_keys": [
+        "ezsn"
+      ],
+      "multivalued": [
+        "towr"
+      ],
+      "composite": {
+        "oekd": [
+          "urnz",
+          "zrhx"
+        ]
+      }
+    },
+    "hxkn": {
+      "weak": false,
+      "attributes": [
+        "knzq",
+        "uvgn",
+        "hsif"
+      ],
+      "primary_keys": [
+        "knzq"
+      ]
+    },
+    "jjul": {
+      "weak": false,
+      "attributes": [
+        "xgmp",
+        "airq",
+        "srdm",
+        "hsif",
+        "eglh"
+      ],
+      "primary_keys": [
+        "xgmp"
+      ]
+    },
+    "fjhw": {
+      "weak": true,
+      "attributes": [
+        "cxym",
+        "eglh",
+        "jbhk",
+        "btop"
+      ],
+      "primary_keys": [
+        "cxym"
+      ],
+      "derived": [
+        "jbhk"
+      ]
+    },
+    "hhxc": {
+      "weak": true,
+      "attributes": [
+        "xgmp",
+        "ezsn",
+        "yoyn"
+      ],
+      "primary_keys": [
+        "xgmp",
+        "ezsn"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "zujz",
+        "hxkn"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "qnvd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zujz",
+        "hhxc",
+        "jjul"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "gsfs",
+      "weak": true
+    },
+    {
+      "entities": [
+        "zujz",
+        "fjhw",
+        "jjul"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "xgfc",
+      "weak": true
+    },
+    {
+      "entities": [
+        "fjhw",
+        "jjul"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "yiza",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zujz",
+        "zujz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xptc",
+      "weak": false
+    }
+  ]
+}

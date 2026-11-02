@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "participates_in": {
+            "attributes": [
+                "Fencer",
+                "bout_id",
+                "score_fencer1"
+            ],
+            "primary_keys": [
+                "Fencer"
+            ],
+            "multivalued": [
+                "fencer_id"
+            ],
+            "weak": false
+        },
+        "location": {
+            "attributes": [
+                "month",
+                "weapon_id",
+                "uses"
+            ],
+            "primary_keys": [
+                "month"
+            ],
+            "weak": false
+        },
+        "day": {
+            "attributes": [
+                "experience",
+                "name",
+                "date",
+                "manufacturer"
+            ],
+            "primary_keys": [
+                "experience"
+            ],
+            "composite": {
+                "name": [
+                    "officiated_by",
+                    "weapon_preference",
+                    "score_fencer2"
+                ]
+            },
+            "weak": false
+        },
+        "Match": {
+            "attributes": [
+                "Referee",
+                "part_of",
+                "year"
+            ],
+            "primary_keys": [
+                "Referee"
+            ],
+            "weak": true
+        },
+        "Bout": {
+            "attributes": [
+                "match_id",
+                "bout_id",
+                "round"
+            ],
+            "primary_keys": [
+                "match_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "participates_in",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Weapon",
+            "weak": false
+        },
+        {
+            "entities": [
+                "participates_in",
+                "day",
+                "Match"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "type",
+            "weak": false,
+            "attributes": [
+                "result"
+            ]
+        },
+        {
+            "entities": [
+                "day",
+                "Bout"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "rating",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Match",
+                "day"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "referee_id",
+            "weak": true
+        }
+    ]
+}

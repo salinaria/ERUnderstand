@@ -1,0 +1,41 @@
+erDiagram
+Person {
+  string person_id PK
+  string first_name
+  string last_name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Teacher {
+  string teacher_id PK
+  string subject_taught
+}
+
+Parent {
+  string parent_id PK
+  string email
+}
+
+Student {
+  string student_id PK
+  string grade_level
+}
+
+Meeting {
+  string meeting_id PK
+  string date_time
+  string topic
+}
+
+    Teacher ||--o{ Student : "teaches"
+    Parent ||--o{ Student : "parent_of"
+REL_attends {
+  string rel_attends_id PK
+}
+
+    Meeting ||..o{ REL_attends : "Meeting-REL_attends"
+    Teacher ||..o{ REL_attends : "Teacher-REL_attends"
+    Parent ||..o{ REL_attends : "Parent-REL_attends"
+    Student ||..o{ REL_attends : "Student-REL_attends"
+    Teacher ||--o{ Meeting : "schedules"

@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "jaev": {
+      "weak": false,
+      "attributes": [
+        "ztmz",
+        "ddsy",
+        "gyan"
+      ],
+      "primary_keys": [
+        "ztmz"
+      ],
+      "multivalued": [
+        "ohql"
+      ],
+      "composite": {
+        "vdrh": [
+          "ghoe",
+          "nhax",
+          "lbgj",
+          "zfii"
+        ]
+      }
+    },
+    "uaak": {
+      "weak": false,
+      "attributes": [
+        "srik",
+        "lluf"
+      ],
+      "primary_keys": [
+        "srik"
+      ]
+    },
+    "abkc": {
+      "weak": false,
+      "attributes": [
+        "ttyz",
+        "vxla",
+        "zdnb"
+      ],
+      "primary_keys": [
+        "ttyz"
+      ]
+    },
+    "kjyi": {
+      "weak": false,
+      "attributes": [
+        "pzmx",
+        "ddsy",
+        "lkbh"
+      ],
+      "primary_keys": [
+        "pzmx"
+      ]
+    },
+    "umtw": {
+      "weak": true,
+      "attributes": [
+        "pzmx",
+        "hmpz",
+        "yvfu",
+        "dqty",
+        "wnvo"
+      ],
+      "primary_keys": [
+        "pzmx",
+        "hmpz",
+        "yvfu"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jaev",
+        "uaak"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "rrda",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jaev",
+        "abkc"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "nnoh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kjyi",
+        "umtw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xhsu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "kjyi",
+        "jaev",
+        "uaak"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "ohje",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kjyi",
+        "abkc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qvkf",
+      "weak": false
+    }
+  ]
+}

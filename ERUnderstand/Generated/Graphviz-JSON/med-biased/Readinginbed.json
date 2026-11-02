@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "session_id": {
+            "attributes": [
+                "Person",
+                "reads",
+                "page_number"
+            ],
+            "primary_keys": [
+                "Person"
+            ],
+            "multivalued": [
+                "duration"
+            ],
+            "weak": false
+        },
+        "bookmark_id": {
+            "attributes": [
+                "name",
+                "person_id",
+                "occurs_at",
+                "Location"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "title": {
+            "attributes": [
+                "date",
+                "publication_year",
+                "start_time",
+                "location_id",
+                "is_about"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "derived": [
+                "book_id"
+            ],
+            "weak": true
+        },
+        "end_time": {
+            "attributes": [
+                "notes",
+                "bedtime"
+            ],
+            "primary_keys": [
+                "notes"
+            ],
+            "weak": false
+        },
+        "participates_in": {
+            "attributes": [
+                "has",
+                "position",
+                "Book"
+            ],
+            "primary_keys": [
+                "has"
+            ],
+            "composite": {
+                "description": [
+                    "ReadingSession",
+                    "pages_read"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "session_id",
+                "bookmark_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "person_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "session_id",
+                "title"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "author",
+            "weak": true
+        },
+        {
+            "entities": [
+                "title",
+                "bookmark_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Bookmark",
+            "weak": true
+        },
+        {
+            "entities": [
+                "title",
+                "end_time"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "favorite_genre",
+            "weak": false
+        },
+        {
+            "entities": [
+                "bookmark_id",
+                "participates_in"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "y",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+  "entities": {
+    "vshk": {
+      "weak": false,
+      "attributes": [
+        "tmle",
+        "himm",
+        "gbdl"
+      ],
+      "primary_keys": [
+        "tmle"
+      ],
+      "multivalued": [
+        "oicd"
+      ]
+    },
+    "jytl": {
+      "weak": false,
+      "attributes": [
+        "jgbc",
+        "mkyk",
+        "wbml",
+        "juxt"
+      ],
+      "primary_keys": [
+        "jgbc"
+      ],
+      "derived": [
+        "dmkn"
+      ]
+    },
+    "rmnk": {
+      "weak": false,
+      "attributes": [
+        "pgbi",
+        "jbmg",
+        "oqzt",
+        "csan"
+      ],
+      "primary_keys": [
+        "pgbi"
+      ]
+    },
+    "zmro": {
+      "weak": true,
+      "attributes": [
+        "mvbj",
+        "uslk",
+        "rhjg",
+        "otvz"
+      ],
+      "primary_keys": [
+        "mvbj"
+      ],
+      "composite": {
+        "dvzh": [
+          "abxe",
+          "zuoa"
+        ]
+      }
+    },
+    "dypm": {
+      "weak": false,
+      "attributes": [
+        "kxlr",
+        "orqm",
+        "uslk",
+        "zcxx",
+        "wzbz"
+      ],
+      "primary_keys": [
+        "kxlr"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "vshk",
+        "jytl"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "tftr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jytl",
+        "rmnk"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "xaew",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zmro",
+        "vshk"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "nlnk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jytl",
+        "dypm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xawm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zmro",
+        "dypm",
+        "vshk"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "xgom",
+      "weak": true
+    }
+  ]
+}

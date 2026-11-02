@@ -1,0 +1,45 @@
+erDiagram
+Runner {
+  string runner_id PK
+  string first_name
+  string last_name
+  string birthdate
+  string gender
+}
+
+Marathon {
+  string marathon_id PK
+  string name
+  string city
+  string date
+  string time
+}
+
+Sponsor {
+  string sponsor_id PK
+  string name
+  string industry
+}
+
+RaceResult {
+  string runner_id PK
+  string marathon_id PK
+  string finish_time
+  string placement
+}
+
+Team {
+  string team_id PK
+  string team_name
+  string coach_name
+}
+
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Runner ||..o{ REL_participates_in : "Runner-REL_participates_in"
+    Marathon ||..o{ REL_participates_in : "Marathon-REL_participates_in"
+    RaceResult o{..o{ REL_participates_in : "RaceResult-REL_participates_in"
+    Sponsor o{--o{ Marathon : "sponsors"
+    Runner o{--|| Team : "runs_for"

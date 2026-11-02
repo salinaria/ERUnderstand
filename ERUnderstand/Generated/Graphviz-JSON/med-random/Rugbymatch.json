@@ -1,0 +1,144 @@
+{
+  "entities": {
+    "wdek": {
+      "weak": false,
+      "attributes": [
+        "rgfu",
+        "vizt",
+        "zxit"
+      ],
+      "primary_keys": [
+        "rgfu"
+      ]
+    },
+    "pcup": {
+      "weak": false,
+      "attributes": [
+        "nvov",
+        "xpdy",
+        "iyfj",
+        "ncoj",
+        "rgfu"
+      ],
+      "primary_keys": [
+        "nvov"
+      ],
+      "composite": {
+        "xpdy": [
+          "ckde",
+          "zbkb"
+        ]
+      }
+    },
+    "czyv": {
+      "weak": false,
+      "attributes": [
+        "ftof",
+        "gynt",
+        "zxit",
+        "fpqe"
+      ],
+      "primary_keys": [
+        "ftof"
+      ]
+    },
+    "mrad": {
+      "weak": true,
+      "attributes": [
+        "joby",
+        "gejc",
+        "nvov",
+        "ftof"
+      ],
+      "primary_keys": [
+        "joby"
+      ]
+    },
+    "qtxt": {
+      "weak": false,
+      "attributes": [
+        "cgrw",
+        "xpdy",
+        "tpnb"
+      ],
+      "primary_keys": [
+        "cgrw"
+      ]
+    },
+    "gwfm": {
+      "weak": true,
+      "attributes": [
+        "njbo",
+        "gejc",
+        "nvov",
+        "ftof",
+        "ttjy"
+      ],
+      "primary_keys": [
+        "njbo"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wdek",
+        "pcup"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fakf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wdek",
+        "czyv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pbqs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "czyv",
+        "qtxt"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "hbzp",
+      "weak": false
+    },
+    {
+      "entities": [
+        "czyv",
+        "mrad"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jltx",
+      "weak": true
+    },
+    {
+      "entities": [
+        "czyv",
+        "gwfm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xphl",
+      "weak": true
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "phone_number": {
+            "attributes": [
+                "occurs_on",
+                "station_id",
+                "time"
+            ],
+            "primary_keys": [
+                "occurs_on"
+            ],
+            "multivalued": [
+                "time"
+            ],
+            "weak": false
+        },
+        "uses": {
+            "attributes": [
+                "stops_at",
+                "fare",
+                "distance"
+            ],
+            "primary_keys": [
+                "stops_at"
+            ],
+            "weak": false
+        },
+        "origin": {
+            "attributes": [
+                "takes",
+                "train_id",
+                "Ride"
+            ],
+            "primary_keys": [
+                "takes"
+            ],
+            "weak": false
+        },
+        "ride_id": {
+            "attributes": [
+                "end_time",
+                "Station",
+                "capacity",
+                "Route"
+            ],
+            "primary_keys": [
+                "end_time"
+            ],
+            "derived": [
+                "Route"
+            ],
+            "weak": true
+        },
+        "line": {
+            "attributes": [
+                "destination",
+                "station_name",
+                "Passenger",
+                "follows"
+            ],
+            "primary_keys": [
+                "destination"
+            ],
+            "composite": {
+                "station_name": [
+                    "stops_at",
+                    "start_time"
+                ],
+                "Passenger": [
+                    "stops_at",
+                    "start_time"
+                ]
+            },
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "phone_number",
+                "ride_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "passenger_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "ride_id",
+                "origin"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "origin",
+                "line"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Train",
+            "weak": false
+        },
+        {
+            "entities": [
+                "line",
+                "uses"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "uses"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "route_id",
+            "weak": false
+        }
+    ]
+}

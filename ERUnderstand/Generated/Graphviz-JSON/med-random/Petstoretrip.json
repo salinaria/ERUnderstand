@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "tvvg": {
+      "weak": false,
+      "attributes": [
+        "ohko",
+        "gcbb",
+        "iisx",
+        "baco"
+      ],
+      "primary_keys": [
+        "ohko"
+      ],
+      "multivalued": [
+        "baco"
+      ]
+    },
+    "icca": {
+      "weak": false,
+      "attributes": [
+        "wpyp",
+        "gcbb",
+        "edfu",
+        "mrjh",
+        "grcl"
+      ],
+      "primary_keys": [
+        "wpyp"
+      ],
+      "derived": [
+        "exlz"
+      ]
+    },
+    "ziur": {
+      "weak": false,
+      "attributes": [
+        "rlte",
+        "gcbb",
+        "ydds",
+        "relj"
+      ],
+      "primary_keys": [
+        "rlte"
+      ]
+    },
+    "mtdk": {
+      "weak": false,
+      "attributes": [
+        "ffwf",
+        "uaqo",
+        "zhcn"
+      ],
+      "primary_keys": [
+        "ffwf"
+      ]
+    },
+    "teov": {
+      "weak": true,
+      "attributes": [
+        "yqmo",
+        "uaqo",
+        "tkie",
+        "wpyp"
+      ],
+      "primary_keys": [
+        "yqmo"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "tvvg",
+        "icca"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qopo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mtdk",
+        "tvvg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "uwim",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mtdk",
+        "ziur"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mrby",
+      "weak": false
+    },
+    {
+      "entities": [
+        "icca",
+        "teov"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "tmzs",
+      "weak": true
+    },
+    {
+      "entities": [
+        "icca",
+        "ziur",
+        "mtdk"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "mrxs",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+erDiagram
+Person {
+  string person_id PK
+  string name
+  string age
+}
+
+Bedroom {
+  string room_number PK
+  string size
+  string type
+}
+
+Bed {
+  string bed_id PK
+  string size
+  string material
+}
+
+SleepSession {
+  string session_id PK
+  string start_time
+  string end_time
+}
+
+Dream {
+  string dream_id PK
+  string description
+  string intensity
+}
+
+SleepQuality {
+  string quality_id PK
+  string rating
+  string description
+}
+
+REL_sleeps_in {
+  string rel_sleeps_in_id PK
+}
+
+    Person ||..o{ REL_sleeps_in : "Person-REL_sleeps_in"
+    SleepSession o{..o{ REL_sleeps_in : "SleepSession-REL_sleeps_in"
+    Bedroom ||..o{ REL_sleeps_in : "Bedroom-REL_sleeps_in"
+    SleepSession ||..|| Bed : "uses"
+    SleepSession ||--o{ Dream : "dreams_of"
+    SleepSession ||--|| SleepQuality : "has"

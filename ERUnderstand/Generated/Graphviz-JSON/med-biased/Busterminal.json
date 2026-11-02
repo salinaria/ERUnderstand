@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "city": {
+            "attributes": [
+                "arrival_time",
+                "operates",
+                "maintains"
+            ],
+            "primary_keys": [
+                "arrival_time"
+            ],
+            "weak": false
+        },
+        "date": {
+            "attributes": [
+                "Bus",
+                "Trip",
+                "phone_number",
+                "address"
+            ],
+            "primary_keys": [
+                "Bus"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "route_id",
+                "follows",
+                "recorded_for",
+                "distance"
+            ],
+            "primary_keys": [
+                "route_id"
+            ],
+            "derived": [
+                "log_id"
+            ],
+            "weak": false
+        },
+        "cost": {
+            "attributes": [
+                "salary",
+                "zipcode",
+                "Trip",
+                "MaintenanceLog"
+            ],
+            "primary_keys": [
+                "salary"
+            ],
+            "multivalued": [
+                "price"
+            ],
+            "composite": {
+                "description": [
+                    "position",
+                    "bus_id",
+                    "Employee"
+                ]
+            },
+            "weak": false
+        },
+        "model": {
+            "attributes": [
+                "assigned_to",
+                "Route",
+                "departure_time",
+                "duration",
+                "arrival_time"
+            ],
+            "primary_keys": [
+                "assigned_to"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "city",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "employee_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "capacity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "end_location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "city"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "trip_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "model",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "street",
+            "weak": false
+        }
+    ]
+}

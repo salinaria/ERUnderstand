@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "atrt": {
+      "weak": false,
+      "attributes": [
+        "kfea",
+        "ttyj",
+        "ptqf"
+      ],
+      "primary_keys": [
+        "kfea"
+      ],
+      "composite": {
+        "hdup": [
+          "fpog",
+          "bqow",
+          "arlr"
+        ]
+      }
+    },
+    "fpsx": {
+      "weak": false,
+      "attributes": [
+        "xwzl",
+        "fmpz",
+        "mtfn",
+        "pcmh"
+      ],
+      "primary_keys": [
+        "xwzl"
+      ],
+      "derived": [
+        "oryo"
+      ]
+    },
+    "rdqv": {
+      "weak": false,
+      "attributes": [
+        "bqce",
+        "ttyj",
+        "yavo"
+      ],
+      "primary_keys": [
+        "bqce"
+      ]
+    },
+    "lcga": {
+      "weak": false,
+      "attributes": [
+        "zcbm",
+        "ttyj",
+        "bqxh"
+      ],
+      "primary_keys": [
+        "zcbm"
+      ]
+    },
+    "gtik": {
+      "weak": true,
+      "attributes": [
+        "ypov",
+        "yavo"
+      ],
+      "primary_keys": [
+        "ypov"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "atrt",
+        "fpsx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fyvw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fpsx",
+        "rdqv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wejk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fpsx",
+        "lcga"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qmrg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fpsx",
+        "gtik"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "culo",
+      "weak": true
+    },
+    {
+      "entities": [
+        "atrt",
+        "fpsx",
+        "gtik"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "N"
+      ],
+      "name": "szvd",
+      "weak": false
+    }
+  ]
+}

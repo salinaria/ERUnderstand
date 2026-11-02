@@ -1,0 +1,46 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string major
+  %% email: multivalued
+  string email
+}
+
+Tutor {
+  string tutor_id PK
+  %% name: composite
+  string name
+  string expertise
+}
+
+Session {
+  string session_id PK
+  string date
+  string duration
+  string location
+}
+
+Topic {
+  string topic_id PK
+  string topic_name
+  string difficulty
+}
+
+Payment {
+  string payment_id PK
+  string amount
+  string payment_date
+}
+
+    Student o{--o{ Session : "attends"
+    Tutor ||--o{ Session : "conducts"
+    Session o{--|| Topic : "covers"
+    Session ||..|| Payment : "includes"
+REL_seeks_help {
+  string rel_seeks_help_id PK
+}
+
+    Student o{--o{ REL_seeks_help : "Student-REL_seeks_help"
+    Tutor o{--o{ REL_seeks_help : "Tutor-REL_seeks_help"
+    Topic o{--o{ REL_seeks_help : "Topic-REL_seeks_help"

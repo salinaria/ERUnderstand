@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "patient_id": {
+            "attributes": [
+                "date",
+                "goal",
+                "name",
+                "first_name"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "multivalued": [
+                "first_name"
+            ],
+            "weak": false,
+            "composite": {
+                "goal": [
+                    "duration",
+                    "Patient"
+                ]
+            }
+        },
+        "schedules": {
+            "attributes": [
+                "plan_id",
+                "Consultation",
+                "follows"
+            ],
+            "primary_keys": [
+                "plan_id"
+            ],
+            "weak": false
+        },
+        "notes": {
+            "attributes": [
+                "Food",
+                "includes",
+                "food_id",
+                "DietPlan"
+            ],
+            "primary_keys": [
+                "Food"
+            ],
+            "weak": false
+        },
+        "consultation_id": {
+            "attributes": [
+                "time",
+                "generates",
+                "last_name"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "weak": false
+        },
+        "calories_per_serving": {
+            "attributes": [
+                "birthdate",
+                "goal",
+                "specialization"
+            ],
+            "primary_keys": [
+                "birthdate"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "patient_id",
+                "notes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "conducts",
+            "weak": false
+        },
+        {
+            "entities": [
+                "schedules",
+                "notes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "employee_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "notes",
+                "consultation_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Nutritionist",
+            "weak": false
+        },
+        {
+            "entities": [
+                "consultation_id",
+                "calories_per_serving"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "patient_id",
+                "consultation_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "nutritionist_id",
+            "weak": false
+        }
+    ]
+}

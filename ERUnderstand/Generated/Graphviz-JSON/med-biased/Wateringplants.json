@@ -1,0 +1,128 @@
+{
+    "entities": {
+        "has": {
+            "attributes": [
+                "WateringSchedule",
+                "fills_from",
+                "source_id"
+            ],
+            "primary_keys": [
+                "WateringSchedule"
+            ],
+            "weak": false
+        },
+        "frequency": {
+            "attributes": [
+                "city",
+                "can_id"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        },
+        "maintains": {
+            "attributes": [
+                "WaterSource",
+                "owns",
+                "source_id"
+            ],
+            "primary_keys": [
+                "WaterSource"
+            ],
+            "weak": false
+        },
+        "schedule_id": {
+            "attributes": [
+                "Gardener",
+                "amount"
+            ],
+            "primary_keys": [
+                "Gardener"
+            ],
+            "composite": {
+                "capacity": [
+                    "species",
+                    "location",
+                    "street"
+                ]
+            },
+            "weak": false
+        },
+        "type": {
+            "attributes": [
+                "plant_id",
+                "uses",
+                "Plant"
+            ],
+            "primary_keys": [
+                "plant_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "schedule_id",
+                "has"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "WateringCan",
+            "weak": false
+        },
+        {
+            "entities": [
+                "schedule_id",
+                "frequency"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "zip_code",
+            "weak": false
+        },
+        {
+            "entities": [
+                "frequency",
+                "maintains"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "gardener_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "schedule_id",
+                "has",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "has",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "can_id",
+            "weak": true
+        }
+    ]
+}

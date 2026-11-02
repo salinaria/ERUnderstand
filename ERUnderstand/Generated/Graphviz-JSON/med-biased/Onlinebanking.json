@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "Account": {
+            "attributes": [
+                "records",
+                "located_at",
+                "interest_rate"
+            ],
+            "primary_keys": [
+                "records"
+            ],
+            "multivalued": [
+                "account_type"
+            ],
+            "weak": false,
+            "composite": {
+                "interest_rate": [
+                    "address",
+                    "pays_into",
+                    "account_number"
+                ]
+            }
+        },
+        "owns": {
+            "attributes": [
+                "phone_number",
+                "amount",
+                "city"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "derived": [
+                "Branch"
+            ],
+            "weak": false
+        },
+        "transaction_type": {
+            "attributes": [
+                "address",
+                "zip_code",
+                "loan_amount",
+                "branch_name"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": true
+        },
+        "loan_number": {
+            "attributes": [
+                "transaction_date",
+                "balance",
+                "available_funds",
+                "branch_id"
+            ],
+            "primary_keys": [
+                "transaction_date"
+            ],
+            "weak": false
+        },
+        "transaction_id": {
+            "attributes": [
+                "start_date",
+                "branch_address",
+                "Customer"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Account",
+                "owns"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Loan",
+            "weak": false
+        },
+        {
+            "entities": [
+                "owns",
+                "transaction_type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "takes",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Account",
+                "loan_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Transaction",
+            "weak": false
+        },
+        {
+            "entities": [
+                "loan_number",
+                "owns"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "owns",
+                "transaction_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "customer_id",
+            "weak": false
+        }
+    ]
+}

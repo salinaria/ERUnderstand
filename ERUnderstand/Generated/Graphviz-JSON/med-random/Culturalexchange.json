@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "zhbc": {
+      "weak": false,
+      "attributes": [
+        "rwou",
+        "qtpn",
+        "esvg"
+      ],
+      "primary_keys": [
+        "rwou"
+      ],
+      "multivalued": [
+        "jktm"
+      ]
+    },
+    "lslg": {
+      "weak": false,
+      "attributes": [
+        "jxhx",
+        "qtpn",
+        "vcmm",
+        "wgif",
+        "kblv"
+      ],
+      "primary_keys": [
+        "jxhx"
+      ],
+      "derived": [
+        "kigw"
+      ]
+    },
+    "ucmd": {
+      "weak": false,
+      "attributes": [
+        "iaau",
+        "hkvw",
+        "ynwo"
+      ],
+      "primary_keys": [
+        "iaau"
+      ],
+      "composite": {
+        "ngau": [
+          "gplu",
+          "dsrq"
+        ]
+      }
+    },
+    "uwqc": {
+      "weak": true,
+      "attributes": [
+        "yqnq",
+        "akux",
+        "legd",
+        "znag"
+      ],
+      "primary_keys": [
+        "yqnq"
+      ]
+    },
+    "xxha": {
+      "weak": true,
+      "attributes": [
+        "nlnw",
+        "qtpn",
+        "vcmm",
+        "mzgx"
+      ],
+      "primary_keys": [
+        "nlnw"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "zhbc",
+        "lslg"
+      ],
+      "cardinality": [
+        "N",
+        "M"
+      ],
+      "name": "wthm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lslg",
+        "ucmd"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "bxdw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zhbc",
+        "uwqc",
+        "lslg"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "esfb",
+      "weak": true
+    },
+    {
+      "entities": [
+        "lslg",
+        "xxha"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mxse",
+      "weak": true
+    },
+    {
+      "entities": [],
+      "cardinality": [],
+      "name": "fnua",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "egqd": {
+      "weak": false,
+      "attributes": [
+        "dwgd",
+        "rolh",
+        "knog",
+        "ercj",
+        "btbp"
+      ],
+      "primary_keys": [
+        "dwgd"
+      ],
+      "derived": [
+        "ercj"
+      ],
+      "multivalued": [
+        "btbp"
+      ],
+      "composite": {
+        "hnth": [
+          "rolh",
+          "knog"
+        ]
+      }
+    },
+    "uumq": {
+      "weak": false,
+      "attributes": [
+        "ylut",
+        "sjxm",
+        "muqs",
+        "wgom"
+      ],
+      "primary_keys": [
+        "ylut"
+      ]
+    },
+    "fbza": {
+      "weak": false,
+      "attributes": [
+        "tldo",
+        "msaf",
+        "cuhz"
+      ],
+      "primary_keys": [
+        "tldo"
+      ]
+    },
+    "mcur": {
+      "weak": true,
+      "attributes": [
+        "zkbt",
+        "tird",
+        "uefw"
+      ],
+      "primary_keys": [
+        "zkbt"
+      ]
+    },
+    "zlrc": {
+      "weak": false,
+      "attributes": [
+        "jkme",
+        "fmpy",
+        "bqkz",
+        "pyek"
+      ],
+      "primary_keys": [
+        "jkme"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "egqd",
+        "mcur"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pfag",
+      "weak": true
+    },
+    {
+      "entities": [
+        "egqd",
+        "uumq"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "qaym",
+      "weak": false
+    },
+    {
+      "entities": [
+        "egqd",
+        "fbza"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "eewo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "egqd",
+        "zlrc"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ipkw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uumq",
+        "zlrc",
+        "egqd"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "dzcv",
+      "weak": false
+    }
+  ]
+}

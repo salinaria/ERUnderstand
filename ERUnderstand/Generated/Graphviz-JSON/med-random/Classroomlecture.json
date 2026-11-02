@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "jygs": {
+      "weak": false,
+      "attributes": [
+        "sgli",
+        "xoaf",
+        "qibe"
+      ],
+      "primary_keys": [
+        "sgli"
+      ],
+      "derived": [
+        "byqc"
+      ]
+    },
+    "erpm": {
+      "weak": false,
+      "attributes": [
+        "nihd",
+        "oadn",
+        "uljb"
+      ],
+      "primary_keys": [
+        "nihd"
+      ]
+    },
+    "qtfs": {
+      "weak": false,
+      "attributes": [
+        "oncf",
+        "xoaf",
+        "gfwi"
+      ],
+      "primary_keys": [
+        "oncf"
+      ],
+      "composite": {
+        "xoaf": [
+          "kdkd",
+          "hiie"
+        ]
+      }
+    },
+    "tima": {
+      "weak": false,
+      "attributes": [
+        "fpcz",
+        "prfz",
+        "wqbc"
+      ],
+      "primary_keys": [
+        "fpcz"
+      ]
+    },
+    "bsfn": {
+      "weak": true,
+      "attributes": [
+        "sgli",
+        "nihd",
+        "fvak"
+      ],
+      "primary_keys": [
+        "sgli",
+        "nihd"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jygs",
+        "bsfn"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "lsrs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jygs",
+        "tima"
+      ],
+      "cardinality": [
+        "N",
+        "M"
+      ],
+      "name": "dykd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qtfs",
+        "tima"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "tljr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tima",
+        "erpm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nsul",
+      "weak": false
+    },
+    {
+      "entities": [
+        "erpm",
+        "bsfn"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pxnl",
+      "weak": true
+    }
+  ]
+}

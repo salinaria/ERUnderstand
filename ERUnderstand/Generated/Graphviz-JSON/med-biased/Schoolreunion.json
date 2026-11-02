@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "Batch": {
+            "attributes": [
+                "activity_id",
+                "days_until_event",
+                "activity_name",
+                "location"
+            ],
+            "primary_keys": [
+                "activity_id"
+            ],
+            "multivalued": [
+                "location"
+            ],
+            "weak": false,
+            "composite": {
+                "makes": [
+                    "days_until_event",
+                    "activity_name"
+                ]
+            }
+        },
+        "Donation": {
+            "attributes": [
+                "event_name",
+                "attends",
+                "donation_date",
+                "Event"
+            ],
+            "primary_keys": [
+                "event_name"
+            ],
+            "weak": false,
+            "derived": [
+                "phone_number"
+            ]
+        },
+        "first_name": {
+            "attributes": [
+                "attendee_id",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "attendee_id",
+                "participates_in"
+            ],
+            "weak": false
+        },
+        "Attendee": {
+            "attributes": [
+                "event_date",
+                "donation_id",
+                "includes"
+            ],
+            "primary_keys": [
+                "event_date"
+            ],
+            "weak": true
+        },
+        "last_name": {
+            "attributes": [
+                "belongs_to",
+                "name",
+                "department"
+            ],
+            "primary_keys": [
+                "belongs_to"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Batch",
+                "first_name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "donation_amount",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Batch",
+                "Donation"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "event_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Batch",
+                "Attendee"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Activity",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Donation",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Batch",
+                "Donation",
+                "last_name"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "batch_year",
+            "weak": false
+        }
+    ]
+}

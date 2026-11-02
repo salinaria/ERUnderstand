@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "conducts": {
+            "attributes": [
+                "license_number",
+                "Medication",
+                "dosage",
+                "Patient"
+            ],
+            "primary_keys": [
+                "license_number"
+            ],
+            "multivalued": [
+                "Patient"
+            ],
+            "weak": false
+        },
+        "results_in": {
+            "attributes": [
+                "Appointment",
+                "Medication",
+                "name",
+                "date_of_birth"
+            ],
+            "primary_keys": [
+                "Appointment"
+            ],
+            "composite": {
+                "Medication": [
+                    "description",
+                    "prescribes"
+                ]
+            },
+            "weak": false
+        },
+        "instructions": {
+            "attributes": [
+                "medication_id",
+                "appointment_id",
+                "has",
+                "therapist_id",
+                "license_number",
+                "Appointment"
+            ],
+            "primary_keys": [
+                "medication_id"
+            ],
+            "derived": [
+                "Therapist"
+            ],
+            "weak": true
+        },
+        "first_name": {
+            "attributes": [
+                "last_name",
+                "schedules",
+                "patient_id"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "weak": false
+        },
+        "Diagnosis": {
+            "attributes": [
+                "time",
+                "Medication",
+                "diagnosis_code",
+                "diagnosis_name"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "conducts",
+                "instructions"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "results_in",
+                "instructions"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "specialization",
+            "weak": false
+        },
+        {
+            "entities": [
+                "conducts",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "conducts",
+                "Diagnosis",
+                "results_in"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": true
+        },
+        {
+            "entities": [
+                "instructions",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "notes",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+erDiagram
+License {
+  string license_number PK
+  string issue_date
+  string expiry_date
+  string license_type
+}
+
+Applicant {
+  string applicant_id PK
+  string name
+  %% address: composite
+  string address
+  string date_of_birth
+}
+
+RenewalApplication {
+  string application_id PK
+  string submission_date
+  string status
+  string payment_amount
+}
+
+Requirement {
+  string requirement_id PK
+  string description
+  string is_mandatory
+}
+
+Document {
+  string document_id PK
+  string document_type
+  string upload_date
+  string file_location
+}
+
+    License ||--o{ Applicant : "Holds"
+    Applicant ||--o{ RenewalApplication : "Submits"
+    RenewalApplication ||--o{ Requirement : "Requires"
+    RenewalApplication ||--o{ Document : "Includes"
+    License ||..|| RenewalApplication : "RenewsWith"

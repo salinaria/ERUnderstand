@@ -1,0 +1,46 @@
+erDiagram
+User {
+  string user_id PK
+  string username
+  string password_hash
+  string status
+}
+
+Call {
+  string call_id PK
+  string start_time
+  string end_time
+  string call_type
+}
+
+Message {
+  string message_id PK
+  string timestamp
+  string content
+}
+
+Device {
+  string device_id PK
+  string device_type
+  string model
+  string location
+}
+
+Recording {
+  string recording_id PK
+  string file_path
+  %% resolution: composite
+  string resolution
+}
+
+    User o{--o{ Call : "participates_in"
+    Call ||..o{ Message : "contains"
+    User ||--o{ Device : "uses"
+    Call ||..|| Recording : "generates"
+REL_takes_place_with {
+  string rel_takes_place_with_id PK
+}
+
+    User o{..o{ REL_takes_place_with : "User-REL_takes_place_with"
+    Call o{..o{ REL_takes_place_with : "Call-REL_takes_place_with"
+    Device o{..o{ REL_takes_place_with : "Device-REL_takes_place_with"

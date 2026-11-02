@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "cwgz": {
+      "weak": false,
+      "attributes": [
+        "epae",
+        "uhxj",
+        "qfpt",
+        "xgto"
+      ],
+      "primary_keys": [
+        "epae"
+      ],
+      "derived": [
+        "pihu"
+      ]
+    },
+    "sxje": {
+      "weak": false,
+      "attributes": [
+        "kojl",
+        "cyns",
+        "ixls",
+        "qngp"
+      ],
+      "primary_keys": [
+        "kojl"
+      ],
+      "multivalued": [
+        "hmjo"
+      ],
+      "composite": {
+        "ixls": [
+          "meau",
+          "xukz",
+          "rpfr",
+          "lvdy"
+        ]
+      }
+    },
+    "jjns": {
+      "weak": true,
+      "attributes": [
+        "jmfr",
+        "nhtw",
+        "shym",
+        "jreu"
+      ],
+      "primary_keys": [
+        "jmfr"
+      ]
+    },
+    "bogu": {
+      "weak": false,
+      "attributes": [
+        "gxyz",
+        "stsf",
+        "aqio"
+      ],
+      "primary_keys": [
+        "gxyz"
+      ]
+    },
+    "titp": {
+      "weak": true,
+      "attributes": [
+        "rtdt",
+        "jdkc",
+        "pcvv",
+        "dkgx"
+      ],
+      "primary_keys": [
+        "rtdt"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "cwgz",
+        "sxje"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "diza",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sxje",
+        "jjns"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "djkf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jjns",
+        "bogu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "eygu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jjns",
+        "titp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "hmaq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cwgz",
+        "jjns"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "jvbi",
+      "weak": true
+    }
+  ]
+}

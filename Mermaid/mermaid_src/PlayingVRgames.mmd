@@ -1,0 +1,53 @@
+erDiagram
+Player {
+  string player_id PK
+  string username
+  string skill_level
+}
+
+Game {
+  string game_id PK
+  string title
+  string genre
+  string max_players
+}
+
+VR_Headset {
+  string headset_id PK
+  string model
+  string manufacturer
+  string tracking_type
+}
+
+Session {
+  string session_id PK
+  string start_time
+  string end_time
+  string score
+}
+
+Review {
+  string player_id PK
+  string game_id PK
+  string date PK
+  string rating
+  string comment
+}
+
+REL_Plays {
+  string rel_plays_id PK
+}
+
+    Player ||..o{ REL_Plays : "Player-REL_Plays"
+    Game o{..o{ REL_Plays : "Game-REL_Plays"
+    Session ||..o{ REL_Plays : "Session-REL_Plays"
+    Player ||--|| VR_Headset : "Owns"
+    Game o{--o{ VR_Headset : "Supports"
+    Session ||..|| Game : "Belongs_to"
+REL_Creates {
+  string rel_creates_id PK
+}
+
+    Player ||--o{ REL_Creates : "Player-REL_Creates"
+    Game ||--o{ REL_Creates : "Game-REL_Creates"
+    Review ||--o{ REL_Creates : "Review-REL_Creates"

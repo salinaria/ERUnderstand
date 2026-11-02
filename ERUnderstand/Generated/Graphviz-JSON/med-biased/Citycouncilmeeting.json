@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "location": {
+            "attributes": [
+                "Attends",
+                "CouncilMember",
+                "Citizen"
+            ],
+            "primary_keys": [
+                "Attends"
+            ],
+            "composite": {
+                "CouncilMember": [
+                    "title",
+                    "time"
+                ]
+            },
+            "weak": false
+        },
+        "citizen_id": {
+            "attributes": [
+                "item_id",
+                "AgendaItem",
+                "address"
+            ],
+            "primary_keys": [
+                "item_id"
+            ],
+            "multivalued": [
+                "address"
+            ],
+            "weak": false
+        },
+        "Includes": {
+            "attributes": [
+                "description",
+                "name",
+                "VoteFor",
+                "PublicComment"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false
+        },
+        "position": {
+            "attributes": [
+                "last_name",
+                "Meeting",
+                "first_name"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "derived": [
+                "InterestedIn"
+            ],
+            "weak": false
+        },
+        "date": {
+            "attributes": [
+                "duration",
+                "comment_id",
+                "attendance_count"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location",
+                "position"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "last_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "position",
+                "Includes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "position",
+                "citizen_id",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "content",
+            "weak": true
+        },
+        {
+            "entities": [
+                "citizen_id",
+                "Includes"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "meeting_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location",
+                "citizen_id",
+                "Includes"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "Features",
+            "weak": false
+        }
+    ]
+}

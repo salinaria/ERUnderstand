@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "Comment": {
+            "attributes": [
+                "trending_score",
+                "registration_date",
+                "comment_id"
+            ],
+            "primary_keys": [
+                "trending_score"
+            ],
+            "multivalued": [
+                "content"
+            ],
+            "weak": false
+        },
+        "creates": {
+            "attributes": [
+                "User",
+                "Reaction",
+                "Hashtag"
+            ],
+            "primary_keys": [
+                "User"
+            ],
+            "weak": false
+        },
+        "type": {
+            "attributes": [
+                "timestamp",
+                "trending_score",
+                "tag_name",
+                "User",
+                "trending_score"
+            ],
+            "primary_keys": [
+                "timestamp"
+            ],
+            "weak": true
+        },
+        "post_id": {
+            "attributes": [
+                "reaction_date",
+                "includes"
+            ],
+            "primary_keys": [
+                "reaction_date"
+            ],
+            "weak": false,
+            "derived": [
+                "text"
+            ]
+        },
+        "writes": {
+            "attributes": [
+                "comment_date",
+                "email",
+                "Post",
+                "trending_score",
+                "User"
+            ],
+            "primary_keys": [
+                "comment_date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Comment",
+                "creates"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "gives",
+            "weak": false
+        },
+        {
+            "entities": [
+                "creates",
+                "post_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "reaction_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Comment",
+                "type",
+                "creates"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "hashtag_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Comment",
+                "writes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "username",
+            "weak": true
+        },
+        {
+            "entities": [
+                "creates",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "user_id",
+            "weak": true
+        }
+    ]
+}

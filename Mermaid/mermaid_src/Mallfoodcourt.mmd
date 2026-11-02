@@ -1,0 +1,47 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+FoodVendor {
+  string vendor_id PK
+  string vendor_name
+  string cuisine_type
+}
+
+MenuItem {
+  string item_id PK
+  string item_name
+  string price
+  string description
+}
+
+Order {
+  string order_id PK
+  string order_date
+  %% total_amount: derived
+  string total_amount
+}
+
+Payment {
+  string payment_id PK
+  string payment_date
+  %% payment_method: composite
+  string payment_method
+  string amount
+}
+
+    Customer ||--o{ Order : "places"
+REL_includes {
+  string rel_includes_id PK
+}
+
+    Order ||..o{ REL_includes : "Order-REL_includes"
+    MenuItem o{..o{ REL_includes : "MenuItem-REL_includes"
+    FoodVendor ||..o{ REL_includes : "FoodVendor-REL_includes"
+    FoodVendor ||--o{ MenuItem : "offers"
+    Order ||..|| Payment : "completes"
+    Customer o{--o{ FoodVendor : "frequents"

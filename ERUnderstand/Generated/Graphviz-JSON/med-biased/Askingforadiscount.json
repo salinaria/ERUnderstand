@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "discount_amount": {
+            "attributes": [
+                "percentage",
+                "phone_number",
+                "name"
+            ],
+            "primary_keys": [
+                "percentage"
+            ],
+            "multivalued": [
+                "authorization_level"
+            ],
+            "weak": false
+        },
+        "results_in": {
+            "attributes": [
+                "status",
+                "approves",
+                "year"
+            ],
+            "primary_keys": [
+                "status"
+            ],
+            "derived": [
+                "applies_to"
+            ],
+            "weak": false
+        },
+        "customer_id": {
+            "attributes": [
+                "Discount_Request",
+                "phone_number",
+                "month"
+            ],
+            "primary_keys": [
+                "Discount_Request"
+            ],
+            "weak": false
+        },
+        "submits": {
+            "attributes": [
+                "product_id",
+                "loyalty_points",
+                "Customer"
+            ],
+            "primary_keys": [
+                "product_id"
+            ],
+            "composite": {
+                "loyalty_points": [
+                    "title",
+                    "date",
+                    "price"
+                ]
+            },
+            "weak": true
+        },
+        "Product": {
+            "attributes": [
+                "receives",
+                "Employee",
+                "Discount"
+            ],
+            "primary_keys": [
+                "receives"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "discount_amount",
+                "submits"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "discount_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "submits",
+                "results_in"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "day",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Product",
+                "submits"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "reason",
+            "weak": false
+        },
+        {
+            "entities": [
+                "results_in",
+                "customer_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "request_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "customer_id",
+                "discount_amount",
+                "results_in"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "employee_id",
+            "weak": false
+        }
+    ]
+}

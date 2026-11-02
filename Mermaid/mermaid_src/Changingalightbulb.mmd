@@ -1,0 +1,39 @@
+erDiagram
+Person {
+  string person_id PK
+  %% name: composite
+  string name
+}
+
+Lightbulb {
+  string bulb_id PK
+  string wattage
+  string bulb_type
+}
+
+Tool {
+  string tool_id PK
+  string tool_name
+}
+
+Fixture {
+  string fixture_id PK
+  string location
+  string fixture_type
+}
+
+Step {
+  string step_number PK
+  string description
+}
+
+REL_replaces {
+  string rel_replaces_id PK
+}
+
+    Person ||--o{ REL_replaces : "Person-REL_replaces"
+    Lightbulb ||--o{ REL_replaces : "Lightbulb-REL_replaces"
+    Fixture ||--o{ REL_replaces : "Fixture-REL_replaces"
+    Person ||--o{ Tool : "uses"
+    Lightbulb ||--|| Fixture : "fits_in"
+    replaces ||..o{ Step : "involves"

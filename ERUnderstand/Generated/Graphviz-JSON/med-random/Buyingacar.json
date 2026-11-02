@@ -1,0 +1,140 @@
+{
+  "entities": {
+    "pejv": {
+      "weak": false,
+      "attributes": [
+        "yotw",
+        "mczl",
+        "kliy",
+        "xhdx"
+      ],
+      "primary_keys": [
+        "yotw"
+      ],
+      "multivalued": [
+        "xhdx"
+      ]
+    },
+    "wdim": {
+      "weak": false,
+      "attributes": [
+        "ynqw",
+        "msvt",
+        "gguf",
+        "uktj",
+        "fghm",
+        "mvmg"
+      ],
+      "primary_keys": [
+        "ynqw"
+      ],
+      "derived": [
+        "sqrm"
+      ]
+    },
+    "ljcb": {
+      "weak": false,
+      "attributes": [
+        "odor",
+        "mczl",
+        "uckj"
+      ],
+      "primary_keys": [
+        "odor"
+      ],
+      "composite": {
+        "mczl": [
+          "udpb",
+          "xdbn"
+        ]
+      }
+    },
+    "gagp": {
+      "weak": false,
+      "attributes": [
+        "wwnb",
+        "mczl",
+        "luid"
+      ],
+      "primary_keys": [
+        "wwnb"
+      ]
+    },
+    "edap": {
+      "weak": true,
+      "attributes": [
+        "yrnm",
+        "emhx",
+        "hmrk",
+        "wmpu"
+      ],
+      "primary_keys": [
+        "yrnm"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "pejv",
+        "wdim",
+        "ljcb"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "kvea",
+      "weak": true
+    },
+    {
+      "entities": [
+        "pejv",
+        "edap"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "gcei",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wdim",
+        "gagp"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "nexj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pejv",
+        "gagp"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "narq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "edap",
+        "wdim"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ntyt",
+      "weak": false
+    }
+  ]
+}

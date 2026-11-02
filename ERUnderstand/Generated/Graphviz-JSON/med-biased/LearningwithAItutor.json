@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "covers": {
+            "attributes": [
+                "difficulty",
+                "Learning_Module",
+                "assigned_to",
+                "content"
+            ],
+            "primary_keys": [
+                "difficulty"
+            ],
+            "multivalued": [
+                "assigned_to"
+            ],
+            "weak": false
+        },
+        "text": {
+            "attributes": [
+                "Question",
+                "date",
+                "tutor_id"
+            ],
+            "primary_keys": [
+                "Question"
+            ],
+            "derived": [
+                "tutor_id"
+            ],
+            "weak": false
+        },
+        "topic": {
+            "attributes": [
+                "exercises",
+                "duration",
+                "title",
+                "AI_Tutor"
+            ],
+            "primary_keys": [
+                "exercises"
+            ],
+            "composite": {
+                "title": [
+                    "specialization",
+                    "email",
+                    "rating"
+                ]
+            },
+            "weak": false
+        },
+        "student_id": {
+            "attributes": [
+                "grade_level",
+                "specialization",
+                "session_id"
+            ],
+            "primary_keys": [
+                "grade_level"
+            ],
+            "weak": true
+        },
+        "specialization": {
+            "attributes": [
+                "question_id",
+                "name",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "question_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "covers",
+                "text"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "video",
+            "weak": false
+        },
+        {
+            "entities": [
+                "text",
+                "topic"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "includes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "topic",
+                "student_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "teaches",
+            "weak": true
+        },
+        {
+            "entities": [
+                "covers",
+                "specialization",
+                "text"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "module_id",
+            "weak": false,
+            "attributes": [
+                "feedback"
+            ]
+        },
+        {
+            "entities": [
+                "specialization",
+                "topic"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Student",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "user_id": {
+            "attributes": [
+                "Message",
+                "content",
+                "creation_date"
+            ],
+            "primary_keys": [
+                "Message"
+            ],
+            "multivalued": [
+                "genre"
+            ],
+            "weak": false
+        },
+        "timestamp": {
+            "attributes": [
+                "participates_in",
+                "username",
+                "ChatRoom"
+            ],
+            "primary_keys": [
+                "participates_in"
+            ],
+            "weak": false
+        },
+        "start_date": {
+            "attributes": [
+                "max_users",
+                "sends_to",
+                "manages",
+                "room_id"
+            ],
+            "primary_keys": [
+                "max_users"
+            ],
+            "derived": [
+                "end_date"
+            ],
+            "weak": false
+        },
+        "mod_id": {
+            "attributes": [
+                "current_users",
+                "username",
+                "User",
+                "Message",
+                "max_users"
+            ],
+            "primary_keys": [
+                "current_users"
+            ],
+            "weak": true
+        },
+        "email": {
+            "attributes": [
+                "game_id",
+                "Moderator",
+                "message_id"
+            ],
+            "primary_keys": [
+                "game_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "user_id",
+                "timestamp"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "game_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "user_id",
+                "start_date"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Game",
+            "weak": false
+        },
+        {
+            "entities": [
+                "mod_id",
+                "user_id",
+                "start_date"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "registration_date",
+            "weak": true
+        },
+        {
+            "entities": [
+                "email",
+                "start_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "room_name",
+            "weak": false
+        },
+        {
+            "subclasses": [
+                "Moderator"
+            ],
+            "rel_name": "IsA",
+            "superclass": "User"
+        }
+    ]
+}

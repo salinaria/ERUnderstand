@@ -1,0 +1,46 @@
+erDiagram
+Conflict {
+  string conflict_id PK
+  string description
+  string date_initiated
+}
+
+Party {
+  string party_id PK
+  string name
+  %% contact_info: multivalued
+  string contact_info
+}
+
+Mediator {
+  string mediator_id PK
+  string expertise
+  string availability
+}
+
+Resolution {
+  string resolution_id PK
+  string date_resolved
+  %% terms: composite
+  string terms
+  %% effectiveness: derived
+  string effectiveness
+}
+
+Outcome {
+  string outcome_id PK
+  string type
+  string description
+}
+
+    Conflict ||--o{ Party : "Involves"
+    Mediator ||--o{ Conflict : "Mediates"
+    Conflict ||--|| Resolution : "Leads_to"
+    Resolution ||--|| Outcome : "Results_in"
+REL_Assigns {
+  string rel_assigns_id PK
+}
+
+    Conflict o{..o{ REL_Assigns : "Conflict-REL_Assigns"
+    Party o{..o{ REL_Assigns : "Party-REL_Assigns"
+    Mediator ||..o{ REL_Assigns : "Mediator-REL_Assigns"

@@ -1,0 +1,33 @@
+erDiagram
+Person {
+  string person_id PK
+  string name
+  string address
+}
+
+Student {
+  string student_id PK
+  string enrollment_date
+}
+
+Instructor {
+  string instructor_id PK
+  string expertise
+}
+
+Course {
+  string course_code PK
+  string title
+  string credits
+}
+
+Assignment {
+  string assignment_id PK
+  string title
+  string due_date
+  string course_code
+}
+
+    Student o{--o{ Course : "enrolls_in"
+    Instructor ||--o{ Course : "teaches"
+    Assignment o{..|| Course : "belong_to"

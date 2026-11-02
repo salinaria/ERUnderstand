@@ -1,0 +1,47 @@
+erDiagram
+Passport {
+  string passport_number PK
+  string issue_date
+  string expiry_date
+  string nationality
+}
+
+Person {
+  string person_id PK
+  string first_name
+  string last_name
+  string date_of_birth
+}
+
+Flight {
+  string flight_number PK
+  string departure_airport
+  string arrival_airport
+  string departure_time
+  string arrival_time
+}
+
+Country {
+  string country_code PK
+  string country_name
+  string visa_required
+}
+
+Border_Crossing {
+  string crossing_id PK
+  string date
+  string time
+  string purpose
+}
+
+    Person ||--|| Passport : "possesses"
+    Person ||--o{ Flight : "boards"
+    Passport ||--|| Country : "issued_by"
+REL_crosses {
+  string rel_crosses_id PK
+}
+
+    Person ||..o{ REL_crosses : "Person-REL_crosses"
+    Country ||..o{ REL_crosses : "Country-REL_crosses"
+    Border_Crossing ||..o{ REL_crosses : "Border_Crossing-REL_crosses"
+    Passport ||..|| Border_Crossing : "used_in"

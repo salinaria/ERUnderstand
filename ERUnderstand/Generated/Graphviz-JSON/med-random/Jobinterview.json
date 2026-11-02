@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "achx": {
+      "weak": false,
+      "attributes": [
+        "uznm",
+        "srgx",
+        "sibb",
+        "zsup"
+      ],
+      "primary_keys": [
+        "uznm"
+      ],
+      "multivalued": [
+        "sibb",
+        "zsup"
+      ]
+    },
+    "fcob": {
+      "weak": false,
+      "attributes": [
+        "crul",
+        "srgx",
+        "mqni",
+        "opnq"
+      ],
+      "primary_keys": [
+        "crul"
+      ],
+      "composite": {
+        "srgx": [
+          "dzan",
+          "fssp"
+        ]
+      }
+    },
+    "hlkz": {
+      "weak": false,
+      "attributes": [
+        "pcjf",
+        "mqni",
+        "qshz",
+        "bxde"
+      ],
+      "primary_keys": [
+        "pcjf"
+      ]
+    },
+    "lpvc": {
+      "weak": false,
+      "attributes": [
+        "djqk",
+        "imoe"
+      ],
+      "primary_keys": [
+        "djqk"
+      ]
+    },
+    "mvvn": {
+      "weak": true,
+      "attributes": [
+        "ltzl",
+        "bike",
+        "eofs",
+        "exvp"
+      ],
+      "primary_keys": [
+        "ltzl"
+      ],
+      "derived": [
+        "exvp"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "achx",
+        "hlkz"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "etmc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fcob",
+        "mvvn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ofas",
+      "weak": false
+    },
+    {
+      "entities": [
+        "achx",
+        "mvvn"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "bsoh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hlkz",
+        "lpvc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ebui",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mvvn",
+        "achx",
+        "fcob"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "jsyn",
+      "weak": true
+    }
+  ]
+}

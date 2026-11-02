@@ -1,0 +1,142 @@
+{
+    "entities": {
+        "surgery_date": {
+            "attributes": [
+                "post_surgery_status",
+                "Medication",
+                "insurance_provider",
+                "route",
+                "surgeon_id"
+            ],
+            "primary_keys": [
+                "post_surgery_status"
+            ],
+            "multivalued": [
+                "surgery_id"
+            ],
+            "weak": false
+        },
+        "conclusion": {
+            "attributes": [
+                "performs",
+                "Medication",
+                "medication_name",
+                "date_of_birth"
+            ],
+            "primary_keys": [
+                "performs"
+            ],
+            "weak": false,
+            "composite": {
+                "Medication": [
+                    "undergoes",
+                    "generates"
+                ]
+            }
+        },
+        "requires": {
+            "attributes": [
+                "Patient",
+                "room_number",
+                "medication_id",
+                "dosage",
+                "address"
+            ],
+            "primary_keys": [
+                "Patient"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "specialty",
+                "Surgeon",
+                "Operation_Report",
+                "report_date"
+            ],
+            "primary_keys": [
+                "specialty"
+            ],
+            "derived": [
+                "report_id"
+            ],
+            "weak": true
+        },
+        "Surgery": {
+            "attributes": [
+                "duration",
+                "last_name",
+                "patient_id",
+                "description"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "surgery_date",
+                "requires"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "first_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "conclusion",
+                "requires"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "surgery_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "requires",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": true
+        },
+        {
+            "entities": [
+                "surgery_date",
+                "requires",
+                "Surgery"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "years_of_experience",
+            "weak": false
+        },
+        {
+            "entities": [
+                "requires",
+                "Surgery"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "is_prescribed",
+            "weak": false
+        }
+    ]
+}

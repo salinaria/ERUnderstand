@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "sbmc": {
+      "weak": false,
+      "attributes": [
+        "eehw",
+        "dzjr",
+        "apkw"
+      ],
+      "primary_keys": [
+        "eehw"
+      ]
+    },
+    "jraq": {
+      "weak": false,
+      "attributes": [
+        "gwyh",
+        "chpd",
+        "yrrm",
+        "mfja"
+      ],
+      "primary_keys": [
+        "gwyh"
+      ],
+      "derived": [
+        "huup"
+      ]
+    },
+    "turu": {
+      "weak": false,
+      "attributes": [
+        "ckno",
+        "dzjr",
+        "cyhj"
+      ],
+      "primary_keys": [
+        "ckno"
+      ]
+    },
+    "uwnn": {
+      "weak": false,
+      "attributes": [
+        "bdkr",
+        "fgee",
+        "skax",
+        "wmfl"
+      ],
+      "primary_keys": [
+        "bdkr"
+      ]
+    },
+    "zupt": {
+      "weak": true,
+      "attributes": [
+        "izhp",
+        "dzjr",
+        "vhdc",
+        "eljj"
+      ],
+      "primary_keys": [
+        "izhp"
+      ],
+      "composite": {
+        "sibr": [
+          "sbwc",
+          "azxu",
+          "ddox",
+          "llii"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "sbmc",
+        "jraq"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "nlai",
+      "weak": false
+    },
+    {
+      "entities": [
+        "turu",
+        "jraq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "laaz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jraq",
+        "uwnn"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "cmhx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sbmc",
+        "zupt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "tmij",
+      "weak": true
+    },
+    {
+      "entities": [
+        "sbmc",
+        "jraq",
+        "turu"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "trts",
+      "weak": true
+    }
+  ]
+}

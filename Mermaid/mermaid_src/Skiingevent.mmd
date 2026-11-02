@@ -1,0 +1,49 @@
+erDiagram
+Skier {
+  string skier_id PK
+  string name
+  string birthdate
+}
+
+Event {
+  string event_id PK
+  string name
+  string date
+  string location
+}
+
+Course {
+  string course_id PK
+  string name
+  string difficulty
+}
+
+Sponsor {
+  string sponsor_id PK
+  string name
+  string contact_person
+}
+
+Registration {
+  string skier_id PK
+  string event_id PK
+  string registration_date
+  string ranking
+}
+
+Team {
+  string team_id PK
+  string team_name
+  string coach
+}
+
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Skier o{--o{ REL_participates_in : "Skier-REL_participates_in"
+    Event ||--o{ REL_participates_in : "Event-REL_participates_in"
+    Course ||--o{ REL_participates_in : "Course-REL_participates_in"
+    Skier o{--|| Team : "member_of"
+    Event o{--o{ Sponsor : "sponsors"
+    Skier ||..|| Event : "registers"

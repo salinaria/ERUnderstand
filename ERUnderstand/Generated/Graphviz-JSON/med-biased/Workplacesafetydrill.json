@@ -1,0 +1,126 @@
+{
+    "entities": {
+        "uses": {
+            "attributes": [
+                "point_id",
+                "location",
+                "Drill"
+            ],
+            "primary_keys": [
+                "point_id"
+            ],
+            "composite": {
+                "Role": [
+                    "has_role",
+                    "street",
+                    "employee_id"
+                ]
+            },
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "duration",
+                "department",
+                "reports_to"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "derived": [
+                "Employee"
+            ],
+            "weak": false
+        },
+        "Participation": {
+            "attributes": [
+                "participates_in",
+                "drill_id",
+                "role_id"
+            ],
+            "primary_keys": [
+                "participates_in"
+            ],
+            "weak": false
+        },
+        "AssemblyPoint": {
+            "attributes": [
+                "date",
+                "time_taken"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "role_name": {
+            "attributes": [
+                "point_id",
+                "duration",
+                "date",
+                "zip"
+            ],
+            "primary_keys": [
+                "point_id",
+                "duration",
+                "date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "uses",
+                "city",
+                "AssemblyPoint",
+                "role_name"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": true,
+            "ternary": true
+        },
+        {
+            "entities": [
+                "uses",
+                "Participation"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "capacity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "Participation"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "uses",
+                "AssemblyPoint"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "type",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "city": {
+            "attributes": [
+                "Checkpoint",
+                "flight_number",
+                "street"
+            ],
+            "primary_keys": [
+                "Checkpoint"
+            ],
+            "multivalued": [
+                "baggage_id"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "location",
+                "destination",
+                "nationality"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "derived": [
+                "Baggage"
+            ],
+            "weak": false
+        },
+        "declared_value": {
+            "attributes": [
+                "phone_number",
+                "flight_number",
+                "content_description"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "composite": {
+                "passenger_id": [
+                    "equipment_status",
+                    "rank",
+                    "boards"
+                ]
+            },
+            "weak": false
+        },
+        "monitors": {
+            "attributes": [
+                "passes_through",
+                "Passenger",
+                "weight"
+            ],
+            "primary_keys": [
+                "passes_through"
+            ],
+            "weak": false
+        },
+        "checkpoint_id": {
+            "attributes": [
+                "employee_id",
+                "Flight",
+                "zip_code",
+                "carries"
+            ],
+            "primary_keys": [
+                "employee_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "city",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "inspects",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "monitors"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Security_Personnel",
+            "weak": false
+        },
+        {
+            "entities": [
+                "declared_value",
+                "monitors"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "departure_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "declared_value",
+                "city",
+                "address"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "arrival_time",
+            "weak": true
+        },
+        {
+            "entities": [
+                "city",
+                "checkpoint_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        }
+    ]
+}

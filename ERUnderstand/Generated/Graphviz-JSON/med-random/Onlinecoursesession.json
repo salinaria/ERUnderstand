@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "gulv": {
+      "weak": false,
+      "attributes": [
+        "xcyb",
+        "wrab",
+        "aahu",
+        "mkro"
+      ],
+      "primary_keys": [
+        "xcyb"
+      ]
+    },
+    "cfgb": {
+      "weak": true,
+      "attributes": [
+        "mqex",
+        "wbii",
+        "zppk"
+      ],
+      "primary_keys": [
+        "mqex"
+      ],
+      "derived": [
+        "ccui"
+      ]
+    },
+    "fdau": {
+      "weak": false,
+      "attributes": [
+        "grei",
+        "ohqa",
+        "dyat"
+      ],
+      "primary_keys": [
+        "grei"
+      ],
+      "composite": {
+        "ccho": [
+          "abue",
+          "wgpu",
+          "mbwp"
+        ]
+      }
+    },
+    "ulyh": {
+      "weak": false,
+      "attributes": [
+        "dryr",
+        "ohqa",
+        "gizf"
+      ],
+      "primary_keys": [
+        "dryr"
+      ],
+      "multivalued": [
+        "zvae"
+      ]
+    },
+    "ytru": {
+      "weak": true,
+      "attributes": [
+        "liro",
+        "wrab",
+        "wcsk",
+        "kvlj"
+      ],
+      "primary_keys": [
+        "liro"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "cfgb",
+        "gulv"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "qeui",
+      "weak": true
+    },
+    {
+      "entities": [
+        "cfgb",
+        "fdau"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "qgnu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ulyh",
+        "cfgb"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "tcwg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gulv",
+        "ytru"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ecfq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ulyh",
+        "ytru",
+        "cfgb"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "zmss",
+      "weak": true
+    }
+  ]
+}

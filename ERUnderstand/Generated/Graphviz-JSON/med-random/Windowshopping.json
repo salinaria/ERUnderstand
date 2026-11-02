@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "bvwm": {
+      "weak": false,
+      "attributes": [
+        "twpn",
+        "bptl",
+        "qmot"
+      ],
+      "primary_keys": [
+        "twpn"
+      ],
+      "multivalued": [
+        "okcb"
+      ],
+      "composite": {
+        "qmot": [
+          "kmet",
+          "qjxl",
+          "iebx",
+          "dvvi"
+        ]
+      }
+    },
+    "heot": {
+      "weak": false,
+      "attributes": [
+        "ihfc",
+        "zaol",
+        "thhm"
+      ],
+      "primary_keys": [
+        "ihfc"
+      ]
+    },
+    "cehz": {
+      "weak": false,
+      "attributes": [
+        "eggm",
+        "iolk",
+        "wnfa"
+      ],
+      "primary_keys": [
+        "eggm"
+      ],
+      "derived": [
+        "zqfv"
+      ]
+    },
+    "qzkl": {
+      "weak": false,
+      "attributes": [
+        "ymms",
+        "kclv"
+      ],
+      "primary_keys": [
+        "ymms"
+      ]
+    },
+    "eniq": {
+      "weak": true,
+      "attributes": [
+        "hkrb",
+        "jgge",
+        "jfmt"
+      ],
+      "primary_keys": [
+        "hkrb"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bvwm",
+        "heot"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ogze",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cehz",
+        "qzkl"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "wqqm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bvwm",
+        "cehz",
+        "heot"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "tmph",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bvwm",
+        "eniq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "gadv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eniq",
+        "cehz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nntw",
+      "weak": true
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+    "entities": {
+        "team_size": {
+            "attributes": [
+                "phone_number",
+                "location",
+                "wins",
+                "prize_id"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "multivalued": [
+                "wins",
+                "prize_id"
+            ],
+            "weak": false
+        },
+        "team_id": {
+            "attributes": [
+                "end_date",
+                "belongs_to",
+                "start_date"
+            ],
+            "primary_keys": [
+                "end_date"
+            ],
+            "derived": [
+                "start_date"
+            ],
+            "weak": false
+        },
+        "activity_id": {
+            "attributes": [
+                "Activity",
+                "employee_name",
+                "Team",
+                "skill_set"
+            ],
+            "primary_keys": [
+                "Activity"
+            ],
+            "weak": false
+        },
+        "Employee": {
+            "attributes": [
+                "prize_description",
+                "activity_name",
+                "event_date"
+            ],
+            "primary_keys": [
+                "prize_description"
+            ],
+            "composite": {
+                "activity_name": [
+                    "Prize",
+                    "activity_description"
+                ]
+            },
+            "weak": false
+        },
+        "prize_value": {
+            "attributes": [
+                "employee_id",
+                "team_name",
+                "includes"
+            ],
+            "primary_keys": [
+                "employee_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "team_size",
+                "team_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Event",
+            "weak": false
+        },
+        {
+            "entities": [
+                "team_id",
+                "activity_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "budget",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Employee",
+                "activity_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "event_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "team_id",
+                "prize_value",
+                "Employee"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "participates_in",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "owae": {
+      "weak": false,
+      "attributes": [
+        "fosd",
+        "lgzs",
+        "gtxr"
+      ],
+      "primary_keys": [
+        "fosd"
+      ],
+      "multivalued": [
+        "ynvg"
+      ]
+    },
+    "bwzg": {
+      "weak": false,
+      "attributes": [
+        "mbso",
+        "nxwd"
+      ],
+      "primary_keys": [
+        "mbso"
+      ]
+    },
+    "xhyv": {
+      "weak": false,
+      "attributes": [
+        "wzcy",
+        "nvjy",
+        "togs"
+      ],
+      "primary_keys": [
+        "wzcy"
+      ]
+    },
+    "mpzo": {
+      "weak": true,
+      "attributes": [
+        "ctrp",
+        "nzvs",
+        "ggdt",
+        "pgaz"
+      ],
+      "primary_keys": [
+        "ctrp"
+      ],
+      "composite": {
+        "srtd": [
+          "nuws",
+          "ovsd"
+        ]
+      }
+    },
+    "enqb": {
+      "weak": true,
+      "attributes": [
+        "svhq",
+        "fpue",
+        "ckvv",
+        "gksp"
+      ],
+      "primary_keys": [
+        "svhq"
+      ],
+      "derived": [
+        "imnl"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "owae",
+        "bwzg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wqhw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "owae",
+        "mpzo"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "yayz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mpzo",
+        "xhyv"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "nedx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mpzo",
+        "enqb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "axak",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mpzo",
+        "bwzg",
+        "owae"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "cppw",
+      "weak": false
+    }
+  ]
+}

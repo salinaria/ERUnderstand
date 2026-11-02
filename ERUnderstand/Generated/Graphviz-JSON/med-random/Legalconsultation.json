@@ -1,0 +1,142 @@
+{
+  "entities": {
+    "znrb": {
+      "weak": false,
+      "attributes": [
+        "ujcs",
+        "ilny",
+        "vfij",
+        "wvvw"
+      ],
+      "primary_keys": [
+        "ujcs"
+      ],
+      "multivalued": [
+        "wvvw"
+      ]
+    },
+    "wngx": {
+      "weak": false,
+      "attributes": [
+        "zqxz",
+        "ilny",
+        "jsmj",
+        "hzal"
+      ],
+      "primary_keys": [
+        "zqxz"
+      ],
+      "composite": {
+        "ilny": [
+          "qdzp",
+          "offk"
+        ]
+      }
+    },
+    "gpnz": {
+      "weak": false,
+      "attributes": [
+        "gkti",
+        "lcqy",
+        "geaa",
+        "hsrw",
+        "ckbc"
+      ],
+      "primary_keys": [
+        "gkti"
+      ],
+      "derived": [
+        "nakk"
+      ]
+    },
+    "ifmn": {
+      "weak": true,
+      "attributes": [
+        "envj",
+        "hvgc",
+        "hkbt",
+        "zdex",
+        "oyes"
+      ],
+      "primary_keys": [
+        "envj"
+      ]
+    },
+    "kpln": {
+      "weak": true,
+      "attributes": [
+        "emxa",
+        "ffzk",
+        "amrg",
+        "ephp"
+      ],
+      "primary_keys": [
+        "emxa"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "znrb",
+        "gpnz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rlrj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wngx",
+        "gpnz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zfwm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "znrb",
+        "wngx",
+        "ifmn"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "ilrt",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ifmn",
+        "gpnz"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "jxgw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "znrb",
+        "kpln"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rvmh",
+      "weak": true
+    }
+  ]
+}

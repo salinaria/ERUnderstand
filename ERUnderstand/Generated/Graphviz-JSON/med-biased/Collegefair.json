@@ -1,0 +1,133 @@
+{
+    "entities": {
+        "location": {
+            "attributes": [
+                "rep_id",
+                "Hosts",
+                "start_time",
+                "Representative"
+            ],
+            "primary_keys": [
+                "rep_id"
+            ],
+            "multivalued": [
+                "Representative"
+            ],
+            "weak": false
+        },
+        "end_time": {
+            "attributes": [
+                "Employs",
+                "Hosts",
+                "acceptance_rate",
+                "Attends"
+            ],
+            "primary_keys": [
+                "Employs"
+            ],
+            "weak": false
+        },
+        "College": {
+            "attributes": [
+                "name",
+                "Hosts",
+                "session_id",
+                "college_id"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "grade_level": {
+            "attributes": [
+                "Student",
+                "acceptance_rate",
+                "booth_number"
+            ],
+            "primary_keys": [
+                "Student"
+            ],
+            "weak": true
+        },
+        "email": {
+            "attributes": [
+                "phone_number",
+                "email",
+                "size",
+                "Has"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "derived": [
+                "Oversees"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location",
+                "email"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "title",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_time",
+                "College"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_time",
+                "grade_level"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "topic",
+            "weak": true
+        },
+        {
+            "entities": [
+                "end_time",
+                "email"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "InformationSession",
+            "weak": false
+        },
+        {
+            "entities": [
+                "College",
+                "grade_level",
+                "email"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "N"
+            ],
+            "name": "student_id",
+            "weak": true
+        }
+    ]
+}

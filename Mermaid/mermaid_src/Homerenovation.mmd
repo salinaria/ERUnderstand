@@ -1,0 +1,55 @@
+erDiagram
+Homeowner {
+  string homeowner_id PK
+  string name
+  %% address: composite
+  string address
+}
+
+Contractor {
+  string contractor_id PK
+  string company_name
+  string phone_number
+}
+
+Project {
+  string project_id PK
+  string description
+  string start_date
+  string end_date
+}
+
+Task {
+  string task_id PK
+  string task_name
+  string estimated_hours
+  string actual_hours
+  string status
+  string project_id
+}
+
+Material {
+  string material_id PK
+  string name
+  string unit_price
+}
+
+Payment {
+  string payment_id PK
+  string amount
+  string date
+  string project_id
+}
+
+    Homeowner ||--o{ Project : "owns"
+    Contractor o{--o{ Project : "manages"
+    Project ||--o{ Task : "consists_of"
+    Project ||..o{ Payment : "receives"
+    Task o{--o{ Material : "requires"
+REL_uses {
+  string rel_uses_id PK
+}
+
+    Contractor o{--o{ REL_uses : "Contractor-REL_uses"
+    Material o{--o{ REL_uses : "Material-REL_uses"
+    Project o{--o{ REL_uses : "Project-REL_uses"

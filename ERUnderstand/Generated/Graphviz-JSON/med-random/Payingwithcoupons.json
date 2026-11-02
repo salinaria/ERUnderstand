@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "dxre": {
+      "weak": false,
+      "attributes": [
+        "dlpn",
+        "ahba",
+        "njyu"
+      ],
+      "primary_keys": [
+        "dlpn"
+      ],
+      "multivalued": [
+        "njyu"
+      ]
+    },
+    "hhvc": {
+      "weak": false,
+      "attributes": [
+        "gemr",
+        "kjgu",
+        "uadd"
+      ],
+      "primary_keys": [
+        "gemr"
+      ]
+    },
+    "jdcw": {
+      "weak": false,
+      "attributes": [
+        "coxd",
+        "vuqt",
+        "inws"
+      ],
+      "primary_keys": [
+        "coxd"
+      ]
+    },
+    "ttdz": {
+      "weak": false,
+      "attributes": [
+        "ypjd",
+        "wuld",
+        "bbwe"
+      ],
+      "primary_keys": [
+        "ypjd"
+      ],
+      "derived": [
+        "bbwe"
+      ]
+    },
+    "duqa": {
+      "weak": false,
+      "attributes": [
+        "mzgh",
+        "qzif",
+        "biss"
+      ],
+      "primary_keys": [
+        "mzgh"
+      ],
+      "composite": {
+        "qzif": [
+          "ongk",
+          "ofzx",
+          "rjsz"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "dxre",
+        "ttdz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xaac",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ttdz",
+        "jdcw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nodq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ttdz",
+        "hhvc"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "otxz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jdcw",
+        "duqa"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "wopz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ttdz",
+        "dxre",
+        "duqa"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "fjio",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "gmgt": {
+      "weak": false,
+      "attributes": [
+        "fiwc",
+        "tzbx",
+        "uwjx"
+      ],
+      "primary_keys": [
+        "fiwc"
+      ]
+    },
+    "eqdd": {
+      "weak": false,
+      "attributes": [
+        "rhmz",
+        "aone",
+        "vsge"
+      ],
+      "primary_keys": [
+        "rhmz"
+      ],
+      "multivalued": [
+        "qwcy"
+      ],
+      "composite": {
+        "wpul": [
+          "ohsk",
+          "qwam",
+          "aage",
+          "tcee"
+        ]
+      }
+    },
+    "cwsb": {
+      "weak": false,
+      "attributes": [
+        "baeb",
+        "aone",
+        "objf"
+      ],
+      "primary_keys": [
+        "baeb"
+      ]
+    },
+    "amep": {
+      "weak": false,
+      "attributes": [
+        "syyn",
+        "ztqn",
+        "maye"
+      ],
+      "primary_keys": [
+        "syyn"
+      ]
+    },
+    "lrzd": {
+      "weak": true,
+      "attributes": [
+        "kbba",
+        "baeb",
+        "fiwc",
+        "wfal",
+        "mvez"
+      ],
+      "primary_keys": [
+        "kbba"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "gmgt",
+        "eqdd"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zeje",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cwsb",
+        "gmgt"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "cstg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gmgt",
+        "amep"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "howr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cwsb",
+        "gmgt",
+        "lrzd"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "uwcy",
+      "weak": true
+    },
+    {
+      "entities": [
+        "lrzd",
+        "gmgt"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "jsjl",
+      "weak": true
+    }
+  ]
+}

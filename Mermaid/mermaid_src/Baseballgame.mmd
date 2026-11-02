@@ -1,0 +1,41 @@
+erDiagram
+Team {
+  string team_id PK
+  string team_name
+  string location
+  string wins
+  string losses
+}
+
+Player {
+  string player_id PK
+  %% name: composite
+  string name
+  string position
+  string birthdate
+  string batting_average
+}
+
+Game {
+  string game_id PK
+  string date
+  string location
+  string attendance
+}
+
+AtBat {
+  string game_id PK
+  string player_id PK
+  string at_bat_number PK
+  string result
+}
+
+    Player o{--|| Team : "plays_for"
+    Team o{--|| Game : "competes_in"
+REL_has {
+  string rel_has_id PK
+}
+
+    Game ||..o{ REL_has : "Game-REL_has"
+    Player o{..o{ REL_has : "Player-REL_has"
+    AtBat ||..o{ REL_has : "AtBat-REL_has"

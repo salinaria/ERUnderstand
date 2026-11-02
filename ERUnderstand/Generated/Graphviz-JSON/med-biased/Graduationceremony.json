@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "guest_id": {
+            "attributes": [
+                "award_id",
+                "attends",
+                "receives",
+                "Speaker"
+            ],
+            "primary_keys": [
+                "award_id"
+            ],
+            "multivalued": [
+                "receives"
+            ],
+            "weak": false
+        },
+        "ceremony_id": {
+            "attributes": [
+                "first_name",
+                "email",
+                "Ceremony"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": false
+        },
+        "speaker_id": {
+            "attributes": [
+                "attends_with",
+                "attends",
+                "Award"
+            ],
+            "primary_keys": [
+                "attends_with"
+            ],
+            "weak": true
+        },
+        "speaks_at": {
+            "attributes": [
+                "affiliation",
+                "attends",
+                "graduation_year"
+            ],
+            "primary_keys": [
+                "affiliation"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "Graduate",
+                "attends",
+                "participates_in",
+                "date"
+            ],
+            "primary_keys": [
+                "Graduate"
+            ],
+            "composite": {
+                "attends": [
+                    "name",
+                    "graduate_id"
+                ]
+            },
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "guest_id",
+                "ceremony_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Guest",
+            "weak": false
+        },
+        {
+            "entities": [
+                "guest_id",
+                "speaker_id",
+                "ceremony_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "speech_title",
+            "weak": true
+        },
+        {
+            "entities": [
+                "guest_id",
+                "speaks_at"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "relationship",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "ceremony_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "last_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "speaker_id",
+                "ceremony_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "location",
+            "weak": false
+        }
+    ]
+}

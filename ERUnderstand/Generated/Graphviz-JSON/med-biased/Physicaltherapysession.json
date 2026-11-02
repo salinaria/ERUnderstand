@@ -1,0 +1,143 @@
+{
+    "entities": {
+        "generates": {
+            "attributes": [
+                "attends",
+                "Patient",
+                "time",
+                "Therapist"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "multivalued": [
+                "conducts"
+            ],
+            "weak": false
+        },
+        "exercise_id": {
+            "attributes": [
+                "zip_code",
+                "Patient",
+                "city"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "composite": {
+                "Therapist": [
+                    "specialization",
+                    "name",
+                    "patient_id"
+                ]
+            },
+            "weak": false
+        },
+        "therapist_id": {
+            "attributes": [
+                "prescribes",
+                "includes",
+                "address",
+                "Exercise"
+            ],
+            "primary_keys": [
+                "prescribes"
+            ],
+            "weak": false
+        },
+        "duration": {
+            "attributes": [
+                "session_id",
+                "Patient",
+                "date"
+            ],
+            "primary_keys": [
+                "session_id"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "time",
+                "includes",
+                "street",
+                "prescribes"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "generates",
+                "therapist_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "notes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "exercise_id",
+                "therapist_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        },
+        {
+            "entities": [
+                "therapist_id",
+                "duration"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Session",
+            "attributes": [
+                "repetitions",
+                "sets"
+            ],
+            "weak": false
+        },
+        {
+            "entities": [
+                "therapist_id",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": true
+        },
+        {
+            "entities": [
+                "generates",
+                "exercise_id",
+                "duration"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "ProgressReport",
+            "weak": true,
+            "attributes": [
+                "dosage"
+            ]
+        }
+    ]
+}

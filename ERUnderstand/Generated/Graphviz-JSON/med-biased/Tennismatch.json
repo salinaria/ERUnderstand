@@ -1,0 +1,142 @@
+{
+    "entities": {
+        "match_id": {
+            "attributes": [
+                "officiates",
+                "player1_score",
+                "Player",
+                "plays_in",
+                "date_of_birth"
+            ],
+            "primary_keys": [
+                "officiates"
+            ],
+            "multivalued": [
+                "tournament_name"
+            ],
+            "weak": false,
+            "composite": {
+                "Set": [
+                    "player1_score",
+                    "Player"
+                ]
+            }
+        },
+        "date": {
+            "attributes": [
+                "includes",
+                "umpire_id",
+                "winner",
+                "first_name"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "weak": false
+        },
+        "country": {
+            "attributes": [
+                "experience_years",
+                "match_duration",
+                "player_id"
+            ],
+            "primary_keys": [
+                "includes",
+                "experience_years"
+            ],
+            "weak": true
+        },
+        "contains": {
+            "attributes": [
+                "name",
+                "last_name",
+                "handedness"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "set_number": {
+            "attributes": [
+                "contains",
+                "location",
+                "Point"
+            ],
+            "primary_keys": [
+                "includes",
+                "experience_years",
+                "contains"
+            ],
+            "weak": true,
+            "derived": [
+                "describes"
+            ]
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "match_id",
+                "date"
+            ],
+            "cardinality": [
+                "2",
+                "N"
+            ],
+            "name": "player2_score",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "country"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "umpire_name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "contains",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "point_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "country",
+                "set_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "serving_player",
+            "weak": true
+        },
+        {
+            "entities": [
+                "date",
+                "country",
+                "set_number"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "Match",
+            "weak": true,
+            "ternary": true
+        }
+    ]
+}

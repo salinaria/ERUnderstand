@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "phone_number": {
+            "attributes": [
+                "Visit",
+                "age",
+                "pet_id",
+                "description"
+            ],
+            "primary_keys": [
+                "Visit"
+            ],
+            "multivalued": [
+                "description"
+            ],
+            "weak": false
+        },
+        "Product": {
+            "attributes": [
+                "product_id",
+                "age",
+                "customer_id",
+                "Customer",
+                "name"
+            ],
+            "primary_keys": [
+                "product_id"
+            ],
+            "derived": [
+                "total_amount"
+            ],
+            "weak": false
+        },
+        "Involves": {
+            "attributes": [
+                "breed",
+                "age",
+                "visit_id",
+                "birthdate"
+            ],
+            "primary_keys": [
+                "breed"
+            ],
+            "weak": false
+        },
+        "Places": {
+            "attributes": [
+                "pet_id",
+                "Pet",
+                "price"
+            ],
+            "primary_keys": [
+                "pet_id"
+            ],
+            "weak": false
+        },
+        "transaction_id": {
+            "attributes": [
+                "date",
+                "Pet",
+                "Includes",
+                "product_id"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "phone_number",
+                "Product"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Undergoes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Places",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Transaction",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Places",
+                "Involves"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "species",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Product",
+                "transaction_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Owns",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Product",
+                "Involves",
+                "Places"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "reason",
+            "weak": false
+        }
+    ]
+}

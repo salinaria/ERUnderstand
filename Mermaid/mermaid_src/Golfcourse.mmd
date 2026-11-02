@@ -1,0 +1,47 @@
+erDiagram
+Golfer {
+  string golfer_id PK
+  string name
+  string handicap
+}
+
+TeeTime {
+  string tee_time_id PK
+  string date
+  string time
+  string holes_played
+}
+
+Course {
+  string course_id PK
+  string name
+  %% location: composite
+  string location
+  string number_of_holes
+}
+
+Score {
+  string tee_time_id PK
+  string golfer_id PK
+  string score_value
+  string date
+}
+
+Membership {
+  string membership_id PK
+  string type
+  string start_date
+  string end_date
+  string fee
+}
+
+    Golfer o{--o{ TeeTime : "books"
+    Golfer ||--|| Membership : "has"
+    TeeTime o{--|| Course : "occurs_at"
+REL_achieves {
+  string rel_achieves_id PK
+}
+
+    Golfer ||..o{ REL_achieves : "Golfer-REL_achieves"
+    TeeTime ||..o{ REL_achieves : "TeeTime-REL_achieves"
+    Score o{..o{ REL_achieves : "Score-REL_achieves"

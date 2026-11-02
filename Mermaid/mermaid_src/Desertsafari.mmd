@@ -1,0 +1,40 @@
+erDiagram
+Tourist {
+  string tourist_id PK
+  string name
+  string nationality
+}
+
+Safari {
+  string safari_id PK
+  string date
+  string time
+  string location
+}
+
+Vehicle {
+  string vehicle_id PK
+  string type
+  string capacity
+  string license_plate
+}
+
+Guide {
+  string guide_id PK
+  string name
+  string language_spoken
+  string experience
+}
+
+Booking {
+  string booking_id PK
+  string safari_id
+  string tourist_id
+  string booking_date
+  string num_of_people
+}
+
+    Tourist ||--o{ Safari : "books"
+    Safari ||--|| Vehicle : "uses"
+    Safari ||--|| Guide : "assigned_to"
+    Booking ||..|| Safari : "created_for"

@@ -1,0 +1,46 @@
+erDiagram
+Vacationer {
+  string vacationer_id PK
+  string name
+  string address
+}
+
+Accommodation {
+  string accommodation_id PK
+  string type
+  string address
+  string price_per_night
+}
+
+Activity {
+  string activity_id PK
+  string name
+  string description
+  string cost
+}
+
+Booking {
+  string booking_id PK
+  string check_in_date
+  string check_out_date
+  string number_of_guests
+}
+
+Review {
+  string review_id PK
+  string rating
+  string comment
+  string review_date
+}
+
+    Vacationer ||--o{ Booking : "books"
+    Accommodation ||--o{ Booking : "reserved_at"
+REL_writes_review {
+  string rel_writes_review_id PK
+}
+
+    Vacationer o{--o{ REL_writes_review : "Vacationer-REL_writes_review"
+    Accommodation ||--o{ REL_writes_review : "Accommodation-REL_writes_review"
+    Review ||--o{ REL_writes_review : "Review-REL_writes_review"
+    Vacationer o{--o{ Activity : "participates_in"
+    Booking ||..|| Review : "concerns"

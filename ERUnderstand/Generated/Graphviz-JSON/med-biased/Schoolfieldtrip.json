@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "city": {
+            "attributes": [
+                "Student",
+                "student_id",
+                "Bus"
+            ],
+            "primary_keys": [
+                "Student"
+            ],
+            "weak": false
+        },
+        "zipcode": {
+            "attributes": [
+                "available_seats",
+                "grade",
+                "destination",
+                "Teacher"
+            ],
+            "primary_keys": [
+                "available_seats"
+            ],
+            "derived": [
+                "model"
+            ],
+            "weak": false
+        },
+        "cost": {
+            "attributes": [
+                "bus_id",
+                "student_id",
+                "Has"
+            ],
+            "primary_keys": [
+                "bus_id"
+            ],
+            "weak": false
+        },
+        "contact_id": {
+            "attributes": [
+                "address",
+                "relationship",
+                "cost",
+                "Attends"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "capacity",
+                "student_id",
+                "Supervises",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "capacity"
+            ],
+            "weak": true,
+            "composite": {
+                "name": [
+                    "trip_id",
+                    "Trip",
+                    "teacher_id",
+                    "state"
+                ]
+            }
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "city",
+                "zipcode"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "subject",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "zipcode"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "EmergencyContact",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zipcode",
+                "contact_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "make",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": true
+        },
+        {
+            "entities": [
+                "city",
+                "zipcode",
+                "cost"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "Uses",
+            "weak": true
+        }
+    ]
+}

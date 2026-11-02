@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "name": {
+            "attributes": [
+                "phone_number",
+                "Books",
+                "payment_method",
+                "Service",
+                "Includes"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "multivalued": [
+                "Service"
+            ],
+            "weak": false,
+            "composite": {
+                "payment_date": [
+                    "Books",
+                    "payment_method"
+                ]
+            }
+        },
+        "amount": {
+            "attributes": [
+                "check_out_date",
+                "last_name",
+                "service_id",
+                "guest_id"
+            ],
+            "primary_keys": [
+                "check_out_date"
+            ],
+            "weak": false
+        },
+        "number_of_guests": {
+            "attributes": [
+                "service_name",
+                "price_per_night",
+                "address",
+                "Associated_with",
+                "Makes"
+            ],
+            "primary_keys": [
+                "service_name"
+            ],
+            "derived": [
+                "Makes"
+            ],
+            "weak": false
+        },
+        "reservation_id": {
+            "attributes": [
+                "Room",
+                "check_in_date",
+                "Reservation",
+                "availability"
+            ],
+            "primary_keys": [
+                "Room"
+            ],
+            "weak": true
+        },
+        "Guest": {
+            "attributes": [
+                "Payment",
+                "total_cost",
+                "room_type"
+            ],
+            "primary_keys": [
+                "Payment"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "name",
+                "number_of_guests"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Reserves",
+            "weak": false
+        },
+        {
+            "entities": [
+                "number_of_guests",
+                "amount"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "room_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "reservation_id",
+                "number_of_guests"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "service_cost",
+            "weak": true
+        },
+        {
+            "entities": [
+                "number_of_guests",
+                "Guest"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "payment_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "number_of_guests",
+                "name",
+                "amount"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "first_name",
+            "weak": false
+        }
+    ]
+}

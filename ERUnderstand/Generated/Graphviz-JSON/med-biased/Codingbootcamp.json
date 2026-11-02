@@ -1,0 +1,116 @@
+{
+    "entities": {
+        "name": {
+            "attributes": [
+                "teaches",
+                "last_name",
+                "due_date"
+            ],
+            "primary_keys": [
+                "teaches"
+            ],
+            "multivalued": [
+                "credits"
+            ],
+            "weak": false
+        },
+        "enrolls_in": {
+            "attributes": [
+                "phone_number",
+                "first_name"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "derived": [
+                "Student"
+            ],
+            "weak": true
+        },
+        "course_code": {
+            "attributes": [
+                "assignment_id",
+                "Assignment"
+            ],
+            "primary_keys": [
+                "assignment_id"
+            ],
+            "composite": {
+                "last_name": [
+                    "address",
+                    "age"
+                ]
+            },
+            "weak": true
+        },
+        "Person": {
+            "attributes": [
+                "student_id",
+                "Instructor",
+                "title"
+            ],
+            "primary_keys": [
+                "student_id"
+            ],
+            "weak": false
+        },
+        "belong_to": {
+            "attributes": [
+                "enrollment_date",
+                "Instructor",
+                "Course",
+                "student_id"
+            ],
+            "primary_keys": [
+                "enrollment_date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "enrolls_in",
+                "Person"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "instructor_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "course_code",
+                "Person"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "age",
+            "weak": false
+        },
+        {
+            "entities": [
+                "belong_to",
+                "Person"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "expertise",
+            "weak": true
+        },
+        {
+            "subclasses": [
+                "Student",
+                "Instructor"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Person"
+        }
+    ]
+}

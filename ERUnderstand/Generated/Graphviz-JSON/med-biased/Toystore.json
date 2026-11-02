@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "Purchases": {
+            "attributes": [
+                "phone_number",
+                "Supplies",
+                "category_name",
+                "category_id"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "Places",
+                "registration_date"
+            ],
+            "primary_keys": [
+                "Places"
+            ],
+            "weak": false
+        },
+        "Contains": {
+            "attributes": [
+                "Customer",
+                "last_name",
+                "BelongsTo"
+            ],
+            "primary_keys": [
+                "Customer"
+            ],
+            "multivalued": [
+                "supplier_id"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "Toy",
+                "customer_id",
+                "Category",
+                "BelongsTo",
+                "Supplier"
+            ],
+            "primary_keys": [
+                "Toy"
+            ],
+            "composite": {
+                "Supplies": [
+                    "customer_id",
+                    "Category"
+                ]
+            },
+            "derived": [
+                "name"
+            ],
+            "weak": false
+        },
+        "supplier_name": {
+            "attributes": [
+                "phone_number",
+                "price",
+                "order_date"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Purchases",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "first_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Purchases",
+                "Contains"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Order",
+            "weak": false
+        },
+        {
+            "entities": [
+                "supplier_name",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "order_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "supplier_name",
+                "Purchases"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "loyalty_points",
+            "weak": true
+        },
+        {
+            "entities": [
+                "supplier_name",
+                "address",
+                "Purchases"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "total_amount",
+            "weak": false
+        }
+    ]
+}

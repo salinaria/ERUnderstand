@@ -1,0 +1,49 @@
+erDiagram
+Team {
+  string team_id PK
+  string team_name
+  string location
+}
+
+Player {
+  string player_id PK
+  %% name: composite
+  string name
+  string position
+  string date_of_birth
+  string team_id
+}
+
+Match {
+  string match_id PK
+  string date
+  string location
+  string score
+}
+
+Try {
+  string try_id PK
+  string time
+  string player_id
+  string match_id
+}
+
+Referee {
+  string referee_id PK
+  string name
+  string experience
+}
+
+Penalty {
+  string penalty_id PK
+  string time
+  string player_id
+  string match_id
+  string reason
+}
+
+    Team ||--o{ Player : "plays_for"
+    Team ||--o{ Match : "participates_in"
+    Match ||--|| Referee : "assigned_to"
+    Match ||..o{ Try : "includes"
+    Match ||..o{ Penalty : "has"

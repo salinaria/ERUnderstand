@@ -1,0 +1,144 @@
+{
+    "entities": {
+        "form_number": {
+            "attributes": [
+                "SupportingDocument",
+                "nationality",
+                "submission_date",
+                "form_type",
+                "holds"
+            ],
+            "primary_keys": [
+                "SupportingDocument"
+            ],
+            "multivalued": [
+                "fee_amount"
+            ],
+            "weak": false,
+            "composite": {
+                "state": [
+                    "nationality",
+                    "provides",
+                    "submission_date"
+                ]
+            }
+        },
+        "phone_number": {
+            "attributes": [
+                "application_id",
+                "family_name",
+                "includes",
+                "document_type"
+            ],
+            "primary_keys": [
+                "application_id"
+            ],
+            "derived": [
+                "date_of_birth"
+            ],
+            "weak": false
+        },
+        "document_id": {
+            "attributes": [
+                "issuing_country",
+                "issue_date",
+                "Applicant",
+                "postal_code"
+            ],
+            "primary_keys": [
+                "issuing_country"
+            ],
+            "weak": true
+        },
+        "address_id": {
+            "attributes": [
+                "given_name",
+                "country",
+                "family_name",
+                "valid_for_years"
+            ],
+            "primary_keys": [
+                "given_name"
+            ],
+            "weak": true
+        },
+        "expiry_date": {
+            "attributes": [
+                "passport_number",
+                "Passport",
+                "middle_name",
+                "city",
+                "name",
+                "issuing_authority"
+            ],
+            "primary_keys": [
+                "passport_number"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "form_number",
+                "document_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "street_address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "document_id",
+                "address_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "submits",
+            "weak": true
+        },
+        {
+            "entities": [
+                "form_number",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "resides_at",
+            "weak": false
+        },
+        {
+            "entities": [
+                "form_number",
+                "expiry_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "form_number",
+                "address_id",
+                "expiry_date"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "ApplicationForm",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "wjpu": {
+      "weak": false,
+      "attributes": [
+        "mmnn",
+        "rfpv",
+        "hcrq"
+      ],
+      "primary_keys": [
+        "mmnn"
+      ],
+      "composite": {
+        "bfwe": [
+          "brdw",
+          "pnmq",
+          "javl"
+        ]
+      }
+    },
+    "baoi": {
+      "weak": false,
+      "attributes": [
+        "nren",
+        "rfpv",
+        "uvki",
+        "ybxj"
+      ],
+      "primary_keys": [
+        "nren"
+      ],
+      "derived": [
+        "nnpe"
+      ]
+    },
+    "scnb": {
+      "weak": false,
+      "attributes": [
+        "kvnl"
+      ],
+      "primary_keys": [
+        "kvnl"
+      ]
+    },
+    "fqqe": {
+      "weak": true,
+      "attributes": [
+        "cvey",
+        "jgjh"
+      ],
+      "primary_keys": [
+        "cvey",
+        "dtdf"
+      ],
+      "multivalued": [
+        "evfm"
+      ]
+    },
+    "xyid": {
+      "weak": false,
+      "attributes": [
+        "ojfb",
+        "ests",
+        "cnnu"
+      ],
+      "primary_keys": [
+        "ojfb"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wjpu",
+        "xyid"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xskk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xyid",
+        "baoi",
+        "fqqe"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "bxfq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "baoi",
+        "scnb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kuij",
+      "weak": false
+    },
+    {
+      "entities": [
+        "baoi",
+        "scnb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jcsq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fqqe",
+        "baoi"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "gywn",
+      "weak": true
+    }
+  ]
+}

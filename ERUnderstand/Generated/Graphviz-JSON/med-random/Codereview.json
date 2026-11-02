@@ -1,0 +1,125 @@
+{
+  "entities": {
+    "teco": {
+      "weak": false,
+      "attributes": [
+        "lusn",
+        "bdom",
+        "fmjr"
+      ],
+      "primary_keys": [
+        "lusn"
+      ]
+    },
+    "ldpg": {
+      "weak": false,
+      "attributes": [
+        "otwt",
+        "xspl",
+        "fnno"
+      ],
+      "primary_keys": [
+        "otwt"
+      ],
+      "multivalued": [
+        "ymvo"
+      ]
+    },
+    "bupo": {
+      "weak": false,
+      "attributes": [
+        "nbyw",
+        "lkzp",
+        "wwth",
+        "xdea"
+      ],
+      "primary_keys": [
+        "nbyw"
+      ]
+    },
+    "buyp": {
+      "weak": true,
+      "attributes": [
+        "gxps",
+        "gkzq",
+        "unqs"
+      ],
+      "primary_keys": [
+        "gxps"
+      ]
+    },
+    "mseg": {
+      "weak": false,
+      "attributes": [
+        "fqvr",
+        "vhvt",
+        "zvzy"
+      ],
+      "primary_keys": [
+        "fqvr"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "teco",
+        "ldpg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rsyh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "teco",
+        "bupo"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cstt",
+      "weak": false
+    },
+    {
+      "entities": [
+        "buyp",
+        "teco"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "sabu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "buyp",
+        "ldpg"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "juxk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "buyp",
+        "mseg"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "bbwg",
+      "weak": false
+    }
+  ]
+}

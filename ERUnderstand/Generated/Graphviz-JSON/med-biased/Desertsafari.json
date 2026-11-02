@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "books": {
+            "attributes": [
+                "num_of_people",
+                "location",
+                "type"
+            ],
+            "primary_keys": [
+                "num_of_people"
+            ],
+            "multivalued": [
+                "uses"
+            ],
+            "weak": false
+        },
+        "country": {
+            "attributes": [
+                "address",
+                "city",
+                "booking_date",
+                "Booking"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "derived": [
+                "assigned_to"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "Safari",
+                "time",
+                "created_for",
+                "language_spoken"
+            ],
+            "primary_keys": [
+                "Safari"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "date",
+                "location",
+                "experience",
+                "vehicle_id"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "composite": {
+                "Vehicle": [
+                    "Tourist",
+                    "capacity",
+                    "Guide"
+                ]
+            },
+            "weak": false
+        },
+        "license_plate": {
+            "attributes": [
+                "duration",
+                "address",
+                "num_of_people",
+                "booking_id",
+                "tourist_id"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "books",
+                "country"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "nationality",
+            "weak": false
+        },
+        {
+            "entities": [
+                "country",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "safari_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "country",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "guide_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "license_plate",
+                "country"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": true
+        }
+    ]
+}

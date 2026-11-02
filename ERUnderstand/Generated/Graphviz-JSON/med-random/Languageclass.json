@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "kdiz": {
+      "weak": false,
+      "attributes": [
+        "lnkx",
+        "hlnu",
+        "vxem"
+      ],
+      "primary_keys": [
+        "lnkx"
+      ],
+      "derived": [
+        "xkqh"
+      ],
+      "multivalued": [
+        "ygmh"
+      ]
+    },
+    "jnbe": {
+      "weak": false,
+      "attributes": [
+        "nyik",
+        "hlnu",
+        "rvlk"
+      ],
+      "primary_keys": [
+        "nyik"
+      ],
+      "composite": {
+        "bpgp": [
+          "svyn",
+          "rxys",
+          "vebr"
+        ]
+      }
+    },
+    "teea": {
+      "weak": false,
+      "attributes": [
+        "wfxk",
+        "nguc",
+        "prxw"
+      ],
+      "primary_keys": [
+        "wfxk"
+      ]
+    },
+    "xplm": {
+      "weak": false,
+      "attributes": [
+        "dill",
+        "ertq"
+      ],
+      "primary_keys": [
+        "dill"
+      ]
+    },
+    "nszu": {
+      "weak": false,
+      "attributes": [
+        "fosm",
+        "xssk",
+        "vrux",
+        "mqqt"
+      ],
+      "primary_keys": [
+        "fosm"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "kdiz",
+        "teea"
+      ],
+      "cardinality": [
+        "N",
+        "M"
+      ],
+      "name": "ywgs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jnbe",
+        "teea"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ipjo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "teea",
+        "nszu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ripg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "teea",
+        "xplm"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "yjra",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kdiz",
+        "jnbe",
+        "teea"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "pcgv",
+      "weak": true
+    }
+  ]
+}

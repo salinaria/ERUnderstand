@@ -1,0 +1,144 @@
+{
+    "entities": {
+        "location": {
+            "attributes": [
+                "Penalty",
+                "time",
+                "penalty_id"
+            ],
+            "primary_keys": [
+                "Penalty"
+            ],
+            "weak": false
+        },
+        "first_name": {
+            "attributes": [
+                "has",
+                "experience",
+                "Team",
+                "includes",
+                "Penalty"
+            ],
+            "primary_keys": [
+                "has"
+            ],
+            "composite": {
+                "experience": [
+                    "score",
+                    "try_id"
+                ]
+            },
+            "weak": false
+        },
+        "Referee": {
+            "attributes": [
+                "plays_for",
+                "player_id",
+                "penalty_id",
+                "Player"
+            ],
+            "primary_keys": [
+                "plays_for"
+            ],
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "position",
+                "Match",
+                "has",
+                "plays_for"
+            ],
+            "primary_keys": [
+                "position"
+            ],
+            "weak": true
+        },
+        "date": {
+            "attributes": [
+                "Try",
+                "experience",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "Try"
+            ],
+            "weak": false
+        },
+        "date_of_birth": {
+            "attributes": [
+                "assigned_to",
+                "Match",
+                "has",
+                "plays_for",
+                "referee_id"
+            ],
+            "primary_keys": [
+                "assigned_to"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "reason",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location",
+                "Referee"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "team_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Referee",
+                "date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "team_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Referee",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "match_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Referee",
+                "date_of_birth"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "experience",
+            "weak": true
+        }
+    ]
+}

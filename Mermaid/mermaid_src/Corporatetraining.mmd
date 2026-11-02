@@ -1,0 +1,43 @@
+erDiagram
+Employee {
+  string employee_id PK
+  %% employee_name: composite
+  string employee_name
+  string job_title
+}
+
+TrainingProgram {
+  string program_id PK
+  string program_name
+  string description
+}
+
+CourseModule {
+  string module_id PK
+  string module_name
+  string duration
+}
+
+Trainer {
+  string trainer_id PK
+  string trainer_name
+  string specialization
+}
+
+Department {
+  string department_id PK
+  string department_name
+  string location
+}
+
+    Employee o{--o{ TrainingProgram : "attends"
+    TrainingProgram ||--o{ CourseModule : "consists_of"
+    Trainer ||--o{ CourseModule : "teaches"
+    Employee ||--|| Department : "works_in"
+REL_sponsored_by {
+  string rel_sponsored_by_id PK
+}
+
+    TrainingProgram ||..o{ REL_sponsored_by : "TrainingProgram-REL_sponsored_by"
+    Department ||..o{ REL_sponsored_by : "Department-REL_sponsored_by"
+    Employee o{..o{ REL_sponsored_by : "Employee-REL_sponsored_by"

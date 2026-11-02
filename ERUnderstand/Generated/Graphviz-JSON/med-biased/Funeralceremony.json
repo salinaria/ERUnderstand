@@ -1,0 +1,122 @@
+{
+    "entities": {
+        "date_time": {
+            "attributes": [
+                "attends",
+                "date_published",
+                "Deceased",
+                "Deceased"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "multivalued": [],
+            "weak": false
+        },
+        "date_of_death": {
+            "attributes": [
+                "held_at",
+                "state",
+                "Service"
+            ],
+            "primary_keys": [
+                "held_at"
+            ],
+            "derived": [],
+            "weak": false
+        },
+        "service_id": {
+            "attributes": [
+                "relationship_to_deceased",
+                "deceased_id",
+                "handled_by",
+                "full_name"
+            ],
+            "primary_keys": [
+                "relationship_to_deceased"
+            ],
+            "composite": {
+                "full_name": [
+                    "city",
+                    "address",
+                    "name",
+                    "Attendee"
+                ]
+            },
+            "weak": false
+        },
+        "type": {
+            "attributes": [
+                "Obituary",
+                "state",
+                "obituary_id"
+            ],
+            "primary_keys": [
+                "Obituary"
+            ],
+            "weak": false
+        },
+        "org_id": {
+            "attributes": [
+                "attendee_id",
+                "content",
+                "date_of_birth",
+                "attends"
+            ],
+            "primary_keys": [
+                "attendee_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date_of_death",
+                "service_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "featured_in",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_time",
+                "service_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_time",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "contact_person",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_time",
+                "org_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Organization",
+            "weak": true
+        }
+    ]
+}

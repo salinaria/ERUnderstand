@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "operating_system": {
+            "attributes": [
+                "service_name",
+                "device_name",
+                "device_id"
+            ],
+            "primary_keys": [
+                "service_name"
+            ],
+            "multivalued": [
+                "manages",
+                "log_id"
+            ],
+            "weak": false
+        },
+        "error_message": {
+            "attributes": [
+                "status",
+                "location",
+                "command_text",
+                "date"
+            ],
+            "primary_keys": [
+                "status"
+            ],
+            "weak": false
+        },
+        "service_id": {
+            "attributes": [
+                "user_id",
+                "date_joined",
+                "service_category"
+            ],
+            "primary_keys": [
+                "user_id"
+            ],
+            "weak": false,
+            "derived": [
+                "Service"
+            ]
+        },
+        "Device": {
+            "attributes": [
+                "phone_number",
+                "issues",
+                "timestamp",
+                "User"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "date_joined": {
+            "attributes": [
+                "generates",
+                "owns",
+                "command_id",
+                "api_endpoint",
+                "user_id"
+            ],
+            "primary_keys": [
+                "generates"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "operating_system",
+                "error_message"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Command",
+            "weak": false
+        },
+        {
+            "entities": [
+                "operating_system",
+                "service_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "uses",
+            "weak": false
+        },
+        {
+            "entities": [
+                "service_id",
+                "Device"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "service_id",
+                "date_joined"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "error_message",
+                "Device",
+                "operating_system"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "execution_time",
+            "weak": false
+        }
+    ]
+}

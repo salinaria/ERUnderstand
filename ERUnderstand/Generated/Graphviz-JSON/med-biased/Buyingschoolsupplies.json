@@ -1,0 +1,129 @@
+{
+    "entities": {
+        "belongs_to": {
+            "attributes": [
+                "zip",
+                "cart_id",
+                "includes"
+            ],
+            "primary_keys": [
+                "zip"
+            ],
+            "weak": false
+        },
+        "price": {
+            "attributes": [
+                "purchase_id",
+                "cart_id",
+                "Purchase",
+                "street"
+            ],
+            "primary_keys": [
+                "purchase_id"
+            ],
+            "weak": false
+        },
+        "makes": {
+            "attributes": [
+                "Student",
+                "cart_id"
+            ],
+            "primary_keys": [
+                "Student"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "total_amount",
+                "student_id",
+                "date"
+            ],
+            "primary_keys": [
+                "total_amount"
+            ],
+            "composite": {
+                "total_items": [
+                    "grade_level",
+                    "Category",
+                    "address"
+                ]
+            },
+            "weak": false
+        },
+        "contains": {
+            "attributes": [
+                "category_id"
+            ],
+            "primary_keys": [
+                "category_id"
+            ],
+            "derived": [
+                "ShoppingCart"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "belongs_to",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "price",
+                "makes"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "supply_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "price"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "owns",
+            "weak": false
+        },
+        {
+            "entities": [
+                "belongs_to",
+                "contains"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Supply",
+            "weak": false
+        },
+        {
+            "entities": [
+                "contains",
+                "price"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        }
+    ]
+}

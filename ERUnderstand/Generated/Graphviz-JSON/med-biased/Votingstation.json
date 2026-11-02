@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "receives": {
+            "attributes": [
+                "Election",
+                "Candidate",
+                "station_id"
+            ],
+            "primary_keys": [
+                "Election"
+            ],
+            "multivalued": [
+                "ballot_id"
+            ],
+            "weak": false
+        },
+        "votes_for": {
+            "attributes": [
+                "Voter",
+                "submission_time",
+                "voter_turnout"
+            ],
+            "primary_keys": [
+                "Voter"
+            ],
+            "weak": false
+        },
+        "Ballot": {
+            "attributes": [
+                "election_type",
+                "utilizes",
+                "candidate_id"
+            ],
+            "primary_keys": [
+                "election_type"
+            ],
+            "weak": false
+        },
+        "candidate_name": {
+            "attributes": [
+                "name",
+                "capacity",
+                "time"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "derived": [
+                "party"
+            ],
+            "weak": false
+        },
+        "submits": {
+            "attributes": [
+                "election_id",
+                "phone_number",
+                "Voter",
+                "Election"
+            ],
+            "primary_keys": [
+                "election_id"
+            ],
+            "composite": {
+                "phone_number": [
+                    "VotingStation",
+                    "participates_in"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "receives",
+                "submits"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "submits",
+                "Ballot"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": true
+        },
+        {
+            "entities": [
+                "votes_for",
+                "submits"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "voter_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "candidate_name",
+                "Ballot"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "candidate_name",
+                "votes_for"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "election_date",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+erDiagram
+Player {
+  string player_id PK
+  string first_name
+  string last_name
+  string date_of_birth
+  string country
+}
+
+Match {
+  string match_id PK
+  string date
+  string location
+  string tournament_name
+}
+
+Set {
+  string set_number PK
+  string player1_score
+  string player2_score
+}
+
+Umpire {
+  string umpire_id PK
+  string umpire_name
+  string experience_years
+}
+
+Point {
+  string point_number PK
+  string serving_player
+  string winner
+}
+
+    Player o{--o{ Match : "plays_in"
+    Match ||..o{ Set : "contains"
+    Umpire ||--o{ Match : "officiates"
+    Set ||..o{ Point : "includes"
+REL_describes {
+  string rel_describes_id PK
+}
+
+    Match ||..o{ REL_describes : "Match-REL_describes"
+    Set ||..o{ REL_describes : "Set-REL_describes"
+    Point o{..o{ REL_describes : "Point-REL_describes"

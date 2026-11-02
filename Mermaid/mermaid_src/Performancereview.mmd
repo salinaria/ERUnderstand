@@ -1,0 +1,42 @@
+erDiagram
+Employee {
+  string employee_id PK
+  string name
+  string job_title
+}
+
+Review {
+  string review_id PK
+  string review_date
+  string performance_score
+}
+
+Manager {
+  string manager_id PK
+  string department
+}
+
+Goal {
+  string goal_id PK
+  string description
+  string target_date
+  string status
+}
+
+Skill {
+  string skill_id PK
+  string skill_name
+  string proficiency_level
+}
+
+    Employee ||--o{ Review : "Receives"
+    Manager ||--o{ Employee : "Supervises"
+    Employee ||..o{ Goal : "Sets"
+REL_Demonstrates {
+  string rel_demonstrates_id PK
+}
+
+    Employee o{--o{ REL_Demonstrates : "Employee-REL_Demonstrates"
+    Skill o{--o{ REL_Demonstrates : "Skill-REL_Demonstrates"
+    Review ||--o{ REL_Demonstrates : "Review-REL_Demonstrates"
+    Employee ||--|| Manager : "ReportsTo"

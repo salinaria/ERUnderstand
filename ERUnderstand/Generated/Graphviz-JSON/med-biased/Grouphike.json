@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "quantity": {
+            "attributes": [
+                "Leader",
+                "street",
+                "address"
+            ],
+            "primary_keys": [
+                "Leader"
+            ],
+            "multivalued": [
+                "brings"
+            ],
+            "weak": false,
+            "composite": {
+                "gear_id": [
+                    "phone_number",
+                    "latitude",
+                    "Location"
+                ]
+            }
+        },
+        "zip_code": {
+            "attributes": [
+                "altitude",
+                "street",
+                "Hiker",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "altitude"
+            ],
+            "derived": [
+                "date"
+            ],
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "includes",
+                "location_id",
+                "certification",
+                "Leader"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "weak": false
+        },
+        "hiker_id": {
+            "attributes": [
+                "hike_id",
+                "name",
+                "difficulty"
+            ],
+            "primary_keys": [
+                "hike_id"
+            ],
+            "weak": true
+        },
+        "distance": {
+            "attributes": [
+                "item_name",
+                "leader_id"
+            ],
+            "primary_keys": [
+                "item_name"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "quantity",
+                "zip_code"
+            ],
+            "cardinality": [
+                "M",
+                "N"
+            ],
+            "name": "Hike",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "emergency_contact",
+            "weak": false
+        },
+        {
+            "entities": [
+                "quantity",
+                "hiker_id",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "longitude",
+            "weak": true
+        },
+        {
+            "entities": [
+                "distance",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Gear",
+            "weak": false
+        },
+        {
+            "subclasses": [
+                "Leader"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Hiker"
+        }
+    ]
+}

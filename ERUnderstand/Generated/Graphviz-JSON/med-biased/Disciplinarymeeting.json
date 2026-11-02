@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "major": {
+            "attributes": [
+                "Violation",
+                "severity",
+                "Student",
+                "violation_id"
+            ],
+            "primary_keys": [
+                "Violation"
+            ],
+            "multivalued": [
+                "violation_id"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "title",
+                "name",
+                "student_id",
+                "files"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "weak": false
+        },
+        "Staff": {
+            "attributes": [
+                "IncidentReport",
+                "conducts",
+                "time"
+            ],
+            "primary_keys": [
+                "IncidentReport"
+            ],
+            "weak": false
+        },
+        "relates": {
+            "attributes": [
+                "date",
+                "severity",
+                "location"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "Meeting": {
+            "attributes": [
+                "date_reported",
+                "addresses",
+                "conducts",
+                "Violation"
+            ],
+            "primary_keys": [
+                "date_reported"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "major",
+                "Meeting"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "report_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "major",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "meeting_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "Staff"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "attends",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "relates"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "staff_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Staff",
+                "Meeting"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "email",
+            "weak": false
+        }
+    ]
+}

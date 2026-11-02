@@ -1,0 +1,144 @@
+{
+  "entities": {
+    "rzmh": {
+      "weak": false,
+      "attributes": [
+        "cwja",
+        "lxna",
+        "evzz",
+        "crow",
+        "olbc"
+      ],
+      "primary_keys": [
+        "cwja"
+      ],
+      "multivalued": [
+        "xktz"
+      ],
+      "composite": {
+        "budz": [
+          "lxna",
+          "ndkx",
+          "evzz"
+        ]
+      }
+    },
+    "grxi": {
+      "weak": false,
+      "attributes": [
+        "rpsb",
+        "agsv",
+        "rnmk",
+        "sefc"
+      ],
+      "primary_keys": [
+        "rpsb"
+      ],
+      "derived": [
+        "rzau"
+      ]
+    },
+    "xxjz": {
+      "weak": true,
+      "attributes": [
+        "cqka",
+        "pczv",
+        "plwn",
+        "apzk"
+      ],
+      "primary_keys": [
+        "cqka"
+      ]
+    },
+    "mcmg": {
+      "weak": true,
+      "attributes": [
+        "roao",
+        "hirj",
+        "agsv",
+        "daxu"
+      ],
+      "primary_keys": [
+        "roao"
+      ]
+    },
+    "lmzb": {
+      "weak": false,
+      "attributes": [
+        "zehe",
+        "mzcx",
+        "ezad",
+        "zwfw",
+        "vjnb",
+        "bipd"
+      ],
+      "primary_keys": [
+        "zehe"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "rzmh",
+        "xxjz"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "losc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xxjz",
+        "mcmg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "imeh",
+      "weak": true
+    },
+    {
+      "entities": [
+        "rzmh",
+        "grxi"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "jnin",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rzmh",
+        "lmzb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "lekd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rzmh",
+        "mcmg",
+        "lmzb"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "cjvt",
+      "weak": true
+    }
+  ]
+}

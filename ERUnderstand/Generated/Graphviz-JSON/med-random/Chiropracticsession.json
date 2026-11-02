@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "payr": {
+      "weak": false,
+      "attributes": [
+        "wcit",
+        "cnsy",
+        "mgup",
+        "revd",
+        "ojto"
+      ],
+      "primary_keys": [
+        "wcit"
+      ],
+      "multivalued": [
+        "ojto"
+      ],
+      "composite": {
+        "huqy": [
+          "cnsy",
+          "mgup"
+        ]
+      }
+    },
+    "xoqv": {
+      "weak": false,
+      "attributes": [
+        "yaco",
+        "cnsy",
+        "mgup",
+        "xndg",
+        "xbhl"
+      ],
+      "primary_keys": [
+        "yaco"
+      ],
+      "composite": {
+        "huqy": [
+          "cnsy",
+          "mgup"
+        ]
+      }
+    },
+    "ooyz": {
+      "weak": true,
+      "attributes": [
+        "zbqd",
+        "ohjc",
+        "rvvv",
+        "iatu",
+        "frko"
+      ],
+      "primary_keys": [
+        "zbqd"
+      ]
+    },
+    "fedw": {
+      "weak": false,
+      "attributes": [
+        "kiil",
+        "tvgd",
+        "snam",
+        "fzxv"
+      ],
+      "primary_keys": [
+        "kiil"
+      ]
+    },
+    "qnmy": {
+      "weak": true,
+      "attributes": [
+        "agwm",
+        "kmka",
+        "qmjt",
+        "hdci"
+      ],
+      "primary_keys": [
+        "agwm"
+      ],
+      "derived": [
+        "qmjt"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "payr",
+        "ooyz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vmsa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xoqv",
+        "ooyz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "owvl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ooyz",
+        "fedw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xhbi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ooyz",
+        "qnmy"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "afnf",
+      "weak": true
+    },
+    {
+      "entities": [
+        "payr",
+        "qnmy"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "uywg",
+      "weak": true
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "entities": {
+    "nbjh": {
+      "weak": false,
+      "attributes": [
+        "ecqx",
+        "euts",
+        "bpmy"
+      ],
+      "primary_keys": [
+        "ecqx"
+      ],
+      "derived": [
+        "hcqb"
+      ]
+    },
+    "mrwc": {
+      "weak": false,
+      "attributes": [
+        "cqct",
+        "xexs",
+        "jmmp"
+      ],
+      "primary_keys": [
+        "cqct"
+      ],
+      "composite": {
+        "veih": [
+          "qydt",
+          "fisf",
+          "tdyw",
+          "ahxo"
+        ]
+      }
+    },
+    "pstk": {
+      "weak": false,
+      "attributes": [
+        "avkf",
+        "ajtb",
+        "dpga"
+      ],
+      "primary_keys": [
+        "avkf"
+      ]
+    },
+    "anyq": {
+      "weak": false,
+      "attributes": [
+        "izmz",
+        "giic",
+        "dtne"
+      ],
+      "primary_keys": [
+        "izmz"
+      ]
+    },
+    "hrob": {
+      "weak": true,
+      "attributes": [
+        "ecqx",
+        "izmz",
+        "cjit"
+      ],
+      "primary_keys": [
+        "ecqx",
+        "izmz",
+        "cjit"
+      ]
+    },
+    "dgcj": {
+      "weak": false,
+      "attributes": [
+        "ofnu",
+        "ajtb",
+        "vfwx"
+      ],
+      "primary_keys": [
+        "ofnu"
+      ],
+      "multivalued": [
+        "khaw"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "nbjh",
+        "anyq"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "qqut",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mrwc",
+        "anyq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vxwo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pstk",
+        "anyq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "sxlk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mrwc",
+        "dgcj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zasn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "anyq",
+        "dgcj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "myxd",
+      "weak": false
+    }
+  ]
+}

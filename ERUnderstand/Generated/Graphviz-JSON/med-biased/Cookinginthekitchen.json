@@ -1,0 +1,113 @@
+{
+    "entities": {
+        "material": {
+            "attributes": [
+                "recipe_id",
+                "prep_time",
+                "Recipe"
+            ],
+            "primary_keys": [
+                "recipe_id"
+            ],
+            "multivalued": [],
+            "weak": false
+        },
+        "requires": {
+            "attributes": [
+                "uses",
+                "prep_time",
+                "utensil_id",
+                "expertise",
+                "name"
+            ],
+            "primary_keys": [
+                "uses"
+            ],
+            "derived": [
+                "creates"
+            ],
+            "weak": false
+        },
+        "cook_time": {
+            "attributes": [
+                "phone_number",
+                "prep_time",
+                "Ingredient"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "email": {
+            "attributes": [
+                "uses",
+                "recipe_id",
+                "calories_per_gram",
+                "ingredient_id"
+            ],
+            "primary_keys": [
+                "uses",
+                "recipe_id"
+            ],
+            "weak": true
+        },
+        "Recipe": {
+            "attributes": [
+                "Utensil",
+                "prep_time",
+                "total_time"
+            ],
+            "primary_keys": [
+                "Utensil"
+            ],
+            "composite": {
+                "instructions": [
+                    "unit",
+                    "contact"
+                ]
+            },
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "requires",
+                "material",
+                "email"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "chef_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "requires",
+                "cook_time"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "quantity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Recipe",
+                "requires"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Measurement",
+            "weak": false
+        }
+    ]
+}

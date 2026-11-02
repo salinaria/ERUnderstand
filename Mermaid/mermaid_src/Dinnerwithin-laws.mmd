@@ -1,0 +1,43 @@
+erDiagram
+Person {
+  string person_id PK
+  string name
+  string relationship_to_host
+}
+
+Dish {
+  string dish_id PK
+  string name
+  string description
+}
+
+Ingredient {
+  string ingredient_id PK
+  string name
+  string quantity
+}
+
+Location {
+  string location_id PK
+  string type
+  string address
+}
+
+Gift {
+  string gift_id PK
+  string value
+  string description
+  string date_received
+}
+
+    Person o{--o{ Dish : "eats"
+    Dish ||--o{ Ingredient : "contains"
+    Person ||--|| Location : "hosts_at"
+    Person o{--|| Gift : "brings"
+REL_served_at {
+  string rel_served_at_id PK
+}
+
+    Dish o{..o{ REL_served_at : "Dish-REL_served_at"
+    Location ||..o{ REL_served_at : "Location-REL_served_at"
+    Person o{..o{ REL_served_at : "Person-REL_served_at"

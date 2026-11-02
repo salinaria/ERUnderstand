@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "for_hotel": {
+            "attributes": [
+                "address",
+                "country",
+                "Sight"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "multivalued": [
+                "guide_name"
+            ],
+            "weak": false,
+            "composite": {
+                "city": [
+                    "Booking",
+                    "Tourist",
+                    "location"
+                ]
+            }
+        },
+        "sight_name": {
+            "attributes": [
+                "nationality",
+                "reserves",
+                "visits",
+                "end_date"
+            ],
+            "primary_keys": [
+                "nationality"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "hotel_name",
+                "language",
+                "hotel_id"
+            ],
+            "primary_keys": [
+                "hotel_name"
+            ],
+            "weak": false
+        },
+        "rating": {
+            "attributes": [
+                "start_date",
+                "description",
+                "city",
+                "name"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "weak": false
+        },
+        "tourist_id": {
+            "attributes": [
+                "street",
+                "number_of_guests",
+                "booking_id",
+                "Hotel"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "weak": true,
+            "derived": [
+                "TourGuide"
+            ]
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "for_hotel",
+                "sight_name"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "guide_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "for_hotel",
+                "phone_number",
+                "sight_name"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "N"
+            ],
+            "name": "sight_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "for_hotel",
+                "rating",
+                "tourist_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "TourGuide",
+            "weak": true
+        },
+        {
+            "entities": [
+                "rating",
+                "sight_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "guided_tour",
+            "weak": false
+        },
+        {
+            "entities": [
+                "tourist_id",
+                "rating"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "is_near",
+            "weak": true
+        }
+    ]
+}

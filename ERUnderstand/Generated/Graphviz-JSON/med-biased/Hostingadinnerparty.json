@@ -1,0 +1,124 @@
+{
+    "entities": {
+        "zip": {
+            "attributes": [
+                "Host",
+                "email",
+                "Guest"
+            ],
+            "primary_keys": [
+                "Host"
+            ],
+            "multivalued": [
+                "requires"
+            ],
+            "weak": false
+        },
+        "attends": {
+            "attributes": [
+                "is_allergen",
+                "email",
+                "ingredient_id"
+            ],
+            "primary_keys": [
+                "is_allergen"
+            ],
+            "weak": false
+        },
+        "Host": {
+            "attributes": [
+                "name",
+                "email",
+                "features"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "theme": {
+            "attributes": [
+                "phone_number",
+                "email",
+                "DinnerParty"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": true,
+            "composite": {
+                "Dish": [
+                    "cuisine",
+                    "dish_id",
+                    "rsvp_status",
+                    "party_id"
+                ]
+            }
+        },
+        "total_cost": {
+            "attributes": [
+                "city",
+                "state",
+                "street",
+                "date"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "derived": [
+                "date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "zip",
+                "total_cost"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "organized_by",
+            "weak": false
+        },
+        {
+            "entities": [
+                "total_cost",
+                "attends"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "guest_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends",
+                "Host"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "host_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "total_cost",
+                "theme"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "address",
+            "weak": true
+        }
+    ]
+}

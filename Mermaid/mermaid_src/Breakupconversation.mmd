@@ -1,0 +1,43 @@
+erDiagram
+Person {
+  string person_id PK
+  string name
+  string emotional_state
+}
+
+Reason {
+  string reason_id PK
+  string description
+}
+
+Location {
+  string location_id PK
+  string address
+  string type
+}
+
+Conversation {
+  string conversation_id PK
+  string date
+  string time
+  string overall_tone
+}
+
+Message {
+  string message_id PK
+  string text
+  string timestamp
+  string sentiment
+}
+
+    Person ||--o{ Reason : "provides"
+    Person ||--o{ Conversation : "participates_in"
+    Conversation ||--|| Location : "occurs_at"
+    Conversation ||--o{ Message : "contains"
+REL_BreakupInvolves {
+  string rel_breakupinvolves_id PK
+}
+
+    Conversation ||--o{ REL_BreakupInvolves : "Conversation-REL_BreakupInvolves"
+    Reason ||--o{ REL_BreakupInvolves : "Reason-REL_BreakupInvolves"
+    Person o{--o{ REL_BreakupInvolves : "Person-REL_BreakupInvolves"

@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "kwbx": {
+      "weak": false,
+      "attributes": [
+        "dgpw",
+        "wrid",
+        "ryjb"
+      ],
+      "primary_keys": [
+        "dgpw"
+      ]
+    },
+    "jscl": {
+      "weak": false,
+      "attributes": [
+        "pjdd",
+        "jadq",
+        "orwl",
+        "jzcf"
+      ],
+      "primary_keys": [
+        "pjdd"
+      ],
+      "multivalued": [
+        "avad"
+      ],
+      "composite": {
+        "orwl": [
+          "afvt",
+          "dbsm",
+          "wjca",
+          "oxfd"
+        ]
+      }
+    },
+    "tzzo": {
+      "weak": false,
+      "attributes": [
+        "fedw",
+        "hcqc",
+        "fwsl",
+        "jadq"
+      ],
+      "primary_keys": [
+        "fedw"
+      ]
+    },
+    "eaef": {
+      "weak": false,
+      "attributes": [
+        "ebnl",
+        "bbdh",
+        "gusy"
+      ],
+      "primary_keys": [
+        "ebnl"
+      ]
+    },
+    "mehc": {
+      "weak": true,
+      "attributes": [
+        "osts",
+        "gusy",
+        "irms",
+        "pyku",
+        "dgpw"
+      ],
+      "primary_keys": [
+        "osts"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "kwbx",
+        "jscl"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jbwo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kwbx",
+        "tzzo"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "hqgs",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kwbx",
+        "eaef"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "horo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eaef",
+        "jscl"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "dpzd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "kwbx",
+        "mehc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "dbpi",
+      "weak": false
+    }
+  ]
+}

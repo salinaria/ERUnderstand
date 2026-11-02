@@ -1,0 +1,45 @@
+erDiagram
+Participant {
+  string participant_id PK
+  string name
+  string gender
+}
+
+Session {
+  string session_id PK
+  string date
+  %% location: composite
+  string location
+}
+
+DatingRound {
+  string round_id PK
+  string duration
+  string session_id
+}
+
+Match {
+  string match_id PK
+  string participant1_id
+  string participant2_id
+  string date_time
+}
+
+Feedback {
+  string feedback_id PK
+  string participant_id
+  string round_id
+  string rating
+  string comment
+}
+
+    Participant o{--|| Session : "attends"
+    Session ||--o{ DatingRound : "consists_of"
+    Participant o{--o{ Match : "creates"
+REL_gives {
+  string rel_gives_id PK
+}
+
+    Participant ||..o{ REL_gives : "Participant-REL_gives"
+    DatingRound ||..o{ REL_gives : "DatingRound-REL_gives"
+    Feedback ||..o{ REL_gives : "Feedback-REL_gives"

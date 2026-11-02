@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "occupation": {
+            "attributes": [
+                "street",
+                "Location",
+                "date_presented",
+                "participated_in"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "city",
+                "belongs_to",
+                "event_id"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "composite": {
+                "features": [
+                    "description",
+                    "Figure"
+                ]
+            },
+            "weak": false
+        },
+        "presentation_id": {
+            "attributes": [
+                "country",
+                "Location",
+                "birth_date",
+                "date"
+            ],
+            "primary_keys": [
+                "country"
+            ],
+            "weak": false
+        },
+        "end_date": {
+            "attributes": [
+                "covers",
+                "Location",
+                "Presentation",
+                "era_id"
+            ],
+            "primary_keys": [
+                "covers"
+            ],
+            "multivalued": [
+                "Era"
+            ],
+            "weak": false
+        },
+        "postal_code": {
+            "attributes": [
+                "start_date",
+                "Event",
+                "figure_id"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "derived": [
+                "death_date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "occupation",
+                "name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "occupation",
+                "presentation_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_date",
+                "occupation"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "location_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "postal_code",
+                "occupation"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "title",
+            "weak": false
+        },
+        {
+            "entities": [
+                "postal_code",
+                "end_date",
+                "occupation"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "occurs_at",
+            "weak": false
+        }
+    ]
+}

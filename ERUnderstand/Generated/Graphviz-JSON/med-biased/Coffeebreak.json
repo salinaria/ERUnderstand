@@ -1,0 +1,133 @@
+{
+    "entities": {
+        "date": {
+            "attributes": [
+                "participates_in",
+                "FoodItem",
+                "Employee"
+            ],
+            "primary_keys": [
+                "participates_in"
+            ],
+            "composite": {
+                "start_time": [
+                    "zip_code",
+                    "includes",
+                    "activity_id"
+                ]
+            },
+            "weak": false
+        },
+        "calories": {
+            "attributes": [
+                "coffee_id",
+                "attends",
+                "features",
+                "street"
+            ],
+            "primary_keys": [
+                "coffee_id"
+            ],
+            "derived": [
+                "city"
+            ],
+            "weak": false
+        },
+        "CoffeeBreak": {
+            "attributes": [
+                "name",
+                "FoodItem",
+                "CoffeeType"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "BreakActivity",
+                "FoodItem",
+                "employee_id"
+            ],
+            "primary_keys": [
+                "BreakActivity"
+            ],
+            "weak": false
+        },
+        "break_id": {
+            "attributes": [
+                "serves",
+                "CoffeeType"
+            ],
+            "primary_keys": [
+                "serves"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date",
+                "calories"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "calories",
+                "CoffeeBreak"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "end_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "calories",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "calories",
+                "break_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "item_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "date",
+                "calories",
+                "break_id"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "N"
+            ],
+            "name": "job_title",
+            "weak": false
+        }
+    ]
+}

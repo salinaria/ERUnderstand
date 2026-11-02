@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "xrip": {
+      "weak": false,
+      "attributes": [
+        "fcmm",
+        "fwfb",
+        "yeoi",
+        "cwvn"
+      ],
+      "primary_keys": [
+        "fcmm"
+      ],
+      "multivalued": [
+        "cvgm"
+      ]
+    },
+    "shby": {
+      "weak": false,
+      "attributes": [
+        "yewi",
+        "fwfb",
+        "tpdc"
+      ],
+      "primary_keys": [
+        "yewi"
+      ],
+      "composite": {
+        "cwvn": [
+          "ivmf",
+          "zdyr",
+          "dbxu"
+        ]
+      }
+    },
+    "frpk": {
+      "weak": false,
+      "attributes": [
+        "fijp",
+        "uuul",
+        "aiyr",
+        "bqrr"
+      ],
+      "primary_keys": [
+        "fijp"
+      ]
+    },
+    "bkdp": {
+      "weak": false,
+      "attributes": [
+        "zkaf",
+        "fwfb",
+        "uutn"
+      ],
+      "primary_keys": [
+        "zkaf"
+      ]
+    },
+    "vjuj": {
+      "weak": true,
+      "attributes": [
+        "ryth",
+        "uuul",
+        "rzwc",
+        "fijp"
+      ],
+      "primary_keys": [
+        "ryth"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "xrip",
+        "frpk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pmde",
+      "weak": false
+    },
+    {
+      "entities": [
+        "shby",
+        "frpk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "aiix",
+      "weak": false
+    },
+    {
+      "entities": [
+        "frpk",
+        "bkdp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "puvl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "frpk",
+        "vjuj"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "roxk",
+      "weak": true
+    },
+    {
+      "entities": [
+        "xrip",
+        "shby",
+        "bkdp"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "nvfn",
+      "weak": true
+    }
+  ]
+}

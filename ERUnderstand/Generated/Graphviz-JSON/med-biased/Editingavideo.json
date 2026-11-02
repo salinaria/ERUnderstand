@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "effect_parameters": {
+            "attributes": [
+                "effect_applied",
+                "duration",
+                "end_time"
+            ],
+            "primary_keys": [
+                "effect_applied"
+            ],
+            "weak": false
+        },
+        "effect_id": {
+            "attributes": [
+                "creation_date",
+                "Clip",
+                "start_time",
+                "project_name",
+                "clip_order"
+            ],
+            "primary_keys": [
+                "creation_date"
+            ],
+            "composite": {
+                "last_modified": [
+                    "Clip",
+                    "start_time"
+                ]
+            },
+            "weak": true
+        },
+        "uses": {
+            "attributes": [
+                "Effect",
+                "time_range",
+                "title"
+            ],
+            "primary_keys": [
+                "Effect"
+            ],
+            "multivalued": [
+                "title"
+            ],
+            "weak": false
+        },
+        "user_id": {
+            "attributes": [
+                "password",
+                "owns",
+                "collaborates",
+                "includes"
+            ],
+            "primary_keys": [
+                "password"
+            ],
+            "weak": false,
+            "derived": [
+                "User"
+            ]
+        },
+        "video_id": {
+            "attributes": [
+                "clip_id",
+                "is_part_of",
+                "Project",
+                "video_count"
+            ],
+            "primary_keys": [
+                "clip_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "effect_id",
+                "effect_parameters"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "username",
+            "weak": true
+        },
+        {
+            "entities": [
+                "effect_parameters",
+                "uses"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "project_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "user_id",
+                "video_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Video",
+            "weak": false
+        },
+        {
+            "entities": [
+                "video_id",
+                "effect_parameters"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "join_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "user_id",
+                "video_id",
+                "effect_parameters"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "effect_name",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "ndiy": {
+      "weak": false,
+      "attributes": [
+        "yven",
+        "ikvx",
+        "aumm",
+        "gvjx"
+      ],
+      "primary_keys": [
+        "yven"
+      ],
+      "composite": {
+        "ohai": [
+          "tnmj",
+          "xrgu",
+          "izbk",
+          "cndy"
+        ]
+      }
+    },
+    "qlhv": {
+      "weak": false,
+      "attributes": [
+        "xeyb",
+        "ikvx",
+        "vktc",
+        "ohai"
+      ],
+      "primary_keys": [
+        "xeyb"
+      ],
+      "multivalued": [
+        "yelw"
+      ]
+    },
+    "payx": {
+      "weak": true,
+      "attributes": [
+        "aqaa",
+        "muvx",
+        "sshc",
+        "tord"
+      ],
+      "primary_keys": [
+        "aqaa"
+      ]
+    },
+    "cijg": {
+      "weak": false,
+      "attributes": [
+        "ruzs",
+        "ikvx",
+        "qpkx"
+      ],
+      "primary_keys": [
+        "ruzs"
+      ]
+    },
+    "xwcl": {
+      "weak": false,
+      "attributes": [
+        "rqfo",
+        "ikvx",
+        "chpc"
+      ],
+      "primary_keys": [
+        "rqfo"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "qlhv",
+        "payx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pulx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ndiy",
+        "payx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ptrr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ndiy",
+        "qlhv",
+        "payx"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "zkye",
+      "weak": true
+    },
+    {
+      "entities": [
+        "cijg",
+        "payx",
+        "xwcl"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "rvto",
+      "weak": false
+    },
+    {
+      "entities": [
+        "payx",
+        "xwcl"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ptss",
+      "weak": false
+    }
+  ]
+}

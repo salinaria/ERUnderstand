@@ -1,0 +1,43 @@
+erDiagram
+Passenger {
+  string passenger_id PK
+  string name
+  string nationality
+}
+
+Baggage {
+  string baggage_id PK
+  string weight
+  string content_description
+}
+
+Security_Personnel {
+  string employee_id PK
+  string name
+  string rank
+}
+
+Checkpoint {
+  string checkpoint_id PK
+  string location
+  string equipment_status
+}
+
+Flight {
+  string flight_number PK
+  string departure_time
+  string arrival_time
+  string destination
+}
+
+    Passenger ||--o{ Baggage : "carries"
+    Passenger ||--|| Checkpoint : "passes_through"
+    Security_Personnel o{--|| Checkpoint : "monitors"
+REL_inspects {
+  string rel_inspects_id PK
+}
+
+    Security_Personnel o{..o{ REL_inspects : "Security_Personnel-REL_inspects"
+    Passenger o{..o{ REL_inspects : "Passenger-REL_inspects"
+    Baggage o{..o{ REL_inspects : "Baggage-REL_inspects"
+    Passenger ||--|| Flight : "boards"

@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "hssr": {
+      "weak": false,
+      "attributes": [
+        "spkm",
+        "abcn",
+        "cmqa",
+        "sxwe"
+      ],
+      "primary_keys": [
+        "spkm"
+      ]
+    },
+    "oekd": {
+      "weak": false,
+      "attributes": [
+        "fhrn",
+        "hzyv",
+        "obcy"
+      ],
+      "primary_keys": [
+        "fhrn"
+      ],
+      "composite": {
+        "smcs": [
+          "iamk",
+          "pxqd"
+        ]
+      }
+    },
+    "dyft": {
+      "weak": false,
+      "attributes": [
+        "stow",
+        "abcn",
+        "vmid",
+        "lyzm"
+      ],
+      "primary_keys": [
+        "stow"
+      ]
+    },
+    "xeak": {
+      "weak": false,
+      "attributes": [
+        "wsvr",
+        "abcn",
+        "srcr",
+        "jivj"
+      ],
+      "primary_keys": [
+        "wsvr"
+      ],
+      "multivalued": [
+        "ognn"
+      ]
+    },
+    "tnmt": {
+      "weak": false,
+      "attributes": [
+        "bhmi",
+        "njnf",
+        "oxgb"
+      ],
+      "primary_keys": [
+        "bhmi"
+      ],
+      "derived": [
+        "ssup"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "hssr",
+        "oekd"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "ytvx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hssr",
+        "dyft"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "bghz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xeak",
+        "hssr"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "rrgc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tnmt",
+        "hssr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "levx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tnmt",
+        "xeak",
+        "hssr"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "rxcf",
+      "weak": false
+    }
+  ]
+}

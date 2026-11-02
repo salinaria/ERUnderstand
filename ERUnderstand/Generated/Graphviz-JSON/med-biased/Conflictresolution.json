@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "date_initiated": {
+            "attributes": [
+                "Conflict",
+                "Outcome",
+                "name"
+            ],
+            "primary_keys": [
+                "Conflict"
+            ],
+            "weak": false
+        },
+        "agreement": {
+            "attributes": [
+                "description",
+                "Results_in",
+                "terms"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "terms"
+            ],
+            "weak": false
+        },
+        "Assigns": {
+            "attributes": [
+                "effectiveness",
+                "Leads_to",
+                "expertise"
+            ],
+            "primary_keys": [
+                "effectiveness"
+            ],
+            "weak": true
+        },
+        "contact_info": {
+            "attributes": [
+                "mediator_id",
+                "consequences",
+                "availability",
+                "resolution_id"
+            ],
+            "primary_keys": [
+                "mediator_id"
+            ],
+            "composite": {
+                "availability": [
+                    "Mediates",
+                    "date_resolved"
+                ]
+            },
+            "derived": [
+                "resolution_id"
+            ],
+            "weak": false
+        },
+        "Party": {
+            "attributes": [
+                "expertise",
+                "Mediator",
+                "Outcome"
+            ],
+            "primary_keys": [
+                "expertise"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date_initiated",
+                "agreement"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "party_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Assigns",
+                "date_initiated"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Involves",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_initiated",
+                "contact_info"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Resolution",
+            "weak": false
+        },
+        {
+            "entities": [
+                "contact_info",
+                "Party"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "conflict_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_initiated",
+                "agreement",
+                "Assigns"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "type",
+            "weak": true
+        }
+    ]
+}

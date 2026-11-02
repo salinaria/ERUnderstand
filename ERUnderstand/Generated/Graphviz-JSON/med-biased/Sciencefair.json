@@ -1,0 +1,120 @@
+{
+    "entities": {
+        "award_id": {
+            "attributes": [
+                "Student",
+                "project_id",
+                "category_id"
+            ],
+            "primary_keys": [
+                "Student"
+            ],
+            "weak": false
+        },
+        "grade_level": {
+            "attributes": [
+                "assigned_to",
+                "title"
+            ],
+            "primary_keys": [
+                "assigned_to"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "name",
+                "wins"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "student_id": {
+            "attributes": [
+                "mentors",
+                "Category",
+                "Award"
+            ],
+            "primary_keys": [
+                "mentors"
+            ],
+            "weak": false
+        },
+        "Project": {
+            "attributes": [
+                "teacher_id",
+                "Category",
+                "Award",
+                "Student"
+            ],
+            "primary_keys": [
+                "teacher_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "grade_level",
+                "award_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "subject",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "award_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "works_on",
+            "weak": false
+        },
+        {
+            "entities": [
+                "award_id",
+                "student_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "advises",
+            "weak": false
+        },
+        {
+            "entities": [
+                "award_id",
+                "Project"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Teacher",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "grade_level"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "abstract",
+            "weak": false
+        }
+    ]
+}

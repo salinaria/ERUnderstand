@@ -1,0 +1,145 @@
+{
+    "entities": {
+        "attends": {
+            "attributes": [
+                "session_id",
+                "date_of_birth",
+                "player_id",
+                "Performance",
+                "coach_id"
+            ],
+            "primary_keys": [
+                "session_id"
+            ],
+            "multivalued": [
+                "equipment_id"
+            ],
+            "weak": false,
+            "composite": {
+                "specialization": [
+                    "city",
+                    "address",
+                    "metrics"
+                ]
+            }
+        },
+        "date": {
+            "attributes": [
+                "Drill",
+                "uses",
+                "type",
+                "quantity",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "Drill"
+            ],
+            "weak": false
+        },
+        "drill_id": {
+            "attributes": [
+                "performance_id",
+                "date_of_birth",
+                "Equipment",
+                "end_time"
+            ],
+            "primary_keys": [
+                "performance_id"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "batting_style",
+                "date_of_birth",
+                "includes"
+            ],
+            "primary_keys": [
+                "batting_style"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "start_time",
+                "zip_code",
+                "achieves",
+                "description"
+            ],
+            "primary_keys": [
+                "start_time"
+            ],
+            "weak": true
+        },
+        "duration": {
+            "attributes": [
+                "Session",
+                "Drill",
+                "session_id",
+                "performance_id",
+                "Coach"
+            ],
+            "primary_keys": [
+                "Session"
+            ],
+            "weak": true,
+            "derived": [
+                "bowling_style"
+            ]
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "attends",
+                "date"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "condition",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "drill_id",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Player",
+            "weak": false,
+            "ternary": true
+        },
+        {
+            "entities": [
+                "date",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends",
+                "duration"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "score",
+            "identifying": true,
+            "weak": true
+        }
+    ]
+}

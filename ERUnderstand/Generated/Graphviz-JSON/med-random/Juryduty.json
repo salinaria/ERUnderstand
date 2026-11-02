@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "nmpg": {
+      "weak": false,
+      "attributes": [
+        "jffc",
+        "bday",
+        "ousk",
+        "zvtl"
+      ],
+      "primary_keys": [
+        "jffc"
+      ],
+      "multivalued": [
+        "zvtl"
+      ]
+    },
+    "wluk": {
+      "weak": false,
+      "attributes": [
+        "hfde",
+        "pnem",
+        "znxd",
+        "wzpi"
+      ],
+      "primary_keys": [
+        "hfde"
+      ],
+      "derived": [
+        "gpsn"
+      ]
+    },
+    "zzdu": {
+      "weak": false,
+      "attributes": [
+        "cgtc",
+        "mkxa",
+        "odbv"
+      ],
+      "primary_keys": [
+        "cgtc"
+      ]
+    },
+    "lvmj": {
+      "weak": false,
+      "attributes": [
+        "eish",
+        "hduw",
+        "tlzr",
+        "blaa"
+      ],
+      "primary_keys": [
+        "eish"
+      ]
+    },
+    "txqt": {
+      "weak": true,
+      "attributes": [
+        "kewo",
+        "ocfx",
+        "obbn",
+        "ezpz"
+      ],
+      "primary_keys": [
+        "kewo"
+      ],
+      "composite": {
+        "pkxd": [
+          "tlzr",
+          "blaa"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "nmpg",
+        "wluk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zlyo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wluk",
+        "txqt"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "gsso",
+      "weak": true
+    },
+    {
+      "entities": [
+        "nmpg",
+        "lvmj"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "fzek",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lvmj",
+        "zzdu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "irhm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lvmj",
+        "nmpg",
+        "wluk"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "uady",
+      "weak": false
+    }
+  ]
+}

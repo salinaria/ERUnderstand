@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "sehh": {
+      "weak": false,
+      "attributes": [
+        "fnah",
+        "fvsc",
+        "ofrf"
+      ],
+      "primary_keys": [
+        "fnah"
+      ],
+      "multivalued": [
+        "agbl"
+      ]
+    },
+    "fhtl": {
+      "weak": false,
+      "attributes": [
+        "xvyi",
+        "ertx",
+        "nrnb",
+        "ycsu"
+      ],
+      "primary_keys": [
+        "xvyi"
+      ]
+    },
+    "sclx": {
+      "weak": true,
+      "attributes": [
+        "hmbg",
+        "tzfh",
+        "gyja",
+        "izli",
+        "ancg"
+      ],
+      "primary_keys": [
+        "hmbg"
+      ],
+      "derived": [
+        "pjhb"
+      ]
+    },
+    "yjut": {
+      "weak": false,
+      "attributes": [
+        "orns",
+        "mxwt"
+      ],
+      "primary_keys": [
+        "orns"
+      ]
+    },
+    "wiwm": {
+      "weak": true,
+      "attributes": [
+        "uufo",
+        "xsmp",
+        "gbau"
+      ],
+      "primary_keys": [
+        "uufo"
+      ],
+      "composite": {
+        "mvck": [
+          "xybw",
+          "tyxb"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "sehh",
+        "fhtl"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "avgi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sehh",
+        "sclx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "anor",
+      "weak": true
+    },
+    {
+      "entities": [
+        "sclx",
+        "fhtl"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fnwe",
+      "weak": true
+    },
+    {
+      "entities": [
+        "sclx",
+        "yjut"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ydef",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fhtl",
+        "wiwm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zpqu",
+      "weak": true
+    }
+  ]
+}

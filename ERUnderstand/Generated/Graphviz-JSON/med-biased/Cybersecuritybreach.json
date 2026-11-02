@@ -1,0 +1,143 @@
+{
+    "entities": {
+        "creation_date": {
+            "attributes": [
+                "originated_from",
+                "attack_type",
+                "ip_address",
+                "affected_by"
+            ],
+            "primary_keys": [
+                "originated_from"
+            ],
+            "multivalued": [
+                "log_timestamp"
+            ],
+            "weak": false
+        },
+        "LogEntry": {
+            "attributes": [
+                "uptime",
+                "AttackEvent",
+                "account_id_ref",
+                "base_score"
+            ],
+            "primary_keys": [
+                "uptime"
+            ],
+            "derived": [
+                "system_id"
+            ],
+            "weak": false
+        },
+        "source_ip": {
+            "attributes": [
+                "UserAccount",
+                "targeted",
+                "timestamp",
+                "log_id"
+            ],
+            "primary_keys": [
+                "UserAccount"
+            ],
+            "composite": {
+                "cve_id": [
+                    "Vulnerability",
+                    "event_id",
+                    "severity"
+                ]
+            },
+            "weak": false
+        },
+        "exploitability_score": {
+            "attributes": [
+                "operating_system",
+                "vulnerability_id",
+                "system_name",
+                "System"
+            ],
+            "primary_keys": [
+                "operating_system"
+            ],
+            "weak": false
+        },
+        "password_hash": {
+            "attributes": [
+                "generates",
+                "system_id_ref",
+                "logged_into",
+                "description",
+                "log_level",
+                "log_message"
+            ],
+            "primary_keys": [
+                "generates"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "creation_date",
+                "LogEntry"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "account_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "LogEntry",
+                "source_ip"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "cvss_score",
+            "weak": false
+        },
+        {
+            "entities": [
+                "exploitability_score",
+                "LogEntry"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "username",
+            "weak": false
+        },
+        {
+            "entities": [
+                "password_hash",
+                "creation_date",
+                "LogEntry"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "security_question",
+            "weak": true
+        },
+        {
+            "entities": [
+                "exploitability_score",
+                "creation_date"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "impact_score",
+            "weak": false
+        }
+    ]
+}

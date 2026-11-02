@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "kacg": {
+      "weak": false,
+      "attributes": [
+        "vcrs",
+        "gpsi",
+        "mzip"
+      ],
+      "primary_keys": [
+        "vcrs"
+      ],
+      "multivalued": [
+        "ejce"
+      ]
+    },
+    "funn": {
+      "weak": false,
+      "attributes": [
+        "oxwu",
+        "uuut",
+        "bppy",
+        "kgsx"
+      ],
+      "primary_keys": [
+        "oxwu"
+      ]
+    },
+    "imor": {
+      "weak": false,
+      "attributes": [
+        "lpff",
+        "tqig",
+        "xalg",
+        "njpr"
+      ],
+      "primary_keys": [
+        "lpff"
+      ]
+    },
+    "rdtf": {
+      "weak": true,
+      "attributes": [
+        "rrjj",
+        "ldfm",
+        "myob",
+        "hpch"
+      ],
+      "primary_keys": [
+        "rrjj"
+      ],
+      "derived": [
+        "cqqd"
+      ]
+    },
+    "cznd": {
+      "weak": false,
+      "attributes": [
+        "vcrs",
+        "oxwu",
+        "totp",
+        "phdt",
+        "vkkv"
+      ],
+      "primary_keys": [
+        "vcrs",
+        "oxwu",
+        "totp"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "kacg",
+        "funn",
+        "rdtf"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "cufj",
+      "weak": true
+    },
+    {
+      "entities": [
+        "kacg",
+        "imor"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "livg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "funn",
+        "imor"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ypzk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rdtf",
+        "funn"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "dqbe",
+      "weak": true
+    },
+    {
+      "entities": [
+        "kacg",
+        "funn",
+        "cznd"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "vvwr",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+erDiagram
+Report {
+  string report_id PK
+  string title
+  string date_created
+}
+
+Section {
+  string section_id PK
+  string title
+  string word_count
+}
+
+Author {
+  string author_id PK
+  string name
+  string email
+}
+
+Topic {
+  string topic_id PK
+  string topic_name
+  string description
+}
+
+Reviewer {
+  string reviewer_id PK
+  string name
+  string expertise
+}
+
+    Report ||--o{ Section : "contains"
+    Report ||--o{ Author : "written_by"
+    Report ||--o{ Topic : "covers"
+    Report o{--o{ Reviewer : "reviewed_by"
+REL_feedback {
+  string rel_feedback_id PK
+}
+
+    Report o{--o{ REL_feedback : "Report-REL_feedback"
+    Reviewer ||--o{ REL_feedback : "Reviewer-REL_feedback"
+    Author ||--o{ REL_feedback : "Author-REL_feedback"

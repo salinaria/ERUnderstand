@@ -1,0 +1,147 @@
+{
+    "entities": {
+        "treatment_type": {
+            "attributes": [
+                "description",
+                "includes",
+                "performs",
+                "receives",
+                "Chiropractor"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "Chiropractor"
+            ],
+            "composite": {
+                "phone_number": [
+                    "includes",
+                    "performs"
+                ]
+            },
+            "weak": false
+        },
+        "license_number": {
+            "attributes": [
+                "first_name",
+                "includes",
+                "performs",
+                "Invoice",
+                "generates"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "composite": {
+                "phone_number": [
+                    "includes",
+                    "performs"
+                ]
+            },
+            "weak": false
+        },
+        "chiropractor_id": {
+            "attributes": [
+                "name",
+                "amount_due",
+                "appointment_id",
+                "patient_id",
+                "Patient"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true
+        },
+        "receives": {
+            "attributes": [
+                "date",
+                "specialization",
+                "time",
+                "schedules"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "room_number": {
+            "attributes": [
+                "last_name",
+                "date_of_birth",
+                "payment_method",
+                "treatment_id"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "derived": [
+                "payment_method"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "treatment_type",
+                "chiropractor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "cost",
+            "weak": false
+        },
+        {
+            "entities": [
+                "license_number",
+                "chiropractor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_issued",
+            "weak": false
+        },
+        {
+            "entities": [
+                "chiropractor_id",
+                "receives"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "invoice_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "chiropractor_id",
+                "room_number"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "duration",
+            "weak": true
+        },
+        {
+            "entities": [
+                "treatment_type",
+                "room_number"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Appointment",
+            "weak": true
+        }
+    ]
+}

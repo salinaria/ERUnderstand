@@ -1,0 +1,148 @@
+{
+    "entities": {
+        "Attends": {
+            "attributes": [
+                "state",
+                "technique_id",
+                "location"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "derived": [
+                "kata_names"
+            ],
+            "weak": false
+        },
+        "Practices": {
+            "attributes": [
+                "dojo_id",
+                "student_id",
+                "street"
+            ],
+            "primary_keys": [
+                "dojo_id"
+            ],
+            "composite": {
+                "age": [
+                    "Class",
+                    "name",
+                    "zip",
+                    "Student"
+                ]
+            },
+            "weak": false
+        },
+        "class_id": {
+            "attributes": [
+                "description",
+                "address",
+                "Hosts"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false
+        },
+        "instructor_id": {
+            "attributes": [
+                "city",
+                "date",
+                "belt_level"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        },
+        "Technique": {
+            "attributes": [
+                "state",
+                "city",
+                "Teaches"
+            ],
+            "primary_keys": [
+                "state",
+                "city",
+                "Teaches"
+            ],
+            "weak": true
+        },
+        "Specializes": {
+            "attributes": [
+                "years_of_experience",
+                "address",
+                "schedule"
+            ],
+            "primary_keys": [
+                "years_of_experience"
+            ],
+            "multivalued": [
+                "rank"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Attends",
+                "instructor_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Dojo",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Practices",
+                "instructor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Attendance",
+            "weak": false
+        },
+        {
+            "entities": [
+                "class_id",
+                "instructor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "duration",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Practices",
+                "Specializes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Instructor",
+            "weak": false
+        },
+        {
+            "entities": [
+                "instructor_id",
+                "Specializes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        }
+    ]
+}

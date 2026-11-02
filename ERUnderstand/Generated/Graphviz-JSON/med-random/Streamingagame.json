@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "owiu": {
+      "weak": false,
+      "attributes": [
+        "jjut",
+        "oisl",
+        "cyqc"
+      ],
+      "primary_keys": [
+        "jjut"
+      ],
+      "composite": {
+        "sfxa": [
+          "ibdg",
+          "bnga",
+          "ajmw"
+        ]
+      }
+    },
+    "jwbk": {
+      "weak": false,
+      "attributes": [
+        "oowt",
+        "cxyu",
+        "bodx"
+      ],
+      "primary_keys": [
+        "oowt"
+      ]
+    },
+    "nhvb": {
+      "weak": false,
+      "attributes": [
+        "jmob",
+        "oiba",
+        "jgsp"
+      ],
+      "primary_keys": [
+        "jmob"
+      ],
+      "multivalued": [
+        "qjkc"
+      ]
+    },
+    "wasr": {
+      "weak": false,
+      "attributes": [
+        "tuwv",
+        "ysyh",
+        "lnpp"
+      ],
+      "primary_keys": [
+        "tuwv"
+      ]
+    },
+    "pchc": {
+      "weak": true,
+      "attributes": [
+        "wkhp",
+        "bkdl",
+        "wxno",
+        "rpbw"
+      ],
+      "primary_keys": [
+        "wkhp"
+      ],
+      "derived": [
+        "wpux"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "owiu",
+        "jwbk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vbel",
+      "weak": false
+    },
+    {
+      "entities": [
+        "owiu",
+        "wasr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "oozy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pchc",
+        "owiu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "yqiy",
+      "weak": true
+    },
+    {
+      "entities": [
+        "nhvb",
+        "pchc"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "bgyx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pchc",
+        "jwbk"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fvjd",
+      "weak": true
+    }
+  ]
+}

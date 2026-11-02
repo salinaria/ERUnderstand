@@ -1,0 +1,146 @@
+{
+  "entities": {
+    "nmkv": {
+      "weak": false,
+      "attributes": [
+        "cdqp",
+        "hnzj",
+        "yhjp"
+      ],
+      "primary_keys": [
+        "cdqp"
+      ],
+      "composite": {
+        "yhjp": [
+          "ppal",
+          "hknn",
+          "cebl"
+        ]
+      }
+    },
+    "rzzc": {
+      "weak": false,
+      "attributes": [
+        "nred",
+        "vspd",
+        "vtcv",
+        "lhmd"
+      ],
+      "primary_keys": [
+        "nred"
+      ]
+    },
+    "arpe": {
+      "weak": true,
+      "attributes": [
+        "nfll",
+        "icxo",
+        "jrpe"
+      ],
+      "primary_keys": [
+        "nfll"
+      ],
+      "derived": [
+        "haxa"
+      ]
+    },
+    "hyfr": {
+      "weak": false,
+      "attributes": [
+        "ziio",
+        "hnzj",
+        "tcon"
+      ],
+      "primary_keys": [
+        "ziio"
+      ]
+    },
+    "bqaq": {
+      "weak": false,
+      "attributes": [
+        "iygf",
+        "vfhe",
+        "amuq"
+      ],
+      "primary_keys": [
+        "iygf"
+      ]
+    },
+    "vmjv": {
+      "weak": false,
+      "attributes": [
+        "vtwr",
+        "mmfh",
+        "xkga"
+      ],
+      "primary_keys": [
+        "vtwr"
+      ]
+    },
+    "gomh": {
+      "weak": false,
+      "attributes": [
+        "gmqj",
+        "ukqn",
+        "mffu"
+      ],
+      "primary_keys": [
+        "gmqj"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "nmkv",
+        "rzzc",
+        "arpe"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "ybnj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rzzc",
+        "hyfr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pdsn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hyfr",
+        "bqaq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ijnq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nmkv",
+        "bqaq",
+        "gomh"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "meul",
+      "weak": true
+    }
+  ]
+}

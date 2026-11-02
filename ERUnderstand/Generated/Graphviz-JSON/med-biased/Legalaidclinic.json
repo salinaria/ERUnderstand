@@ -1,0 +1,130 @@
+{
+    "entities": {
+        "client_id": {
+            "attributes": [
+                "Document",
+                "document_id",
+                "Case",
+                "first_name"
+            ],
+            "primary_keys": [
+                "Document"
+            ],
+            "multivalued": [
+                "first_name"
+            ],
+            "weak": false
+        },
+        "has_case": {
+            "attributes": [
+                "case_type",
+                "phone_number",
+                "specialization",
+                "name",
+                "manages"
+            ],
+            "primary_keys": [
+                "case_type"
+            ],
+            "derived": [
+                "date_time"
+            ],
+            "weak": false
+        },
+        "upload_date": {
+            "attributes": [
+                "Client",
+                "document_id",
+                "Appointment",
+                "open_date"
+            ],
+            "primary_keys": [
+                "Client"
+            ],
+            "composite": {
+                "document_id": [
+                    "file_name",
+                    "contains"
+                ]
+            },
+            "weak": false
+        },
+        "appointment_id": {
+            "attributes": [
+                "location",
+                "bar_number",
+                "last_name",
+                "case_type"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": true
+        },
+        "status": {
+            "attributes": [
+                "duration",
+                "schedules",
+                "close_date",
+                "Client",
+                "Document"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "client_id",
+                "has_case"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "upload_date",
+                "has_case"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "lawyer_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "has_case",
+                "appointment_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Lawyer",
+            "weak": true
+        },
+        {
+            "entities": [
+                "upload_date",
+                "status",
+                "client_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "case_id",
+            "weak": false
+        }
+    ]
+}

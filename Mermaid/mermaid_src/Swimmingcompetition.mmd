@@ -1,0 +1,48 @@
+erDiagram
+Swimmer {
+  string swimmer_id PK
+  string name
+  string birthdate
+  string nationality
+}
+
+Coach {
+  string coach_id PK
+  string name
+  string expertise
+}
+
+Event {
+  string event_id PK
+  string event_type
+  string distance
+  string stroke
+}
+
+Competition {
+  string competition_id PK
+  string name
+  string location
+  string start_date
+  string end_date
+}
+
+Performance {
+  string swimmer_id PK
+  string event_id PK
+  string competition_id PK
+  string time
+  string ranking
+}
+
+    Swimmer o{--|| Coach : "trained_by"
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Swimmer ||..o{ REL_participates_in : "Swimmer-REL_participates_in"
+    Performance o{..o{ REL_participates_in : "Performance-REL_participates_in"
+    Event ||..o{ REL_participates_in : "Event-REL_participates_in"
+    Competition ||..o{ REL_participates_in : "Competition-REL_participates_in"
+    Swimmer o{--|| Competition : "attends"
+    Performance ||--o{ Swimmer : "achieves"

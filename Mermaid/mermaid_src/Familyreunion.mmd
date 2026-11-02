@@ -1,0 +1,53 @@
+erDiagram
+Person {
+  string person_id PK
+  string first_name
+  string last_name
+  string date_of_birth
+}
+
+Family {
+  string family_id PK
+  string family_name
+  string location
+}
+
+Event {
+  string event_id PK
+  string event_name
+  string date
+  string location
+  string description
+}
+
+Gift {
+  string gift_id PK
+  string description
+  %% value: derived
+  string value
+  string wrapped
+}
+
+Attendance {
+  string event_id PK
+  string person_id PK
+  string rsvp_status
+}
+
+    Person o{--|| Family : "belongs_to"
+REL_attends {
+  string rel_attends_id PK
+}
+
+    Person o{..o{ REL_attends : "Person-REL_attends"
+    Attendance o{..o{ REL_attends : "Attendance-REL_attends"
+    Event ||..o{ REL_attends : "Event-REL_attends"
+REL_brings {
+  string rel_brings_id PK
+}
+
+    Person ||..o{ REL_brings : "Person-REL_brings"
+    Gift o{..o{ REL_brings : "Gift-REL_brings"
+    Event ||..o{ REL_brings : "Event-REL_brings"
+    Gift o{--|| Event : "given_at"
+    Person ||--o{ Person : "married_to"

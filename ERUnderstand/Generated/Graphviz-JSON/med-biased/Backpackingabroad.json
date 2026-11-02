@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "cost": {
+            "attributes": [
+                "receives",
+                "Trip",
+                "duration"
+            ],
+            "primary_keys": [
+                "receives"
+            ],
+            "multivalued": [
+                "start_date"
+            ],
+            "weak": false
+        },
+        "end_date": {
+            "attributes": [
+                "type",
+                "date",
+                "Traveler",
+                "nationality"
+            ],
+            "primary_keys": [
+                "type"
+            ],
+            "derived": [
+                "name"
+            ],
+            "weak": false
+        },
+        "writes": {
+            "attributes": [
+                "Activity",
+                "country",
+                "comment",
+                "plans"
+            ],
+            "primary_keys": [
+                "Activity"
+            ],
+            "composite": {
+                "plans": [
+                    "trip_id",
+                    "street",
+                    "Review"
+                ]
+            },
+            "weak": false
+        },
+        "country": {
+            "attributes": [
+                "features",
+                "Trip",
+                "Accommodation",
+                "languages_spoken"
+            ],
+            "primary_keys": [
+                "features"
+            ],
+            "weak": false
+        },
+        "cost_per_night": {
+            "attributes": [
+                "accommodation_id",
+                "city",
+                "total_cost",
+                "includes",
+                "type"
+            ],
+            "primary_keys": [
+                "accommodation_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "cost",
+                "end_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_date",
+                "writes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_date",
+                "country"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "traveler_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "cost_per_night"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "rating",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_date",
+                "cost_per_night"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "activity_id",
+            "weak": false
+        }
+    ]
+}

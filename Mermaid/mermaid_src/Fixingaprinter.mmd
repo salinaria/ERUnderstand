@@ -1,0 +1,42 @@
+erDiagram
+Technician {
+  string technician_id PK
+  string name
+  string phone_number
+}
+
+Printer {
+  string serial_number PK
+  string model
+  string location
+}
+
+Problem {
+  string problem_id PK
+  string description
+  string date_reported
+}
+
+Repair {
+  string repair_id PK
+  string date_repaired
+  string description
+}
+
+Part {
+  string part_number PK
+  string name
+  string cost
+}
+
+    Technician o{--o{ Printer : "maintains"
+    Printer ||--o{ Problem : "experiences"
+REL_performs {
+  string rel_performs_id PK
+}
+
+    Technician ||..o{ REL_performs : "Technician-REL_performs"
+    Repair o{..o{ REL_performs : "Repair-REL_performs"
+    Problem ||..o{ REL_performs : "Problem-REL_performs"
+    Repair ||--o{ Part : "uses"
+    Repair ||--|| Problem : "addresses"

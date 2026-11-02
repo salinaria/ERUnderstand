@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "contains": {
+            "attributes": [
+                "city",
+                "country",
+                "username"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        },
+        "email": {
+            "attributes": [
+                "comprises",
+                "Table",
+                "description"
+            ],
+            "primary_keys": [
+                "comprises"
+            ],
+            "weak": true
+        },
+        "street": {
+            "attributes": [
+                "table_name",
+                "privilege_id",
+                "User",
+                "db_id"
+            ],
+            "primary_keys": [
+                "table_name"
+            ],
+            "weak": true
+        },
+        "audits": {
+            "attributes": [
+                "password",
+                "constraints",
+                "name",
+                "description"
+            ],
+            "primary_keys": [
+                "password"
+            ],
+            "multivalued": [
+                "Database"
+            ],
+            "composite": {
+                "user_id": [
+                    "privilege_name",
+                    "creation_date",
+                    "location",
+                    "column_name"
+                ]
+            },
+            "weak": false
+        },
+        "Column": {
+            "attributes": [
+                "accesses",
+                "Privilege",
+                "column_id"
+            ],
+            "primary_keys": [
+                "accesses"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "contains",
+                "email"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "data_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "email",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "has_privilege_on",
+            "weak": true
+        },
+        {
+            "entities": [
+                "audits",
+                "contains"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "zipcode",
+            "weak": false
+        },
+        {
+            "entities": [
+                "audits",
+                "Column",
+                "contains"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "table_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "email",
+                "audits"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        }
+    ]
+}

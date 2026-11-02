@@ -1,0 +1,130 @@
+{
+  "entities": {
+    "ysfp": {
+      "weak": false,
+      "attributes": [
+        "duts",
+        "dtkb",
+        "utky",
+        "tfbk"
+      ],
+      "primary_keys": [
+        "duts"
+      ]
+    },
+    "xlfy": {
+      "weak": false,
+      "attributes": [
+        "jlae",
+        "oleg",
+        "nasd"
+      ],
+      "primary_keys": [
+        "jlae"
+      ],
+      "multivalued": [
+        "qgwy"
+      ]
+    },
+    "yrzv": {
+      "weak": false,
+      "attributes": [
+        "gnqt",
+        "oleg",
+        "muzx",
+        "awwl"
+      ],
+      "primary_keys": [
+        "gnqt"
+      ]
+    },
+    "ooib": {
+      "weak": true,
+      "attributes": [
+        "lpae",
+        "mecy",
+        "fmvd"
+      ],
+      "primary_keys": [
+        "lpae"
+      ]
+    },
+    "syln": {
+      "weak": true,
+      "attributes": [
+        "gvwr",
+        "mecy"
+      ],
+      "primary_keys": [
+        "gvwr"
+      ],
+      "derived": [
+        "bvkw"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ysfp",
+        "xlfy"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "crcm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ysfp",
+        "yrzv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "brej",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xlfy",
+        "ooib",
+        "syln"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "bflp",
+      "weak": true
+    },
+    {
+      "entities": [
+        "ysfp",
+        "ooib"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ywvg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ooib",
+        "syln"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "oqqt",
+      "weak": true
+    }
+  ]
+}

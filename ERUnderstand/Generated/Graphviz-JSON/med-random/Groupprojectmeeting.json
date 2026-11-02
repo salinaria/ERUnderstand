@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "dzoo": {
+      "weak": false,
+      "attributes": [
+        "dxfa",
+        "kcrq",
+        "horz"
+      ],
+      "primary_keys": [
+        "dxfa"
+      ]
+    },
+    "yjjm": {
+      "weak": false,
+      "attributes": [
+        "rfiv",
+        "bjwx"
+      ],
+      "primary_keys": [
+        "rfiv"
+      ],
+      "multivalued": [
+        "vflz"
+      ]
+    },
+    "fody": {
+      "weak": false,
+      "attributes": [
+        "kizj",
+        "axql",
+        "rddu",
+        "jfjb",
+        "lkyf"
+      ],
+      "primary_keys": [
+        "kizj"
+      ],
+      "derived": [
+        "geew"
+      ],
+      "composite": {
+        "kjyv": [
+          "rddu",
+          "jfjb"
+        ]
+      }
+    },
+    "kpnw": {
+      "weak": true,
+      "attributes": [
+        "zvvh",
+        "slxm",
+        "iscu",
+        "ghkk"
+      ],
+      "primary_keys": [
+        "zvvh"
+      ]
+    },
+    "fkip": {
+      "weak": true,
+      "attributes": [
+        "acmn",
+        "nzzy"
+      ],
+      "primary_keys": [
+        "acmn"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "yjjm",
+        "dzoo"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "qqhi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dzoo",
+        "fody"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qzcu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fody",
+        "kpnw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wsoq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yjjm",
+        "kpnw",
+        "fody"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "zeir",
+      "weak": true
+    },
+    {
+      "entities": [
+        "yjjm",
+        "kpnw",
+        "fkip"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "gpvm",
+      "weak": true
+    }
+  ]
+}

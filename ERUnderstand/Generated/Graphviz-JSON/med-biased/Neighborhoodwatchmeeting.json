@@ -1,0 +1,147 @@
+{
+    "entities": {
+        "time": {
+            "attributes": [
+                "name",
+                "phone_number",
+                "rank",
+                "suspect_id"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "multivalued": [
+                "suspect_id"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "resident_id",
+                "Officer",
+                "involved_in",
+                "Incident",
+                "precinct"
+            ],
+            "primary_keys": [
+                "resident_id"
+            ],
+            "weak": false
+        },
+        "meeting_id": {
+            "attributes": [
+                "location",
+                "Officer",
+                "involved_in",
+                "Incident",
+                "reports",
+                "Suspect"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "derived": [
+                "status"
+            ],
+            "weak": false
+        },
+        "agenda": {
+            "attributes": [
+                "last_name",
+                "phone_number",
+                "reports",
+                "assesses"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "multivalued": [
+                "assesses"
+            ],
+            "weak": true
+        },
+        "response_time": {
+            "attributes": [
+                "investigates",
+                "Resident",
+                "phone_number",
+                "Meeting",
+                "first_name"
+            ],
+            "primary_keys": [
+                "investigates"
+            ],
+            "composite": {
+                "phone_number": [
+                    "officer_id",
+                    "known_alias"
+                ]
+            },
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "time",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "badge_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "meeting_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "meeting_id",
+                "agenda"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "incident_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "response_time",
+                "meeting_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "attends",
+            "weak": false
+        },
+        {
+            "entities": [
+                "response_time",
+                "time",
+                "meeting_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        }
+    ]
+}

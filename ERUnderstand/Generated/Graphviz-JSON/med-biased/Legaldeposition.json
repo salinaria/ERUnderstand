@@ -1,0 +1,130 @@
+{
+    "entities": {
+        "answer_id": {
+            "attributes": [
+                "attorney_id",
+                "Witness",
+                "topic",
+                "responds_to"
+            ],
+            "primary_keys": [
+                "attorney_id"
+            ],
+            "weak": false
+        },
+        "Deposition": {
+            "attributes": [
+                "Question",
+                "address",
+                "includes"
+            ],
+            "primary_keys": [
+                "Question"
+            ],
+            "multivalued": [
+                "sentiment"
+            ],
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "witness_id",
+                "address",
+                "has",
+                "question_id"
+            ],
+            "primary_keys": [
+                "witness_id"
+            ],
+            "weak": false
+        },
+        "firm_name": {
+            "attributes": [
+                "involves",
+                "Attorney",
+                "text"
+            ],
+            "primary_keys": [
+                "involves"
+            ],
+            "weak": true
+        },
+        "name": {
+            "attributes": [
+                "location",
+                "Attorney"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "derived": [
+                "Answer"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "answer_id",
+                "Deposition"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "bar_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "answer_id",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "case_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Deposition",
+                "firm_name",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "date",
+            "weak": true
+        },
+        {
+            "entities": [
+                "answer_id",
+                "firm_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "conducts",
+            "weak": false
+        },
+        {
+            "entities": [
+                "firm_name",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "deposition_id",
+            "weak": true
+        }
+    ]
+}

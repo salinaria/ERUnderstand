@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "insurance_covered_amount": {
+            "attributes": [
+                "treatment_id",
+                "state",
+                "Doctor",
+                "Diagnosis"
+            ],
+            "primary_keys": [
+                "treatment_id"
+            ],
+            "multivalued": [
+                "birthdate"
+            ],
+            "weak": false,
+            "composite": {
+                "Diagnosis": [
+                    "specialty",
+                    "medication_id",
+                    "Prescribes",
+                    "Performs"
+                ]
+            }
+        },
+        "phone_number": {
+            "attributes": [
+                "city",
+                "state",
+                "diagnosis_code"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        },
+        "doctor_id": {
+            "attributes": [
+                "dosage",
+                "address",
+                "patient_id",
+                "Medication"
+            ],
+            "primary_keys": [
+                "dosage"
+            ],
+            "derived": [
+                "cost"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "zip_code",
+                "diagnosis_id",
+                "patient_id"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "weak": false
+        },
+        "Treatment": {
+            "attributes": [
+                "treatment_date",
+                "state",
+                "street"
+            ],
+            "primary_keys": [
+                "treatment_date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "insurance_covered_amount",
+                "doctor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Includes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "doctor_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Diagnoses",
+            "weak": false
+        },
+        {
+            "entities": [
+                "doctor_id",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "doctor_id",
+                "Treatment"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Patient",
+            "weak": false
+        },
+        {
+            "entities": [
+                "insurance_covered_amount",
+                "name",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Receives",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "dcwk": {
+      "weak": false,
+      "attributes": [
+        "fgzn",
+        "yuym",
+        "ijzv",
+        "uvbt"
+      ],
+      "primary_keys": [
+        "fgzn"
+      ],
+      "multivalued": [
+        "qoki"
+      ]
+    },
+    "lask": {
+      "weak": false,
+      "attributes": [
+        "eakv",
+        "erns",
+        "anao"
+      ],
+      "primary_keys": [
+        "eakv"
+      ],
+      "composite": {
+        "mbox": [
+          "tcvd",
+          "yqop",
+          "lcoi"
+        ]
+      }
+    },
+    "misa": {
+      "weak": true,
+      "attributes": [
+        "kuyv",
+        "cgbg",
+        "egoe",
+        "soza",
+        "lvfb"
+      ],
+      "primary_keys": [
+        "kuyv"
+      ],
+      "derived": [
+        "hori"
+      ]
+    },
+    "ckub": {
+      "weak": false,
+      "attributes": [
+        "bner",
+        "xoda",
+        "yuny",
+        "pqry"
+      ],
+      "primary_keys": [
+        "bner"
+      ]
+    },
+    "dlto": {
+      "weak": false,
+      "attributes": [
+        "mili",
+        "uhss",
+        "osni",
+        "gjiw"
+      ],
+      "primary_keys": [
+        "mili"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "dcwk",
+        "misa"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "lutn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lask",
+        "misa"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mdvx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "misa",
+        "ckub"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "sqad",
+      "weak": true
+    },
+    {
+      "entities": [
+        "dcwk",
+        "dlto"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "gyjj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dcwk",
+        "ckub",
+        "lask"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "sdzs",
+      "weak": true
+    }
+  ]
+}

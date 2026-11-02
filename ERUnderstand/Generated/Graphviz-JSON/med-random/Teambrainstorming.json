@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "xwdt": {
+      "weak": false,
+      "attributes": [
+        "lnbl",
+        "xjfa",
+        "fwhy"
+      ],
+      "primary_keys": [
+        "lnbl"
+      ]
+    },
+    "bvnk": {
+      "weak": false,
+      "attributes": [
+        "qtnh",
+        "kyrb",
+        "zyps",
+        "ooeb"
+      ],
+      "primary_keys": [
+        "qtnh"
+      ],
+      "composite": {
+        "kyrb": [
+          "unna",
+          "jidp",
+          "laxv"
+        ]
+      }
+    },
+    "cjvp": {
+      "weak": false,
+      "attributes": [
+        "vbzo",
+        "xjfa",
+        "tiqm"
+      ],
+      "primary_keys": [
+        "vbzo"
+      ],
+      "multivalued": [
+        "mvvr"
+      ]
+    },
+    "vrbr": {
+      "weak": true,
+      "attributes": [
+        "vqvq",
+        "lzdl",
+        "zunm"
+      ],
+      "primary_keys": [
+        "vqvq"
+      ],
+      "derived": [
+        "brup"
+      ]
+    },
+    "mhhq": {
+      "weak": false,
+      "attributes": [
+        "oldq",
+        "udkz",
+        "nart"
+      ],
+      "primary_keys": [
+        "oldq"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "xwdt",
+        "bvnk"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mcvn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cjvp",
+        "bvnk"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "nrkc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cjvp",
+        "vrbr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zkbr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bvnk",
+        "vrbr",
+        "mhhq"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "ciim",
+      "weak": true
+    },
+    {
+      "entities": [
+        "mhhq",
+        "vrbr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mivf",
+      "weak": false
+    }
+  ]
+}

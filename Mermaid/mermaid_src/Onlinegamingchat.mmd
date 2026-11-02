@@ -1,0 +1,44 @@
+erDiagram
+User {
+  string user_id PK
+  string username
+  string registration_date
+}
+
+Game {
+  string game_id PK
+  string game_name
+  string genre
+}
+
+ChatRoom {
+  string room_id PK
+  string room_name
+  string creation_date
+  string max_users
+}
+
+Message {
+  string message_id PK
+  string content
+  string timestamp
+  string user_id
+  string room_id
+}
+
+Moderator {
+  string mod_id PK
+  string start_date
+  string end_date
+}
+
+    User o{--o{ Game : "plays"
+    User o{--o{ ChatRoom : "participates_in"
+REL_sends_to {
+  string rel_sends_to_id PK
+}
+
+    Message ||..o{ REL_sends_to : "Message-REL_sends_to"
+    User o{..o{ REL_sends_to : "User-REL_sends_to"
+    ChatRoom ||..o{ REL_sends_to : "ChatRoom-REL_sends_to"
+    Moderator ||--o{ ChatRoom : "manages"

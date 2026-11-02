@@ -1,0 +1,146 @@
+{
+  "entities": {
+    "daku": {
+      "weak": false,
+      "attributes": [
+        "nfno",
+        "vazt",
+        "ulap"
+      ],
+      "primary_keys": [
+        "nfno"
+      ],
+      "multivalued": [
+        "ulap"
+      ]
+    },
+    "oodt": {
+      "weak": false,
+      "attributes": [
+        "keaa",
+        "vazt",
+        "svkb"
+      ],
+      "primary_keys": [
+        "keaa"
+      ],
+      "composite": {
+        "eind": [
+          "taou",
+          "hulu",
+          "klti",
+          "aogp"
+        ]
+      }
+    },
+    "hgsg": {
+      "weak": false,
+      "attributes": [
+        "ljmo",
+        "hghf",
+        "zstk",
+        "cekb"
+      ],
+      "primary_keys": [
+        "ljmo"
+      ]
+    },
+    "thtg": {
+      "weak": true,
+      "attributes": [
+        "iyun",
+        "uxvt",
+        "afkn"
+      ],
+      "primary_keys": [
+        "iyun"
+      ]
+    },
+    "npti": {
+      "weak": false,
+      "attributes": [
+        "xtrk",
+        "vazt",
+        "yfke"
+      ],
+      "primary_keys": [
+        "xtrk"
+      ]
+    },
+    "dewk": {
+      "weak": false,
+      "attributes": [
+        "hatl",
+        "ghuh",
+        "beee"
+      ],
+      "primary_keys": [
+        "hatl"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "daku",
+        "hgsg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "glfi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "hgsg",
+        "thtg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xmvm",
+      "weak": true
+    },
+    {
+      "entities": [
+        "dewk",
+        "oodt",
+        "thtg"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "gvsq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dewk",
+        "npti"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zxys",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dewk",
+        "hgsg"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "lveu",
+      "weak": false
+    }
+  ]
+}

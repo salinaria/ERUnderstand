@@ -1,0 +1,47 @@
+erDiagram
+Donor {
+  string donor_id PK
+  string name
+  string phone_number
+  string address
+}
+
+Event {
+  string event_id PK
+  string name
+  string date
+  string location
+  string description
+}
+
+Donation {
+  string donation_id PK
+  string amount
+  string date
+  string method
+}
+
+Volunteer {
+  string volunteer_id PK
+  string name
+  string phone_number
+}
+
+Sponsor {
+  string sponsor_id PK
+  string name
+  string contact_person
+  string contact_email
+}
+
+    Donor ||--o{ Donation : "makes"
+    Event ||--o{ Donation : "supports"
+    Volunteer o{--o{ Event : "participates_in"
+    Sponsor o{--o{ Event : "sponsors"
+REL_contributes_to {
+  string rel_contributes_to_id PK
+}
+
+    Donor o{..o{ REL_contributes_to : "Donor-REL_contributes_to"
+    Volunteer o{..o{ REL_contributes_to : "Volunteer-REL_contributes_to"
+    Event o{..o{ REL_contributes_to : "Event-REL_contributes_to"

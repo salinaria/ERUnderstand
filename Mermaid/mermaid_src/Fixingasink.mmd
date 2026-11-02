@@ -1,0 +1,50 @@
+erDiagram
+Homeowner {
+  string homeowner_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Plumber {
+  string plumber_id PK
+  string name
+  string hourly_rate
+}
+
+Sink {
+  string sink_id PK
+  string brand
+  string model
+  string installation_date
+}
+
+Problem {
+  string problem_id PK
+  string description
+  string date_reported
+}
+
+Part {
+  string part_id PK
+  string name
+  string cost
+}
+
+Repair {
+  string repair_id PK
+  string date_performed
+  string duration
+}
+
+    Homeowner ||--o{ Sink : "owns"
+    Sink ||..o{ Problem : "experiences"
+REL_resolves {
+  string rel_resolves_id PK
+}
+
+    Repair ||--o{ REL_resolves : "Repair-REL_resolves"
+    Plumber ||--o{ REL_resolves : "Plumber-REL_resolves"
+    Problem ||--o{ REL_resolves : "Problem-REL_resolves"
+    Repair ||--o{ Part : "uses"
+    Repair ||--|| Sink : "fixes"

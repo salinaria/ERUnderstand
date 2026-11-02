@@ -1,0 +1,142 @@
+{
+    "entities": {
+        "location": {
+            "attributes": [
+                "method",
+                "attendance_count",
+                "attendance_count",
+                "donor_id"
+            ],
+            "primary_keys": [
+                "method"
+            ],
+            "multivalued": [
+                "contributes_to"
+            ],
+            "weak": false
+        },
+        "participates_in": {
+            "attributes": [
+                "Donation",
+                "attendance_count",
+                "Sponsor",
+                "address",
+                "date"
+            ],
+            "primary_keys": [
+                "Donation"
+            ],
+            "derived": [
+                "amount"
+            ],
+            "weak": false
+        },
+        "Donor": {
+            "attributes": [
+                "city",
+                "event_id",
+                "Sponsor",
+                "makes"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": true
+        },
+        "name": {
+            "attributes": [
+                "description",
+                "attendance_count",
+                "attendance_count"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false,
+            "composite": {
+                "donor_id": [
+                    "contact_person",
+                    "street",
+                    "Event",
+                    "phone_number"
+                ]
+            }
+        },
+        "email": {
+            "attributes": [
+                "volunteer_id",
+                "attendance_count",
+                "sponsors",
+                "supports"
+            ],
+            "primary_keys": [
+                "volunteer_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location",
+                "Donor"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "donation_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "participates_in",
+                "Donor"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "contact_email",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "participates_in"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "state",
+            "weak": false
+        },
+        {
+            "entities": [
+                "email",
+                "participates_in"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Volunteer",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location",
+                "name",
+                "participates_in"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "N"
+            ],
+            "name": "sponsor_id",
+            "weak": true
+        }
+    ]
+}

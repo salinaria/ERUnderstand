@@ -1,0 +1,46 @@
+erDiagram
+Farmer {
+  string farmer_id PK
+  string name
+  string address
+}
+
+Product {
+  string product_id PK
+  string name
+  string description
+  %% price: composite
+  string price
+}
+
+Customer {
+  string customer_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Market_Stall {
+  string stall_id PK
+  string location
+  string rent_fee
+}
+
+Sale {
+  string sale_id PK
+  string sale_date
+  string quantity
+  string payment_method
+}
+
+    Farmer ||--o{ Market_Stall : "Rents"
+    Farmer ||--o{ Product : "Produces"
+    Sale ||--o{ Customer : "Purchases"
+REL_Includes {
+  string rel_includes_id PK
+}
+
+    Product o{..o{ REL_Includes : "Product-REL_Includes"
+    Sale ||..o{ REL_Includes : "Sale-REL_Includes"
+    Customer ||..o{ REL_Includes : "Customer-REL_Includes"
+    Market_Stall ||--o{ Sale : "Occurs_at"

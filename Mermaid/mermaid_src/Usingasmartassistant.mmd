@@ -1,0 +1,46 @@
+erDiagram
+User {
+  string user_id PK
+  string name
+  string date_joined
+}
+
+Device {
+  string device_id PK
+  string device_name
+  string operating_system
+  string location
+}
+
+Command {
+  string command_id PK
+  string command_text
+  string execution_time
+}
+
+Service {
+  string service_id PK
+  string service_name
+  string api_endpoint
+  string service_category
+}
+
+Log {
+  string log_id PK
+  string timestamp
+  string status
+  string error_message
+  string command_id
+}
+
+    User ||--o{ Device : "owns"
+    User ||--o{ Command : "issues"
+    Command ||--o{ Service : "uses"
+    Command ||..|| Log : "generates"
+REL_manages {
+  string rel_manages_id PK
+}
+
+    Device o{--o{ REL_manages : "Device-REL_manages"
+    Service o{--o{ REL_manages : "Service-REL_manages"
+    User ||--o{ REL_manages : "User-REL_manages"

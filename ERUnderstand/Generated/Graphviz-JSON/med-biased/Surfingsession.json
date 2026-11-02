@@ -1,0 +1,157 @@
+{
+    "entities": {
+        "temperature": {
+            "attributes": [
+                "Surfer",
+                "sponsors",
+                "duration"
+            ],
+            "primary_keys": [
+                "Surfer"
+            ],
+            "multivalued": [
+                "board_id"
+            ],
+            "weak": false
+        },
+        "wave_height": {
+            "attributes": [
+                "has_weather",
+                "weather_id",
+                "Session"
+            ],
+            "primary_keys": [
+                "has_weather"
+            ],
+            "weak": false
+        },
+        "success": {
+            "attributes": [
+                "Trick",
+                "sponsors",
+                "wind_speed",
+                "surfer_id"
+            ],
+            "primary_keys": [
+                "Trick"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "type",
+                "Session_Trick",
+                "length",
+                "difficulty",
+                "Trick"
+            ],
+            "primary_keys": [
+                "type"
+            ],
+            "derived": [
+                "participates_in"
+            ],
+            "weak": false
+        },
+        "skill_level": {
+            "attributes": [
+                "trick_id",
+                "Surfboard",
+                "end_time"
+            ],
+            "primary_keys": [
+                "trick_id"
+            ],
+            "weak": false
+        },
+        "location": {
+            "attributes": [
+                "owns",
+                "sponsors",
+                "attempt_number"
+            ],
+            "primary_keys": [
+                "owns"
+            ],
+            "weak": false
+        },
+        "session_id": {
+            "attributes": [
+                "type",
+                "owns",
+                "Surf_Spot",
+                "date"
+            ],
+            "primary_keys": [
+                "type",
+                "owns",
+                "Surf_Spot"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "temperature",
+                "wave_height"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "start_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "temperature",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "occurs_at",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "success"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Weather",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "skill_level"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "spot_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "location",
+                "session_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "has_weather",
+            "weak": true
+        }
+    ]
+}

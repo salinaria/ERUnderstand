@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "relationship_to_host": {
+            "attributes": [
+                "value",
+                "brings",
+                "person_id"
+            ],
+            "primary_keys": [
+                "value"
+            ],
+            "multivalued": [
+                "dish_id"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "gift_id",
+                "brings",
+                "quantity"
+            ],
+            "primary_keys": [
+                "gift_id"
+            ],
+            "weak": false
+        },
+        "served_at": {
+            "attributes": [
+                "allergy",
+                "brings",
+                "date_received"
+            ],
+            "primary_keys": [
+                "allergy"
+            ],
+            "weak": false
+        },
+        "Person": {
+            "attributes": [
+                "address",
+                "eats",
+                "contains"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "contains": {
+            "attributes": [
+                "name",
+                "Dish",
+                "quantity",
+                "Location"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "relationship_to_host",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "ingredient_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "served_at"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Ingredient",
+            "weak": false
+        },
+        {
+            "entities": [
+                "relationship_to_host",
+                "Person"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Gift",
+            "weak": false
+        },
+        {
+            "entities": [
+                "relationship_to_host",
+                "contains"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "hosts_at",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "Person",
+                "relationship_to_host"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "N"
+            ],
+            "name": "type",
+            "weak": true
+        }
+    ]
+}

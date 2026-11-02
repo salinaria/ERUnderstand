@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "cpee": {
+      "weak": false,
+      "attributes": [
+        "rtwf",
+        "bvgi",
+        "fvbm",
+        "hfrk"
+      ],
+      "primary_keys": [
+        "rtwf"
+      ],
+      "multivalued": [
+        "fvbm"
+      ]
+    },
+    "vucu": {
+      "weak": false,
+      "attributes": [
+        "vepx",
+        "rsnj",
+        "fshe"
+      ],
+      "primary_keys": [
+        "vepx"
+      ]
+    },
+    "gtlp": {
+      "weak": true,
+      "attributes": [
+        "kjjr",
+        "bvgi",
+        "cweh"
+      ],
+      "primary_keys": [
+        "kjjr"
+      ]
+    },
+    "ikby": {
+      "weak": false,
+      "attributes": [
+        "oeeu",
+        "bvgi",
+        "rkbv"
+      ],
+      "primary_keys": [
+        "oeeu"
+      ]
+    },
+    "szwl": {
+      "weak": false,
+      "attributes": [
+        "pkuf",
+        "bvgi",
+        "ypdb",
+        "amvk"
+      ],
+      "primary_keys": [
+        "pkuf"
+      ],
+      "composite": {
+        "bvgi": [
+          "ftbw",
+          "mgsn"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "cpee",
+        "vucu"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "lcrg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cpee",
+        "gtlp",
+        "vucu"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "ikjz",
+      "weak": true
+    },
+    {
+      "entities": [
+        "cpee",
+        "ikby"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gpyw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "szwl",
+        "vucu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "wnmo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gtlp",
+        "vucu"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "agmv",
+      "weak": false
+    }
+  ]
+}

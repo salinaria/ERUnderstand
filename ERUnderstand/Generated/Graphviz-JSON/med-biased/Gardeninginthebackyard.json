@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "location": {
+            "attributes": [
+                "plant_id",
+                "manages",
+                "planted_in"
+            ],
+            "primary_keys": [
+                "plant_id"
+            ],
+            "multivalued": [
+                "condition"
+            ],
+            "weak": false,
+            "composite": {
+                "days_until_harvest": [
+                    "Gardener",
+                    "watered",
+                    "Garden_Bed"
+                ]
+            }
+        },
+        "Tool": {
+            "attributes": [
+                "date",
+                "gardening_experience",
+                "address",
+                "gardener_id"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "derived": [
+                "uses"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "species",
+                "bed_id",
+                "tool_id",
+                "soil_type"
+            ],
+            "primary_keys": [
+                "species"
+            ],
+            "weak": false
+        },
+        "log_id": {
+            "attributes": [
+                "name",
+                "street",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        },
+        "variety": {
+            "attributes": [
+                "sun_exposure",
+                "quantity",
+                "Watering_Log",
+                "date"
+            ],
+            "primary_keys": [
+                "sun_exposure"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Plant",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Tool",
+                "zip_code"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "watering_frequency",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location",
+                "Tool",
+                "log_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Tool",
+                "variety"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "tool_type",
+            "weak": true
+        }
+    ]
+}

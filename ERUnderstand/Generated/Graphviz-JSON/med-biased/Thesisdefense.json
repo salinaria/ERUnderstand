@@ -1,0 +1,134 @@
+{
+    "entities": {
+        "supervises": {
+            "attributes": [
+                "first_name",
+                "Defense",
+                "professor_id"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "multivalued": [
+                "professor_id"
+            ],
+            "weak": false
+        },
+        "results_in": {
+            "attributes": [
+                "submission_date",
+                "writes",
+                "first_name"
+            ],
+            "primary_keys": [
+                "submission_date"
+            ],
+            "derived": [
+                "name"
+            ],
+            "weak": false
+        },
+        "time": {
+            "attributes": [
+                "department",
+                "Defense",
+                "Student"
+            ],
+            "primary_keys": [
+                "department"
+            ],
+            "composite": {
+                "Defense": [
+                    "evaluation_id",
+                    "comments"
+                ]
+            },
+            "weak": false
+        },
+        "Thesis": {
+            "attributes": [
+                "is_presented_at",
+                "Professor",
+                "email",
+                "thesis_id"
+            ],
+            "primary_keys": [
+                "is_presented_at"
+            ],
+            "weak": false
+        },
+        "defense_id": {
+            "attributes": [
+                "title",
+                "attends",
+                "location"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "supervises",
+                "results_in"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Evaluation",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "results_in"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "last_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "results_in",
+                "Thesis"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "grade",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "Thesis"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "approval_status",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Thesis",
+                "defense_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "Registration": {
+            "attributes": [
+                "team_name",
+                "registers",
+                "sponsors"
+            ],
+            "primary_keys": [
+                "team_name"
+            ],
+            "multivalued": [
+                "duration"
+            ],
+            "weak": false
+        },
+        "member_of": {
+            "attributes": [
+                "Team",
+                "registers",
+                "ranking",
+                "sponsor_id"
+            ],
+            "primary_keys": [
+                "Team"
+            ],
+            "derived": [
+                "birthdate"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "participates_in",
+                "registers",
+                "location"
+            ],
+            "primary_keys": [
+                "participates_in"
+            ],
+            "weak": false
+        },
+        "Course": {
+            "attributes": [
+                "difficulty",
+                "registers",
+                "coach"
+            ],
+            "primary_keys": [
+                "difficulty"
+            ],
+            "weak": false
+        },
+        "Skier": {
+            "attributes": [
+                "team_name",
+                "Team",
+                "Event",
+                "contact_person"
+            ],
+            "primary_keys": [
+                "team_name",
+                "Team"
+            ],
+            "weak": true
+        },
+        "date": {
+            "attributes": [
+                "registration_date",
+                "team_id",
+                "course_id"
+            ],
+            "primary_keys": [
+                "registration_date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Registration",
+                "member_of",
+                "name"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "event_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Registration",
+                "date"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "phone_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "member_of",
+                "Course"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Sponsor",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Registration",
+                "member_of"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "skier_id",
+            "weak": true,
+            "identifying_entity": "Registration"
+        }
+    ]
+}

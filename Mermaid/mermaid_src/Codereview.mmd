@@ -1,0 +1,37 @@
+erDiagram
+CodeReview {
+  string review_id PK
+  string creation_date
+  string status
+}
+
+Developer {
+  string developer_id PK
+  string name
+  string email
+}
+
+CodeFile {
+  string file_id PK
+  string file_name
+  string file_path
+  string line_count
+}
+
+Comment {
+  string comment_id PK
+  string comment_text
+  string creation_time
+}
+
+Severity {
+  string severity_id PK
+  string level
+  string description
+}
+
+    CodeReview ||--o{ Developer : "created_by"
+    CodeReview ||--o{ CodeFile : "includes"
+    Comment o{..|| CodeReview : "belongs_to"
+    Comment o{--|| Developer : "authored_by"
+    Comment o{--|| Severity : "has_severity"

@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "last_name": {
+            "attributes": [
+                "books",
+                "Passenger",
+                "Airplane",
+                "model"
+            ],
+            "primary_keys": [
+                "books"
+            ],
+            "composite": {
+                "arrival_airport": [
+                    "Passenger",
+                    "Airplane"
+                ]
+            },
+            "weak": false
+        },
+        "dimensions": {
+            "attributes": [
+                "gate_number",
+                "luggage_id",
+                "Luggage",
+                "passenger_id"
+            ],
+            "primary_keys": [
+                "gate_number"
+            ],
+            "weak": false
+        },
+        "loaded_on": {
+            "attributes": [
+                "issues",
+                "weight",
+                "BoardingPass"
+            ],
+            "primary_keys": [
+                "issues"
+            ],
+            "weak": false
+        },
+        "checks_in": {
+            "attributes": [
+                "capacity",
+                "first_name",
+                "seat_number"
+            ],
+            "primary_keys": [
+                "capacity"
+            ],
+            "weak": false
+        },
+        "scheduled_departure_time": {
+            "attributes": [
+                "boarding_time",
+                "airplane_id",
+                "name"
+            ],
+            "primary_keys": [
+                "boarding_time"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "last_name",
+                "dimensions"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "boarding_pass_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "loaded_on"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "uses",
+            "weak": false
+        },
+        {
+            "entities": [
+                "dimensions",
+                "checks_in"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Flight",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "scheduled_departure_time",
+                "dimensions"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "flight_number",
+            "weak": true
+        },
+        {
+            "entities": [
+                "scheduled_departure_time",
+                "dimensions"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "departure_airport",
+            "weak": false
+        }
+    ]
+}

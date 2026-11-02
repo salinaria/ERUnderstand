@@ -1,0 +1,46 @@
+erDiagram
+Carpet {
+  string carpet_id PK
+  string material
+  string size
+}
+
+Room {
+  string room_id PK
+  string room_name
+  string floor_type
+}
+
+VacuumCleaner {
+  string vacuum_id PK
+  string model
+  %% power: composite
+  string power
+  string bag_capacity
+}
+
+VacuumingSession {
+  string session_id PK
+  string date
+  string duration
+  string dirt_collected
+}
+
+MaintenanceLog {
+  string log_id PK
+  string date
+  string description
+  string cost
+}
+
+    Room ||--o{ Carpet : "contains"
+    VacuumCleaner ||--o{ VacuumingSession : "used_in"
+    VacuumingSession ||--|| Carpet : "cleans"
+    VacuumCleaner ||--o{ MaintenanceLog : "undergoes"
+REL_triggers {
+  string rel_triggers_id PK
+}
+
+    VacuumingSession o{..o{ REL_triggers : "VacuumingSession-REL_triggers"
+    MaintenanceLog ||..o{ REL_triggers : "MaintenanceLog-REL_triggers"
+    VacuumCleaner ||..o{ REL_triggers : "VacuumCleaner-REL_triggers"

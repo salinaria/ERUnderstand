@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "assigned_to": {
+            "attributes": [
+                "hourly_rate",
+                "project_name",
+                "department_id"
+            ],
+            "primary_keys": [
+                "hourly_rate"
+            ],
+            "composite": {
+                "Project": [
+                    "Task",
+                    "location",
+                    "street"
+                ]
+            },
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "part_of",
+                "reason",
+                "employee_id"
+            ],
+            "primary_keys": [
+                "part_of"
+            ],
+            "weak": false
+        },
+        "hours_worked": {
+            "attributes": [
+                "date",
+                "address",
+                "city",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": true
+        },
+        "priority": {
+            "attributes": [
+                "works_on",
+                "Department",
+                "OvertimeRecord"
+            ],
+            "primary_keys": [
+                "works_on"
+            ],
+            "weak": false
+        },
+        "department_name": {
+            "attributes": [
+                "project_id",
+                "deadline",
+                "files"
+            ],
+            "primary_keys": [
+                "project_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "assigned_to",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "assigned_to",
+                "hours_worked"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Employee",
+            "weak": false
+        },
+        {
+            "entities": [
+                "hours_worked",
+                "department_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "works_in",
+            "weak": true
+        },
+        {
+            "entities": [
+                "assigned_to",
+                "priority",
+                "department_name"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "task_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "department_name",
+                "priority"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "record_id",
+            "weak": false
+        }
+    ]
+}

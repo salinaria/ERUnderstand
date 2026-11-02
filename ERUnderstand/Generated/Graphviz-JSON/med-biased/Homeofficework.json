@@ -1,0 +1,148 @@
+{
+    "entities": {
+        "task_id": {
+            "attributes": [
+                "furniture",
+                "Located",
+                "attends",
+                "state"
+            ],
+            "primary_keys": [
+                "furniture"
+            ],
+            "composite": {
+                "attends": [
+                    "salary",
+                    "time_remaining",
+                    "address",
+                    "city"
+                ]
+            },
+            "weak": false
+        },
+        "office_id": {
+            "attributes": [
+                "model",
+                "street",
+                "works_on"
+            ],
+            "primary_keys": [
+                "model"
+            ],
+            "derived": [
+                "deadline"
+            ],
+            "weak": false
+        },
+        "employee_id": {
+            "attributes": [
+                "meeting_id",
+                "Meeting",
+                "assigned_to"
+            ],
+            "primary_keys": [
+                "meeting_id"
+            ],
+            "weak": false
+        },
+        "location": {
+            "attributes": [
+                "project_name",
+                "purchase_date",
+                "Equipment",
+                "project_id"
+            ],
+            "primary_keys": [
+                "project_name"
+            ],
+            "multivalued": [
+                "equipment_id"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "Task",
+                "serial_number",
+                "Project"
+            ],
+            "primary_keys": [
+                "Task"
+            ],
+            "weak": false
+        },
+        "date_time": {
+            "attributes": [
+                "type",
+                "Employee",
+                "part_of"
+            ],
+            "primary_keys": [
+                "type"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "task_id",
+                "office_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "HomeOffice",
+            "weak": false
+        },
+        {
+            "entities": [
+                "task_id",
+                "employee_id"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "dimensions",
+            "weak": false
+        },
+        {
+            "entities": [
+                "office_id",
+                "employee_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_time",
+                "task_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "zip_code",
+            "weak": true
+        },
+        {
+            "entities": [
+                "task_id",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "budget",
+            "weak": false
+        }
+    ]
+}

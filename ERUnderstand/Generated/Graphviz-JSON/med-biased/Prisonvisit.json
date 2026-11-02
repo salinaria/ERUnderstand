@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "visit_id": {
+            "attributes": [
+                "date",
+                "date_of_birth",
+                "phone_number",
+                "rank"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false,
+            "composite": {
+                "duration": [
+                    "Visitor",
+                    "Guard",
+                    "Supervises",
+                    "Prisoner"
+                ]
+            }
+        },
+        "crime": {
+            "attributes": [
+                "relationship_to_prisoner",
+                "date_of_birth",
+                "prisoner_id",
+                "duration"
+            ],
+            "primary_keys": [
+                "relationship_to_prisoner"
+            ],
+            "weak": false,
+            "multivalued": [
+                "OccursAt"
+            ]
+        },
+        "address": {
+            "attributes": [
+                "guard_id",
+                "state",
+                "Location",
+                "street"
+            ],
+            "primary_keys": [
+                "guard_id"
+            ],
+            "weak": true
+        },
+        "name": {
+            "attributes": [
+                "visitor_id",
+                "date_of_birth",
+                "Schedules"
+            ],
+            "primary_keys": [
+                "visitor_id"
+            ],
+            "weak": false
+        },
+        "location_id": {
+            "attributes": [
+                "capacity",
+                "date_of_birth",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "capacity"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "crime",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Receives",
+            "weak": false
+        },
+        {
+            "entities": [
+                "visit_id",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Visit",
+            "weak": false
+        },
+        {
+            "entities": [
+                "visit_id",
+                "crime",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "city",
+            "weak": true
+        },
+        {
+            "entities": [
+                "name",
+                "address",
+                "location_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "ParticipatesIn",
+            "weak": false
+        },
+        {
+            "entities": [
+                "address",
+                "location_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "time",
+            "weak": false
+        }
+    ]
+}

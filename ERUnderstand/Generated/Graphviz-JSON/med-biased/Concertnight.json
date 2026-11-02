@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "website": {
+            "attributes": [
+                "performs_at",
+                "participates",
+                "artist_id"
+            ],
+            "primary_keys": [
+                "performs_at"
+            ],
+            "multivalued": [
+                "sold_for"
+            ],
+            "weak": false
+        },
+        "Artist": {
+            "attributes": [
+                "start_time",
+                "participates",
+                "date",
+                "name"
+            ],
+            "primary_keys": [
+                "start_time"
+            ],
+            "composite": {
+                "price": [
+                    "duration",
+                    "address"
+                ]
+            },
+            "weak": false
+        },
+        "Ticket": {
+            "attributes": [
+                "contribution_amount",
+                "street",
+                "venue_id"
+            ],
+            "primary_keys": [
+                "contribution_amount"
+            ],
+            "derived": [
+                "capacity"
+            ],
+            "weak": false
+        },
+        "seat_number": {
+            "attributes": [
+                "sponsored_by",
+                "ticket_id",
+                "zip_code",
+                "contribution_amount"
+            ],
+            "primary_keys": [
+                "sponsored_by"
+            ],
+            "weak": true
+        },
+        "Concert": {
+            "attributes": [
+                "city",
+                "participates",
+                "sponsor_id"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "website",
+                "Ticket"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "genre",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Ticket",
+                "Artist"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "genre",
+            "weak": false
+        },
+        {
+            "entities": [
+                "seat_number",
+                "Ticket"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Sponsor",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Ticket",
+                "Concert"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "concert_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "website",
+                "Ticket",
+                "Concert"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "N"
+            ],
+            "name": "Venue",
+            "weak": true
+        }
+    ]
+}

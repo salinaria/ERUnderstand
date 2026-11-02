@@ -1,0 +1,130 @@
+{
+    "entities": {
+        "procedure_code": {
+            "attributes": [
+                "dentist_id",
+                "duration",
+                "appointment_id",
+                "time"
+            ],
+            "primary_keys": [
+                "dentist_id"
+            ],
+            "multivalued": [
+                "time"
+            ],
+            "weak": false,
+            "composite": {
+                "Makes": [
+                    "duration",
+                    "appointment_id"
+                ]
+            }
+        },
+        "first_name": {
+            "attributes": [
+                "Performs",
+                "duration",
+                "appointment_id",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "Performs"
+            ],
+            "weak": false,
+            "composite": {
+                "Makes": [
+                    "duration",
+                    "appointment_id"
+                ]
+            }
+        },
+        "cost": {
+            "attributes": [
+                "Dentist",
+                "Procedure",
+                "Related_to"
+            ],
+            "primary_keys": [
+                "Dentist"
+            ],
+            "weak": false
+        },
+        "amount": {
+            "attributes": [
+                "payment_method",
+                "procedure_name",
+                "date",
+                "Schedules"
+            ],
+            "primary_keys": [
+                "payment_method"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "procedure_code",
+                "cost"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "payment_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_name",
+                "cost"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Payment",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "cost"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "specialty",
+            "weak": false
+        },
+        {
+            "entities": [
+                "procedure_code",
+                "amount",
+                "cost"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "Involves",
+            "weak": false
+        },
+        {
+            "entities": [
+                "cost",
+                "amount"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "last_name",
+            "weak": false
+        }
+    ]
+}

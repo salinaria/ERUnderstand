@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "rgpq": {
+      "weak": false,
+      "attributes": [
+        "tuzy",
+        "hkgr",
+        "wevm",
+        "wdmc"
+      ],
+      "primary_keys": [
+        "tuzy"
+      ],
+      "multivalued": [
+        "wdmc"
+      ]
+    },
+    "eswu": {
+      "weak": false,
+      "attributes": [
+        "kvbs",
+        "hkgr",
+        "nnls",
+        "iwbi"
+      ],
+      "primary_keys": [
+        "kvbs"
+      ]
+    },
+    "nccf": {
+      "weak": false,
+      "attributes": [
+        "xshy",
+        "hkgr",
+        "kdby",
+        "yuzk"
+      ],
+      "primary_keys": [
+        "xshy"
+      ]
+    },
+    "sbhm": {
+      "weak": true,
+      "attributes": [
+        "dqti",
+        "nnls",
+        "zztr"
+      ],
+      "primary_keys": [
+        "dqti"
+      ]
+    },
+    "lhhf": {
+      "weak": false,
+      "attributes": [
+        "oljp",
+        "qchb",
+        "uygd",
+        "tilo"
+      ],
+      "primary_keys": [
+        "oljp"
+      ],
+      "derived": [
+        "udka"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "rgpq",
+        "lhhf"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "mqyl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eswu",
+        "nccf"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "eqax",
+      "weak": false
+    },
+    {
+      "entities": [
+        "eswu",
+        "sbhm"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "disu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "eswu",
+        "lhhf"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qvxl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nccf",
+        "sbhm",
+        "lhhf"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "N"
+      ],
+      "name": "arny",
+      "weak": true
+    }
+  ]
+}

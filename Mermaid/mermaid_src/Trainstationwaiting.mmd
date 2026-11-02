@@ -1,0 +1,40 @@
+erDiagram
+Passenger {
+  string passenger_id PK
+  string name
+  string birthdate
+}
+
+Train {
+  string train_id PK
+  string name
+  string departure_time
+  string arrival_time
+}
+
+Platform {
+  string platform_number PK
+}
+
+Seat {
+  string seat_number PK
+  string class
+}
+
+Ticket {
+  string ticket_id PK
+  string price
+  string purchase_date
+}
+
+    Passenger ||--o{ Ticket : "purchases"
+REL_reserves {
+  string rel_reserves_id PK
+}
+
+    Ticket ||--o{ REL_reserves : "Ticket-REL_reserves"
+    Train ||--o{ REL_reserves : "Train-REL_reserves"
+    Seat ||--o{ REL_reserves : "Seat-REL_reserves"
+    Train ||--o{ Platform : "arrives_at"
+    Train ||--o{ Platform : "departs_from"
+    Seat o{..|| Train : "is_part_of"

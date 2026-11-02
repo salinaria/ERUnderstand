@@ -1,0 +1,112 @@
+{
+  "entities": {
+    "sbbz": {
+      "weak": false,
+      "attributes": [
+        "rljm",
+        "fjsv",
+        "srxr"
+      ],
+      "primary_keys": [
+        "rljm"
+      ]
+    },
+    "frvy": {
+      "weak": false,
+      "attributes": [
+        "yyhh",
+        "fjsv",
+        "odtt",
+        "izim",
+        "etui"
+      ],
+      "primary_keys": [
+        "yyhh"
+      ],
+      "derived": [
+        "gwcb"
+      ]
+    },
+    "arez": {
+      "weak": false,
+      "attributes": [
+        "zadi",
+        "fjsv",
+        "knug"
+      ],
+      "primary_keys": [
+        "zadi"
+      ]
+    },
+    "xvso": {
+      "weak": true,
+      "attributes": [
+        "yyhh",
+        "rljm",
+        "ecnm",
+        "rmep"
+      ],
+      "primary_keys": [
+        "yyhh",
+        "rljm"
+      ]
+    },
+    "cjux": {
+      "weak": false,
+      "attributes": [
+        "dhty",
+        "fjsv",
+        "rwdm"
+      ],
+      "primary_keys": [
+        "dhty"
+      ],
+      "composite": {
+        "udfo": [
+          "pngy",
+          "ixbe"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "frvy",
+        "sbbz",
+        "xvso"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "guts",
+      "weak": true
+    },
+    {
+      "entities": [
+        "frvy",
+        "arez"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "grga",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cjux",
+        "frvy"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xbij",
+      "weak": false
+    }
+  ]
+}

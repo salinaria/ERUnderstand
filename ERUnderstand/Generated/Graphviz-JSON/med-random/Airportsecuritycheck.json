@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "wruw": {
+      "weak": false,
+      "attributes": [
+        "wzuz",
+        "ickc",
+        "cbob"
+      ],
+      "primary_keys": [
+        "wzuz"
+      ],
+      "multivalued": [
+        "inta"
+      ]
+    },
+    "wgcg": {
+      "weak": false,
+      "attributes": [
+        "yquh",
+        "fcmj",
+        "roks"
+      ],
+      "primary_keys": [
+        "yquh"
+      ],
+      "derived": [
+        "ejhz"
+      ]
+    },
+    "yunj": {
+      "weak": false,
+      "attributes": [
+        "ojue",
+        "ickc",
+        "hyhm"
+      ],
+      "primary_keys": [
+        "ojue"
+      ],
+      "composite": {
+        "omeg": [
+          "ijso",
+          "xmzq",
+          "zjoy"
+        ]
+      }
+    },
+    "zfps": {
+      "weak": false,
+      "attributes": [
+        "aesd",
+        "cilz",
+        "aqnn"
+      ],
+      "primary_keys": [
+        "aesd"
+      ]
+    },
+    "avuo": {
+      "weak": false,
+      "attributes": [
+        "uzyj",
+        "yiua",
+        "mrqq",
+        "fvrd"
+      ],
+      "primary_keys": [
+        "uzyj"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wruw",
+        "wgcg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wtsd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wruw",
+        "zfps"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "tsxh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yunj",
+        "zfps"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "vojb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yunj",
+        "wruw",
+        "wgcg"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "tpmq",
+      "weak": true
+    },
+    {
+      "entities": [
+        "wruw",
+        "avuo"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ivmg",
+      "weak": false
+    }
+  ]
+}

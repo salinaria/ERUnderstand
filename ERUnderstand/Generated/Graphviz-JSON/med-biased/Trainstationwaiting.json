@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "seat_number": {
+            "attributes": [
+                "name",
+                "amenities",
+                "platform_number"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "composite": {
+                "passenger_id": [
+                    "train_id",
+                    "Seat",
+                    "Passenger"
+                ]
+            },
+            "weak": false
+        },
+        "purchases": {
+            "attributes": [
+                "is_part_of",
+                "amenities",
+                "reserves",
+                "address"
+            ],
+            "primary_keys": [
+                "is_part_of"
+            ],
+            "derived": [
+                "street"
+            ],
+            "weak": false
+        },
+        "Train": {
+            "attributes": [
+                "price"
+            ],
+            "primary_keys": [
+                "price"
+            ],
+            "weak": false
+        },
+        "arrives_at": {
+            "attributes": [
+                "ticket_id",
+                "city"
+            ],
+            "primary_keys": [
+                "ticket_id",
+                "zipcode"
+            ],
+            "weak": true,
+            "multivalued": [
+                "arrival_time"
+            ]
+        },
+        "departure_time": {
+            "attributes": [
+                "Ticket",
+                "departs_from",
+                "arrival_delay"
+            ],
+            "primary_keys": [
+                "Ticket"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "seat_number",
+                "departure_time"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "birthdate",
+            "weak": false
+        },
+        {
+            "entities": [
+                "departure_time",
+                "purchases",
+                "arrives_at"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "Platform",
+            "weak": false
+        },
+        {
+            "entities": [
+                "purchases",
+                "Train"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "purchase_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "purchases",
+                "Train"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "class",
+            "weak": false
+        },
+        {
+            "entities": [
+                "arrives_at",
+                "purchases"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Train_train_id",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+  "entities": {
+    "zvia": {
+      "weak": false,
+      "attributes": [
+        "vbpe",
+        "lrtb",
+        "kcja",
+        "ptyv"
+      ],
+      "primary_keys": [
+        "vbpe"
+      ],
+      "multivalued": [
+        "pqvd"
+      ],
+      "composite": {
+        "rqsp": [
+          "epsr",
+          "amxg",
+          "zoan",
+          "wwnz"
+        ]
+      }
+    },
+    "knnm": {
+      "weak": false,
+      "attributes": [
+        "ufjy",
+        "tbzj",
+        "zkjq",
+        "bmcq"
+      ],
+      "primary_keys": [
+        "ufjy"
+      ],
+      "derived": [
+        "ehjc"
+      ]
+    },
+    "qcox": {
+      "weak": false,
+      "attributes": [
+        "rjzv",
+        "lrtb",
+        "fodk"
+      ],
+      "primary_keys": [
+        "rjzv"
+      ]
+    },
+    "pwun": {
+      "weak": false,
+      "attributes": [
+        "zcbh",
+        "ymjf",
+        "vndn"
+      ],
+      "primary_keys": [
+        "zcbh"
+      ]
+    },
+    "uafs": {
+      "weak": true,
+      "attributes": [
+        "bmcq",
+        "adsd",
+        "ohpa",
+        "rjzv",
+        "vbpe",
+        "zcbh"
+      ],
+      "primary_keys": [
+        "bmcq"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "zvia",
+        "pwun"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "uyfe",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qcox",
+        "uafs"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "aiuu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pwun",
+        "knnm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qcym",
+      "weak": false
+    },
+    {
+      "entities": [
+        "uafs",
+        "zvia",
+        "pwun"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "thdu",
+      "weak": true
+    },
+    {
+      "entities": [
+        "knnm",
+        "uafs"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "glrk",
+      "weak": true
+    }
+  ]
+}

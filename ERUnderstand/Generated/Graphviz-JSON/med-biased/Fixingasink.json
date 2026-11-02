@@ -1,0 +1,147 @@
+{
+    "entities": {
+        "Sink": {
+            "attributes": [
+                "Homeowner",
+                "description",
+                "name"
+            ],
+            "primary_keys": [
+                "Homeowner"
+            ],
+            "multivalued": [
+                "name"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "sink_id",
+                "description",
+                "model"
+            ],
+            "primary_keys": [
+                "sink_id"
+            ],
+            "composite": {
+                "problem_id": [
+                    "phone_number",
+                    "owns",
+                    "date_performed",
+                    "experiences"
+                ]
+            },
+            "weak": false
+        },
+        "brand": {
+            "attributes": [
+                "resolves",
+                "duration",
+                "homeowner_id",
+                "city"
+            ],
+            "primary_keys": [
+                "resolves"
+            ],
+            "weak": false
+        },
+        "plumber_id": {
+            "attributes": [
+                "cost",
+                "hourly_rate",
+                "Problem"
+            ],
+            "primary_keys": [
+                "cost"
+            ],
+            "weak": true
+        },
+        "state": {
+            "attributes": [
+                "uses",
+                "description",
+                "Plumber"
+            ],
+            "primary_keys": [
+                "uses"
+            ],
+            "weak": false
+        },
+        "uses": {
+            "attributes": [
+                "installation_date",
+                "zip_code",
+                "fixes"
+            ],
+            "primary_keys": [
+                "installation_date"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Sink",
+                "brand"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_reported",
+            "weak": false
+        },
+        {
+            "entities": [
+                "brand",
+                "plumber_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": true
+        },
+        {
+            "entities": [
+                "uses",
+                "street",
+                "plumber_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "repair_id",
+            "weak": false,
+            "ternary": true
+        },
+        {
+            "entities": [
+                "uses",
+                "state"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Repair",
+            "weak": false
+        },
+        {
+            "entities": [
+                "uses",
+                "brand"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Part",
+            "weak": false
+        }
+    ]
+}

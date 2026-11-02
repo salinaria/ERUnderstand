@@ -1,0 +1,165 @@
+{
+  "entities": {
+    "frvo": {
+      "weak": false,
+      "attributes": [
+        "uwul",
+        "lnob",
+        "rszu"
+      ],
+      "primary_keys": [
+        "uwul"
+      ],
+      "composite": {
+        "rszu": [
+          "dhna",
+          "tvsp",
+          "pgve",
+          "ozju"
+        ]
+      }
+    },
+    "ytac": {
+      "weak": false,
+      "attributes": [
+        "zlca",
+        "enyh",
+        "kdbo"
+      ],
+      "primary_keys": [
+        "zlca"
+      ],
+      "multivalued": [
+        "ftlt"
+      ]
+    },
+    "sntm": {
+      "weak": false,
+      "attributes": [
+        "cjep",
+        "fwjg",
+        "kodv",
+        "qwno"
+      ],
+      "primary_keys": [
+        "cjep"
+      ],
+      "derived": [
+        "lygv"
+      ]
+    },
+    "qadm": {
+      "weak": true,
+      "attributes": [
+        "dtxj",
+        "jzwf",
+        "yvlq",
+        "qovq",
+        "qyec",
+        "cjep"
+      ],
+      "primary_keys": [
+        "dtxj"
+      ]
+    },
+    "bkwh": {
+      "weak": false,
+      "attributes": [
+        "ajnp",
+        "lnob",
+        "gqin"
+      ],
+      "primary_keys": [
+        "ajnp"
+      ]
+    },
+    "yiuw": {
+      "weak": true,
+      "attributes": [
+        "vwoe",
+        "igre",
+        "drpq",
+        "cjep"
+      ],
+      "primary_keys": [
+        "vwoe"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "frvo",
+        "sntm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ligd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ytac",
+        "sntm"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "qgho",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sntm",
+        "qadm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cqgr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sntm",
+        "yiuw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "cgau",
+      "weak": true
+    },
+    {
+      "entities": [
+        "qadm",
+        "bkwh"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "wghm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ytac",
+        "bkwh",
+        "sntm"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "gpkm",
+      "weak": false
+    }
+  ]
+}

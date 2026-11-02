@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "tuer": {
+      "weak": false,
+      "attributes": [
+        "hmzq",
+        "lsyi",
+        "ugeu"
+      ],
+      "primary_keys": [
+        "hmzq"
+      ],
+      "multivalued": [
+        "ulol"
+      ],
+      "composite": {
+        "ugeu": [
+          "pytg",
+          "qxwn",
+          "uexo"
+        ]
+      }
+    },
+    "rjtd": {
+      "weak": false,
+      "attributes": [
+        "rlvc",
+        "vyqa",
+        "hkju"
+      ],
+      "primary_keys": [
+        "rlvc"
+      ],
+      "derived": [
+        "ffhd"
+      ]
+    },
+    "jker": {
+      "weak": true,
+      "attributes": [
+        "exyz",
+        "ajqu",
+        "xmoi",
+        "alqe"
+      ],
+      "primary_keys": [
+        "exyz"
+      ]
+    },
+    "rify": {
+      "weak": false,
+      "attributes": [
+        "bzng",
+        "gpeh",
+        "trdv",
+        "kjwp"
+      ],
+      "primary_keys": [
+        "bzng"
+      ]
+    },
+    "zuql": {
+      "weak": false,
+      "attributes": [
+        "vxns",
+        "uvzt",
+        "rolg"
+      ],
+      "primary_keys": [
+        "vxns"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "tuer",
+        "rjtd"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "sbss",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rjtd",
+        "jker"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mmmq",
+      "weak": true
+    },
+    {
+      "entities": [
+        "tuer",
+        "rify"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fslh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rify",
+        "rjtd"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "djrf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "rjtd",
+        "zuql"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "kctn",
+      "weak": false
+    }
+  ]
+}

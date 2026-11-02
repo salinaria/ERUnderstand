@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "date": {
+            "attributes": [
+                "Instructor",
+                "title",
+                "Student"
+            ],
+            "primary_keys": [
+                "Instructor"
+            ],
+            "derived": [
+                "student_id"
+            ],
+            "multivalued": [
+                "Creates"
+            ],
+            "weak": false
+        },
+        "Artwork": {
+            "attributes": [
+                "age",
+                "title",
+                "critique_id"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "composite": {
+                "medium": [
+                    "class_id",
+                    "feedback",
+                    "instructor_id"
+                ]
+            },
+            "weak": false
+        },
+        "expertise": {
+            "attributes": [
+                "zip_code",
+                "city",
+                "artwork_id",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "weak": false
+        },
+        "Critique": {
+            "attributes": [
+                "Critiques",
+                "title",
+                "Part_of",
+                "Class"
+            ],
+            "primary_keys": [
+                "Critiques"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "major",
+                "schedule",
+                "Attends"
+            ],
+            "primary_keys": [
+                "major"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date",
+                "Critique"
+            ],
+            "cardinality": [
+                "M",
+                "N"
+            ],
+            "name": "room_number",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Artwork",
+                "Critique"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "expertise"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "expertise",
+                "Critique",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "Teaches",
+            "weak": true
+        },
+        {
+            "entities": [
+                "date",
+                "expertise"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "creation_date",
+            "weak": false
+        }
+    ]
+}

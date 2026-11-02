@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "jjah": {
+      "weak": false,
+      "attributes": [
+        "kipz",
+        "ycye",
+        "king",
+        "uqbp"
+      ],
+      "primary_keys": [
+        "kipz"
+      ],
+      "composite": {
+        "joys": [
+          "ycye",
+          "king"
+        ]
+      }
+    },
+    "ckgc": {
+      "weak": false,
+      "attributes": [
+        "boyv",
+        "rvmm",
+        "nrdw",
+        "zixy"
+      ],
+      "primary_keys": [
+        "boyv"
+      ]
+    },
+    "sbac": {
+      "weak": false,
+      "attributes": [
+        "psma",
+        "muhy",
+        "ddtp"
+      ],
+      "primary_keys": [
+        "psma"
+      ]
+    },
+    "jeqm": {
+      "weak": false,
+      "attributes": [
+        "rsuw",
+        "qatq",
+        "fhao"
+      ],
+      "primary_keys": [
+        "rsuw"
+      ]
+    },
+    "vuch": {
+      "weak": true,
+      "attributes": [
+        "qogp",
+        "vkbd",
+        "terv"
+      ],
+      "primary_keys": [
+        "qogp"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jjah",
+        "ckgc"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "errw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jjah",
+        "sbac"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fhnf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ckgc",
+        "jeqm"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "lwfn",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jjah",
+        "vuch",
+        "ckgc"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "czhk",
+      "weak": true
+    },
+    {
+      "entities": [
+        "vuch",
+        "ckgc"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "shlw",
+      "weak": false
+    }
+  ]
+}

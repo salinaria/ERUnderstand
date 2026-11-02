@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "yjff": {
+      "weak": false,
+      "attributes": [
+        "ijxf",
+        "vrxv",
+        "erxj",
+        "dwey"
+      ],
+      "primary_keys": [
+        "ijxf"
+      ],
+      "multivalued": [
+        "lrpp"
+      ]
+    },
+    "fjzi": {
+      "weak": false,
+      "attributes": [
+        "qmox",
+        "vrxv",
+        "hegd"
+      ],
+      "primary_keys": [
+        "qmox"
+      ],
+      "composite": {
+        "wtki": [
+          "winc",
+          "vuqg",
+          "idch"
+        ]
+      }
+    },
+    "bfuw": {
+      "weak": false,
+      "attributes": [
+        "kfyx",
+        "cdot",
+        "ojno",
+        "lwlx"
+      ],
+      "primary_keys": [
+        "kfyx"
+      ]
+    },
+    "lzwf": {
+      "weak": false,
+      "attributes": [
+        "pclh",
+        "vrxv",
+        "euan",
+        "glhs",
+        "xnso"
+      ],
+      "primary_keys": [
+        "pclh"
+      ]
+    },
+    "syxw": {
+      "weak": true,
+      "attributes": [
+        "ijxf",
+        "kfyx",
+        "pclh",
+        "befh",
+        "fzxq"
+      ],
+      "primary_keys": [
+        "ijxf",
+        "kfyx",
+        "pclh"
+      ],
+      "derived": [
+        "uoqt"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "yjff",
+        "fjzi"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "cqce",
+      "weak": false
+    },
+    {
+      "entities": [
+        "yjff",
+        "syxw",
+        "bfuw",
+        "lzwf"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "jbjq",
+      "weak": true
+    },
+    {
+      "entities": [
+        "yjff",
+        "lzwf"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "hhhh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "syxw",
+        "yjff"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "emln",
+      "weak": false
+    }
+  ]
+}

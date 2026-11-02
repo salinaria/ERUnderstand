@@ -1,0 +1,124 @@
+{
+    "entities": {
+        "holiday_name": {
+            "attributes": [
+                "associated_with",
+                "task_id",
+                "color"
+            ],
+            "primary_keys": [
+                "associated_with"
+            ],
+            "weak": false
+        },
+        "location_id": {
+            "attributes": [
+                "phone_number",
+                "person_id",
+                "size",
+                "Location"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "composite": {
+                "Decoration": [
+                    "Holiday",
+                    "holiday_id",
+                    "placed_at"
+                ]
+            },
+            "weak": false
+        },
+        "prepared_by": {
+            "attributes": [
+                "location_name",
+                "quantity",
+                "decoration_id"
+            ],
+            "primary_keys": [
+                "location_name"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "date",
+                "width",
+                "height"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "derived": [
+                "Person"
+            ],
+            "weak": true
+        },
+        "assigned_to": {
+            "attributes": [
+                "decoration_type",
+                "deadline"
+            ],
+            "primary_keys": [
+                "decoration_type"
+            ],
+            "multivalued": [
+                "status"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location_id",
+                "holiday_name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "room",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location_id",
+                "prepared_by"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "Decorating_Task",
+            "weak": false
+        },
+        {
+            "entities": [
+                "prepared_by",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "depth",
+            "weak": true
+        },
+        {
+            "entities": [
+                "holiday_name",
+                "assigned_to",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        }
+    ]
+}

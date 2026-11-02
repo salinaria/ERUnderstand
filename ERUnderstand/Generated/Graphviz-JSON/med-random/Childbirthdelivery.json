@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "fabq": {
+      "weak": false,
+      "attributes": [
+        "yvco",
+        "dzyw",
+        "athn",
+        "hvki",
+        "ehiq"
+      ],
+      "primary_keys": [
+        "yvco"
+      ],
+      "multivalued": [
+        "ehiq"
+      ]
+    },
+    "cmgd": {
+      "weak": false,
+      "attributes": [
+        "jtzx",
+        "ikuz",
+        "zshu",
+        "bruw"
+      ],
+      "primary_keys": [
+        "jtzx"
+      ],
+      "derived": [
+        "ybsg"
+      ]
+    },
+    "xzca": {
+      "weak": true,
+      "attributes": [
+        "hxfo",
+        "jvlu",
+        "npjh"
+      ],
+      "primary_keys": [
+        "hxfo"
+      ]
+    },
+    "hzsn": {
+      "weak": false,
+      "attributes": [
+        "nota",
+        "dzyw",
+        "ojgi"
+      ],
+      "primary_keys": [
+        "nota"
+      ],
+      "composite": {
+        "dzyw": [
+          "wxzo",
+          "bsga"
+        ]
+      }
+    },
+    "jhax": {
+      "weak": false,
+      "attributes": [
+        "pvvg",
+        "dzyw",
+        "mdmh"
+      ],
+      "primary_keys": [
+        "pvvg"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "fabq",
+        "cmgd"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rgbj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cmgd",
+        "xzca"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "vfya",
+      "weak": true
+    },
+    {
+      "entities": [
+        "hzsn",
+        "cmgd"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ahit",
+      "weak": false
+    },
+    {
+      "entities": [
+        "cmgd",
+        "jhax",
+        "hzsn"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "hclz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xzca",
+        "fabq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pplk",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "date": {
+            "attributes": [
+                "start_date",
+                "end_date",
+                "has"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "multivalued": [
+                "score_value"
+            ],
+            "derived": [
+                "location"
+            ],
+            "weak": false
+        },
+        "time": {
+            "attributes": [
+                "achieves",
+                "Course",
+                "fee",
+                "Golfer"
+            ],
+            "primary_keys": [
+                "achieves"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "membership_id",
+                "end_date",
+                "course_id",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "membership_id"
+            ],
+            "composite": {
+                "course_id": [
+                    "number_of_holes",
+                    "books",
+                    "Membership",
+                    "handicap"
+                ]
+            },
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "achieves",
+                "start_date",
+                "tee_time_id",
+                "Course"
+            ],
+            "primary_keys": [
+                "achieves",
+                "start_date"
+            ],
+            "weak": true
+        },
+        "phone_number": {
+            "attributes": [
+                "age",
+                "holes_played",
+                "golfer_id",
+                "city",
+                "occurs_at"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date",
+                "time"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "TeeTime",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Score",
+            "weak": false
+        },
+        {
+            "entities": [
+                "time",
+                "name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "time",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "state",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+  "entities": {
+    "xjoi": {
+      "weak": false,
+      "attributes": [
+        "pzqj",
+        "zdbc",
+        "xial",
+        "gexj"
+      ],
+      "primary_keys": [
+        "pzqj"
+      ]
+    },
+    "oqoc": {
+      "weak": false,
+      "attributes": [
+        "cjph",
+        "qxzc",
+        "lofc"
+      ],
+      "primary_keys": [
+        "cjph"
+      ],
+      "multivalued": [
+        "ybxb"
+      ]
+    },
+    "wvpe": {
+      "weak": false,
+      "attributes": [
+        "zdou",
+        "qxzc",
+        "czzs",
+        "acbh"
+      ],
+      "primary_keys": [
+        "zdou"
+      ],
+      "composite": {
+        "qxzc": [
+          "best",
+          "gmrz"
+        ]
+      }
+    },
+    "ioir": {
+      "weak": true,
+      "attributes": [
+        "avzl",
+        "ykzp",
+        "xgqw"
+      ],
+      "primary_keys": [
+        "avzl"
+      ],
+      "derived": [
+        "wjuz"
+      ]
+    },
+    "btrq": {
+      "weak": false,
+      "attributes": [
+        "sfnr",
+        "qxzc",
+        "djhk"
+      ],
+      "primary_keys": [
+        "sfnr"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "xjoi",
+        "oqoc"
+      ],
+      "cardinality": [
+        "1",
+        "2"
+      ],
+      "name": "djon",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wvpe",
+        "oqoc"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "ortf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xjoi",
+        "btrq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "rwjx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ioir",
+        "xjoi",
+        "wvpe"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "zmzc",
+      "weak": true
+    }
+  ]
+}

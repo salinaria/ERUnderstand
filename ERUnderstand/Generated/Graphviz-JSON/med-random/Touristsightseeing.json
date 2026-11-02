@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "nlmz": {
+      "weak": false,
+      "attributes": [
+        "nsdd",
+        "hhtk",
+        "jwug"
+      ],
+      "primary_keys": [
+        "nsdd"
+      ],
+      "multivalued": [
+        "pilo"
+      ],
+      "composite": {
+        "jnxt": [
+          "slit",
+          "fwsl",
+          "tfim"
+        ]
+      }
+    },
+    "verx": {
+      "weak": false,
+      "attributes": [
+        "alew",
+        "pxaj",
+        "lhvj",
+        "pzlm"
+      ],
+      "primary_keys": [
+        "alew"
+      ]
+    },
+    "omfb": {
+      "weak": false,
+      "attributes": [
+        "cvzh",
+        "btpz",
+        "qpeu"
+      ],
+      "primary_keys": [
+        "cvzh"
+      ]
+    },
+    "vuke": {
+      "weak": false,
+      "attributes": [
+        "vlzg",
+        "jjja",
+        "jnxt",
+        "vhyd"
+      ],
+      "primary_keys": [
+        "vlzg"
+      ]
+    },
+    "noxq": {
+      "weak": true,
+      "attributes": [
+        "cpue",
+        "jzuj",
+        "imbr",
+        "gsgc"
+      ],
+      "primary_keys": [
+        "cpue"
+      ],
+      "derived": [
+        "oqug"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "nlmz",
+        "verx"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "mhah",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nlmz",
+        "omfb",
+        "verx"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "N"
+      ],
+      "name": "ixwp",
+      "weak": false
+    },
+    {
+      "entities": [
+        "nlmz",
+        "vuke",
+        "noxq"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "qhzc",
+      "weak": true
+    },
+    {
+      "entities": [
+        "vuke",
+        "verx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zylb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "noxq",
+        "vuke"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "xica",
+      "weak": true
+    }
+  ]
+}

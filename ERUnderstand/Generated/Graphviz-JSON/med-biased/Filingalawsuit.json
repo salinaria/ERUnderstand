@@ -1,0 +1,152 @@
+{
+    "entities": {
+        "days_pending": {
+            "attributes": [
+                "Defendant",
+                "state",
+                "filing_date",
+                "date_submitted"
+            ],
+            "primary_keys": [
+                "Defendant"
+            ],
+            "multivalued": [
+                "date_submitted"
+            ],
+            "weak": false,
+            "composite": {
+                "filing_date": [
+                    "address",
+                    "description",
+                    "type",
+                    "location"
+                ]
+            }
+        },
+        "is_against": {
+            "attributes": [
+                "Plaintiff",
+                "state",
+                "filing_date",
+                "date_submitted"
+            ],
+            "primary_keys": [
+                "Plaintiff"
+            ],
+            "multivalued": [
+                "date_submitted"
+            ],
+            "weak": false,
+            "composite": {
+                "filing_date": [
+                    "address",
+                    "description",
+                    "type",
+                    "location"
+                ]
+            }
+        },
+        "zip_code": {
+            "attributes": [
+                "city",
+                "involves",
+                "plaintiff_id",
+                "evidence_id"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "derived": [
+                "court_id"
+            ],
+            "weak": false
+        },
+        "files": {
+            "attributes": [
+                "Lawsuit",
+                "state",
+                "defendant_id"
+            ],
+            "primary_keys": [
+                "Lawsuit"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "case_number",
+                "Evidence",
+                "evidence_id",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "case_number"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "days_pending",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "includes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "is_against",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Court",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "files"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "lawsuit_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "zip_code",
+                "days_pending",
+                "is_against"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "is_heard_in",
+            "weak": false
+        }
+    ]
+}

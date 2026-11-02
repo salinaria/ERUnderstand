@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "emto": {
+      "weak": false,
+      "attributes": [
+        "pmgy",
+        "teel",
+        "feqh"
+      ],
+      "primary_keys": [
+        "pmgy"
+      ],
+      "multivalued": [
+        "dwyy"
+      ]
+    },
+    "dtoq": {
+      "weak": false,
+      "attributes": [
+        "mzxr",
+        "teel",
+        "tnyu",
+        "nngz"
+      ],
+      "primary_keys": [
+        "mzxr"
+      ],
+      "derived": [
+        "nlsr"
+      ]
+    },
+    "ejov": {
+      "weak": false,
+      "attributes": [
+        "gmuu",
+        "xgde"
+      ],
+      "primary_keys": [
+        "gmuu"
+      ]
+    },
+    "gvia": {
+      "weak": false,
+      "attributes": [
+        "mysk",
+        "xacf",
+        "kejj"
+      ],
+      "primary_keys": [
+        "mysk"
+      ]
+    },
+    "djgw": {
+      "weak": true,
+      "attributes": [
+        "okri",
+        "ofcz",
+        "ebev"
+      ],
+      "primary_keys": [
+        "okri"
+      ],
+      "composite": {
+        "kglg": [
+          "zncp",
+          "dspl"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "emto",
+        "gvia"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qops",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gvia",
+        "djgw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "bmcm",
+      "weak": true
+    },
+    {
+      "entities": [
+        "djgw",
+        "dtoq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fviu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dtoq",
+        "ejov"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "ugwb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gvia",
+        "emto",
+        "dtoq"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "qjvt",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "entities": {
+    "kuwf": {
+      "weak": false,
+      "attributes": [
+        "xmra",
+        "ynou",
+        "cjfh"
+      ],
+      "primary_keys": [
+        "xmra"
+      ],
+      "multivalued": [
+        "wzku"
+      ],
+      "composite": {
+        "ynou": [
+          "cdio",
+          "wsbr"
+        ]
+      }
+    },
+    "gdll": {
+      "weak": false,
+      "attributes": [
+        "ucvy",
+        "ynou",
+        "cgak"
+      ],
+      "primary_keys": [
+        "ucvy"
+      ],
+      "composite": {
+        "ynou": [
+          "cdio",
+          "wsbr"
+        ]
+      }
+    },
+    "dpte": {
+      "weak": false,
+      "attributes": [
+        "okob",
+        "tcpf",
+        "kxla",
+        "xbsw"
+      ],
+      "primary_keys": [
+        "okob"
+      ],
+      "derived": [
+        "cjru"
+      ]
+    },
+    "losx": {
+      "weak": false,
+      "attributes": [
+        "liph",
+        "ynou",
+        "dpcz"
+      ],
+      "primary_keys": [
+        "liph"
+      ]
+    },
+    "optv": {
+      "weak": false,
+      "attributes": [
+        "dpug",
+        "ynou",
+        "depe",
+        "lsid"
+      ],
+      "primary_keys": [
+        "dpug"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "kuwf",
+        "dpte"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nrwk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gdll",
+        "dpte"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mloi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dpte",
+        "losx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xcva",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dpte",
+        "optv"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "bmsd",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gdll",
+        "kuwf",
+        "dpte"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "zycx",
+      "weak": false
+    }
+  ]
+}

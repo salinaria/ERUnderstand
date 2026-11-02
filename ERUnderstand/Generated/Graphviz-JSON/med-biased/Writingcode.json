@@ -1,0 +1,140 @@
+{
+    "entities": {
+        "CodeRepository": {
+            "attributes": [
+                "start_date",
+                "bug_id",
+                "developer_id"
+            ],
+            "primary_keys": [
+                "start_date"
+            ],
+            "multivalued": [
+                "reporter"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "Bug",
+                "Project",
+                "end_date",
+                "duration"
+            ],
+            "primary_keys": [
+                "Bug"
+            ],
+            "derived": [
+                "reporter_name"
+            ],
+            "weak": false
+        },
+        "task_id": {
+            "attributes": [
+                "programming_languages",
+                "creation_date",
+                "reporter_contact",
+                "includes"
+            ],
+            "primary_keys": [
+                "programming_languages"
+            ],
+            "weak": false
+        },
+        "Developer": {
+            "attributes": [
+                "last_commit_date",
+                "severity",
+                "title",
+                "status"
+            ],
+            "primary_keys": [
+                "last_commit_date"
+            ],
+            "composite": {
+                "priority": [
+                    "url",
+                    "name"
+                ]
+            },
+            "weak": true
+        },
+        "report_date": {
+            "attributes": [
+                "resolves",
+                "project_id",
+                "severity",
+                "Task",
+                "experience_years"
+            ],
+            "primary_keys": [
+                "resolves"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "CodeRepository",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Bug",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "task_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "project_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Developer",
+                "CodeRepository"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "repository_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "report_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "assigned_to",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Developer",
+                "report_date",
+                "CodeRepository"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "uses",
+            "weak": true
+        }
+    ]
+}

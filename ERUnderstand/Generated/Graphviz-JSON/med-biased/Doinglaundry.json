@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "fabric": {
+            "attributes": [
+                "material",
+                "WashingMachine",
+                "is_dried_in"
+            ],
+            "primary_keys": [
+                "material"
+            ],
+            "weak": false
+        },
+        "LaundryBasket": {
+            "attributes": [
+                "phone_number",
+                "name",
+                "capacity",
+                "Dryer"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": true,
+            "derived": [
+                "is_washed_in"
+            ]
+        },
+        "ClothingItem": {
+            "attributes": [
+                "Person",
+                "name",
+                "is_dried_in",
+                "type"
+            ],
+            "primary_keys": [
+                "Person"
+            ],
+            "weak": false
+        },
+        "heat_settings": {
+            "attributes": [
+                "volume",
+                "color",
+                "name",
+                "contains"
+            ],
+            "primary_keys": [
+                "volume"
+            ],
+            "weak": false
+        },
+        "item_id": {
+            "attributes": [
+                "model",
+                "name",
+                "is_dried_in",
+                "machine_id"
+            ],
+            "primary_keys": [
+                "model"
+            ],
+            "weak": false
+        },
+        "brand": {
+            "attributes": [
+                "owns",
+                "basket_id"
+            ],
+            "primary_keys": [
+                "owns"
+            ],
+            "multivalued": [
+                "wash_instructions"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "fabric",
+                "LaundryBasket"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "detergent_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "LaundryBasket",
+                "ClothingItem",
+                "heat_settings"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "Detergent",
+            "weak": false
+        },
+        {
+            "entities": [
+                "LaundryBasket",
+                "item_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "person_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "brand",
+                "fabric"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "cycle_type",
+            "weak": false
+        }
+    ]
+}

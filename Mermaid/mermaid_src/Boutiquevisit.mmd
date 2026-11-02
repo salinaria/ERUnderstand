@@ -1,0 +1,42 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+  %% address: composite
+  string address
+}
+
+Item {
+  string item_id PK
+  string description
+  string price
+  string size
+}
+
+Purchase {
+  string purchase_id PK
+  string date
+  %% total_amount: derived
+  string total_amount
+}
+
+Employee {
+  string employee_id PK
+  string name
+  string position
+}
+
+Review {
+  string review_id PK
+  string rating
+  string comment
+  string purchase_id
+}
+
+    Customer ||--o{ Purchase : "makes"
+    Purchase ||--o{ Item : "includes"
+    Employee ||--o{ Purchase : "assists"
+    Customer ||--|| Review : "writes"
+    Purchase ||..|| Review : "based_on"

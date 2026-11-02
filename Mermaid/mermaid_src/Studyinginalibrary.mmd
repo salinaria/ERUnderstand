@@ -1,0 +1,41 @@
+erDiagram
+Patron {
+  string patron_id PK
+  string name
+  string address
+}
+
+Book {
+  string book_id PK
+  string title
+  string author
+  string ISBN
+}
+
+Library {
+  string library_id PK
+  string name
+  string location
+}
+
+Desk {
+  string desk_id PK
+  string desk_number
+}
+
+Reservation {
+  string reservation_id PK
+  string date
+}
+
+    Patron o{--o{ Book : "borrows"
+    Patron ||--o{ Reservation : "makes"
+    Library ||--o{ Book : "contains"
+    Library ||--o{ Desk : "has"
+REL_reserves {
+  string rel_reserves_id PK
+}
+
+    Reservation ||..o{ REL_reserves : "Reservation-REL_reserves"
+    Desk ||..o{ REL_reserves : "Desk-REL_reserves"
+    Patron ||..o{ REL_reserves : "Patron-REL_reserves"

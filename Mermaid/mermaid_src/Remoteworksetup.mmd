@@ -1,0 +1,38 @@
+erDiagram
+Employee {
+  string employee_id PK
+  string name
+  %% address: composite
+  string address
+}
+
+RemoteWorkAgreement {
+  string agreement_id PK
+  string start_date
+  string end_date
+  string employee_id
+}
+
+Technology {
+  string technology_id PK
+  string name
+  string version
+}
+
+Workspace {
+  string workspace_id PK
+  string location
+  string setup_type
+}
+
+PerformanceReview {
+  string review_id PK
+  string review_date
+  string rating
+  string employee_id
+}
+
+    Employee ||..o{ RemoteWorkAgreement : "has"
+    Employee o{--o{ Technology : "uses"
+    Employee ||--|| Workspace : "utilizes"
+    PerformanceReview o{..|| Employee : "conducts"

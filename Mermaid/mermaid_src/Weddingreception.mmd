@@ -1,0 +1,43 @@
+erDiagram
+Guest {
+  string guest_id PK
+  string name
+  string rsvp_status
+}
+
+Table {
+  string table_number PK
+  string capacity
+}
+
+Meal {
+  string meal_id PK
+  string description
+  string allergy_info
+}
+
+Vendor {
+  string vendor_id PK
+  string name
+  string service_type
+}
+
+Service {
+  string vendor_id PK
+  string date PK
+  string start_time PK
+  string duration
+  string cost
+}
+
+    Guest o{--|| Table : "sits_at"
+    Guest ||--|| Meal : "ordered"
+    Vendor ||..o{ Service : "provides"
+REL_Attends_To {
+  string rel_attends_to_id PK
+}
+
+    Vendor o{--o{ REL_Attends_To : "Vendor-REL_Attends_To"
+    Guest o{--o{ REL_Attends_To : "Guest-REL_Attends_To"
+    Table ||--o{ REL_Attends_To : "Table-REL_Attends_To"
+    Vendor ||--o{ Meal : "offers"

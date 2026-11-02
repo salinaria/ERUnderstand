@@ -1,0 +1,140 @@
+{
+    "entities": {
+        "SigningEvent": {
+            "attributes": [
+                "address",
+                "Document",
+                "Notary",
+                "event_id"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "payment_type",
+                "state",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "payment_type"
+            ],
+            "composite": {
+                "participates_in": [
+                    "event_time",
+                    "Signer",
+                    "phone_number",
+                    "signer_id"
+                ]
+            },
+            "weak": false
+        },
+        "notary_id": {
+            "attributes": [
+                "payment_id",
+                "receives",
+                "amount"
+            ],
+            "primary_keys": [
+                "payment_id"
+            ],
+            "multivalued": [
+                "amount"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "creation_date",
+                "total_amount_due",
+                "Payment",
+                "event_date"
+            ],
+            "primary_keys": [
+                "creation_date"
+            ],
+            "weak": true
+        },
+        "location": {
+            "attributes": [
+                "title",
+                "zip_code",
+                "requires",
+                "document_id"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "derived": [
+                "performs"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "SigningEvent",
+                "notary_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "street",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "authored_by",
+            "weak": false
+        },
+        {
+            "entities": [
+                "notary_id",
+                "name",
+                "SigningEvent"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "type",
+            "weak": true
+        },
+        {
+            "entities": [
+                "name",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "payment_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "street",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "license_number",
+            "weak": false
+        }
+    ]
+}

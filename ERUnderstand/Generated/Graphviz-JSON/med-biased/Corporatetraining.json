@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "Trainer": {
+            "attributes": [
+                "employee_name",
+                "trainer_id",
+                "Employee"
+            ],
+            "primary_keys": [
+                "employee_name"
+            ],
+            "composite": {
+                "trainer_id": [
+                    "teaches",
+                    "sponsored_by"
+                ]
+            },
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "employee_id",
+                "job_title",
+                "Department"
+            ],
+            "primary_keys": [
+                "employee_id"
+            ],
+            "weak": false
+        },
+        "first_name": {
+            "attributes": [
+                "trainer_name",
+                "program_name",
+                "department_id"
+            ],
+            "primary_keys": [
+                "trainer_name"
+            ],
+            "derived": [
+                "module_id"
+            ],
+            "weak": true
+        },
+        "certifications": {
+            "attributes": [
+                "program_id",
+                "TrainingProgram",
+                "department_name"
+            ],
+            "primary_keys": [
+                "program_id"
+            ],
+            "multivalued": [
+                "consists_of"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "specialization",
+                "cost",
+                "duration"
+            ],
+            "primary_keys": [
+                "specialization"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Trainer",
+                "last_name"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "works_in",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "attends",
+            "weak": false
+        },
+        {
+            "entities": [
+                "certifications",
+                "first_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Trainer",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "module_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "description",
+                "Trainer"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "CourseModule",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "pgmv": {
+      "weak": false,
+      "attributes": [
+        "qyuu",
+        "worv",
+        "bdnh"
+      ],
+      "primary_keys": [
+        "qyuu"
+      ],
+      "multivalued": [
+        "bdnh"
+      ]
+    },
+    "ukiw": {
+      "weak": false,
+      "attributes": [
+        "cnsn",
+        "worv",
+        "wrvi"
+      ],
+      "primary_keys": [
+        "cnsn"
+      ]
+    },
+    "laxr": {
+      "weak": false,
+      "attributes": [
+        "cdgr",
+        "worv",
+        "hppy"
+      ],
+      "primary_keys": [
+        "cdgr"
+      ],
+      "composite": {
+        "hppy": [
+          "tnwn",
+          "iyhk",
+          "lrxe"
+        ]
+      }
+    },
+    "debo": {
+      "weak": false,
+      "attributes": [
+        "vtmv",
+        "worv",
+        "jcqj"
+      ],
+      "primary_keys": [
+        "vtmv"
+      ]
+    },
+    "kuwi": {
+      "weak": true,
+      "attributes": [
+        "pwtg",
+        "zeaj",
+        "eenb"
+      ],
+      "primary_keys": [
+        "pwtg"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "pgmv",
+        "ukiw"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "osty",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pgmv",
+        "laxr"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "uboa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pgmv",
+        "debo"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "ocle",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pgmv",
+        "kuwi"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "togy",
+      "weak": true
+    },
+    {
+      "entities": [
+        "pgmv",
+        "ukiw",
+        "laxr"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "cjoo",
+      "weak": false
+    }
+  ]
+}

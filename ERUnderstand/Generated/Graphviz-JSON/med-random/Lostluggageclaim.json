@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "wwsb": {
+      "weak": false,
+      "attributes": [
+        "lhfh",
+        "gvkw",
+        "enxc",
+        "cjfo"
+      ],
+      "primary_keys": [
+        "lhfh"
+      ],
+      "multivalued": [
+        "cjfo"
+      ]
+    },
+    "scjj": {
+      "weak": false,
+      "attributes": [
+        "acip",
+        "aald",
+        "ngnl",
+        "fnge",
+        "izys"
+      ],
+      "primary_keys": [
+        "acip"
+      ]
+    },
+    "sgrh": {
+      "weak": false,
+      "attributes": [
+        "bdrs",
+        "izys",
+        "xfvc",
+        "kgrm",
+        "hdvu"
+      ],
+      "primary_keys": [
+        "bdrs"
+      ],
+      "derived": [
+        "hdvu"
+      ]
+    },
+    "xiao": {
+      "weak": false,
+      "attributes": [
+        "hjdj",
+        "gvkw",
+        "fyhv"
+      ],
+      "primary_keys": [
+        "hjdj"
+      ]
+    },
+    "pgqn": {
+      "weak": true,
+      "attributes": [
+        "hmzu",
+        "nmmn",
+        "idoo",
+        "dbwk",
+        "jdvx",
+        "hjdj"
+      ],
+      "primary_keys": [
+        "hmzu"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wwsb",
+        "scjj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xqtr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "scjj",
+        "sgrh"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "cdxg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "sgrh",
+        "xiao"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "fkqm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "scjj",
+        "pgqn",
+        "xiao"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "ushf",
+      "weak": true
+    },
+    {
+      "entities": [
+        "pgqn",
+        "xiao"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "isxs",
+      "weak": false
+    }
+  ]
+}

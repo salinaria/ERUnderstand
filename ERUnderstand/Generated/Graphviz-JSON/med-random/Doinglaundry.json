@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "ylsi": {
+      "weak": false,
+      "attributes": [
+        "qdne",
+        "dlyq",
+        "axtn"
+      ],
+      "primary_keys": [
+        "qdne"
+      ]
+    },
+    "vnes": {
+      "weak": true,
+      "attributes": [
+        "gnvh",
+        "kykj",
+        "slsh",
+        "dsbl"
+      ],
+      "primary_keys": [
+        "gnvh"
+      ],
+      "derived": [
+        "skma"
+      ]
+    },
+    "thrp": {
+      "weak": false,
+      "attributes": [
+        "xzip",
+        "urab",
+        "axtn",
+        "jxbf"
+      ],
+      "primary_keys": [
+        "xzip"
+      ]
+    },
+    "aqcc": {
+      "weak": false,
+      "attributes": [
+        "mobj",
+        "bjrf",
+        "kykj",
+        "xxrs"
+      ],
+      "primary_keys": [
+        "mobj"
+      ]
+    },
+    "gopq": {
+      "weak": false,
+      "attributes": [
+        "cssk",
+        "urab",
+        "axtn",
+        "nenv"
+      ],
+      "primary_keys": [
+        "cssk"
+      ]
+    },
+    "ovpw": {
+      "weak": false,
+      "attributes": [
+        "ybis",
+        "ylzo"
+      ],
+      "primary_keys": [
+        "ybis"
+      ],
+      "multivalued": [
+        "xqnn"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ylsi",
+        "vnes"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kron",
+      "weak": true
+    },
+    {
+      "entities": [
+        "vnes",
+        "thrp",
+        "aqcc"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "yges",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vnes",
+        "gopq"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "idkt",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ovpw",
+        "ylsi"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "bxar",
+      "weak": false
+    }
+  ]
+}

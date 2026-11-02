@@ -1,0 +1,169 @@
+{
+    "entities": {
+        "end_time": {
+            "attributes": [
+                "babysitter_id",
+                "Has",
+                "allergies",
+                "Booking",
+                "Babysitter"
+            ],
+            "primary_keys": [
+                "babysitter_id"
+            ],
+            "multivalued": [
+                "Booking"
+            ],
+            "weak": false,
+            "composite": {
+                "Gives": [
+                    "Has",
+                    "allergies"
+                ]
+            }
+        },
+        "location": {
+            "attributes": [
+                "date_of_birth",
+                "Has",
+                "allergies",
+                "start_time",
+                "Receives"
+            ],
+            "primary_keys": [
+                "date_of_birth"
+            ],
+            "derived": [
+                "parent_id"
+            ],
+            "weak": false,
+            "composite": {
+                "Gives": [
+                    "Has",
+                    "allergies"
+                ]
+            }
+        },
+        "booking_id": {
+            "attributes": [
+                "review_id",
+                "Has",
+                "allergies",
+                "parent_id",
+                "phone_number",
+                "comment"
+            ],
+            "primary_keys": [
+                "review_id"
+            ],
+            "weak": false,
+            "composite": {
+                "Gives": [
+                    "Has",
+                    "allergies"
+                ]
+            }
+        },
+        "Parent": {
+            "attributes": [
+                "first_name",
+                "Provides",
+                "last_name",
+                "name",
+                "Arranges",
+                "availability"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": true
+        },
+        "comment": {
+            "attributes": [
+                "payment_amount",
+                "child_id",
+                "rating"
+            ],
+            "primary_keys": [
+                "payment_amount"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "end_time",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Results_in",
+            "weak": false
+        },
+        {
+            "entities": [
+                "booking_id",
+                "Parent",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Parent",
+                "end_time"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "booking_id",
+                "comment"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "hourly_rate",
+            "weak": false
+        },
+        {
+            "entities": [
+                "end_time",
+                "comment"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "age",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Parent",
+                "comment"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Child",
+            "weak": true
+        }
+    ]
+}

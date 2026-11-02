@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "hearing_id": {
+            "attributes": [
+                "timestamp",
+                "contact_info",
+                "Participant"
+            ],
+            "primary_keys": [
+                "timestamp"
+            ],
+            "weak": false
+        },
+        "participant_id": {
+            "attributes": [
+                "Topic",
+                "comment_id",
+                "Organization"
+            ],
+            "primary_keys": [
+                "Topic"
+            ],
+            "multivalued": [
+                "affiliation"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "address",
+                "Addresses"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "weak": false
+        },
+        "Hearing": {
+            "attributes": [
+                "Hosts",
+                "comment_id",
+                "content"
+            ],
+            "primary_keys": [
+                "Hosts"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "Submitted_at",
+                "location",
+                "Provides",
+                "Topic",
+                "timestamp"
+            ],
+            "primary_keys": [
+                "Submitted_at"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "hearing_id",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "participant_id",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "participant_id",
+                "Hearing"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "org_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "description",
+                "hearing_id",
+                "participant_id"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "Represents",
+            "weak": true
+        },
+        {
+            "entities": [
+                "hearing_id",
+                "Hearing"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "topic_id",
+            "weak": false
+        }
+    ]
+}

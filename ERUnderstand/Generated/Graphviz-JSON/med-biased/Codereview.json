@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "name": {
+            "attributes": [
+                "creation_time",
+                "severity_id",
+                "developer_id"
+            ],
+            "primary_keys": [
+                "creation_time"
+            ],
+            "weak": false
+        },
+        "CodeReview": {
+            "attributes": [
+                "file_name",
+                "comment_id",
+                "description"
+            ],
+            "primary_keys": [
+                "file_name"
+            ],
+            "multivalued": [
+                "level"
+            ],
+            "weak": false
+        },
+        "creation_date": {
+            "attributes": [
+                "review_id",
+                "status",
+                "has_severity",
+                "Severity"
+            ],
+            "primary_keys": [
+                "review_id"
+            ],
+            "weak": false
+        },
+        "authored_by": {
+            "attributes": [
+                "line_count",
+                "Developer",
+                "skill"
+            ],
+            "primary_keys": [
+                "line_count"
+            ],
+            "weak": true
+        },
+        "file_id": {
+            "attributes": [
+                "CodeFile",
+                "comment_text",
+                "email"
+            ],
+            "primary_keys": [
+                "CodeFile"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "name",
+                "CodeReview"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "file_path",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "creation_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "created_by",
+            "weak": false
+        },
+        {
+            "entities": [
+                "authored_by",
+                "name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "includes",
+            "weak": true
+        },
+        {
+            "entities": [
+                "authored_by",
+                "CodeReview"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "belongs_to",
+            "weak": false
+        },
+        {
+            "entities": [
+                "authored_by",
+                "file_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "belongs_to",
+            "weak": false
+        }
+    ]
+}

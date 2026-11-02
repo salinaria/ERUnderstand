@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "huyu": {
+      "weak": false,
+      "attributes": [
+        "rnvf",
+        "aodo",
+        "qhvt"
+      ],
+      "primary_keys": [
+        "rnvf"
+      ]
+    },
+    "vhni": {
+      "weak": false,
+      "attributes": [
+        "kelz",
+        "fbbz",
+        "lufk"
+      ],
+      "primary_keys": [
+        "kelz"
+      ]
+    },
+    "zlyr": {
+      "weak": false,
+      "attributes": [
+        "leqx",
+        "rxpb",
+        "uhya",
+        "vjlb"
+      ],
+      "primary_keys": [
+        "leqx"
+      ],
+      "composite": {
+        "uhya": [
+          "jaqy",
+          "nqof"
+        ]
+      }
+    },
+    "teio": {
+      "weak": true,
+      "attributes": [
+        "prsm",
+        "avrb",
+        "wxmd",
+        "vjfh"
+      ],
+      "primary_keys": [
+        "prsm"
+      ],
+      "derived": [
+        "jrfa"
+      ]
+    },
+    "zbye": {
+      "weak": true,
+      "attributes": [
+        "wpyz",
+        "avrb",
+        "cogi",
+        "lslx"
+      ],
+      "primary_keys": [
+        "wpyz"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "vhni",
+        "huyu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vnmy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zlyr",
+        "teio"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "hoqf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "teio",
+        "huyu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "naym",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zlyr",
+        "zbye"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "apmu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "teio",
+        "zbye",
+        "zlyr"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "wbac",
+      "weak": true
+    }
+  ]
+}

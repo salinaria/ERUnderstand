@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "skill": {
+            "attributes": [
+                "includes",
+                "Idea",
+                "creation_time"
+            ],
+            "primary_keys": [
+                "includes"
+            ],
+            "weak": false
+        },
+        "popularity": {
+            "attributes": [
+                "voted_on",
+                "objective",
+                "description",
+                "attends"
+            ],
+            "primary_keys": [
+                "voted_on"
+            ],
+            "composite": {
+                "objective": [
+                    "name",
+                    "session_id",
+                    "date"
+                ]
+            },
+            "weak": false
+        },
+        "BrainstormingSession": {
+            "attributes": [
+                "popularity",
+                "Idea",
+                "year"
+            ],
+            "primary_keys": [
+                "popularity"
+            ],
+            "multivalued": [
+                "round_id"
+            ],
+            "weak": false
+        },
+        "month": {
+            "attributes": [
+                "creation_date",
+                "day",
+                "team_id"
+            ],
+            "primary_keys": [
+                "creation_date"
+            ],
+            "derived": [
+                "participant_id"
+            ],
+            "weak": true
+        },
+        "idea_id": {
+            "attributes": [
+                "role",
+                "duration",
+                "VotingRound"
+            ],
+            "primary_keys": [
+                "role"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "skill",
+                "popularity"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "suggests",
+            "weak": false
+        },
+        {
+            "entities": [
+                "BrainstormingSession",
+                "popularity"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "start_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "BrainstormingSession",
+                "month"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "organizes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "popularity",
+                "month",
+                "idea_id"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Team",
+            "weak": true
+        },
+        {
+            "entities": [
+                "idea_id",
+                "month"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "end_time",
+            "weak": false
+        }
+    ]
+}

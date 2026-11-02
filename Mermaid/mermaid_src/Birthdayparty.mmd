@@ -1,0 +1,43 @@
+erDiagram
+Guest {
+  string guest_id PK
+  string name
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Gift {
+  string gift_id PK
+  string description
+  string value
+}
+
+Party {
+  string party_id PK
+  string date
+  string theme
+}
+
+Game {
+  string game_id PK
+  string name
+  string rules
+}
+
+RSVP {
+  string rsvp_id PK
+  string response
+  string guest_id
+  string party_id
+}
+
+REL_attends {
+  string rel_attends_id PK
+}
+
+    Guest o{..o{ REL_attends : "Guest-REL_attends"
+    RSVP ||..o{ REL_attends : "RSVP-REL_attends"
+    Party ||..o{ REL_attends : "Party-REL_attends"
+    Guest ||--o{ Gift : "brings"
+    Party ||--o{ Game : "includes"
+    Guest ||--|| Party : "hosts"

@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "amount": {
+            "attributes": [
+                "event_id",
+                "duration",
+                "date"
+            ],
+            "primary_keys": [
+                "event_id"
+            ],
+            "multivalued": [
+                "Donation"
+            ],
+            "weak": false
+        },
+        "location": {
+            "attributes": [
+                "Speaker",
+                "Sermon",
+                "Participant",
+                "donation_id"
+            ],
+            "primary_keys": [
+                "Speaker"
+            ],
+            "derived": [
+                "address"
+            ],
+            "weak": false
+        },
+        "sermon_id": {
+            "attributes": [
+                "Supports",
+                "Contributes"
+            ],
+            "primary_keys": [
+                "Supports"
+            ],
+            "composite": {
+                "duration": [
+                    "Delivers",
+                    "topic"
+                ]
+            },
+            "weak": false
+        },
+        "first_name": {
+            "attributes": [
+                "name",
+                "speaker_id",
+                "expertise"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": true
+        },
+        "Attends": {
+            "attributes": [
+                "participant_id",
+                "Hosts",
+                "Participant"
+            ],
+            "primary_keys": [
+                "participant_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "amount",
+                "location"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Event",
+            "weak": false
+        },
+        {
+            "entities": [
+                "sermon_id",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "attendance_count",
+            "weak": false
+        },
+        {
+            "entities": [
+                "sermon_id",
+                "first_name",
+                "location"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "event_name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "amount",
+                "Attends"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "phone_number",
+            "weak": true
+        },
+        {
+            "entities": [
+                "location",
+                "Attends"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "last_name",
+            "weak": true
+        }
+    ]
+}

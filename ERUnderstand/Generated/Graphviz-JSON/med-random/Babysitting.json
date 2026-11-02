@@ -1,0 +1,169 @@
+{
+  "entities": {
+    "lvzz": {
+      "weak": false,
+      "attributes": [
+        "tysp",
+        "gtcv",
+        "svdo",
+        "lyyj",
+        "gnrk"
+      ],
+      "primary_keys": [
+        "tysp"
+      ],
+      "multivalued": [
+        "lyyj"
+      ],
+      "composite": {
+        "gexm": [
+          "gtcv",
+          "svdo"
+        ]
+      }
+    },
+    "iewq": {
+      "weak": false,
+      "attributes": [
+        "beys",
+        "gtcv",
+        "svdo",
+        "yxxg",
+        "pwkl"
+      ],
+      "primary_keys": [
+        "beys"
+      ],
+      "derived": [
+        "qohb"
+      ],
+      "composite": {
+        "gexm": [
+          "gtcv",
+          "svdo"
+        ]
+      }
+    },
+    "neof": {
+      "weak": false,
+      "attributes": [
+        "ewvw",
+        "gtcv",
+        "svdo",
+        "qohb",
+        "lpmo",
+        "dnbr"
+      ],
+      "primary_keys": [
+        "ewvw"
+      ],
+      "composite": {
+        "gexm": [
+          "gtcv",
+          "svdo"
+        ]
+      }
+    },
+    "qvnh": {
+      "weak": true,
+      "attributes": [
+        "qdvb",
+        "nzdk",
+        "zewp",
+        "bmuf",
+        "tcfb",
+        "ylvg"
+      ],
+      "primary_keys": [
+        "qdvb"
+      ]
+    },
+    "vinr": {
+      "weak": true,
+      "attributes": [
+        "yudb",
+        "arcc",
+        "jsxd"
+      ],
+      "primary_keys": [
+        "yudb"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "lvzz",
+        "iewq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wdik",
+      "weak": false
+    },
+    {
+      "entities": [
+        "neof",
+        "qvnh",
+        "iewq"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "ixoy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qvnh",
+        "lvzz"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "kkvm",
+      "weak": false
+    },
+    {
+      "entities": [
+        "neof",
+        "vinr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ndgi",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lvzz",
+        "vinr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "leqh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qvnh",
+        "vinr"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "bkhp",
+      "weak": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string major
+}
+
+Lecture {
+  string lecture_id PK
+  string date
+  string time
+}
+
+Teacher {
+  string teacher_id PK
+  %% name: composite
+  string name
+  string department
+}
+
+Course {
+  string course_id PK
+  string title
+  string credits
+}
+
+Attendance {
+  string student_id PK
+  string lecture_id PK
+  string status
+}
+
+    Student ||--|| Attendance : "records"
+    Student o{--o{ Course : "attends"
+    Teacher ||--o{ Course : "teaches"
+    Course ||--o{ Lecture : "includes"
+    Lecture ||..|| Attendance : "is_recorded_in"

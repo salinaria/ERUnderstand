@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "bag_capacity": {
+            "attributes": [
+                "used_in",
+                "size",
+                "cost"
+            ],
+            "primary_keys": [
+                "used_in"
+            ],
+            "weak": false
+        },
+        "VacuumCleaner": {
+            "attributes": [
+                "voltage",
+                "carpet_id",
+                "dirt_collected"
+            ],
+            "primary_keys": [
+                "voltage"
+            ],
+            "weak": false
+        },
+        "dirt_collection_rate": {
+            "attributes": [
+                "triggers",
+                "vacuum_id",
+                "date",
+                "contains"
+            ],
+            "primary_keys": [
+                "triggers"
+            ],
+            "weak": false,
+            "composite": {
+                "date": [
+                    "cleans",
+                    "power"
+                ]
+            }
+        },
+        "duration": {
+            "attributes": [
+                "room_id",
+                "Carpet",
+                "material",
+                "Room"
+            ],
+            "primary_keys": [
+                "room_id"
+            ],
+            "weak": true,
+            "derived": [
+                "VacuumingSession"
+            ]
+        },
+        "session_id": {
+            "attributes": [
+                "model",
+                "Carpet",
+                "MaintenanceLog",
+                "wattage"
+            ],
+            "primary_keys": [
+                "model"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "VacuumCleaner",
+                "bag_capacity"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "room_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "dirt_collection_rate",
+                "duration"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "duration",
+                "bag_capacity"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "log_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "dirt_collection_rate",
+                "session_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "floor_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "duration",
+                "session_id",
+                "dirt_collection_rate"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "undergoes",
+            "weak": true
+        }
+    ]
+}

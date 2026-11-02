@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "manufacturer": {
+            "attributes": [
+                "max_players",
+                "Review",
+                "start_time"
+            ],
+            "primary_keys": [
+                "max_players"
+            ],
+            "multivalued": [
+                "comment"
+            ],
+            "weak": false
+        },
+        "Creates": {
+            "attributes": [
+                "skill_level",
+                "model",
+                "Owns",
+                "score"
+            ],
+            "primary_keys": [
+                "skill_level"
+            ],
+            "weak": false
+        },
+        "Game": {
+            "attributes": [
+                "end_time",
+                "Plays",
+                "Supports",
+                "duration"
+            ],
+            "primary_keys": [
+                "end_time"
+            ],
+            "weak": false
+        },
+        "tracking_type": {
+            "attributes": [
+                "VR_Headset",
+                "friends",
+                "username",
+                "title"
+            ],
+            "primary_keys": [
+                "VR_Headset"
+            ],
+            "derived": [
+                "date"
+            ],
+            "weak": true
+        },
+        "headset_id": {
+            "attributes": [
+                "max_players",
+                "skill_level",
+                "genre",
+                "Session",
+                "player_id"
+            ],
+            "primary_keys": [
+                "max_players",
+                "skill_level",
+                "genre"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "manufacturer",
+                "Creates",
+                "tracking_type"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "session_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "manufacturer",
+                "Game"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "rating",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Creates",
+                "Game"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Player",
+            "weak": false
+        },
+        {
+            "entities": [
+                "tracking_type",
+                "Creates"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "max_players",
+            "weak": true
+        },
+        {
+            "entities": [
+                "manufacturer",
+                "Creates",
+                "headset_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "game_id",
+            "weak": false
+        }
+    ]
+}

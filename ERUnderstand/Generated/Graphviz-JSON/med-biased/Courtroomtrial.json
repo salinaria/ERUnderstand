@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "phone_number": {
+            "attributes": [
+                "witness_id",
+                "Charge",
+                "presented_in",
+                "trial_id"
+            ],
+            "primary_keys": [
+                "witness_id"
+            ],
+            "weak": false
+        },
+        "evidence_id": {
+            "attributes": [
+                "Person",
+                "testifies_in",
+                "type",
+                "type"
+            ],
+            "primary_keys": [
+                "Person"
+            ],
+            "multivalued": [
+                "charge_id"
+            ],
+            "weak": false
+        },
+        "involves": {
+            "attributes": [
+                "Trial",
+                "Evidence"
+            ],
+            "primary_keys": [
+                "Trial"
+            ],
+            "derived": [
+                "testimony"
+            ],
+            "weak": true
+        },
+        "case_number": {
+            "attributes": [
+                "severity",
+                "name",
+                "presented_in"
+            ],
+            "primary_keys": [
+                "severity"
+            ],
+            "weak": false
+        },
+        "address": {
+            "attributes": [
+                "description",
+                "name",
+                "includes"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "phone_number",
+                "evidence_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "person_id",
+            "weak": false
+        },
+        {
+            "subclasses": [
+                "Witness"
+            ],
+            "rel_name": "IsA",
+            "superclass": "Person"
+        },
+        {
+            "entities": [
+                "phone_number",
+                "case_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Witness",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_of_birth",
+            "weak": false
+        },
+        {
+            "entities": [
+                "evidence_id",
+                "involves",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "N"
+            ],
+            "name": "credibility_score",
+            "weak": true
+        }
+    ]
+}

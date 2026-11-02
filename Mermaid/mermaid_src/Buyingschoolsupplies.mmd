@@ -1,0 +1,34 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string grade_level
+}
+
+Supply {
+  string supply_id PK
+  string name
+  string description
+  string price
+}
+
+Category {
+  string category_id PK
+  string name
+}
+
+Purchase {
+  string purchase_id PK
+  string date
+  string total_amount
+}
+
+ShoppingCart {
+  string cart_id PK
+}
+
+    Student ||--o{ Purchase : "makes"
+    Supply o{--|| Category : "belongs_to"
+    Purchase ||--o{ Supply : "includes"
+    Student ||--|| ShoppingCart : "owns"
+    ShoppingCart ||--o{ Supply : "contains"

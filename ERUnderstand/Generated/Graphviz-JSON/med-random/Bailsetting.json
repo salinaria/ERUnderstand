@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "wwva": {
+      "weak": false,
+      "attributes": [
+        "hqpa",
+        "vjva",
+        "oyeh"
+      ],
+      "primary_keys": [
+        "hqpa"
+      ],
+      "multivalued": [
+        "zxsx"
+      ]
+    },
+    "htlh": {
+      "weak": false,
+      "attributes": [
+        "xucr",
+        "egjb",
+        "yjfu"
+      ],
+      "primary_keys": [
+        "xucr"
+      ]
+    },
+    "pxdv": {
+      "weak": false,
+      "attributes": [
+        "lbic",
+        "uwyc",
+        "qlby",
+        "uxom"
+      ],
+      "primary_keys": [
+        "lbic"
+      ]
+    },
+    "knsq": {
+      "weak": false,
+      "attributes": [
+        "vlkp",
+        "vjva",
+        "mvub"
+      ],
+      "primary_keys": [
+        "vlkp"
+      ],
+      "composite": {
+        "vjva": [
+          "wvrv",
+          "fwwe"
+        ]
+      }
+    },
+    "tvwj": {
+      "weak": true,
+      "attributes": [
+        "emzc",
+        "vjva",
+        "axrt",
+        "tcqp"
+      ],
+      "primary_keys": [
+        "emzc"
+      ],
+      "derived": [
+        "wsqm"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wwva",
+        "htlh"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "unma",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wwva",
+        "pxdv"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "drtq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pxdv",
+        "knsq"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "zgnh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wwva",
+        "tvwj",
+        "pxdv"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "mqkr",
+      "weak": true
+    },
+    {
+      "entities": [
+        "tvwj",
+        "pxdv"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "hyeo",
+      "weak": false
+    }
+  ]
+}

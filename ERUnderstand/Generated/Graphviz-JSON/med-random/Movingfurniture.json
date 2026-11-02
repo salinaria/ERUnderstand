@@ -1,0 +1,158 @@
+{
+  "entities": {
+    "zelj": {
+      "weak": false,
+      "attributes": [
+        "drph",
+        "eyfi",
+        "gsnn",
+        "jhym"
+      ],
+      "primary_keys": [
+        "drph"
+      ],
+      "multivalued": [
+        "gsnn"
+      ],
+      "composite": {
+        "jhym": [
+          "dpzu",
+          "ftqs",
+          "yezj",
+          "apsb"
+        ]
+      }
+    },
+    "znkj": {
+      "weak": false,
+      "attributes": [
+        "uumj",
+        "cfdj",
+        "jwlh",
+        "ixcw",
+        "wvil"
+      ],
+      "primary_keys": [
+        "uumj"
+      ],
+      "composite": {
+        "ixcw": [
+          "zhcb",
+          "cayx",
+          "fyyg"
+        ]
+      }
+    },
+    "gstm": {
+      "weak": false,
+      "attributes": [
+        "cevg",
+        "jikv",
+        "qyja",
+        "jqha",
+        "ziox"
+      ],
+      "primary_keys": [
+        "cevg"
+      ],
+      "derived": [
+        "ziox"
+      ]
+    },
+    "rvks": {
+      "weak": false,
+      "attributes": [
+        "szid",
+        "eyfi",
+        "pxrv",
+        "rpjm"
+      ],
+      "primary_keys": [
+        "szid"
+      ],
+      "composite": {
+        "eyfi": [
+          "ogwl",
+          "jkfw"
+        ]
+      }
+    },
+    "ejiu": {
+      "weak": false,
+      "attributes": [
+        "bpjk",
+        "jeeo",
+        "kgav",
+        "yayn"
+      ],
+      "primary_keys": [
+        "bpjk"
+      ]
+    },
+    "qjnb": {
+      "weak": true,
+      "attributes": [
+        "cevg",
+        "uumj",
+        "yphr",
+        "jaep"
+      ],
+      "primary_keys": [
+        "cevg",
+        "uumj"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "zelj",
+        "gstm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vqmv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gstm",
+        "rvks"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zqsw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gstm",
+        "ejiu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "ymqo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gstm",
+        "znkj",
+        "qjnb"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "jxda",
+      "weak": true
+    }
+  ]
+}

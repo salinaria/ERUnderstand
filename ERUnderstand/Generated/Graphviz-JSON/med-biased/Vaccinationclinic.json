@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "date": {
+            "attributes": [
+                "address",
+                "first_name",
+                "receives",
+                "name"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "multivalued": [
+                "age"
+            ],
+            "weak": false
+        },
+        "dosage": {
+            "attributes": [
+                "last_name",
+                "first_name",
+                "specialization",
+                "performs"
+            ],
+            "primary_keys": [
+                "last_name"
+            ],
+            "weak": false
+        },
+        "vaccine_id": {
+            "attributes": [
+                "time",
+                "date_of_birth",
+                "HealthcareWorker",
+                "worker_id"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "derived": [
+                "takes_place_at"
+            ],
+            "weak": true
+        },
+        "Vaccine": {
+            "attributes": [
+                "patient_id",
+                "first_name",
+                "Patient"
+            ],
+            "primary_keys": [
+                "patient_id"
+            ],
+            "composite": {
+                "first_name": [
+                    "status",
+                    "Location"
+                ]
+            },
+            "weak": false
+        },
+        "Appointment": {
+            "attributes": [
+                "capacity",
+                "first_name",
+                "name",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "capacity"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "date",
+                "vaccine_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "receives",
+            "weak": false
+        },
+        {
+            "entities": [
+                "vaccine_id",
+                "dosage"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "location_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Vaccine",
+                "vaccine_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "administers",
+            "weak": false
+        },
+        {
+            "entities": [
+                "vaccine_id",
+                "Appointment"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "appointment_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "dosage",
+                "Vaccine"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "manufacturer",
+            "weak": true
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "state": {
+            "attributes": [
+                "make",
+                "type",
+                "license_number",
+                "start_date"
+            ],
+            "primary_keys": [
+                "make"
+            ],
+            "weak": false
+        },
+        "location_id": {
+            "attributes": [
+                "model",
+                "city",
+                "used_on"
+            ],
+            "primary_keys": [
+                "model"
+            ],
+            "multivalued": [
+                "end_date"
+            ],
+            "composite": {
+                "traveler_id": [
+                    "phone_number",
+                    "date",
+                    "drives",
+                    "name"
+                ]
+            },
+            "weak": false
+        },
+        "insurance_id": {
+            "attributes": [
+                "expense_id",
+                "address",
+                "Vehicle",
+                "vehicle_id",
+                "Trip"
+            ],
+            "primary_keys": [
+                "expense_id"
+            ],
+            "weak": false
+        },
+        "amount": {
+            "attributes": [
+                "trip_id",
+                "city",
+                "includes"
+            ],
+            "primary_keys": [
+                "trip_id"
+            ],
+            "weak": false
+        },
+        "year": {
+            "attributes": [
+                "Location",
+                "participates_in",
+                "includes",
+                "total_cost",
+                "make"
+            ],
+            "primary_keys": [
+                "Location"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "location_id",
+                "state"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "accounts_for",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location_id",
+                "insurance_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Expense",
+            "weak": false
+        },
+        {
+            "entities": [
+                "state",
+                "amount"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "street",
+            "weak": false
+        },
+        {
+            "entities": [
+                "state",
+                "year"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Traveler",
+            "weak": true
+        },
+        {
+            "entities": [
+                "insurance_id",
+                "state"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "zip",
+            "weak": false
+        }
+    ]
+}

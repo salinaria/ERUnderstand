@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "phone_number": {
+            "attributes": [
+                "FittingRoom",
+                "room_number",
+                "Feedback"
+            ],
+            "primary_keys": [
+                "FittingRoom"
+            ],
+            "multivalued": [
+                "rating"
+            ],
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "Receives",
+                "Gives",
+                "Monitors",
+                "clearance_price"
+            ],
+            "primary_keys": [
+                "Receives"
+            ],
+            "derived": [
+                "size"
+            ],
+            "weak": false
+        },
+        "Garment": {
+            "attributes": [
+                "feedback_id",
+                "TriesOn"
+            ],
+            "primary_keys": [
+                "feedback_id"
+            ],
+            "weak": false
+        },
+        "price": {
+            "attributes": [
+                "name",
+                "hourly_rate",
+                "comment"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "composite": {
+                "Customer": [
+                    "customer_id",
+                    "description",
+                    "height"
+                ]
+            },
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "date",
+                "address",
+                "zip_code",
+                "position"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "phone_number",
+                "city",
+                "Garment"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Employee",
+            "weak": false
+        },
+        {
+            "entities": [
+                "price",
+                "Garment"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "street",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "AvailableIn",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "Garment"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "employee_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "city",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "garment_id",
+            "weak": true
+        }
+    ]
+}

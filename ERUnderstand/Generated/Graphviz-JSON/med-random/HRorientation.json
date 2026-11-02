@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "jesq": {
+      "weak": false,
+      "attributes": [
+        "lzpt",
+        "bgcq",
+        "yieg",
+        "ebrh"
+      ],
+      "primary_keys": [
+        "lzpt"
+      ],
+      "composite": {
+        "euzo": [
+          "bgcq",
+          "yieg"
+        ]
+      }
+    },
+    "wcyl": {
+      "weak": false,
+      "attributes": [
+        "zshq",
+        "kxdp",
+        "vmxy",
+        "ebbp"
+      ],
+      "primary_keys": [
+        "zshq"
+      ]
+    },
+    "mjjm": {
+      "weak": false,
+      "attributes": [
+        "gmpx",
+        "arcd",
+        "nvdu"
+      ],
+      "primary_keys": [
+        "gmpx"
+      ]
+    },
+    "mdpw": {
+      "weak": false,
+      "attributes": [
+        "gnbv",
+        "kvmb",
+        "ebbp"
+      ],
+      "primary_keys": [
+        "gnbv"
+      ]
+    },
+    "yyra": {
+      "weak": false,
+      "attributes": [
+        "gxxc",
+        "fsye",
+        "omsm"
+      ],
+      "primary_keys": [
+        "gxxc"
+      ],
+      "multivalued": [
+        "elqq"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jesq",
+        "mdpw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "kvnp",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jesq",
+        "wcyl"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "erka",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wcyl",
+        "mjjm"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "qzev",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jesq",
+        "yyra",
+        "wcyl"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "gmml",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mdpw",
+        "yyra"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vmpp",
+      "weak": false
+    }
+  ]
+}

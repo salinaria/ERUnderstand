@@ -1,0 +1,127 @@
+{
+  "entities": {
+    "fymu": {
+      "weak": false,
+      "attributes": [
+        "zirw",
+        "vpfe",
+        "zpww"
+      ],
+      "primary_keys": [
+        "zirw"
+      ],
+      "multivalued": [
+        "isol"
+      ]
+    },
+    "qlow": {
+      "weak": false,
+      "attributes": [
+        "irol",
+        "pvue",
+        "knxc",
+        "ouoj"
+      ],
+      "primary_keys": [
+        "irol"
+      ],
+      "derived": [
+        "mnfw"
+      ]
+    },
+    "pqju": {
+      "weak": false,
+      "attributes": [
+        "khni",
+        "ysrk",
+        "kyhw",
+        "puai"
+      ],
+      "primary_keys": [
+        "khni"
+      ]
+    },
+    "poyk": {
+      "weak": false,
+      "attributes": [
+        "dbrq",
+        "vpfe",
+        "tqvy",
+        "hska"
+      ],
+      "primary_keys": [
+        "dbrq"
+      ],
+      "composite": {
+        "szry": [
+          "yqoa",
+          "aftu",
+          "uhux"
+        ]
+      }
+    },
+    "vecw": {
+      "weak": true,
+      "attributes": [
+        "xmed",
+        "irol",
+        "zirw",
+        "biva",
+        "moys"
+      ],
+      "primary_keys": [
+        "xmed"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "fymu",
+        "qlow"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "sftw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qlow",
+        "pqju"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "pyog",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qlow",
+        "poyk"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "mlqe",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vecw",
+        "qlow"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "qwpe",
+      "weak": true
+    }
+  ]
+}

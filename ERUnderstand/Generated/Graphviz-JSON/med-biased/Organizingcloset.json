@@ -1,0 +1,117 @@
+{
+    "entities": {
+        "Owner": {
+            "attributes": [
+                "owner_id",
+                "owned_by",
+                "name"
+            ],
+            "primary_keys": [
+                "owner_id"
+            ],
+            "weak": false
+        },
+        "Category": {
+            "attributes": [
+                "location",
+                "Item",
+                "city"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": false
+        },
+        "purchase_date": {
+            "attributes": [
+                "size",
+                "state"
+            ],
+            "primary_keys": [
+                "size"
+            ],
+            "weak": false
+        },
+        "Placement": {
+            "attributes": [
+                "placed_in",
+                "Closet",
+                "address"
+            ],
+            "primary_keys": [
+                "placed_in"
+            ],
+            "composite": {
+                "phone_number": [
+                    "managed_by",
+                    "street",
+                    "item_id",
+                    "category_name"
+                ]
+            },
+            "weak": false
+        },
+        "category_id": {
+            "attributes": [
+                "description",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Category",
+                "purchase_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "placement_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Category",
+                "Placement"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "closet_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Owner",
+                "Placement"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "belongs_to",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Category",
+                "Owner",
+                "category_id"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "date_placed",
+            "weak": true
+        }
+    ]
+}

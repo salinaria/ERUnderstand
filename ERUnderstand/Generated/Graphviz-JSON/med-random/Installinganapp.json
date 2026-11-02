@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "nkqn": {
+      "weak": false,
+      "attributes": [
+        "knhb",
+        "yddh",
+        "hogo"
+      ],
+      "primary_keys": [
+        "knhb"
+      ],
+      "multivalued": [
+        "pbdv"
+      ]
+    },
+    "xtjt": {
+      "weak": false,
+      "attributes": [
+        "flzn",
+        "ntsf",
+        "lerh",
+        "fdrh"
+      ],
+      "primary_keys": [
+        "flzn"
+      ]
+    },
+    "jdot": {
+      "weak": false,
+      "attributes": [
+        "ygpn",
+        "qcfk",
+        "hjir"
+      ],
+      "primary_keys": [
+        "ygpn"
+      ],
+      "derived": [
+        "ksqs"
+      ]
+    },
+    "vtwh": {
+      "weak": false,
+      "attributes": [
+        "eiho",
+        "lerh"
+      ],
+      "primary_keys": [
+        "eiho",
+        "lerh"
+      ]
+    },
+    "xjuj": {
+      "weak": true,
+      "attributes": [
+        "khvj",
+        "nbjk",
+        "ygpn",
+        "flzn"
+      ],
+      "primary_keys": [
+        "ygpn",
+        "flzn"
+      ],
+      "composite": {
+        "ilhe": [
+          "ghvw",
+          "nxik"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "nkqn",
+        "jdot"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xwho",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xtjt",
+        "vtwh"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "cdxy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jdot",
+        "vtwh"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "xyir",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xtjt",
+        "jdot",
+        "xjuj"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "zaib",
+      "weak": true
+    },
+    {
+      "entities": [
+        "jdot",
+        "xjuj"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vvhb",
+      "weak": true
+    }
+  ]
+}

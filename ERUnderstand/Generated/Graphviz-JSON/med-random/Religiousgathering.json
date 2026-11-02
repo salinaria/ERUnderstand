@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "vffx": {
+      "weak": false,
+      "attributes": [
+        "sokf",
+        "dseh",
+        "prwt"
+      ],
+      "primary_keys": [
+        "sokf"
+      ],
+      "multivalued": [
+        "vaie"
+      ]
+    },
+    "dgxt": {
+      "weak": false,
+      "attributes": [
+        "wbae",
+        "rcbe",
+        "aere",
+        "cuxw"
+      ],
+      "primary_keys": [
+        "wbae"
+      ],
+      "derived": [
+        "wxli"
+      ]
+    },
+    "lkkx": {
+      "weak": false,
+      "attributes": [
+        "cunc",
+        "amkd"
+      ],
+      "primary_keys": [
+        "cunc"
+      ],
+      "composite": {
+        "dseh": [
+          "qesd",
+          "vlys"
+        ]
+      }
+    },
+    "msix": {
+      "weak": true,
+      "attributes": [
+        "sqmk",
+        "jkec",
+        "uhhe"
+      ],
+      "primary_keys": [
+        "sqmk"
+      ]
+    },
+    "sani": {
+      "weak": true,
+      "attributes": [
+        "rtkm",
+        "hjav",
+        "aere"
+      ],
+      "primary_keys": [
+        "rtkm"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "vffx",
+        "dgxt"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "frkl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lkkx",
+        "dgxt"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "yofh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lkkx",
+        "msix",
+        "dgxt"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "klde",
+      "weak": true
+    },
+    {
+      "entities": [
+        "vffx",
+        "sani"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jluj",
+      "weak": true
+    },
+    {
+      "entities": [
+        "dgxt",
+        "sani"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "odjn",
+      "weak": true
+    }
+  ]
+}

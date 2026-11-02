@@ -1,0 +1,51 @@
+erDiagram
+Tourist {
+  string tourist_id PK
+  string name
+  string nationality
+}
+
+Sight {
+  string sight_id PK
+  string sight_name
+  string description
+  string location
+}
+
+TourGuide {
+  string guide_id PK
+  string guide_name
+  string language
+}
+
+Hotel {
+  string hotel_id PK
+  string hotel_name
+  string address
+  string rating
+}
+
+Booking {
+  string booking_id PK
+  string start_date
+  string end_date
+  string number_of_guests
+}
+
+    Tourist o{--o{ Sight : "visits"
+REL_guided_tour {
+  string rel_guided_tour_id PK
+}
+
+    Tourist o{--o{ REL_guided_tour : "Tourist-REL_guided_tour"
+    TourGuide ||--o{ REL_guided_tour : "TourGuide-REL_guided_tour"
+    Sight o{--o{ REL_guided_tour : "Sight-REL_guided_tour"
+REL_reserves {
+  string rel_reserves_id PK
+}
+
+    Tourist ||..o{ REL_reserves : "Tourist-REL_reserves"
+    Hotel ||..o{ REL_reserves : "Hotel-REL_reserves"
+    Booking o{..o{ REL_reserves : "Booking-REL_reserves"
+    Hotel ||--o{ Sight : "is_near"
+    Booking o{..|| Hotel : "for_hotel"

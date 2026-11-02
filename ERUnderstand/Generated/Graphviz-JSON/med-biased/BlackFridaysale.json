@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "last_name": {
+            "attributes": [
+                "Category",
+                "makes",
+                "total_amount",
+                "name"
+            ],
+            "primary_keys": [
+                "Category"
+            ],
+            "composite": {
+                "phone_number": [
+                    "makes",
+                    "total_amount"
+                ]
+            },
+            "multivalued": [
+                "sale_id"
+            ],
+            "weak": false
+        },
+        "discounted_price": {
+            "attributes": [
+                "date",
+                "first_name",
+                "address"
+            ],
+            "primary_keys": [
+                "date"
+            ],
+            "weak": false
+        },
+        "Customer": {
+            "attributes": [
+                "description",
+                "customer_id"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "weak": false
+        },
+        "product_id": {
+            "attributes": [
+                "discount_percentage",
+                "Contains",
+                "belongs_to"
+            ],
+            "primary_keys": [
+                "discount_percentage"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "last_name",
+                "discounted_price"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "includes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "discounted_price"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "category_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "Customer"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "original_price",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "product_id",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "expiration_date",
+            "weak": true,
+            "ternary": true
+        },
+        {
+            "entities": [
+                "discounted_price",
+                "discounted_price"
+            ],
+            "attributes": [
+                "quantity"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "applies",
+            "weak": false
+        }
+    ]
+}

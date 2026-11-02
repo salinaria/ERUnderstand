@@ -1,0 +1,130 @@
+{
+    "entities": {
+        "donor_id": {
+            "attributes": [
+                "stored_at",
+                "collection_date",
+                "volume",
+                "DonationCenter"
+            ],
+            "primary_keys": [
+                "stored_at"
+            ],
+            "multivalued": [
+                "date_of_birth"
+            ],
+            "weak": false
+        },
+        "visits": {
+            "attributes": [
+                "phone_number",
+                "collection_date",
+                "Donor"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "treated_at": {
+            "attributes": [
+                "donates",
+                "Hospital",
+                "address",
+                "name"
+            ],
+            "primary_keys": [
+                "donates"
+            ],
+            "derived": [
+                "hospital_id"
+            ],
+            "weak": true
+        },
+        "receives": {
+            "attributes": [
+                "bag_id",
+                "collection_date",
+                "DonationCenter",
+                "Recipient"
+            ],
+            "primary_keys": [
+                "bag_id"
+            ],
+            "weak": false
+        },
+        "expiry_date": {
+            "attributes": [
+                "Recipient",
+                "collection_date",
+                "Donor"
+            ],
+            "primary_keys": [
+                "Recipient"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "donor_id",
+                "treated_at"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "center_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "treated_at",
+                "receives"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "recipient_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "donor_id",
+                "visits"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "blood_type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "treated_at",
+                "visits"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "BloodBag",
+            "weak": true
+        },
+        {
+            "entities": [
+                "receives",
+                "expiry_date"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "storage_time",
+            "weak": false
+        }
+    ]
+}

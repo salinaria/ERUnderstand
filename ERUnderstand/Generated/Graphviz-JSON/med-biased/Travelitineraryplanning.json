@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "Destination": {
+            "attributes": [
+                "state",
+                "Accommodation",
+                "country"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "multivalued": [
+                "includes"
+            ],
+            "weak": false,
+            "composite": {
+                "description": [
+                    "destination_id",
+                    "duration",
+                    "offers",
+                    "participates_in"
+                ]
+            }
+        },
+        "price_per_night": {
+            "attributes": [
+                "zip",
+                "Accommodation",
+                "dob"
+            ],
+            "primary_keys": [
+                "zip"
+            ],
+            "weak": false
+        },
+        "Booking": {
+            "attributes": [
+                "Traveler",
+                "Accommodation",
+                "booking_id",
+                "located_in",
+                "zip"
+            ],
+            "primary_keys": [
+                "Traveler"
+            ],
+            "weak": true,
+            "derived": [
+                "city"
+            ]
+        },
+        "street": {
+            "attributes": [
+                "country",
+                "Accommodation",
+                "accommodation_id",
+                "traveler_id"
+            ],
+            "primary_keys": [
+                "country"
+            ],
+            "weak": false
+        },
+        "visits": {
+            "attributes": [
+                "phone_number",
+                "name",
+                "state",
+                "Traveler"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Destination",
+                "price_per_night"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "rating",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Destination",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "type",
+            "weak": false
+        },
+        {
+            "entities": [
+                "price_per_night",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Activity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Booking",
+                "price_per_night"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "address",
+            "weak": true
+        },
+        {
+            "entities": [
+                "street",
+                "visits"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "booking_date",
+            "weak": false
+        }
+    ]
+}

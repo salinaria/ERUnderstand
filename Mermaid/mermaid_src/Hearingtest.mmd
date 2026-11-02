@@ -1,0 +1,42 @@
+erDiagram
+Patient {
+  string patient_id PK
+  %% name: composite
+  string name
+  string date_of_birth
+  string gender
+}
+
+Audiologist {
+  string audiologist_id PK
+  string license_number
+  string clinic_name
+}
+
+HearingTest {
+  string test_id PK
+  string test_date
+  string test_type
+  string result
+}
+
+Frequency {
+  string frequency_value PK
+  string unit
+}
+
+Threshold {
+  string threshold_value PK
+  string ear PK
+}
+
+    Patient ||--o{ HearingTest : "undergoes"
+    Audiologist ||--o{ HearingTest : "performs"
+REL_measures {
+  string rel_measures_id PK
+}
+
+    HearingTest ||--o{ REL_measures : "HearingTest-REL_measures"
+    Frequency o{--o{ REL_measures : "Frequency-REL_measures"
+    Threshold o{--o{ REL_measures : "Threshold-REL_measures"
+    HearingTest ||--o{ Threshold : "has"

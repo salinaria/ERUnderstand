@@ -1,0 +1,156 @@
+('Schema', 'biased', 'adventureworks.json')
+Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-biased/adventureworks.png']' timed out after 90 seconds
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 344, in render_one
+    save_json(schema, json_out)
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 320, in render_png
+    destination.parent.mkdir(parents=True, exist_ok=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-biased/adventureworks.png']' timed out after 90 seconds
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 366, in main
+    try:
+        ^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-biased/adventureworks.png']' timed out after 90 seconds
+
+('Schema', 'pk-empty', 'adventureworks.json')
+Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-pk-empty/adventureworks.png']' timed out after 90 seconds
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 344, in render_one
+    save_json(schema, json_out)
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 320, in render_png
+    destination.parent.mkdir(parents=True, exist_ok=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-pk-empty/adventureworks.png']' timed out after 90 seconds
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 366, in main
+    try:
+        ^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-pk-empty/adventureworks.png']' timed out after 90 seconds
+
+('Schema', 'random', 'adventureworks.json')
+Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-random/adventureworks.png']' timed out after 90 seconds
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 344, in render_one
+    save_json(schema, json_out)
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 320, in render_png
+    destination.parent.mkdir(parents=True, exist_ok=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-random/adventureworks.png']' timed out after 90 seconds
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 366, in main
+    try:
+        ^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-random/adventureworks.png']' timed out after 90 seconds
+
+('Schema', 'pk', 'adventureworks.json')
+Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-pk/adventureworks.png']' timed out after 90 seconds
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 344, in render_one
+    save_json(schema, json_out)
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 320, in render_png
+    destination.parent.mkdir(parents=True, exist_ok=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-pk/adventureworks.png']' timed out after 90 seconds
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/serc305/Desktop/ERset/Codes/render_easy_hard_variants.py", line 366, in main
+    try:
+        ^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+subprocess.TimeoutExpired: Command '['neato', '-Tpng', '-o', '/home/serc305/Desktop/ERset/ERUnderstand/Generated/Graphviz/Graphviz-Schema-pk/adventureworks.png']' timed out after 90 seconds
+

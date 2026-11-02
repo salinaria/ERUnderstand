@@ -1,0 +1,50 @@
+erDiagram
+Applicant {
+  string application_id PK
+  string given_name
+  string family_name
+  string date_of_birth
+  string nationality
+}
+
+Passport {
+  string passport_number PK
+  string issue_date
+  string expiry_date
+  string issuing_country
+}
+
+ApplicationForm {
+  string form_number PK
+  string submission_date
+  string form_type
+  string fee_amount
+}
+
+SupportingDocument {
+  string document_id PK
+  string document_type
+  string issue_date
+  string issuing_authority
+}
+
+Address {
+  string address_id PK
+  string street_address
+  string city
+  string state
+  string postal_code
+  string country
+}
+
+    Applicant ||--|| ApplicationForm : "submits"
+    ApplicationForm ||..o{ SupportingDocument : "includes"
+    Applicant ||--|| Passport : "holds"
+    Applicant ||--o{ Address : "resides_at"
+REL_provides {
+  string rel_provides_id PK
+}
+
+    Applicant ||..o{ REL_provides : "Applicant-REL_provides"
+    SupportingDocument o{..o{ REL_provides : "SupportingDocument-REL_provides"
+    Address ||..o{ REL_provides : "Address-REL_provides"

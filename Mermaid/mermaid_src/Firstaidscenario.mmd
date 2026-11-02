@@ -1,0 +1,44 @@
+erDiagram
+Patient {
+  string patient_id PK
+  %% name: composite
+  string name
+  string date_of_birth
+}
+
+FirstAider {
+  string first_aider_id PK
+  string certification
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Injury {
+  string injury_id PK
+  string type
+  string severity
+}
+
+Treatment {
+  string treatment_id PK
+  string description
+  string duration
+}
+
+Location {
+  string location_id PK
+  string address
+  string type
+}
+
+    Patient ||--o{ Injury : "suffers"
+    FirstAider ||--o{ Patient : "attends_to"
+REL_administers {
+  string rel_administers_id PK
+}
+
+    FirstAider ||..o{ REL_administers : "FirstAider-REL_administers"
+    Treatment o{..o{ REL_administers : "Treatment-REL_administers"
+    Patient ||..o{ REL_administers : "Patient-REL_administers"
+    Injury ||--|| Treatment : "requires"
+    Patient ||--|| Location : "located_at"

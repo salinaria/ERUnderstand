@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "lazt": {
+      "weak": false,
+      "attributes": [
+        "srkt",
+        "lzdi",
+        "xbur",
+        "hjon"
+      ],
+      "primary_keys": [
+        "srkt"
+      ],
+      "multivalued": [
+        "hjon"
+      ]
+    },
+    "zahp": {
+      "weak": false,
+      "attributes": [
+        "vylh",
+        "ywku",
+        "qggg",
+        "bbly",
+        "hezc"
+      ],
+      "primary_keys": [
+        "vylh"
+      ]
+    },
+    "ykik": {
+      "weak": false,
+      "attributes": [
+        "aein",
+        "ywku",
+        "qggg",
+        "bbly",
+        "nwdj",
+        "liht"
+      ],
+      "primary_keys": [
+        "aein"
+      ],
+      "derived": [
+        "cbjf"
+      ]
+    },
+    "lesn": {
+      "weak": true,
+      "attributes": [
+        "whkd",
+        "lzdi",
+        "nwdj",
+        "ukqi"
+      ],
+      "primary_keys": [
+        "whkd"
+      ],
+      "multivalued": [
+        "ukqi"
+      ]
+    },
+    "wgds": {
+      "weak": false,
+      "attributes": [
+        "qqoc",
+        "gpve",
+        "lzdi",
+        "hgzm",
+        "zonz"
+      ],
+      "primary_keys": [
+        "qqoc"
+      ],
+      "composite": {
+        "lzdi": [
+          "azxs",
+          "vqgo"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "lazt",
+        "zahp"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rjni",
+      "weak": false
+    },
+    {
+      "entities": [
+        "lazt",
+        "ykik"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "enav",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ykik",
+        "lesn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xuzc",
+      "weak": true
+    },
+    {
+      "entities": [
+        "wgds",
+        "ykik"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "okjc",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wgds",
+        "lazt",
+        "ykik"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "N"
+      ],
+      "name": "krby",
+      "weak": false
+    }
+  ]
+}

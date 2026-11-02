@@ -1,0 +1,138 @@
+{
+    "entities": {
+        "phone_number": {
+            "attributes": [
+                "location",
+                "OperatingSystem",
+                "os"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "multivalued": [
+                "username"
+            ],
+            "weak": false
+        },
+        "install_date": {
+            "attributes": [
+                "latitude",
+                "installed_on",
+                "Installation",
+                "status"
+            ],
+            "primary_keys": [
+                "latitude"
+            ],
+            "weak": false
+        },
+        "longitude": {
+            "attributes": [
+                "App",
+                "os_name",
+                "compatible_with"
+            ],
+            "primary_keys": [
+                "App"
+            ],
+            "weak": false,
+            "derived": [
+                "model"
+            ]
+        },
+        "device_id": {
+            "attributes": [
+                "user_id",
+                "Installation"
+            ],
+            "primary_keys": [
+                "user_id",
+                "Installation"
+            ],
+            "weak": false
+        },
+        "version": {
+            "attributes": [
+                "runs_on",
+                "app_name",
+                "App",
+                "latitude"
+            ],
+            "primary_keys": [
+                "App",
+                "latitude"
+            ],
+            "composite": {
+                "password": [
+                    "size",
+                    "owns"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "phone_number",
+                "longitude"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Device",
+            "weak": false
+        },
+        {
+            "entities": [
+                "install_date",
+                "device_id"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "has_installations",
+            "weak": false
+        },
+        {
+            "entities": [
+                "longitude",
+                "device_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "manufacturer",
+            "weak": false
+        },
+        {
+            "entities": [
+                "install_date",
+                "longitude",
+                "version"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "app_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "longitude",
+                "version"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "User",
+            "weak": true
+        }
+    ]
+}

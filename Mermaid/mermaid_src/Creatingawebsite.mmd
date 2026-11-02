@@ -1,0 +1,40 @@
+erDiagram
+User {
+  string user_id PK
+  string username
+  string password
+}
+
+BlogPost {
+  string post_id PK
+  string title
+  string content
+  string date_posted
+}
+
+Comment {
+  string comment_id PK
+  string text
+  string comment_date
+  string user_id
+  string post_id
+}
+
+Category {
+  string category_id PK
+  string name
+  string description
+}
+
+WebsiteSetting {
+  string setting_id PK
+  string site_name
+  string theme
+  string language
+}
+
+    User ||--o{ BlogPost : "writes"
+    User ||--o{ Comment : "posts"
+    Comment o{..|| BlogPost : "refersTo"
+    BlogPost o{--o{ Category : "categorizedIn"
+    BlogPost o{--|| WebsiteSetting : "belongsTo"

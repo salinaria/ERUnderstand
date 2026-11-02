@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "verification_id": {
+            "attributes": [
+                "result",
+                "timestamp",
+                "street",
+                "address"
+            ],
+            "primary_keys": [
+                "result"
+            ],
+            "multivalued": [
+                "description"
+            ],
+            "weak": false,
+            "composite": {
+                "street": [
+                    "requires",
+                    "verification_id",
+                    "client_id",
+                    "triggers"
+                ]
+            }
+        },
+        "managed_by": {
+            "attributes": [
+                "state",
+                "upload_date",
+                "Client"
+            ],
+            "primary_keys": [
+                "state"
+            ],
+            "weak": false
+        },
+        "role": {
+            "attributes": [
+                "risk_score",
+                "document_type",
+                "phone_number",
+                "password"
+            ],
+            "primary_keys": [
+                "risk_score"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "task_id",
+                "Task",
+                "status",
+                "undergoes"
+            ],
+            "primary_keys": [
+                "task_id"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "document_id",
+                "User",
+                "Verification",
+                "user_id"
+            ],
+            "primary_keys": [
+                "document_id"
+            ],
+            "weak": true,
+            "derived": [
+                "Document"
+            ]
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "verification_id",
+                "managed_by"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "contact_person",
+            "weak": false
+        },
+        {
+            "entities": [
+                "role",
+                "verification_id",
+                "zip_code"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "notes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "managed_by",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "due_date",
+            "weak": true
+        },
+        {
+            "entities": [
+                "role",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "assigns",
+            "weak": false
+        },
+        {
+            "entities": [
+                "verification_id",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "username",
+            "weak": false
+        }
+    ]
+}

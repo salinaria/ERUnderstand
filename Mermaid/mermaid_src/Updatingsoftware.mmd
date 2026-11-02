@@ -1,0 +1,45 @@
+erDiagram
+Software {
+  string software_id PK
+  string name
+  string version
+}
+
+Update {
+  string update_id PK
+  string description
+  string release_date
+  string size
+}
+
+User {
+  string user_id PK
+  string username
+  string operating_system
+}
+
+Device {
+  string device_id PK
+  string type
+  string manufacturer
+}
+
+InstallationLog {
+  string installation_id PK
+  string installation_date
+  string status
+  string device_id
+  string update_id
+}
+
+    Software ||--o{ Update : "has"
+    Update o{--o{ User : "installs"
+    User ||--o{ Device : "owns"
+REL_records {
+  string rel_records_id PK
+}
+
+    Device ||..o{ REL_records : "Device-REL_records"
+    Update ||..o{ REL_records : "Update-REL_records"
+    InstallationLog o{..o{ REL_records : "InstallationLog-REL_records"
+    Software o{--o{ Device : "runs_on"

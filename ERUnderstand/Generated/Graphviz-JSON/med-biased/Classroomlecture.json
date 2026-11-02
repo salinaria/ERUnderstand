@@ -1,0 +1,131 @@
+{
+    "entities": {
+        "last_name": {
+            "attributes": [
+                "title",
+                "Lecture",
+                "student_id"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "derived": [
+                "first_name"
+            ],
+            "weak": false
+        },
+        "includes": {
+            "attributes": [
+                "Student",
+                "Attendance",
+                "major"
+            ],
+            "primary_keys": [
+                "Student"
+            ],
+            "weak": false
+        },
+        "teaches": {
+            "attributes": [
+                "age",
+                "Lecture",
+                "credits"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "composite": {
+                "Lecture": [
+                    "name",
+                    "Course"
+                ]
+            },
+            "weak": false
+        },
+        "records": {
+            "attributes": [
+                "attends",
+                "time",
+                "is_recorded_in"
+            ],
+            "primary_keys": [
+                "attends"
+            ],
+            "weak": false
+        },
+        "department": {
+            "attributes": [
+                "title",
+                "Student",
+                "date"
+            ],
+            "primary_keys": [
+                "title",
+                "Student"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "last_name",
+                "department"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Teacher",
+            "weak": false
+        },
+        {
+            "entities": [
+                "last_name",
+                "records"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "lecture_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "teaches",
+                "records"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "status",
+            "weak": false
+        },
+        {
+            "entities": [
+                "records",
+                "includes"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "teacher_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "includes",
+                "department"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "course_id",
+            "weak": true
+        }
+    ]
+}

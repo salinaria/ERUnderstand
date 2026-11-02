@@ -1,0 +1,124 @@
+{
+    "entities": {
+        "Frequency": {
+            "attributes": [
+                "measures",
+                "Patient",
+                "frequency_value",
+                "performs"
+            ],
+            "primary_keys": [
+                "measures"
+            ],
+            "composite": {
+                "Patient": [
+                    "phone_number",
+                    "has"
+                ]
+            },
+            "multivalued": [
+                "age_at_test"
+            ],
+            "weak": false
+        },
+        "test_type": {
+            "attributes": [
+                "result",
+                "HearingTest",
+                "unit"
+            ],
+            "primary_keys": [
+                "result"
+            ],
+            "weak": false
+        },
+        "clinic_name": {
+            "attributes": [
+                "name",
+                "threshold_value",
+                "first_name",
+                "license_number"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "derived": [
+                "undergoes"
+            ],
+            "weak": false
+        },
+        "test_id": {
+            "attributes": [
+                "ear",
+                "Audiologist"
+            ],
+            "primary_keys": [
+                "ear"
+            ],
+            "weak": false
+        },
+        "gender": {
+            "attributes": [
+                "date_of_birth",
+                "Threshold"
+            ],
+            "primary_keys": [
+                "date_of_birth",
+                "Threshold"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Frequency",
+                "clinic_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "last_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "test_type",
+                "clinic_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "audiologist_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "clinic_name",
+                "test_id",
+                "gender"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "N"
+            ],
+            "name": "patient_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "clinic_name",
+                "gender"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "frequency_value",
+            "weak": false
+        }
+    ]
+}

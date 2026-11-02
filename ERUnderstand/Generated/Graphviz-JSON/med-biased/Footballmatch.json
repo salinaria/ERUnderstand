@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "referee_id": {
+            "attributes": [
+                "Goal",
+                "time_of_goal",
+                "scored_in",
+                "years_of_experience"
+            ],
+            "primary_keys": [
+                "Goal"
+            ],
+            "weak": false
+        },
+        "minute": {
+            "attributes": [
+                "Team",
+                "first_name",
+                "date"
+            ],
+            "primary_keys": [
+                "Team"
+            ],
+            "multivalued": [
+                "officiated_by"
+            ],
+            "weak": false
+        },
+        "plays_for": {
+            "attributes": [
+                "referee_id",
+                "first_name",
+                "type",
+                "city"
+            ],
+            "primary_keys": [
+                "referee_id"
+            ],
+            "composite": {
+                "first_name": [
+                    "aliases",
+                    "Player"
+                ]
+            },
+            "weak": false
+        },
+        "player_id": {
+            "attributes": [
+                "position",
+                "match_id",
+                "last_name"
+            ],
+            "primary_keys": [
+                "position"
+            ],
+            "derived": [
+                "plays_in"
+            ],
+            "weak": true
+        },
+        "name": {
+            "attributes": [
+                "jersey_number",
+                "first_name",
+                "team_id"
+            ],
+            "primary_keys": [
+                "jersey_number"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "referee_id",
+                "minute"
+            ],
+            "cardinality": [
+                "1",
+                "2"
+            ],
+            "name": "Referee",
+            "weak": false
+        },
+        {
+            "entities": [
+                "plays_for",
+                "minute"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "attendance",
+            "weak": false
+        },
+        {
+            "entities": [
+                "referee_id",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "player_id",
+                "referee_id",
+                "plays_for"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "goal_id",
+            "weak": true
+        }
+    ]
+}

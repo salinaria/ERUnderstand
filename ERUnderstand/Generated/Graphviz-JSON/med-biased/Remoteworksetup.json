@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "workspace_id": {
+            "attributes": [
+                "street",
+                "location",
+                "start_date"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "composite": {
+                "start_date": [
+                    "agreement_id",
+                    "conducts",
+                    "address",
+                    "review_date"
+                ]
+            },
+            "weak": false
+        },
+        "Workspace": {
+            "attributes": [
+                "review_id",
+                "end_date",
+                "time_since_last_review",
+                "street"
+            ],
+            "primary_keys": [
+                "review_id"
+            ],
+            "weak": true
+        },
+        "setup_type": {
+            "attributes": [
+                "RemoteWorkAgreement",
+                "location",
+                "Employee"
+            ],
+            "primary_keys": [
+                "RemoteWorkAgreement"
+            ],
+            "multivalued": [
+                "version"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "rating",
+                "compatible_os",
+                "uses"
+            ],
+            "primary_keys": [
+                "rating"
+            ],
+            "weak": false
+        },
+        "technology_id": {
+            "attributes": [
+                "Technology",
+                "state",
+                "PerformanceReview",
+                "street"
+            ],
+            "primary_keys": [
+                "Technology"
+            ],
+            "derived": [
+                "city"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "workspace_id",
+                "Workspace"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "street",
+            "weak": true
+        },
+        {
+            "entities": [
+                "workspace_id",
+                "setup_type"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "utilizes",
+            "weak": false
+        },
+        {
+            "entities": [
+                "workspace_id",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "has",
+            "weak": false
+        },
+        {
+            "entities": [
+                "technology_id",
+                "workspace_id"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        }
+    ]
+}

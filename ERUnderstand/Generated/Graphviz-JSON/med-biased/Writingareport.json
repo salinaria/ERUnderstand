@@ -1,0 +1,133 @@
+{
+    "entities": {
+        "covers": {
+            "attributes": [
+                "word_count",
+                "Report",
+                "section_id"
+            ],
+            "primary_keys": [
+                "word_count"
+            ],
+            "weak": false
+        },
+        "city": {
+            "attributes": [
+                "feedback",
+                "Report",
+                "date_created"
+            ],
+            "primary_keys": [
+                "feedback"
+            ],
+            "weak": true
+        },
+        "Section": {
+            "attributes": [
+                "address",
+                "title",
+                "contains"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "multivalued": [
+                "topic_id"
+            ],
+            "composite": {
+                "zip_code": [
+                    "name",
+                    "author_id",
+                    "Author"
+                ]
+            },
+            "weak": false
+        },
+        "reviewed_by": {
+            "attributes": [
+                "title",
+                "email",
+                "Topic"
+            ],
+            "primary_keys": [
+                "title"
+            ],
+            "weak": false
+        },
+        "description": {
+            "attributes": [
+                "phone_number",
+                "title",
+                "reviewer_id"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "covers",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "report_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "covers",
+                "Section"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "expertise",
+            "weak": false
+        },
+        {
+            "entities": [
+                "covers",
+                "reviewed_by"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "topic_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "covers",
+                "description"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "written_by",
+            "weak": false
+        },
+        {
+            "entities": [
+                "covers",
+                "description",
+                "Section"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "Reviewer",
+            "weak": false
+        }
+    ]
+}

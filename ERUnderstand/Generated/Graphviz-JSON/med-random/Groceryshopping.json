@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "jsth": {
+      "weak": false,
+      "attributes": [
+        "ordy",
+        "bwqg",
+        "qfkg"
+      ],
+      "primary_keys": [
+        "ordy"
+      ],
+      "multivalued": [
+        "upjf"
+      ]
+    },
+    "sigh": {
+      "weak": false,
+      "attributes": [
+        "lgeh",
+        "joca",
+        "dnjk",
+        "kjul"
+      ],
+      "primary_keys": [
+        "lgeh"
+      ],
+      "derived": [
+        "lsqq"
+      ]
+    },
+    "wzfn": {
+      "weak": false,
+      "attributes": [
+        "weos",
+        "hsft",
+        "wobx"
+      ],
+      "primary_keys": [
+        "weos"
+      ]
+    },
+    "msjg": {
+      "weak": true,
+      "attributes": [
+        "lhak",
+        "lffq",
+        "nsel",
+        "csid"
+      ],
+      "primary_keys": [
+        "lhak"
+      ]
+    },
+    "zsnm": {
+      "weak": false,
+      "attributes": [
+        "hbar",
+        "tswf",
+        "hrzy"
+      ],
+      "primary_keys": [
+        "hbar"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jsth",
+        "wzfn"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vqsa",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wzfn",
+        "sigh"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ddgy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wzfn",
+        "msjg"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "tclj",
+      "weak": true
+    },
+    {
+      "entities": [
+        "sigh",
+        "zsnm"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "klsb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jsth",
+        "sigh",
+        "zsnm"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "1"
+      ],
+      "name": "rexk",
+      "weak": false
+    }
+  ]
+}

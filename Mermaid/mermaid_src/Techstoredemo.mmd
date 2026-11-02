@@ -1,0 +1,42 @@
+erDiagram
+Customer {
+  string customer_id PK
+  string first_name
+  string last_name
+  %% address: composite
+  string address
+  %% phone_number: multivalued
+  string phone_number
+}
+
+Product {
+  string product_id PK
+  string name
+  string description
+  string price
+  string manufacturer
+}
+
+Order {
+  string order_id PK
+  string order_date
+  string shipping_address
+}
+
+Payment {
+  string payment_id PK
+  string payment_date
+  string payment_method
+  string amount
+}
+
+Delivery {
+  string delivery_id PK
+  string delivery_date
+  string status
+}
+
+    Customer ||--o{ Order : "places"
+    Order ||--o{ Product : "contains"
+    Order ||--|| Payment : "made_with"
+    Order ||--|| Delivery : "associated_with"

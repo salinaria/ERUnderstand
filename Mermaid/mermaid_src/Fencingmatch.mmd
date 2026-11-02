@@ -1,0 +1,43 @@
+erDiagram
+Fencer {
+  string fencer_id PK
+  string name
+  string rating
+}
+
+Weapon {
+  string weapon_id PK
+  string type
+  string manufacturer
+}
+
+Match {
+  string match_id PK
+  %% date: composite
+  string date
+  string location
+  string round
+}
+
+Bout {
+  string bout_id PK
+  string score_fencer1
+  string score_fencer2
+}
+
+Referee {
+  string referee_id PK
+  string name
+  string experience
+}
+
+    Fencer ||--o{ Weapon : "uses"
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Fencer o{--o{ REL_participates_in : "Fencer-REL_participates_in"
+    Match ||--o{ REL_participates_in : "Match-REL_participates_in"
+    Bout ||--o{ REL_participates_in : "Bout-REL_participates_in"
+    Match ||--|| Referee : "officiated_by"
+    Bout o{..|| Match : "part_of"

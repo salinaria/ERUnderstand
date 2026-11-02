@@ -1,0 +1,46 @@
+erDiagram
+Player {
+  string player_id PK
+  string name
+  string date_of_birth
+  string ranking
+}
+
+Match {
+  string match_id PK
+  string match_date
+  string start_time
+  string end_time
+}
+
+Tournament {
+  string tournament_id PK
+  string name
+  string start_date
+  string end_date
+  string location
+}
+
+Referee {
+  string referee_id PK
+  string name
+  string certification_level
+}
+
+Score {
+  string match_id PK
+  string player_id PK
+  string set_number PK
+  string points
+}
+
+    Player o{--|| Match : "PlaysIn"
+    Match o{--|| Tournament : "PartOf"
+    Match ||--|| Referee : "Oversees"
+REL_HasScore {
+  string rel_hasscore_id PK
+}
+
+    Match ||--o{ REL_HasScore : "Match-REL_HasScore"
+    Player ||--o{ REL_HasScore : "Player-REL_HasScore"
+    Score o{--o{ REL_HasScore : "Score-REL_HasScore"

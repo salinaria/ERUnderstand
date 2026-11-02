@@ -1,0 +1,42 @@
+erDiagram
+Employee {
+  string employee_id PK
+  string name
+  string job_title
+}
+
+CoffeeBreak {
+  string break_id PK
+  string start_time
+  string end_time
+  string date
+}
+
+CoffeeType {
+  string coffee_id PK
+  string name
+  string description
+}
+
+FoodItem {
+  string item_id PK
+  string name
+  string calories
+}
+
+BreakActivity {
+  string activity_id PK
+  string description
+}
+
+    Employee ||--o{ CoffeeBreak : "attends"
+    CoffeeBreak ||--o{ CoffeeType : "serves"
+    CoffeeBreak ||--o{ FoodItem : "includes"
+    CoffeeBreak ||..o{ BreakActivity : "features"
+REL_participates_in {
+  string rel_participates_in_id PK
+}
+
+    Employee o{--o{ REL_participates_in : "Employee-REL_participates_in"
+    CoffeeBreak ||--o{ REL_participates_in : "CoffeeBreak-REL_participates_in"
+    BreakActivity o{--o{ REL_participates_in : "BreakActivity-REL_participates_in"

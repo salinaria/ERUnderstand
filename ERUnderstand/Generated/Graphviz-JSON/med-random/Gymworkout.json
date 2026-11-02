@@ -1,0 +1,154 @@
+{
+  "entities": {
+    "czrm": {
+      "weak": false,
+      "attributes": [
+        "zifb",
+        "djxt",
+        "axgp",
+        "klkb"
+      ],
+      "primary_keys": [
+        "zifb"
+      ],
+      "multivalued": [
+        "xgpt"
+      ],
+      "composite": {
+        "bfmw": [
+          "djxt",
+          "axgp"
+        ]
+      }
+    },
+    "wlzy": {
+      "weak": false,
+      "attributes": [
+        "ocpw",
+        "bfmw",
+        "wuhq",
+        "ixlw"
+      ],
+      "primary_keys": [
+        "ocpw"
+      ]
+    },
+    "ufbf": {
+      "weak": false,
+      "attributes": [
+        "hdam",
+        "bfmw",
+        "sezz",
+        "jwff",
+        "cnda"
+      ],
+      "primary_keys": [
+        "hdam"
+      ]
+    },
+    "qcoz": {
+      "weak": false,
+      "attributes": [
+        "heil",
+        "bfmw",
+        "jxgp",
+        "worm"
+      ],
+      "primary_keys": [
+        "heil"
+      ]
+    },
+    "edgy": {
+      "weak": false,
+      "attributes": [
+        "yqyk",
+        "cnda",
+        "ernc",
+        "xgwp",
+        "wjgc"
+      ],
+      "primary_keys": [
+        "yqyk"
+      ],
+      "derived": [
+        "ywxm"
+      ]
+    },
+    "gkzk": {
+      "weak": true,
+      "attributes": [
+        "rufb",
+        "hter",
+        "hfso",
+        "ydwl"
+      ],
+      "primary_keys": [
+        "rufb"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "czrm",
+        "wlzy"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "fvgh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wlzy",
+        "ufbf"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "aqoz",
+      "weak": false
+    },
+    {
+      "entities": [
+        "ufbf",
+        "qcoz"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "rqos",
+      "weak": false
+    },
+    {
+      "entities": [
+        "czrm",
+        "edgy"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "nzha",
+      "weak": false
+    },
+    {
+      "entities": [
+        "czrm",
+        "wlzy",
+        "gkzk"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "tqnv",
+      "weak": true
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "ftjs": {
+      "weak": false,
+      "attributes": [
+        "pfpr",
+        "pyyk",
+        "mlfn",
+        "fbsv"
+      ],
+      "primary_keys": [
+        "pfpr"
+      ],
+      "multivalued": [
+        "fbsv"
+      ],
+      "composite": {
+        "jxbd": [
+          "lmyk",
+          "uujl",
+          "lbcu",
+          "sqjl"
+        ]
+      }
+    },
+    "gral": {
+      "weak": false,
+      "attributes": [
+        "qbnk",
+        "pyyk",
+        "olbn"
+      ],
+      "primary_keys": [
+        "qbnk"
+      ],
+      "composite": {
+        "pyyk": [
+          "sazc",
+          "ttis"
+        ]
+      }
+    },
+    "acmu": {
+      "weak": true,
+      "attributes": [
+        "udyy",
+        "tnnu",
+        "vgqm",
+        "ktda",
+        "oaui"
+      ],
+      "primary_keys": [
+        "udyy"
+      ],
+      "derived": [
+        "donh"
+      ]
+    },
+    "putc": {
+      "weak": false,
+      "attributes": [
+        "wdxz",
+        "urve",
+        "enms"
+      ],
+      "primary_keys": [
+        "wdxz"
+      ]
+    },
+    "lamy": {
+      "weak": false,
+      "attributes": [
+        "yoon",
+        "pyyk",
+        "naav",
+        "hdht"
+      ],
+      "primary_keys": [
+        "yoon"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "ftjs",
+        "acmu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "tbcw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gral",
+        "acmu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "sabr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "acmu",
+        "putc"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xtqr",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gral",
+        "ftjs",
+        "lamy"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "wkxh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "acmu",
+        "lamy"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wapx",
+      "weak": false
+    }
+  ]
+}

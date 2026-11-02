@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "zqmn": {
+      "weak": false,
+      "attributes": [
+        "zvtp",
+        "tryu",
+        "mqtk",
+        "rhsi"
+      ],
+      "primary_keys": [
+        "zvtp"
+      ],
+      "multivalued": [
+        "rhsi"
+      ],
+      "composite": {
+        "mmjk": [
+          "tryu",
+          "mqtk"
+        ]
+      }
+    },
+    "pwtv": {
+      "weak": false,
+      "attributes": [
+        "afem",
+        "ofwm",
+        "yukp",
+        "tiku"
+      ],
+      "primary_keys": [
+        "afem"
+      ],
+      "derived": [
+        "rgvb"
+      ]
+    },
+    "wnnk": {
+      "weak": false,
+      "attributes": [
+        "kbiu",
+        "bqgd"
+      ],
+      "primary_keys": [
+        "kbiu",
+        "bqgd"
+      ]
+    },
+    "gdnr": {
+      "weak": true,
+      "attributes": [
+        "asxy",
+        "wwki",
+        "fbpq"
+      ],
+      "primary_keys": [
+        "asxy"
+      ]
+    },
+    "cdsz": {
+      "weak": false,
+      "attributes": [
+        "ayec",
+        "bvxf",
+        "tems"
+      ],
+      "primary_keys": [
+        "ayec"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "zqmn",
+        "wnnk"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "rdzj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zqmn",
+        "pwtv"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "qeww",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zqmn",
+        "gdnr"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wnri",
+      "weak": true
+    },
+    {
+      "entities": [
+        "pwtv",
+        "cdsz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ehmh",
+      "weak": false
+    },
+    {
+      "entities": [
+        "zqmn",
+        "pwtv",
+        "cdsz"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "gpww",
+      "weak": false
+    }
+  ]
+}

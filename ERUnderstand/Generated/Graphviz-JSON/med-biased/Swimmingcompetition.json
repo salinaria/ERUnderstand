@@ -1,0 +1,135 @@
+{
+    "entities": {
+        "ranking": {
+            "attributes": [
+                "stroke",
+                "competition_id",
+                "location",
+                "time"
+            ],
+            "primary_keys": [
+                "stroke"
+            ],
+            "multivalued": [
+                "start_date"
+            ],
+            "weak": false
+        },
+        "location": {
+            "attributes": [
+                "name",
+                "competition_id",
+                "Competition"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "composite": {
+                "trained_by": [
+                    "attends",
+                    "Performance",
+                    "achieves"
+                ]
+            },
+            "weak": false
+        },
+        "speed": {
+            "attributes": [
+                "swimmer_id",
+                "street",
+                "coach_id",
+                "city"
+            ],
+            "primary_keys": [
+                "swimmer_id"
+            ],
+            "weak": false
+        },
+        "Event": {
+            "attributes": [
+                "end_date",
+                "competition_id",
+                "event_type",
+                "participates_in",
+                "event_id"
+            ],
+            "primary_keys": [
+                "end_date"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "stroke",
+                "swimmer_id",
+                "end_date",
+                "phone_number",
+                "Swimmer"
+            ],
+            "primary_keys": [
+                "stroke",
+                "swimmer_id",
+                "end_date"
+            ],
+            "derived": [
+                "address"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "ranking",
+                "location"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "nationality",
+            "weak": false
+        },
+        {
+            "entities": [
+                "ranking",
+                "zip_code",
+                "speed",
+                "Event"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "Coach",
+            "weak": true,
+            "ternary": true
+        },
+        {
+            "entities": [
+                "ranking",
+                "Event"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "distance",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "ranking"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "expertise",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "member_id": {
+            "attributes": [
+                "address",
+                "Involves",
+                "phone_number"
+            ],
+            "primary_keys": [
+                "address"
+            ],
+            "multivalued": [
+                "Book"
+            ],
+            "weak": false
+        },
+        "Discussion": {
+            "attributes": [
+                "rating",
+                "time",
+                "Member",
+                "stars"
+            ],
+            "primary_keys": [
+                "rating"
+            ],
+            "derived": [
+                "ISBN"
+            ],
+            "weak": false
+        },
+        "Writes": {
+            "attributes": [
+                "join_date",
+                "review_id",
+                "summary",
+                "Meeting"
+            ],
+            "primary_keys": [
+                "join_date"
+            ],
+            "weak": false
+        },
+        "meeting_id": {
+            "attributes": [
+                "location",
+                "Attends",
+                "Features"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": true
+        },
+        "Reads": {
+            "attributes": [
+                "discussion_id",
+                "publication_year",
+                "join_date"
+            ],
+            "primary_keys": [
+                "discussion_id"
+            ],
+            "composite": {
+                "publication_year": [
+                    "thumbs_up",
+                    "topic"
+                ]
+            },
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "member_id",
+                "Discussion"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Writes",
+                "Discussion"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "age",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Writes",
+                "meeting_id",
+                "Discussion"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "Review",
+            "weak": true
+        },
+        {
+            "entities": [
+                "member_id",
+                "Reads",
+                "Discussion"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "title",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Writes",
+                "member_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "author",
+            "weak": false
+        }
+    ]
+}

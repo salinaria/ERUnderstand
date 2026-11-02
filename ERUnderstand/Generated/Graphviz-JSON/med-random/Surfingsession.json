@@ -1,0 +1,157 @@
+{
+  "entities": {
+    "vpnb": {
+      "weak": false,
+      "attributes": [
+        "tjxv",
+        "rvue",
+        "ygwb"
+      ],
+      "primary_keys": [
+        "tjxv"
+      ],
+      "multivalued": [
+        "qlla"
+      ]
+    },
+    "bwhq": {
+      "weak": false,
+      "attributes": [
+        "recv",
+        "oium",
+        "xleb"
+      ],
+      "primary_keys": [
+        "recv"
+      ]
+    },
+    "sbuu": {
+      "weak": false,
+      "attributes": [
+        "cnlj",
+        "rvue",
+        "wkve",
+        "qaar"
+      ],
+      "primary_keys": [
+        "cnlj"
+      ]
+    },
+    "dlbg": {
+      "weak": false,
+      "attributes": [
+        "anxv",
+        "grix",
+        "sydw",
+        "gjgw",
+        "cnlj"
+      ],
+      "primary_keys": [
+        "anxv"
+      ],
+      "derived": [
+        "mxzy"
+      ]
+    },
+    "ocpa": {
+      "weak": false,
+      "attributes": [
+        "itfl",
+        "pumq",
+        "rfyo"
+      ],
+      "primary_keys": [
+        "itfl"
+      ]
+    },
+    "jipw": {
+      "weak": false,
+      "attributes": [
+        "rwtv",
+        "rvue",
+        "ouzb"
+      ],
+      "primary_keys": [
+        "rwtv"
+      ]
+    },
+    "pvxs": {
+      "weak": true,
+      "attributes": [
+        "anxv",
+        "rwtv",
+        "jvio",
+        "hqff"
+      ],
+      "primary_keys": [
+        "anxv",
+        "rwtv",
+        "jvio"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "vpnb",
+        "bwhq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "vgny",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vpnb",
+        "dlbg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gmxx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dlbg",
+        "sbuu"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "nnwb",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dlbg",
+        "ocpa"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "jsvf",
+      "weak": false
+    },
+    {
+      "entities": [
+        "dlbg",
+        "jipw",
+        "pvxs"
+      ],
+      "cardinality": [
+        "1",
+        "N",
+        "1"
+      ],
+      "name": "woxw",
+      "weak": true
+    }
+  ]
+}

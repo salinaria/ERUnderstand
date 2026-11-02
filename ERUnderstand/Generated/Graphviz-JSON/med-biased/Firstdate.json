@@ -1,0 +1,129 @@
+{
+    "entities": {
+        "Conversation": {
+            "attributes": [
+                "location_id",
+                "person_id",
+                "Person"
+            ],
+            "primary_keys": [
+                "location_id"
+            ],
+            "multivalued": [
+                "Person"
+            ],
+            "weak": false
+        },
+        "Impression": {
+            "attributes": [
+                "conversation_id",
+                "phone_number",
+                "Activity"
+            ],
+            "primary_keys": [
+                "conversation_id"
+            ],
+            "weak": false
+        },
+        "participates_in": {
+            "attributes": [
+                "takes_place_at",
+                "note",
+                "type"
+            ],
+            "primary_keys": [
+                "takes_place_at"
+            ],
+            "weak": false
+        },
+        "impression_id": {
+            "attributes": [
+                "activity_id",
+                "offers",
+                "level",
+                "location_id"
+            ],
+            "primary_keys": [
+                "activity_id"
+            ],
+            "derived": [
+                "level"
+            ],
+            "weak": true
+        },
+        "address": {
+            "attributes": [
+                "rating",
+                "description",
+                "duration",
+                "location_id"
+            ],
+            "primary_keys": [
+                "rating"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Conversation",
+                "Impression"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Conversation",
+                "participates_in"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Location",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Conversation",
+                "impression_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "topic",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Conversation",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "has",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Impression",
+                "participates_in"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "leaves",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "mxhe": {
+      "weak": false,
+      "attributes": [
+        "jydi",
+        "irvf",
+        "smbv"
+      ],
+      "primary_keys": [
+        "jydi"
+      ],
+      "composite": {
+        "irvf": [
+          "rxbs",
+          "dqka"
+        ]
+      }
+    },
+    "fgua": {
+      "weak": false,
+      "attributes": [
+        "rgmf",
+        "fyvl",
+        "qhgx"
+      ],
+      "primary_keys": [
+        "rgmf"
+      ],
+      "derived": [
+        "eqgq"
+      ]
+    },
+    "stbx": {
+      "weak": true,
+      "attributes": [
+        "sfrj",
+        "rhzt",
+        "ifkn",
+        "gjzo"
+      ],
+      "primary_keys": [
+        "sfrj"
+      ]
+    },
+    "bxck": {
+      "weak": false,
+      "attributes": [
+        "iiwi",
+        "cdsk",
+        "duwc"
+      ],
+      "primary_keys": [
+        "iiwi"
+      ]
+    },
+    "gdio": {
+      "weak": true,
+      "attributes": [
+        "yudm",
+        "ayyw",
+        "lepq"
+      ],
+      "primary_keys": [
+        "yudm"
+      ],
+      "multivalued": [
+        "lsmy"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "mxhe",
+        "fgua"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "bhhk",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fgua",
+        "stbx"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wpcq",
+      "weak": true
+    },
+    {
+      "entities": [
+        "stbx",
+        "mxhe"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "igus",
+      "weak": false
+    },
+    {
+      "entities": [
+        "bxck",
+        "gdio"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "yxhq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "gdio",
+        "stbx",
+        "mxhe"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "lecs",
+      "weak": false
+    }
+  ]
+}

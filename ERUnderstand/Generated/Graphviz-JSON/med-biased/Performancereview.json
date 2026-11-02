@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "Demonstrates": {
+            "attributes": [
+                "Goal",
+                "address",
+                "zip"
+            ],
+            "primary_keys": [
+                "Goal"
+            ],
+            "composite": {
+                "ReportsTo": [
+                    "Skill",
+                    "manager_id",
+                    "target_date",
+                    "job_title"
+                ]
+            },
+            "weak": false
+        },
+        "state": {
+            "attributes": [
+                "overall_comment",
+                "Supervises",
+                "proficiency_level"
+            ],
+            "primary_keys": [
+                "overall_comment"
+            ],
+            "derived": [
+                "Receives"
+            ],
+            "weak": false
+        },
+        "name": {
+            "attributes": [
+                "performance_score",
+                "certification"
+            ],
+            "primary_keys": [
+                "performance_score"
+            ],
+            "weak": false
+        },
+        "department": {
+            "attributes": [
+                "Sets",
+                "status",
+                "goal_id",
+                "Manager"
+            ],
+            "primary_keys": [
+                "Sets"
+            ],
+            "weak": true
+        },
+        "skill_name": {
+            "attributes": [
+                "performance_score",
+                "skill_id",
+                "review_date"
+            ],
+            "primary_keys": [
+                "performance_score"
+            ],
+            "multivalued": [
+                "review_id"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Demonstrates",
+                "state"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "employee_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "Demonstrates"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Employee",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Demonstrates",
+                "department"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "street",
+            "weak": true
+        },
+        {
+            "entities": [
+                "Demonstrates",
+                "skill_name",
+                "state"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Demonstrates",
+                "name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Review",
+            "weak": false
+        }
+    ]
+}

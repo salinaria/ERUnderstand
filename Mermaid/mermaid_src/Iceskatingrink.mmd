@@ -1,0 +1,52 @@
+erDiagram
+Skater {
+  string skater_id PK
+  string name
+  string date_of_birth
+  string level
+}
+
+Coach {
+  string coach_id PK
+  string name
+  string specialty
+  string hourly_rate
+}
+
+Lesson {
+  string lesson_id PK
+  string date
+  string time
+  string duration
+}
+
+IceRink {
+  string rink_id PK
+  string name
+  string address
+  string size
+}
+
+Competition {
+  string competition_id PK
+  string name
+  string location
+  string date
+}
+
+Sponsorship {
+  string sponsorship_id PK
+  string sponsor_name
+  string amount
+}
+
+REL_TakesLesson {
+  string rel_takeslesson_id PK
+}
+
+    Skater o{..o{ REL_TakesLesson : "Skater-REL_TakesLesson"
+    Coach ||..o{ REL_TakesLesson : "Coach-REL_TakesLesson"
+    Lesson ||..o{ REL_TakesLesson : "Lesson-REL_TakesLesson"
+    Skater o{--|| IceRink : "PracticesAt"
+    Skater o{--o{ Competition : "ParticipatesIn"
+    Competition ||--o{ Sponsorship : "Receives"

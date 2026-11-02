@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "vfmy": {
+      "weak": false,
+      "attributes": [
+        "ykcf",
+        "zfnu",
+        "ukfq"
+      ],
+      "primary_keys": [
+        "ykcf"
+      ]
+    },
+    "vkbg": {
+      "weak": false,
+      "attributes": [
+        "glwl",
+        "zfnu",
+        "nivb",
+        "iwlr"
+      ],
+      "primary_keys": [
+        "glwl"
+      ],
+      "composite": {
+        "iwlr": [
+          "akwf",
+          "neob"
+        ]
+      }
+    },
+    "jnyi": {
+      "weak": false,
+      "attributes": [
+        "ajkk",
+        "zfnu",
+        "oyeo"
+      ],
+      "primary_keys": [
+        "ajkk"
+      ],
+      "multivalued": [
+        "oyeo"
+      ]
+    },
+    "kpda": {
+      "weak": false,
+      "attributes": [
+        "mpvi",
+        "zega",
+        "jsbk"
+      ],
+      "primary_keys": [
+        "mpvi"
+      ],
+      "derived": [
+        "odnk"
+      ]
+    },
+    "wkgq": {
+      "weak": true,
+      "attributes": [
+        "ahjj",
+        "fpbm",
+        "xjuj",
+        "fccm"
+      ],
+      "primary_keys": [
+        "ahjj"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "vfmy",
+        "kpda"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "rkjj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vfmy",
+        "vkbg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "mpin",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wkgq",
+        "jnyi"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "goyo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "vkbg",
+        "wkgq",
+        "jnyi"
+      ],
+      "cardinality": [
+        "N",
+        "1",
+        "1"
+      ],
+      "name": "cemc",
+      "weak": true
+    },
+    {
+      "entities": [
+        "kpda",
+        "wkgq"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "xskt",
+      "weak": false
+    }
+  ]
+}

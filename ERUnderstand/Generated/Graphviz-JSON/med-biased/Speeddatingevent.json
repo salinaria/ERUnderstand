@@ -1,0 +1,127 @@
+{
+    "entities": {
+        "name": {
+            "attributes": [
+                "city",
+                "DatingRound",
+                "Session"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "multivalued": [
+                "consists_of"
+            ],
+            "weak": false
+        },
+        "date": {
+            "attributes": [
+                "city",
+                "gives",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "composite": {
+                "zip_code": [
+                    "creates",
+                    "address",
+                    "session_id"
+                ]
+            },
+            "weak": false
+        },
+        "participant1_id": {
+            "attributes": [
+                "phone_number",
+                "Participant",
+                "city"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": true,
+            "derived": [
+                "round_id"
+            ]
+        },
+        "location": {
+            "attributes": [
+                "gender",
+                "comment",
+                "duration",
+                "attends"
+            ],
+            "primary_keys": [
+                "gender"
+            ],
+            "weak": false
+        },
+        "match_id": {
+            "attributes": [
+                "participant_id",
+                "city",
+                "phone_number",
+                "participant2_id",
+                "feedback_id"
+            ],
+            "primary_keys": [
+                "participant_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "name",
+                "date"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "rating",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date",
+                "participant1_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "date_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "location"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "end_time",
+            "weak": false
+        },
+        {
+            "entities": [
+                "name",
+                "participant1_id",
+                "match_id"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "Feedback",
+            "weak": true
+        }
+    ]
+}

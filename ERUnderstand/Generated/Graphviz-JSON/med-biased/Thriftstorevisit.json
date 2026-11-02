@@ -1,0 +1,146 @@
+{
+    "entities": {
+        "purchase_id": {
+            "attributes": [
+                "processes",
+                "employee_id",
+                "street",
+                "state"
+            ],
+            "primary_keys": [
+                "processes"
+            ],
+            "multivalued": [
+                "state"
+            ],
+            "weak": false,
+            "composite": {
+                "street": [
+                    "category",
+                    "records",
+                    "condition",
+                    "description"
+                ]
+            }
+        },
+        "Employee": {
+            "attributes": [
+                "Item",
+                "item_id",
+                "name",
+                "includes"
+            ],
+            "primary_keys": [
+                "Item"
+            ],
+            "derived": [
+                "includes"
+            ],
+            "weak": false
+        },
+        "date_received": {
+            "attributes": [
+                "customer_id",
+                "Purchase",
+                "weekly_salary",
+                "hours_worked",
+                "contains"
+            ],
+            "primary_keys": [
+                "customer_id"
+            ],
+            "weak": true
+        },
+        "donation_id": {
+            "attributes": [
+                "donor_name",
+                "phone_number",
+                "zip_code"
+            ],
+            "primary_keys": [
+                "donor_name"
+            ],
+            "weak": false
+        },
+        "price": {
+            "attributes": [
+                "makes",
+                "employee_id",
+                "hourly_wage",
+                "city",
+                "Customer"
+            ],
+            "primary_keys": [
+                "makes"
+            ],
+            "weak": false,
+            "derived": [
+                "purchase_date"
+            ]
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "purchase_id",
+                "donation_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Donation",
+            "weak": false
+        },
+        {
+            "entities": [
+                "donation_id",
+                "date_received"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "position",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Employee",
+                "date_received"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "total_amount",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_received",
+                "price",
+                "donation_id"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "estimated_value",
+            "weak": true
+        },
+        {
+            "entities": [
+                "price",
+                "Employee"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        }
+    ]
+}

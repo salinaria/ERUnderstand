@@ -1,0 +1,125 @@
+{
+    "entities": {
+        "theme": {
+            "attributes": [
+                "description",
+                "Guest",
+                "Game"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "Game"
+            ],
+            "weak": false,
+            "composite": {
+                "includes": [
+                    "attends",
+                    "street",
+                    "guest_id"
+                ]
+            }
+        },
+        "city": {
+            "attributes": [
+                "hosts",
+                "response",
+                "brings"
+            ],
+            "primary_keys": [
+                "hosts"
+            ],
+            "weak": false
+        },
+        "age": {
+            "attributes": [
+                "value",
+                "rules",
+                "Gift"
+            ],
+            "primary_keys": [
+                "value"
+            ],
+            "weak": false,
+            "derived": [
+                "date"
+            ]
+        },
+        "address": {
+            "attributes": [
+                "rsvp_id",
+                "Guest",
+                "gift_id"
+            ],
+            "primary_keys": [
+                "rsvp_id"
+            ],
+            "weak": false
+        },
+        "party_id": {
+            "attributes": [
+                "phone_number",
+                "zip_code",
+                "description",
+                "value"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "theme",
+                "party_id",
+                "age"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "theme",
+                "city"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "game_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "age",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "RSVP",
+            "weak": false
+        },
+        {
+            "entities": [
+                "theme",
+                "age"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Party",
+            "weak": false
+        }
+    ]
+}

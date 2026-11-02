@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "attends_to": {
+            "attributes": [
+                "suffers",
+                "location_id",
+                "Injury"
+            ],
+            "primary_keys": [
+                "suffers"
+            ],
+            "composite": {
+                "location_id": [
+                    "Patient",
+                    "injury_id"
+                ]
+            },
+            "weak": false
+        },
+        "first_aider_id": {
+            "attributes": [
+                "certification",
+                "date_of_birth",
+                "treatment_id"
+            ],
+            "primary_keys": [
+                "certification"
+            ],
+            "multivalued": [
+                "treatment_id"
+            ],
+            "weak": false
+        },
+        "patient_id": {
+            "attributes": [
+                "phone_number",
+                "severity",
+                "FirstAider"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "type": {
+            "attributes": [
+                "first_name",
+                "duration",
+                "Location"
+            ],
+            "primary_keys": [
+                "first_name"
+            ],
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "requires",
+                "Treatment",
+                "severity"
+            ],
+            "primary_keys": [
+                "requires"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "attends_to",
+                "patient_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_aider_id",
+                "attends_to"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "first_aider_id",
+                "type",
+                "attends_to"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "name",
+            "weak": true
+        },
+        {
+            "entities": [
+                "patient_id",
+                "type"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "administers",
+            "weak": false
+        },
+        {
+            "entities": [
+                "attends_to",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "certification",
+            "weak": false
+        }
+    ]
+}

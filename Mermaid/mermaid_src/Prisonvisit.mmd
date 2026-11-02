@@ -1,0 +1,51 @@
+erDiagram
+Prisoner {
+  string prisoner_id PK
+  string name
+  string date_of_birth
+  string crime
+}
+
+Visitor {
+  string visitor_id PK
+  string name
+  string relationship_to_prisoner
+  string address
+}
+
+Visit {
+  string visit_id PK
+  string date
+  string time
+  string duration
+}
+
+Guard {
+  string guard_id PK
+  string name
+  string rank
+}
+
+Location {
+  string location_id PK
+  string name
+  string capacity
+}
+
+    Visitor ||--o{ Visit : "Schedules"
+    Prisoner ||--o{ Visit : "Receives"
+REL_ParticipatesIn {
+  string rel_participatesin_id PK
+}
+
+    Prisoner ||..o{ REL_ParticipatesIn : "Prisoner-REL_ParticipatesIn"
+    Visitor o{..o{ REL_ParticipatesIn : "Visitor-REL_ParticipatesIn"
+    Visit ||..o{ REL_ParticipatesIn : "Visit-REL_ParticipatesIn"
+REL_Supervises {
+  string rel_supervises_id PK
+}
+
+    Guard ||--o{ REL_Supervises : "Guard-REL_Supervises"
+    Visit o{--o{ REL_Supervises : "Visit-REL_Supervises"
+    Location ||--o{ REL_Supervises : "Location-REL_Supervises"
+    Visit ||--|| Location : "OccursAt"

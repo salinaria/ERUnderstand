@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "maintains": {
+            "attributes": [
+                "phone_number",
+                "model",
+                "Part"
+            ],
+            "primary_keys": [
+                "phone_number"
+            ],
+            "weak": false,
+            "composite": {
+                "name": [
+                    "Problem",
+                    "serial_number",
+                    "supplier"
+                ]
+            }
+        },
+        "location": {
+            "attributes": [
+                "zip_code",
+                "repair_id",
+                "cost"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "weak": false
+        },
+        "uses": {
+            "attributes": [
+                "city",
+                "Repair",
+                "resolution_time"
+            ],
+            "primary_keys": [
+                "city"
+            ],
+            "weak": false,
+            "derived": [
+                "technician_id"
+            ]
+        },
+        "date_reported": {
+            "attributes": [
+                "experiences",
+                "part_number",
+                "Repair"
+            ],
+            "primary_keys": [
+                "experiences"
+            ],
+            "weak": true
+        },
+        "address": {
+            "attributes": [
+                "problem_id",
+                "model",
+                "Technician"
+            ],
+            "primary_keys": [
+                "problem_id"
+            ],
+            "multivalued": [
+                "Printer"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "maintains",
+                "location"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "addresses",
+            "weak": false
+        },
+        {
+            "entities": [
+                "location",
+                "uses"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "performs",
+            "weak": false
+        },
+        {
+            "entities": [
+                "maintains",
+                "date_reported",
+                "uses"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "street",
+            "weak": true
+        },
+        {
+            "entities": [
+                "date_reported",
+                "address"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_reported",
+                "uses"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date_repaired",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+erDiagram
+Patient {
+  string patient_id PK
+  string name
+  string date_of_birth
+  %% address: composite
+  string address
+}
+
+Prescription {
+  string prescription_id PK
+  string date_written
+  string dosage
+  string quantity
+  string refills_allowed
+}
+
+Medication {
+  string medication_id PK
+  string medication_name
+  string form
+  string strength
+}
+
+Pharmacy {
+  string pharmacy_id PK
+  string pharmacy_name
+  string phone_number
+  %% address: composite
+  string address
+}
+
+Refill {
+  string prescription_id PK
+  string refill_number PK
+  string date_filled
+}
+
+    Patient ||--o{ Prescription : "has"
+    Prescription ||--|| Medication : "is_for"
+    Prescription ||--|| Pharmacy : "filled_at"
+    Prescription ||..o{ Refill : "has_refills"
+REL_handles {
+  string rel_handles_id PK
+}
+
+    Pharmacy o{--o{ REL_handles : "Pharmacy-REL_handles"
+    Patient o{--o{ REL_handles : "Patient-REL_handles"
+    Prescription o{--o{ REL_handles : "Prescription-REL_handles"

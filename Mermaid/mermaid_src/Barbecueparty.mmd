@@ -1,0 +1,44 @@
+erDiagram
+Guest {
+  string guest_id PK
+  string name
+  string rsvp_status
+}
+
+Item {
+  string item_id PK
+  string name
+  string quantity
+  string cost_per_unit
+}
+
+Task {
+  string task_id PK
+  string description
+  string status
+  string due_date
+}
+
+Recipe {
+  string recipe_id PK
+  string name
+  string instructions
+}
+
+Ingredient {
+  string ingredient_id PK
+  string name
+  string quantity
+}
+
+    Guest ||--o{ Task : "assigned_to"
+    Guest o{--o{ Item : "brings"
+    Recipe ||..o{ Ingredient : "requires"
+    Item o{--o{ Recipe : "comprises"
+REL_related_to {
+  string rel_related_to_id PK
+}
+
+    Task ||..o{ REL_related_to : "Task-REL_related_to"
+    Guest o{..o{ REL_related_to : "Guest-REL_related_to"
+    Item ||..o{ REL_related_to : "Item-REL_related_to"

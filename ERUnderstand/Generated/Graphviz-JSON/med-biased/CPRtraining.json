@@ -1,0 +1,137 @@
+{
+    "entities": {
+        "teaches": {
+            "attributes": [
+                "instructor_id",
+                "certification_id",
+                "expiry_date"
+            ],
+            "primary_keys": [
+                "instructor_id"
+            ],
+            "multivalued": [
+                "expiry_date"
+            ],
+            "weak": false
+        },
+        "instructor_id": {
+            "attributes": [
+                "seats_available",
+                "CPR_Class"
+            ],
+            "primary_keys": [
+                "seats_available"
+            ],
+            "composite": {
+                "Evaluation": [
+                    "type",
+                    "attends",
+                    "participant_id"
+                ]
+            },
+            "weak": false
+        },
+        "phone_number": {
+            "attributes": [
+                "score",
+                "evaluation_id",
+                "address",
+                "city"
+            ],
+            "primary_keys": [
+                "score"
+            ],
+            "derived": [
+                "duration"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "holds",
+                "comments",
+                "street"
+            ],
+            "primary_keys": [
+                "holds"
+            ],
+            "weak": false
+        },
+        "class_id": {
+            "attributes": [
+                "certification_level",
+                "name",
+                "location",
+                "score"
+            ],
+            "primary_keys": [
+                "certification_level"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "teaches",
+                "phone_number"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Certification",
+            "weak": false
+        },
+        {
+            "entities": [
+                "instructor_id",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Participant",
+            "weak": false
+        },
+        {
+            "entities": [
+                "phone_number",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "teaches",
+                "class_id",
+                "phone_number"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "requires",
+            "weak": true
+        },
+        {
+            "entities": [
+                "teaches",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "receives",
+            "weak": false
+        }
+    ]
+}

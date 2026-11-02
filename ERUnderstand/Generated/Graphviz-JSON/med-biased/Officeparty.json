@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "theme": {
+            "attributes": [
+                "zip_code",
+                "party_id",
+                "name",
+                "Party"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "multivalued": [
+                "Party"
+            ],
+            "weak": false,
+            "composite": {
+                "email": [
+                    "date",
+                    "RSVP",
+                    "Employee",
+                    "state"
+                ]
+            }
+        },
+        "serves": {
+            "attributes": [
+                "location",
+                "food_id",
+                "address",
+                "attends"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "weak": false
+        },
+        "guest_name": {
+            "attributes": [
+                "organizes",
+                "phone_number",
+                "Food",
+                "guest_id"
+            ],
+            "primary_keys": [
+                "organizes"
+            ],
+            "weak": false
+        },
+        "street": {
+            "attributes": [
+                "hosting_for",
+                "rsvp_id",
+                "job_title"
+            ],
+            "primary_keys": [
+                "hosting_for"
+            ],
+            "weak": false
+        },
+        "affiliation": {
+            "attributes": [
+                "note",
+                "Guest",
+                "city"
+            ],
+            "primary_keys": [
+                "note"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "theme",
+                "guest_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "description",
+            "weak": false
+        },
+        {
+            "entities": [
+                "serves",
+                "guest_name",
+                "affiliation"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "employee_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "guest_name",
+                "street"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Invited",
+            "weak": false
+        },
+        {
+            "entities": [
+                "theme",
+                "serves",
+                "guest_name"
+            ],
+            "cardinality": [
+                "N",
+                "N",
+                "1"
+            ],
+            "name": "food_name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "theme",
+                "guest_name"
+            ],
+            "cardinality": [
+                "N",
+                "1"
+            ],
+            "name": "response",
+            "weak": false
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+erDiagram
+Holiday {
+  string holiday_id PK
+  string holiday_name
+  string date
+}
+
+Decoration {
+  string decoration_id PK
+  string decoration_type
+  string color
+  string quantity
+}
+
+Location {
+  string location_id PK
+  string location_name
+  string room
+}
+
+Decorating_Task {
+  string task_id PK
+  string description
+  string status
+}
+
+Person {
+  string person_id PK
+  string name
+}
+
+    Decoration o{--|| Holiday : "associated_with"
+    Decoration o{--|| Location : "placed_at"
+    Location ||..o{ Decorating_Task : "assigned_to"
+REL_prepared_by {
+  string rel_prepared_by_id PK
+}
+
+    Holiday ||--o{ REL_prepared_by : "Holiday-REL_prepared_by"
+    Person o{--o{ REL_prepared_by : "Person-REL_prepared_by"
+    Decorating_Task o{--o{ REL_prepared_by : "Decorating_Task-REL_prepared_by"

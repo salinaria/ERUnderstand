@@ -1,0 +1,136 @@
+{
+    "entities": {
+        "product_name": {
+            "attributes": [
+                "Customer",
+                "phone_number",
+                "date"
+            ],
+            "primary_keys": [
+                "Customer"
+            ],
+            "multivalued": [
+                "date"
+            ],
+            "weak": false
+        },
+        "store_id": {
+            "attributes": [
+                "product_id",
+                "customer_id",
+                "available_at"
+            ],
+            "primary_keys": [
+                "product_id"
+            ],
+            "weak": false
+        },
+        "discount_amount": {
+            "attributes": [
+                "transaction_id",
+                "Product",
+                "includes"
+            ],
+            "primary_keys": [
+                "transaction_id"
+            ],
+            "weak": false
+        },
+        "store_name": {
+            "attributes": [
+                "location",
+                "total_amount",
+                "Transaction"
+            ],
+            "primary_keys": [
+                "location"
+            ],
+            "derived": [
+                "Transaction"
+            ],
+            "weak": false
+        },
+        "expiry_date": {
+            "attributes": [
+                "zip_code",
+                "address",
+                "coupon_code"
+            ],
+            "primary_keys": [
+                "zip_code"
+            ],
+            "composite": {
+                "address": [
+                    "price",
+                    "makes",
+                    "Coupon"
+                ]
+            },
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "product_name",
+                "store_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "name",
+            "weak": false
+        },
+        {
+            "entities": [
+                "store_name",
+                "discount_amount"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "applies",
+            "weak": false
+        },
+        {
+            "entities": [
+                "store_name",
+                "store_id"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "city",
+            "weak": false
+        },
+        {
+            "entities": [
+                "discount_amount",
+                "expiry_date"
+            ],
+            "cardinality": [
+                "N",
+                "N"
+            ],
+            "name": "Store",
+            "weak": false
+        },
+        {
+            "entities": [
+                "store_name",
+                "product_name",
+                "expiry_date"
+            ],
+            "cardinality": [
+                "1",
+                "1",
+                "1"
+            ],
+            "name": "location",
+            "weak": false
+        }
+    ]
+}

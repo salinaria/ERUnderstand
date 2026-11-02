@@ -1,0 +1,41 @@
+erDiagram
+Arrest {
+  string arrest_id PK
+  string arrest_date
+  string location
+}
+
+Suspect {
+  string suspect_id PK
+  string name
+  %% address: composite
+  string address
+  string date_of_birth
+}
+
+Officer {
+  string officer_id PK
+  string badge_number
+  string rank
+  string name
+}
+
+Crime {
+  string crime_id PK
+  string crime_type
+  string description
+}
+
+Evidence {
+  string evidence_id PK
+  string description
+  string date_collected
+  string type
+  string arrest_id
+}
+
+    Arrest ||--o{ Suspect : "involves"
+    Arrest ||--o{ Officer : "conducted_by"
+    Arrest ||--o{ Crime : "related_to"
+    Crime o{--o{ Suspect : "committed_by"
+    Arrest ||--o{ Evidence : "collected"

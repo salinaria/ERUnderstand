@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "xewb": {
+      "weak": false,
+      "attributes": [
+        "ehrz",
+        "yleb",
+        "fieu"
+      ],
+      "primary_keys": [
+        "ehrz"
+      ],
+      "multivalued": [
+        "vklu"
+      ]
+    },
+    "mowz": {
+      "weak": false,
+      "attributes": [
+        "hzlb",
+        "givu",
+        "ggli"
+      ],
+      "primary_keys": [
+        "hzlb"
+      ],
+      "derived": [
+        "zvpd"
+      ]
+    },
+    "jxoh": {
+      "weak": true,
+      "attributes": [
+        "zjlj",
+        "ijhc",
+        "njjl",
+        "bpmg"
+      ],
+      "primary_keys": [
+        "zjlj"
+      ],
+      "composite": {
+        "xlci": [
+          "tuqn",
+          "tzsr",
+          "zvsk"
+        ]
+      }
+    },
+    "zspw": {
+      "weak": false,
+      "attributes": [
+        "sfsr",
+        "yleb",
+        "edfk",
+        "wqck",
+        "eqrz"
+      ],
+      "primary_keys": [
+        "sfsr"
+      ]
+    },
+    "iqsk": {
+      "weak": false,
+      "attributes": [
+        "zjsk",
+        "qwvy"
+      ],
+      "primary_keys": [
+        "zjsk"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "xewb",
+        "mowz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "gxmg",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mowz",
+        "jxoh"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "mjii",
+      "weak": false
+    },
+    {
+      "entities": [
+        "mowz",
+        "zspw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ofko",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xewb",
+        "iqsk"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "gnaj",
+      "weak": false
+    },
+    {
+      "entities": [
+        "iqsk",
+        "zspw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "pmss",
+      "weak": false
+    }
+  ]
+}

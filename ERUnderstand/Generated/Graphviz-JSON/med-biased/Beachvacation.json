@@ -1,0 +1,139 @@
+{
+    "entities": {
+        "Accommodation": {
+            "attributes": [
+                "description",
+                "vacationer_id",
+                "books"
+            ],
+            "primary_keys": [
+                "description"
+            ],
+            "multivalued": [
+                "rating"
+            ],
+            "weak": false
+        },
+        "dates": {
+            "attributes": [
+                "Review",
+                "concerns",
+                "books",
+                "Accommodation"
+            ],
+            "primary_keys": [
+                "Review"
+            ],
+            "derived": [
+                "phone_number"
+            ],
+            "weak": false
+        },
+        "activity_id": {
+            "attributes": [
+                "cost",
+                "vacationer_id",
+                "total_price",
+                "participates_in"
+            ],
+            "primary_keys": [
+                "cost"
+            ],
+            "weak": false
+        },
+        "writes_review": {
+            "attributes": [
+                "review_id",
+                "type",
+                "Vacationer",
+                "address"
+            ],
+            "primary_keys": [
+                "review_id"
+            ],
+            "composite": {
+                "name": [
+                    "type",
+                    "Vacationer"
+                ]
+            },
+            "weak": true
+        },
+        "check_out_date": {
+            "attributes": [
+                "booking_id",
+                "Booking",
+                "price_per_night",
+                "number_of_guests"
+            ],
+            "primary_keys": [
+                "booking_id"
+            ],
+            "weak": true
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "Accommodation",
+                "writes_review"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "reserved_at",
+            "weak": false
+        },
+        {
+            "entities": [
+                "dates",
+                "writes_review"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "Activity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Accommodation",
+                "dates",
+                "check_out_date"
+            ],
+            "cardinality": [
+                "N",
+                "1",
+                "1"
+            ],
+            "name": "accommodation_id",
+            "weak": false
+        },
+        {
+            "entities": [
+                "Accommodation",
+                "activity_id"
+            ],
+            "cardinality": [
+                "N",
+                "M"
+            ],
+            "name": "review_date",
+            "weak": false
+        },
+        {
+            "entities": [
+                "writes_review",
+                "check_out_date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "check_in_date",
+            "weak": true
+        }
+    ]
+}

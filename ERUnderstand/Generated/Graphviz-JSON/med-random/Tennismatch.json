@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "vrud": {
+      "weak": false,
+      "attributes": [
+        "wlrs",
+        "dbde",
+        "zpqo",
+        "naur",
+        "gftp"
+      ],
+      "primary_keys": [
+        "wlrs"
+      ],
+      "multivalued": [
+        "wjtx"
+      ],
+      "composite": {
+        "agpd": [
+          "dbde",
+          "zpqo"
+        ]
+      }
+    },
+    "fzwa": {
+      "weak": false,
+      "attributes": [
+        "wcpq",
+        "hwek",
+        "beoc",
+        "dlnl"
+      ],
+      "primary_keys": [
+        "wcpq"
+      ]
+    },
+    "xmeg": {
+      "weak": true,
+      "attributes": [
+        "znep",
+        "iuxn",
+        "imcp"
+      ],
+      "primary_keys": [
+        "wcpq",
+        "znep"
+      ]
+    },
+    "hcdv": {
+      "weak": false,
+      "attributes": [
+        "lfeu",
+        "cwkp",
+        "zxif"
+      ],
+      "primary_keys": [
+        "lfeu"
+      ]
+    },
+    "avvv": {
+      "weak": true,
+      "attributes": [
+        "miix",
+        "gdph",
+        "gmxm"
+      ],
+      "primary_keys": [
+        "wcpq",
+        "znep",
+        "miix"
+      ],
+      "derived": [
+        "talk"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "vrud",
+        "fzwa"
+      ],
+      "cardinality": [
+        "2",
+        "N"
+      ],
+      "name": "jsqy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "fzwa",
+        "xmeg"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "omlf",
+      "weak": true
+    },
+    {
+      "entities": [
+        "hcdv",
+        "fzwa"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "ndkl",
+      "weak": false
+    },
+    {
+      "entities": [
+        "xmeg",
+        "avvv"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "uaru",
+      "weak": true
+    },
+    {
+      "entities": [
+        "fzwa",
+        "xmeg",
+        "avvv"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "N"
+      ],
+      "name": "eztl",
+      "weak": true
+    }
+  ]
+}

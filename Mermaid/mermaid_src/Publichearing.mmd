@@ -1,0 +1,43 @@
+erDiagram
+Hearing {
+  string hearing_id PK
+  string date
+  string location
+}
+
+Participant {
+  string participant_id PK
+  string name
+  string affiliation
+}
+
+Topic {
+  string topic_id PK
+  string description
+}
+
+Organization {
+  string org_id PK
+  string name
+  string address
+}
+
+Comment {
+  string comment_id PK
+  string content
+  string timestamp
+  string participant_id
+  string hearing_id
+}
+
+    Hearing ||--o{ Topic : "Addresses"
+    Participant ||--o{ Comment : "Provides"
+    Participant o{--|| Organization : "Represents"
+REL_Submitted_at {
+  string rel_submitted_at_id PK
+}
+
+    Comment o{..o{ REL_Submitted_at : "Comment-REL_Submitted_at"
+    Hearing ||..o{ REL_Submitted_at : "Hearing-REL_Submitted_at"
+    Participant ||..o{ REL_Submitted_at : "Participant-REL_Submitted_at"
+    Hearing o{--o{ Organization : "Hosts"

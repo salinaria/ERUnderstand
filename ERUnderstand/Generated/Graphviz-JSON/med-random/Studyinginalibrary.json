@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "jebi": {
+      "weak": false,
+      "attributes": [
+        "bkyf",
+        "sozc",
+        "uilm"
+      ],
+      "primary_keys": [
+        "bkyf"
+      ],
+      "multivalued": [
+        "cvto"
+      ]
+    },
+    "yvwd": {
+      "weak": false,
+      "attributes": [
+        "eclh",
+        "pyjo",
+        "acqu",
+        "cypa"
+      ],
+      "primary_keys": [
+        "eclh"
+      ],
+      "derived": [
+        "blro"
+      ]
+    },
+    "qdwa": {
+      "weak": false,
+      "attributes": [
+        "smil",
+        "sozc",
+        "yfxb"
+      ],
+      "primary_keys": [
+        "smil"
+      ]
+    },
+    "bflu": {
+      "weak": true,
+      "attributes": [
+        "wdfo",
+        "slxm"
+      ],
+      "primary_keys": [
+        "wdfo"
+      ],
+      "composite": {
+        "bkwp": [
+          "twnw",
+          "ummb"
+        ]
+      }
+    },
+    "pxmb": {
+      "weak": false,
+      "attributes": [
+        "jtsu",
+        "srdc"
+      ],
+      "primary_keys": [
+        "jtsu"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "jebi",
+        "yvwd"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "lezy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "jebi",
+        "pxmb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "orlo",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qdwa",
+        "yvwd"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "jkvw",
+      "weak": false
+    },
+    {
+      "entities": [
+        "qdwa",
+        "bflu"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "orbu",
+      "weak": false
+    },
+    {
+      "entities": [
+        "pxmb",
+        "bflu",
+        "jebi"
+      ],
+      "cardinality": [
+        "1",
+        "1",
+        "1"
+      ],
+      "name": "hevd",
+      "weak": true
+    }
+  ]
+}

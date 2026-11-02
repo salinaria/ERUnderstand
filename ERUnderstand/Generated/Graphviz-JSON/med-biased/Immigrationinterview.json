@@ -1,0 +1,141 @@
+{
+    "entities": {
+        "employee_id": {
+            "attributes": [
+                "interview_id",
+                "attends",
+                "Interview",
+                "document_type"
+            ],
+            "primary_keys": [
+                "interview_id"
+            ],
+            "multivalued": [
+                "reviewed_by"
+            ],
+            "weak": false
+        },
+        "zip_code": {
+            "attributes": [
+                "time",
+                "sponsor_id",
+                "relationship_to_applicant"
+            ],
+            "primary_keys": [
+                "time"
+            ],
+            "composite": {
+                "Interviewer": [
+                    "issue_date",
+                    "document_id",
+                    "sponsor_name"
+                ]
+            },
+            "weak": false
+        },
+        "issue_date": {
+            "attributes": [
+                "duration",
+                "title",
+                "nationality",
+                "full_name",
+                "Applicant"
+            ],
+            "primary_keys": [
+                "duration"
+            ],
+            "derived": [
+                "location"
+            ],
+            "weak": true
+        },
+        "sponsor_income": {
+            "attributes": [
+                "interviewer_id",
+                "address",
+                "conducts",
+                "date_of_birth"
+            ],
+            "primary_keys": [
+                "interviewer_id"
+            ],
+            "weak": false
+        },
+        "interview_outcome": {
+            "attributes": [
+                "Document",
+                "expiration_date",
+                "requires",
+                "city"
+            ],
+            "primary_keys": [
+                "Document"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "employee_id",
+                "issue_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "previous_nationalities",
+            "weak": false
+        },
+        {
+            "entities": [
+                "zip_code",
+                "issue_date"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "is_sponsored_by",
+            "weak": false
+        },
+        {
+            "entities": [
+                "issue_date",
+                "sponsor_income"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "applicant_id",
+            "weak": true
+        },
+        {
+            "entities": [
+                "employee_id",
+                "interview_outcome"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Sponsor",
+            "weak": false
+        },
+        {
+            "entities": [
+                "employee_id",
+                "sponsor_income",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "date",
+            "weak": true
+        }
+    ]
+}

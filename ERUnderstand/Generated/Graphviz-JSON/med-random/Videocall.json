@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "wfyl": {
+      "weak": false,
+      "attributes": [
+        "hres",
+        "bgxa",
+        "cbeg",
+        "zmtr"
+      ],
+      "primary_keys": [
+        "hres"
+      ],
+      "multivalued": [
+        "zxtp"
+      ]
+    },
+    "tgzc": {
+      "weak": false,
+      "attributes": [
+        "ausb",
+        "sjow",
+        "zbmm",
+        "smcy"
+      ],
+      "primary_keys": [
+        "ausb"
+      ],
+      "derived": [
+        "gtwj"
+      ]
+    },
+    "vxkz": {
+      "weak": true,
+      "attributes": [
+        "kvig",
+        "tips",
+        "qnuv"
+      ],
+      "primary_keys": [
+        "kvig"
+      ]
+    },
+    "uvem": {
+      "weak": false,
+      "attributes": [
+        "jvhl",
+        "etir",
+        "ufzw",
+        "iaph"
+      ],
+      "primary_keys": [
+        "jvhl"
+      ]
+    },
+    "vuhk": {
+      "weak": true,
+      "attributes": [
+        "vndp",
+        "wwlx",
+        "ffcq"
+      ],
+      "primary_keys": [
+        "vndp"
+      ],
+      "composite": {
+        "ffcq": [
+          "drru",
+          "nont"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "wfyl",
+        "tgzc"
+      ],
+      "cardinality": [
+        "N",
+        "N"
+      ],
+      "name": "szmx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tgzc",
+        "vxkz"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "goke",
+      "weak": true
+    },
+    {
+      "entities": [
+        "wfyl",
+        "uvem"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "clwq",
+      "weak": false
+    },
+    {
+      "entities": [
+        "tgzc",
+        "vuhk"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "dwbb",
+      "weak": true
+    },
+    {
+      "entities": [
+        "wfyl",
+        "tgzc",
+        "uvem"
+      ],
+      "cardinality": [
+        "N",
+        "N",
+        "N"
+      ],
+      "name": "dcrs",
+      "weak": true
+    }
+  ]
+}

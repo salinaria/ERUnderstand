@@ -1,0 +1,132 @@
+{
+    "entities": {
+        "order_date": {
+            "attributes": [
+                "Customer",
+                "phone_number",
+                "city",
+                "name",
+                "status"
+            ],
+            "primary_keys": [
+                "Customer"
+            ],
+            "composite": {
+                "total_amount": [
+                    "phone_number",
+                    "city"
+                ],
+                "name": [
+                    "shipping_address",
+                    "first_name",
+                    "customer_id",
+                    "description"
+                ]
+            },
+            "multivalued": [
+                "status"
+            ],
+            "weak": false
+        },
+        "last_name": {
+            "attributes": [
+                "Order",
+                "total_amount",
+                "manufacturer",
+                "payment_id",
+                "state"
+            ],
+            "primary_keys": [
+                "Order"
+            ],
+            "weak": false
+        },
+        "product_id": {
+            "attributes": [
+                "Product",
+                "order_id",
+                "delivery_id"
+            ],
+            "primary_keys": [
+                "Product"
+            ],
+            "derived": [
+                "payment_method"
+            ],
+            "weak": true
+        },
+        "zip_code": {
+            "attributes": [
+                "street",
+                "places",
+                "price",
+                "delivery_date"
+            ],
+            "primary_keys": [
+                "street"
+            ],
+            "weak": false
+        },
+        "payment_date": {
+            "attributes": [
+                "made_with",
+                "amount",
+                "contains"
+            ],
+            "primary_keys": [
+                "made_with"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "order_date",
+                "product_id"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "address",
+            "weak": false
+        },
+        {
+            "entities": [
+                "product_id",
+                "last_name"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "associated_with",
+            "weak": false
+        },
+        {
+            "entities": [
+                "product_id",
+                "zip_code"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Payment",
+            "weak": false
+        },
+        {
+            "entities": [
+                "product_id",
+                "payment_date"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "Delivery",
+            "weak": false
+        }
+    ]
+}

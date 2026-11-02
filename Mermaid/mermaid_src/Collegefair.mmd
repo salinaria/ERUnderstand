@@ -1,0 +1,47 @@
+erDiagram
+Student {
+  string student_id PK
+  string name
+  string grade_level
+  %% email: multivalued
+  string email
+}
+
+College {
+  string college_id PK
+  string name
+  string location
+  string acceptance_rate
+}
+
+Representative {
+  string rep_id PK
+  string name
+  string title
+  string phone_number
+}
+
+Booth {
+  string booth_number PK
+  string location
+  string size
+}
+
+InformationSession {
+  string session_id PK
+  string start_time
+  string duration
+  string topic
+}
+
+    Student o{--o{ InformationSession : "Attends"
+    College ||--o{ Representative : "Employs"
+    College ||..|| Booth : "Has"
+    College ||--o{ InformationSession : "Hosts"
+REL_Oversees {
+  string rel_oversees_id PK
+}
+
+    Representative o{..o{ REL_Oversees : "Representative-REL_Oversees"
+    Booth ||..o{ REL_Oversees : "Booth-REL_Oversees"
+    InformationSession o{..o{ REL_Oversees : "InformationSession-REL_Oversees"

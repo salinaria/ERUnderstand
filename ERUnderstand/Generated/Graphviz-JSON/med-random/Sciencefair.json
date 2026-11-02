@@ -1,0 +1,120 @@
+{
+  "entities": {
+    "opxb": {
+      "weak": false,
+      "attributes": [
+        "gils",
+        "abas",
+        "iieq"
+      ],
+      "primary_keys": [
+        "gils"
+      ]
+    },
+    "bvyw": {
+      "weak": false,
+      "attributes": [
+        "jibg",
+        "cryw"
+      ],
+      "primary_keys": [
+        "jibg"
+      ]
+    },
+    "wguv": {
+      "weak": false,
+      "attributes": [
+        "fvqs",
+        "yvyr"
+      ],
+      "primary_keys": [
+        "fvqs"
+      ]
+    },
+    "knjy": {
+      "weak": false,
+      "attributes": [
+        "sckk",
+        "xepv",
+        "gver"
+      ],
+      "primary_keys": [
+        "sckk"
+      ]
+    },
+    "qpwh": {
+      "weak": false,
+      "attributes": [
+        "rgfo",
+        "xepv",
+        "gver",
+        "duha"
+      ],
+      "primary_keys": [
+        "rgfo"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "entities": [
+        "bvyw",
+        "opxb"
+      ],
+      "cardinality": [
+        "N",
+        "1"
+      ],
+      "name": "furx",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wguv",
+        "opxb"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "wotv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "opxb",
+        "knjy"
+      ],
+      "cardinality": [
+        "1",
+        "1"
+      ],
+      "name": "lfsv",
+      "weak": false
+    },
+    {
+      "entities": [
+        "opxb",
+        "qpwh"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "blgy",
+      "weak": false
+    },
+    {
+      "entities": [
+        "wguv",
+        "bvyw"
+      ],
+      "cardinality": [
+        "1",
+        "N"
+      ],
+      "name": "zzec",
+      "weak": false
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+    "entities": {
+        "uses": {
+            "attributes": [
+                "SleepQuality",
+                "has",
+                "end_time"
+            ],
+            "primary_keys": [
+                "SleepQuality"
+            ],
+            "derived": [
+                "quality_id"
+            ],
+            "weak": false
+        },
+        "dreams_of": {
+            "attributes": [
+                "sleeps_in",
+                "Bedroom",
+                "Bed"
+            ],
+            "primary_keys": [
+                "sleeps_in"
+            ],
+            "weak": false
+        },
+        "themes": {
+            "attributes": [
+                "age",
+                "Bedroom",
+                "bed_id"
+            ],
+            "primary_keys": [
+                "age"
+            ],
+            "weak": false
+        },
+        "date_of_birth": {
+            "attributes": [
+                "person_id",
+                "room_number",
+                "start_time"
+            ],
+            "primary_keys": [
+                "person_id"
+            ],
+            "weak": true
+        },
+        "description": {
+            "attributes": [
+                "SleepSession",
+                "size",
+                "material"
+            ],
+            "primary_keys": [
+                "SleepSession"
+            ],
+            "multivalued": [
+                "Dream"
+            ],
+            "weak": false
+        },
+        "Person": {
+            "attributes": [
+                "name",
+                "session_id",
+                "size"
+            ],
+            "primary_keys": [
+                "name"
+            ],
+            "weak": false
+        }
+    },
+    "relationships": [
+        {
+            "entities": [
+                "uses",
+                "date_of_birth",
+                "dreams_of"
+            ],
+            "cardinality": [
+                "1",
+                "N",
+                "1"
+            ],
+            "name": "type",
+            "weak": true
+        },
+        {
+            "entities": [
+                "date_of_birth",
+                "themes"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "rating",
+            "weak": true
+        },
+        {
+            "entities": [
+                "date_of_birth",
+                "description"
+            ],
+            "cardinality": [
+                "1",
+                "N"
+            ],
+            "name": "intensity",
+            "weak": false
+        },
+        {
+            "entities": [
+                "date_of_birth",
+                "Person"
+            ],
+            "cardinality": [
+                "1",
+                "1"
+            ],
+            "name": "dream_id",
+            "weak": false
+        }
+    ]
+}
